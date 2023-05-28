@@ -1,3 +1,4 @@
 venv/
 fund_me/__pycache__/
-banking/_pycache__/
+banking/__pycache__/*
+static
