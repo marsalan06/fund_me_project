@@ -10,7 +10,7 @@ class BankAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name','bank', 'minimum_balance', 'rate_lower_limit', 'rate_upper_limit', 'profit_payout_freq', 'earning_per_1000_lower_limit', 'earning_per_1000_upper_limit', 'premature_encashment')
-
+    list_filter = ('bank','profit_payout_freq','rate_lower_limit','rate_upper_limit')
     def display_indicative_rate(self, obj):
         return f"{obj.indicative_rate}%"
 
