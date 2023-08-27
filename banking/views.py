@@ -7,3 +7,6 @@ from django.shortcuts import render
 
 def home(request):
     return render(request, 'index.html')
+    
+def mutual_funds(request):
+    return render(request, 'mutual_funds.html')
