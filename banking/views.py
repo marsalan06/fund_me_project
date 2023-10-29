@@ -10,3 +10,6 @@ def home(request):
     
 def mutual_funds(request):
     return render(request, 'mutual_funds.html')
+
+def calculator(request):
+    return render(request, 'calculator.html')

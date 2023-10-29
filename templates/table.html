@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/table_style.css' %}">
+    <title>Finance Table</title>
+</head>
+<body>
+    <div class="filter-container">
+        <label for="category-filter">Category:</label>
+        <select id="category-filter"></select>
+        <label for="subcategory-filter">Subcategory:</label>
+        <select id="subcategory-filter"></select>
+    </div>
+    <table id="finance-table" class="centered-table">
+        <!-- Table content will be generated using JavaScript -->
+    </table>
+    <script src="{% static 'js/custom/script.js' %}"></script>
+</body>
+</html>
+
