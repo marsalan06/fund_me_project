@@ -346,470 +346,441 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <script type="text/javascript" src="{% static 'js/rbtools.min.js' %}" async id="tp-tools-js"></script>
 <script type="text/javascript" src="{% static 'js/rs6.min.js' %}" async id="revmin-js"></script>
 <meta name="generator" content="WordPress 6.2.2">
-<meta name="generator" content="Redux 4.4.4">            <style>
-                @font-face {
-                    font-family: "Flaticon";
-                    src: url("https://myhometheme.net/main/wp-content/themes/myhome/assets/fonts/Flaticon.eot");
-                    src: url("https://myhometheme.net/main/wp-content/themes/myhome/assets/fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
-                    url("fonts/Flaticon.woff") format("woff"),
-                    url("fonts/Flaticon.ttf") format("truetype"),
-                    url("https://myhometheme.net/main/wp-content/themes/myhome/assets/fonts/Flaticon.svg#Flaticon") format("svg");
-                }
-
-                @media screen and (-webkit-min-device-pixel-ratio: 0) {
-                    @font-face {
-                        font-family: "Flaticon";
-                        src: url("https://myhometheme.net/main/wp-content/themes/myhome/assets/fonts/Flaticon.svg#Flaticon") format("svg");
-                    }
-                }
-            </style>
-			<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<meta name="generator" content="Redux 4.4.4">
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
 <script type="text/javascript">var essb_settings = {"ajax_url":"https:\/\/finrates.pk\/wp-admin\/admin-ajax.php","essb3_nonce":"4e0ecade0d","essb3_plugin_url":"https:\/\/finrates.pk\/wp-content\/plugins\/easy-social-share-buttons3","essb3_stats":false,"essb3_ga":false,"blog_url":"https:\/\/finrates.pk\/","post_id":"5"};</script><meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
 <meta name="generator" content="Powered by Slider Revolution 6.5.4 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
-<script type="text/javascript">function setREVStartSize(e){
-			//window.requestAnimationFrame(function() {				 
-				window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
-				window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
-				try {								
-					var pw = document.getElementById(e.c).parentNode.offsetWidth,
-						newh;
-					pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
-					e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
-					e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
-					e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
-					e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
-					e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
-					e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
-					e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
-					if(e.layout==="fullscreen" || e.l==="fullscreen") 						
-						newh = Math.max(e.mh,window.RSIH);					
-					else{					
-						e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
-						for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
-						e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
-						e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
-						for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
-											
-						var nl = new Array(e.rl.length),
-							ix = 0,						
-							sl;					
-						e.tabw = e.tabhide>=pw ? 0 : e.tabw;
-						e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
-						e.tabh = e.tabhide>=pw ? 0 : e.tabh;
-						e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
-						for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
-						sl = nl[0];									
-						for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
-						var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
-						newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
-					}
-					var el = document.getElementById(e.c);
-					if (el!==null && el) el.style.height = newh+"px";					
-					el = document.getElementById(e.c+"_wrapper");
-					if (el!==null && el) el.style.height = newh+"px";
-				} catch(e){
-					console.log("Failure at Presize of Slider:" + e)
-				}					   
-			//});
-		  };</script>
-		<style type="text/css" id="wp-custom-css">
-			/*
-You can add your own CSS here.
+<script type="text/javascript">function setREVStartSize(e){		 
+window.RSIW = window.RSIW===undefined ? window.innerWidth : window.RSIW;	
+window.RSIH = window.RSIH===undefined ? window.innerHeight : window.RSIH;	
+try {								
+	var pw = document.getElementById(e.c).parentNode.offsetWidth,
+		newh;
+	pw = pw===0 || isNaN(pw) ? window.RSIW : pw;
+	e.tabw = e.tabw===undefined ? 0 : parseInt(e.tabw);
+	e.thumbw = e.thumbw===undefined ? 0 : parseInt(e.thumbw);
+	e.tabh = e.tabh===undefined ? 0 : parseInt(e.tabh);
+	e.thumbh = e.thumbh===undefined ? 0 : parseInt(e.thumbh);
+	e.tabhide = e.tabhide===undefined ? 0 : parseInt(e.tabhide);
+	e.thumbhide = e.thumbhide===undefined ? 0 : parseInt(e.thumbhide);
+	e.mh = e.mh===undefined || e.mh=="" || e.mh==="auto" ? 0 : parseInt(e.mh,0);		
+	if(e.layout==="fullscreen" || e.l==="fullscreen") 						
+		newh = Math.max(e.mh,window.RSIH);					
+	else{					
+		e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+		for (var i in e.rl) if (e.gw[i]===undefined || e.gw[i]===0) e.gw[i] = e.gw[i-1];					
+		e.gh = e.el===undefined || e.el==="" || (Array.isArray(e.el) && e.el.length==0)? e.gh : e.el;
+		e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+		for (var i in e.rl) if (e.gh[i]===undefined || e.gh[i]===0) e.gh[i] = e.gh[i-1];
+							
+		var nl = new Array(e.rl.length),
+			ix = 0,						
+			sl;					
+		e.tabw = e.tabhide>=pw ? 0 : e.tabw;
+		e.thumbw = e.thumbhide>=pw ? 0 : e.thumbw;
+		e.tabh = e.tabhide>=pw ? 0 : e.tabh;
+		e.thumbh = e.thumbhide>=pw ? 0 : e.thumbh;					
+		for (var i in e.rl) nl[i] = e.rl[i]<window.RSIW ? 0 : e.rl[i];
+		sl = nl[0];									
+		for (var i in nl) if (sl>nl[i] && nl[i]>0) { sl = nl[i]; ix=i;}															
+		var m = pw>(e.gw[ix]+e.tabw+e.thumbw) ? 1 : (pw-(e.tabw+e.thumbw)) / (e.gw[ix]);					
+		newh =  (e.gh[ix] * m) + (e.tabh + e.thumbh);
+	}
+	var el = document.getElementById(e.c);
+	if (el!==null && el) el.style.height = newh+"px";					
+	el = document.getElementById(e.c+"_wrapper");
+	if (el!==null && el) el.style.height = newh+"px";
+} catch(e){
+	console.log("Failure at Presize of Slider:" + e)
+}};
+</script>
 
-Click the help icon above to learn more.
-*/
+<style type="text/css" id="wp-custom-css">
+  @media (min-width:1023px) {
+  #mega_main_menu li.default_dropdown>.mega_dropdown {
+  width:242px !important;
+  }
+  }
+  .mh-post-grid__thumbnail .mh-thumbnail__inner img {
+  	max-width:100%;
+  }
+  Body {
+    pointer-events: non
+  }		
+  </style>
 
-@media (min-width:1023px) {
-#mega_main_menu li.default_dropdown>.mega_dropdown {
-width:242px !important;
-}
-}
-.mh-post-grid__thumbnail .mh-thumbnail__inner img {
-	max-width:100%;
-}
-Body {
-  pointer-events: non
-}		</style>
-		<style id="myhome_redux-dynamic-css" title="dynamic-css" class="redux-options-output">
-                              html body.myhome-body .mh-menu-primary-color-background .mh-header:not(.mh-header--transparent) #mega_main_menu.mh-primary > .menu_holder > .menu_inner > span.nav_logo,
-                              html body.myhome-body .mh-menu-primary-color-background .mh-header:not(.mh-header--transparent) #mega_main_menu.mh-primary > .menu_holder > .mmm_fullwidth_container,
-                              .myhome-body .mh-thumbnail__featured,
-                              .myhome-body .calendar_wrap table tbody td a:hover,
-                              .myhome-body .dropdown-menu > li.selected a,
-                              .myhome-body .mdl-button.mdl-button--raised.mdl-button--primary,
-                              .myhome-body .mdl-button.mdl-button--primary-ghost:hover,
-                              .myhome-body .mdl-button.mdl-button--primary-ghost:active,
-                              .myhome-body .mdl-button.mdl-button--primary-ghost:focus,
-                              .myhome-body .mdl-button.mdl-button--compare-active,
-                              .myhome-body .mdl-button.mdl-button--compare-active:hover,
-                              .myhome-body .mdl-button.mdl-button--compare-active:active,
-                              .myhome-body .mdl-button.mdl-button--compare-active:focus,
-                              .myhome-body .mh-accordion .ui-accordion-header.ui-accordion-header-active,
-                              .myhome-body .mh-caption__inner,
-                              .myhome-body .mh-compare__price,
-                              .myhome-body .mh-estate__slider__price,
-                              .myhome-body .mh-estate__details__price,
-                              .myhome-body .mh-heading--top-separator:after,
-                              .myhome-body .mh-heading--bottom-separator:after,
-                              .myhome-body .mh-loader,
-                              .myhome-body .wpcf7-form .wpcf7-form-control.wpcf7-submit,
-                              .myhome-body .mh-loader:before,
-                              .myhome-body .mh-loader:after,
-                              .myhome-body .mh-map-panel__element button:hover,
-                              .myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active,
-                              .myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active:hover,
-                              .myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active:active,
-                              .myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active:focus,
-                              .myhome-body .mh-map-zoom__element button:hover,
-                              .myhome-body .mh-map-infobox,
-                              .myhome-body .mh-post-single__nav__prev:before,
-                              .myhome-body .mh-post-single__nav__next:before,
-                              .myhome-body .mh-slider__card-short__price,
-                              .myhome-body .mh-slider__card-default__price,
-                              .myhome-body #estate_slider_card .tparrows:hover:before,
-                              .myhome-body #estate_slider_card_short .tparrows:hover:before,
-                              .myhome-body #mh_rev_slider_single .tparrows:hover:before,
-                              .myhome-body #mh_rev_gallery_single .tparrows:hover:before,
-                              .myhome-body .mh-social-icon:hover,
-                              .myhome-body .mh-top-header--primary,
-                              .myhome-body .mh-top-header-big:not(.mh-top-header-big--primary) .mh-top-header-big__panel,
-                              .myhome-body .mh-top-header-big.mh-top-header-big--primary,
-                              .myhome-body .mh-browse-estate__row:first-child,
-                              .myhome-body .mh-widget-title__text:before,
-                              .myhome-body .owl-carousel .owl-dots .owl-dot.active span,
-                              .myhome-body .tagcloud a:hover,
-                              .myhome-body .tagcloud a:active,
-                              .myhome-body .tagcloud a:focus,
-                              .myhome-body .mh-menu ul li a:before,
-                              .myhome-body .widget_pages ul li a:before,
-                              .myhome-body .widget_meta ul li a:before,
-                              .myhome-body .widget_recent_entries ul li a:before,
-                              .myhome-body .widget_nav_menu ul li a:before,
-                              .myhome-body .widget_categories ul li a:before,
-                              .myhome-body .widget_archive ul li a:before,
-                              .myhome-body .calendar_wrap table #today,
-                              .myhome-body .mh-background-color-primary,
-                              .myhome-body .mh-user-panel__menu ul li.mh-user-panel__menu__li--active button,
-                              .myhome-body .mh-user-panel__menu ul li.mh-user-panel__menu__li--active a,
-                              .myhome-body .mh-top-header--primary .mh-top-bar-user-panel__user-info,
-                              .myhome-body .mh-top-header-big .mh-top-bar-user-panel__user-info,
-                              .myhome-body .awesomplete mark,
-                              .myhome-body .idx-omnibar-form.idx-omnibar-original-form button,
-                              .myhome-body .idx-omnibar-form.idx-omnibar-original-form .awesomplete > ul > li mark,
-                              .myhome-body #IDX-main #IDX-resultsRow .IDX-resultsDetailsLink a:hover,
-                              .myhome-body #IDX-main #IDX-formSubmit,
-                              .myhome-body #IDX-main #IDX-submitBtn,
-                              .myhome-body #IDX-main #IDX-scheduleShowing,
-                              .myhome-body #IDX-main #IDX-photoGalleryLink,
-                              .myhome-body #IDX-main .IDX-detailsVirtualTourLink,   
-                              .myhome-body #IDX-main #IDX-detailsVirtualTour,
-                              .myhome-body .IDX-qsInput.IDX-qsButtonInput, 
-                              .myhome-body #IDX-main.IDX-category-map #IDX-criteriaText, 
-                              .myhome-body .mh-fixed-menu--active .mh-menu-primary-color-background .mega_main_menu,
-                              .myhome-body.mh-active-input-primary .mh-search__panel > div:not(:first-child) .is-checked .mdl-radio__inner-circle,
-                              .myhome-body #myhome-idx-wrapper #IDX-leadToolsBar,
-                              .myhome-body #myhome-idx-wrapper #IDX-submitBtn,
-                              .myhome-body #myhome-idx-wrapper #IDX-formSubmit,
-                              .myhome-body #myhome-idx-wrapper #IDX-submitBtn:hover,
-                              .myhome-body #myhome-idx-wrapper #IDX-formSubmit:hover,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 .IDX-detailsVirtualTourLink,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-detailsVirtualTourLink,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 .IDX-detailsVirtualTourLink:hover,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-detailsVirtualTourLink:hover,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-photoGalleryLink,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-scheduleShowing,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-photoGalleryLink,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-scheduleShowing,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-photoGalleryLink:hover,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-scheduleShowing:hover,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-photoGalleryLink:hover,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-scheduleShowing:hover,
-                              .myhome-body .myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-input-group-addon,
-                              .myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-criteriaText,
-                              .myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-criteriaWindow .ui-widget-content .ui-slider-range,
-                              .myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-criteriaWindow .ui-widget-content,
-                              .myhome-body .idx-omnibar-form button,
-                              .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-resultsDetailsLink a:hover,
-                              .myhome-body .IDX-type-roster #IDX-rosterFilterSubmit,
-                              .myhome-body .IDX-type-roster #IDX-rosterFilterSubmit:hover,
-                              .myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 #IDX-loginSubmit,
-                              .myhome-body #myhome-idx-wrapper .IDX-category-search #IDX-loginSubmit, 
-                              .myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 #IDX-loginSubmit:hover,
-                              .myhome-body #myhome-idx-wrapper .IDX-category-search #IDX-loginSubmit:hover,
-                              .myhome-body .myhome-idx-wrapper__my_account-myaccount-1000 input[type=submit],
-                              .myhome-body .myhome-idx-wrapper__my_account-myaccount-1000 input[type=submit]:hover,
-                              .myhome-body .myhome-idx-wrapper__user_signup-usersignup-1002 #IDX-submitBtn,
-                              .myhome-body .myhome-idx-wrapper__user_signup-usersignup-1002 #IDX-submitBtn:hover,
-                              .myhome-body .myhome-idx-wrapper__user_login-userlogin-1001 #IDX-loginSubmit,
-                              .myhome-body .myhome-idx-wrapper__user_login-userlogin-1001 #IDX-loginSubmit:hover,
-                              .myhome-body #IDX-widgetLeadLoginWrapper.IDX-widgetLeadLoginWrapper input[type=submit],
-                              .myhome-body #IDX-widgetLeadLoginWrapper.IDX-widgetLeadLoginWrapper input[type=submit]:hover,
-                              .myhome-body #LeadSignup.LeadSignup input[type=submit],
-                              .myhome-body #LeadSignup.LeadSignup input[type=submit]:hover,
-                              .myhome-body .IDX-quicksearchWrapper .IDX-quicksearchForm .IDX-qsInput.IDX-qsButtonInput,
-                              .myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-input-group-addon,
-                              .myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-btn-primary,
-                              .myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-btn-primary:hover,
-                               html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen,
-                               html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen:before,
-                               html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen:after,
-                               .IDX-registrationModal #IDX-registration .IDX-btn-primary,
-                               .IDX-registrationModal #IDX-registration .IDX-btn-primary:hover,
-                               .myhome-body .myhome-idx-wrapper__photo_gallery-mobileFirstPhotoGallery-1003 #IDX-photoGallery .IDX-arrow:hover,
-                               .myhome-body div[id*=IDX-carouselGallery-] + a:hover,
-                               .myhome-idx-wrapper__results-mobileFirstResults-1006 #IDX-resultsRefineSubmit,
-                               .myhome-idx-wrapper__results-mobileFirstResults-1006 #IDX-resultsRefineSubmit:hover,                               
-                               .myhome-body .mh-app-wrapper .primary,
-                               .myhome-body div.awesomplete mark,
-                               .myhome-body .mh-popup-login .mh-popup-login__tab-button.active,
-                               .myhome-body .mh-app__sidebar-nav__avatar-placeholder:hover,
-                               .myhome-body .mh-pricing-table__row--name,
-                               .myhome-body .woocommerce #respond input#submit.alt,
-                               .myhome-body .woocommerce a.button.alt,
-                               .myhome-body .woocommerce button.button.alt,
-                               .myhome-body .woocommerce input.button.alt,
-                               .myhome-body .mh-field-plans__list__image__icon       
-                            {background-color:#155375;}
-                              .myhome-body blockquote,
-                              .myhome-body html body .mh-menu-primary-color-background #mega_main_menu.mh-primary > .menu_holder > .mmm_fullwidth_container,
-                              .myhome-body input[type=text]:focus,
-                              .myhome-body input[type=text]:active,
-                              .myhome-body input[type=password]:focus,
-                              .myhome-body input[type=password]:active,
-                              .myhome-body input[type=email]:focus,
-                              .myhome-body input[type=email]:active,
-                              .myhome-body input[type=search]:focus,
-                              .myhome-body input[type=search]:active,
-                              .myhome-body input[type=tel]:focus,
-                              .myhome-body input[type=tel]:active,
-                              .myhome-body textarea:focus,
-                              .myhome-body textarea:active,
-                              .myhome-body .sticky,
-                              .myhome-body .mh-active-input input,
-                              .myhome-body .mh-active-input .bootstrap-select.btn-group > .btn,
-                              .myhome-body .mdl-button.mdl-button--primary-ghost,
-                              .myhome-body .mh-compare,
-                              .myhome-body .tagcloud a:hover, 
-                              .myhome-body .tagcloud a:active,
-                              .myhome-body .tagcloud a:focus,
-                              .myhome-body .mh-map-panel,
-                              .myhome-body .mh-map-zoom,
-                              .myhome-body .mh-map-infobox:after,
-                              .myhome-body .mh-map-infobox .mh-map-infobox__img-wrapper,
-                              .myhome-body .mh-search-horizontal,
-                              .myhome-body .mh-search-map-top .mh-search-horizontal,
-                              .myhome-body .mh-social-icon:hover:after,
-                              .myhome-body .mh-top-header--primary,
-                              .myhome-body .owl-carousel .owl-dots .owl-dot.active span,
-                              .myhome-body .mh-border-color-primary,
-                              .myhome-body .mh-post .post-content blockquote,
-                              .myhome-body .mh-user-panel-info,                       
-                              .myhome-body.mh-active-input-primary .mh-search__panel > div:not(:first-child) .is-checked .mdl-radio__outer-circle,
-                              html body.myhome-body .mh-menu-primary-color-background .mh-header:not(.mh-header--transparent) #mega_main_menu.mh-primary > .menu_holder > .mmm_fullwidth_container,
-                              .myhome-body .myhome-idx-wrapper__photo_gallery-photogallery-1002 .IDX-photoGallery,
-                              .myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-searchNavWrapper,
-                              .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-propertyTypeHeader,
-                              .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-resultsDetailsLink a,
-                              .myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 #IDX-searchNavWrapper,
-                              .myhome-body #myhome-idx-wrapper .IDX-category-search #IDX-searchNavWrapper,
-                              .myhome-body .myhome-idx-wrapper__search_page-searchStandard-1002 #IDX-searchNavWrapper,
-                              .myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-well,
-                              .myhome-body div[id*=IDX-carouselGallery-] + a,
-                              .myhome-body .mh-app-wrapper .primary,
-                              .myhome-body .tabs
-                              {border-color:#155375;}
-                              .myhome-body .mh-navbar__menu ul:first-child > li:hover > a,
-                              .myhome-body .mh-navbar__container .mh-navbar__menu ul:first-child > li:hover > a:first-child,
-                              .myhome-body .mh-pagination a:hover,
-                              .myhome-body .page-numbers.current,
-                              .myhome-body .mh-footer-top--dark a:hover,
-                              .myhome-body .mh-footer-top--dark a:active,
-                              .myhome-body .mh-footer-top--dark a:focus,                              
-                              .myhome-body.input-myhome .mh-active-input input,
-                              .myhome-body .tt-highlight,
-                              .myhome-body .mh-breadcrumbs__item a:hover, 
-                              .myhome-body .mh-breadcrumbs__back:hover,
-                              .myhome-body .mh-breadcrumbs__back:hover i,
-                              .myhome-body .mh-active-input .bootstrap-select.btn-group > .btn,
-                              .myhome-body .mh-active-input .bootstrap-select.btn-group .dropdown-toggle .filter-option,
-                              .myhome-body .mdl-button.mdl-button--primary-ghost,
-                              .myhome-body .mdl-button.mdl-button--primary-ghost:hover,
-                              .myhome-body .mdl-button.mdl-button--primary-ghost:active,
-                              .myhome-body .mdl-button.mdl-button--primary-ghost:focus,
-                              .myhome-body .mdl-button.mdl-button--primary-font,
-                              html body #mega_main_menu.mh-primary #mh-submit-button a,
-                              html body.myhome-body #mega_main_menu.mh-primary #mh-submit-button a i,
-                              html body.myhome-body #mega_main_menu.mh-primary > .menu_holder > .menu_inner > ul > li:hover > a:after,
-                              html body.myhome-body  #mega_main_menu.mh-primary > .menu_holder > .menu_inner > ul > li:hover > .item_link *,
-                              .myhome-body .comment-edit-link:hover,
-                              .myhome-body .comment-reply-link:hover,
-                              .myhome-body .mh-compare__feature-list li a:hover,
-                              .myhome-body .mh-compare__list__element a:hover,
-                              .myhome-body .mh-compare__list__element a:hover i,
-                              .myhome-body .mh-estate__list__element a:hover,
-                              .myhome-body .mh-estate__list__element a:hover i,
-                              .myhome-body .mh-estate-horizontal__primary,
-                              .myhome-body .mh-estate-vertical__primary,
-                              .myhome-body .mh-filters__button.mh-filters__button--active,
-                              .myhome-body .mh-filters__button.mh-filters__button--active:hover,
-                              .myhome-body button.mh-filters__right__button--active,
-                              .myhome-body .mh-loader-wrapper-map,
-                              .myhome-body .mh-loader,
-                              .myhome-body .mh-register-terms .mh-register-terms__text a,
-                              .myhome-body .mh-register-field__terms .mh-register-field__terms__text a,
-                              .myhome-body .mh-form-container__reset:hover,
-                              .myhome-body .mh-map-wrapper__noresults,
-                              .myhome-body .mh-map-pin i,
-                              .myhome-body .mh-navbar__wrapper #mh-submit-button a:hover,
-                              .myhome-body .mh-pagination--single-post,
-                              .myhome-body .mh-post-single__meta a:hover,
-                              .myhome-body .mh-search__heading-big,
-                              .myhome-body .mh-button-transparent:hover,
-                              .myhome-body .mh-user-panel__plans__row .mh-user-panel__plans__cell-4 button:hover,
-                              .myhome-body .mh-browse-estate__cell-3 a:hover,
-                              .myhome-body .mh-browse-estate__cell-payment a:hover,
-                              .myhome-body .mh-user-pagination li:hover,
-                              .myhome-body .mh-user-pagination li.mh-user-pagination__element-active,
-                              .myhome-body .mh-top-header-big__element:not(.mh-top-header-big__panel) a:hover,
-                              .myhome-body .mh-color-primary,
-                              .myhome-body .mh-top-header:not(.mh-top-header--primary) a:hover,
-                              .myhome-body .mh-top-header-big .mh-top-header-big__social-icons a:hover,                              
-                              .myhome-body .mh-top-header-big .mh-top-header-big__social-icons button:hover,
-                              .myhome-body .mh-estate__details > div a:hover,
-                              .myhome-body .recentcomments a:hover,
-                              .myhome-body .rsswidget:hover,
-                              .myhome-body .mh-post .post-content a:hover,
-                              .myhome-body .link-primary:hover,                              
-                              .myhome-body .mh-estate__agent__content a:hover,     
-                              .myhome-body .mh-pagination--properties li.active a,  
-                              .myhome-body .mh-page-type-v2__content a,
-                              .myhome-body .idx-omnibar-form.idx-omnibar-original-form .awesomplete > ul > li:hover,
-                              .myhome-body .idx-omnibar-form.idx-omnibar-original-form .awesomplete > ul > li[aria-selected="true"],
-                              .myhome-body #IDX-main #IDX-resultsRow .IDX-field-listingPrice.IDX-field-price.IDX-field .IDX-text,
-                              .myhome-body #IDX-main #IDX-resultsRow .IDX-resultsDetailsLink a,
-                              .myhome-body #IDX-main.IDX-category-details #IDX-detailsTopNav .IDX-topLink a:hover,
-                              .myhome-body #IDX-main.IDX-category-details .IDX-listAsRow li span,
-                              .myhome-body #IDX-main.IDX-category-details .IDX-listAsRow li a:hover,
-                              .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li span,
-                              .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li span,
-                              .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li a:hover,
-                              .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li a:hover,
-                              .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li span,
-                              .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li span,
-                              .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li a:hover,
-                              .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li a:hover,
-                              .myhome-body #IDX-main.IDX-category-details #IDX-detailsField-listingPrice #IDX-detailsPrice,
-                              .myhome-body .mh-rs-search #myhome-search-form-submit .mh-search__panel--keyword .mh-search__panel.mh-active-input:after,                        
-                              .myhome-body.mh-active-input-primary .mh-search__panel > div:not(:first-child) .is-checked .mdl-radio__label,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-nextLastButtons #IDX-nextProp,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-nextLastButtons #IDX-nextProp,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-hotLinks a:hover,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-hotLinks a:hover,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-detailsField-listingPrice #IDX-detailsPrice,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-detailsField-listingPrice #IDX-detailsPrice,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-detailsTopNav .IDX-topLink a:hover,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-detailsTopNav .IDX-topLink a:hover,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details .IDX-listAsRow li span,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-listAsRow li span,
-                              .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details .IDX-listAsRow li a:hover,
-                              .myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-listAsRow li a:hover,
-                              .myhome-body .myhome-idx-wrapper__photo_gallery-photogallery-1002 .IDX-page-photogallery #IDX-previousPage a:hover,
-                              .myhome-body .idx-omnibar-form .awesomplete > ul > li:hover,
-                              .myhome-body .idx-omnibar-form .awesomplete > ul > li[aria-selected="true"],
-                              .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-propertyTypeHeader,
-                              .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-field-listingPrice.IDX-field-price.IDX-field .IDX-text,
-                              .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-resultsDetailsLink a,
-                              .myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 .IDX-emailUpdateSignupText,
-                              .myhome-body #myhome-idx-wrapper .IDX-category-search .IDX-emailUpdateSignupText,
-                              .myhome-body .myhome-idx-wrapper__my_account-myaccount-1000 .IDX-backLink:hover,
-                              .myhome-body .myhome-idx-wrapper__user_signup-usersignup-1002 #IDX-loginText a,
-                              .myhome-body div[id*=IDX-carouselGallery-] .IDX-carouselPrice,
-                              .myhome-body .IDX-showcaseTable .IDX-showcasePrice,
-                              .myhome-body .IDX-slideshowWrapper .IDX-slideshowPrice,                            
-                              .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 #IDX-agentbio .IDX-actionLinks a,
-                              .myhome-body .IDX-searchNavItem > span,
-                              html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen,
-                              .myhome-body .myhome-idx-wrapper__photo_gallery-mobileFirstPhotoGallery-1003 .IDX-showcaseThumbnails-button.IDX-active,
-                              .myhome-body div[id*=IDX-carouselGallery-] + a,
-                              .myhome-body .mh-popup-top-info i,
-                              .myhome-body .mh-pricing-table__row--sold,
-                              .myhome-body.mh-active-input-primary .mh-active-input input,
-                              .myhome-body .mh-estate__list .mh-estate__list__inner .mh-estate__list__element--attachment a:hover                               
-                            {color:#155375;}
-                            body,
-                            button,
-                            input,
-                            optgroup,
-                            select,
-                            textarea,
-                            .mh-accordion .ui-accordion-header,
-                            .mh-estate-horizontal__subheading,
-                            .mh-estate-horizontal__primary,
-                            .mh-estate-vertical__subheading,
-                            .mh-estate-vertical__primary,
-                            .mh-map-infobox,
-                            .mh-user-panel-info__heading,
-                            .mh-font-body
-                        {font-family:Lato;font-weight:400;} .mh-main-font-italic{font-family:Lato;font-weight:400;font-style:italic;}                     
-                      .mh-estate-horizontal__primary,
-                      .mh-estate-vertical__primary   
-                     {font-family:Lato;font-weight:700;}
-							h1,
-                            h2,
-                            h3,
-                            h4,
-                            h5,
-                            h6,
-                            .mh-estate__details__price,
-                            .mh-top-header,
-                            .mh-top-header-big__panel,   
-                            .mh-caption__inner,
-                            .mh-slider-single__price,
-                            .mh-heading-font-bold,
-                            .mh-search__results,
-                            .mh-user-panel__user__content
-                        {font-family:Play;font-weight:400;}
-                                 h1,
-                                 .mh-caption__inner,
-                                 .mh-slider-single__price,
-                                 .mh-heading-font-bold,
-                                 .mh-search__results,
-                                 .mh-user-panel__user__content,                     
-                                 #IDX-main .IDX-control-label,
-                                 .mh-top-title__heading, 
-                                 #myhome-idx-wrapper .IDX-control-label,
-                                 #myhome-idx-wrapper .IDX-addressField label,
-                                 #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-detailsFeaturedAgentdisplayname,
-                                 #myhome-idx-wrapper .IDX-page-listing #IDX-detailsFeaturedAgentdisplayname,
-                                .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-bioName,
-                                #IDX-featuredAgentWrap.IDX-featuredAgentWrap .IDX-featuredAgentContact,
-                                .IDX-showcaseTable .IDX-showcasePrice,
-                                .IDX-slideshowWrapper .IDX-slideshowPrice                
-                            {font-family:Play;font-weight:700;}</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1532177424151{background-image: url(images/inside-whiter.jpg) !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1643284945002{background-color: #ffffff !important;}.vc_custom_1643284945002{background-color: #ffffff !important;}.vc_custom_1643284945002{background-color: #ffffff !important;}.vc_custom_1643284945002{background-color: #ffffff !important;}.vc_custom_1643284945002{background-color: #ffffff !important;}.vc_custom_1643817435826{background-color: #f7f7f7 !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+<style id="myhome_redux-dynamic-css" title="dynamic-css" class="redux-options-output">
+html body.myhome-body .mh-menu-primary-color-background .mh-header:not(.mh-header--transparent) #mega_main_menu.mh-primary > .menu_holder > .menu_inner > span.nav_logo,
+html body.myhome-body .mh-menu-primary-color-background .mh-header:not(.mh-header--transparent) #mega_main_menu.mh-primary > .menu_holder > .mmm_fullwidth_container,
+.myhome-body .mh-thumbnail__featured,
+.myhome-body .calendar_wrap table tbody td a:hover,
+.myhome-body .dropdown-menu > li.selected a,
+.myhome-body .mdl-button.mdl-button--raised.mdl-button--primary,
+.myhome-body .mdl-button.mdl-button--primary-ghost:hover,
+.myhome-body .mdl-button.mdl-button--primary-ghost:active,
+.myhome-body .mdl-button.mdl-button--primary-ghost:focus,
+.myhome-body .mdl-button.mdl-button--compare-active,
+.myhome-body .mdl-button.mdl-button--compare-active:hover,
+.myhome-body .mdl-button.mdl-button--compare-active:active,
+.myhome-body .mdl-button.mdl-button--compare-active:focus,
+.myhome-body .mh-accordion .ui-accordion-header.ui-accordion-header-active,
+.myhome-body .mh-caption__inner,
+.myhome-body .mh-compare__price,
+.myhome-body .mh-estate__slider__price,
+.myhome-body .mh-estate__details__price,
+.myhome-body .mh-heading--top-separator:after,
+.myhome-body .mh-heading--bottom-separator:after,
+.myhome-body .mh-loader,
+.myhome-body .wpcf7-form .wpcf7-form-control.wpcf7-submit,
+.myhome-body .mh-loader:before,
+.myhome-body .mh-loader:after,
+.myhome-body .mh-map-panel__element button:hover,
+.myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active,
+.myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active:hover,
+.myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active:active,
+.myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active:focus,
+.myhome-body .mh-map-zoom__element button:hover,
+.myhome-body .mh-map-infobox,
+.myhome-body .mh-post-single__nav__prev:before,
+.myhome-body .mh-post-single__nav__next:before,
+.myhome-body .mh-slider__card-short__price,
+.myhome-body .mh-slider__card-default__price,
+.myhome-body #estate_slider_card .tparrows:hover:before,
+.myhome-body #estate_slider_card_short .tparrows:hover:before,
+.myhome-body #mh_rev_slider_single .tparrows:hover:before,
+.myhome-body #mh_rev_gallery_single .tparrows:hover:before,
+.myhome-body .mh-social-icon:hover,
+.myhome-body .mh-top-header--primary,
+.myhome-body .mh-top-header-big:not(.mh-top-header-big--primary) .mh-top-header-big__panel,
+.myhome-body .mh-top-header-big.mh-top-header-big--primary,
+.myhome-body .mh-browse-estate__row:first-child,
+.myhome-body .mh-widget-title__text:before,
+.myhome-body .owl-carousel .owl-dots .owl-dot.active span,
+.myhome-body .tagcloud a:hover,
+.myhome-body .tagcloud a:active,
+.myhome-body .tagcloud a:focus,
+.myhome-body .mh-menu ul li a:before,
+.myhome-body .widget_pages ul li a:before,
+.myhome-body .widget_meta ul li a:before,
+.myhome-body .widget_recent_entries ul li a:before,
+.myhome-body .widget_nav_menu ul li a:before,
+.myhome-body .widget_categories ul li a:before,
+.myhome-body .widget_archive ul li a:before,
+.myhome-body .calendar_wrap table #today,
+.myhome-body .mh-background-color-primary,
+.myhome-body .mh-user-panel__menu ul li.mh-user-panel__menu__li--active button,
+.myhome-body .mh-user-panel__menu ul li.mh-user-panel__menu__li--active a,
+.myhome-body .mh-top-header--primary .mh-top-bar-user-panel__user-info,
+.myhome-body .mh-top-header-big .mh-top-bar-user-panel__user-info,
+.myhome-body .awesomplete mark,
+.myhome-body .idx-omnibar-form.idx-omnibar-original-form button,
+.myhome-body .idx-omnibar-form.idx-omnibar-original-form .awesomplete > ul > li mark,
+.myhome-body #IDX-main #IDX-resultsRow .IDX-resultsDetailsLink a:hover,
+.myhome-body #IDX-main #IDX-formSubmit,
+.myhome-body #IDX-main #IDX-submitBtn,
+.myhome-body #IDX-main #IDX-scheduleShowing,
+.myhome-body #IDX-main #IDX-photoGalleryLink,
+.myhome-body #IDX-main .IDX-detailsVirtualTourLink,   
+.myhome-body #IDX-main #IDX-detailsVirtualTour,
+.myhome-body .IDX-qsInput.IDX-qsButtonInput, 
+.myhome-body #IDX-main.IDX-category-map #IDX-criteriaText, 
+.myhome-body .mh-fixed-menu--active .mh-menu-primary-color-background .mega_main_menu,
+.myhome-body.mh-active-input-primary .mh-search__panel > div:not(:first-child) .is-checked .mdl-radio__inner-circle,
+.myhome-body #myhome-idx-wrapper #IDX-leadToolsBar,
+.myhome-body #myhome-idx-wrapper #IDX-submitBtn,
+.myhome-body #myhome-idx-wrapper #IDX-formSubmit,
+.myhome-body #myhome-idx-wrapper #IDX-submitBtn:hover,
+.myhome-body #myhome-idx-wrapper #IDX-formSubmit:hover,
+.myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 .IDX-detailsVirtualTourLink,
+.myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-detailsVirtualTourLink,
+.myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 .IDX-detailsVirtualTourLink:hover,
+.myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-detailsVirtualTourLink:hover,
+.myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-photoGalleryLink,
+.myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-scheduleShowing,
+.myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-photoGalleryLink,
+.myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-scheduleShowing,
+.myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-photoGalleryLink:hover,
+.myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-scheduleShowing:hover,
+.myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-photoGalleryLink:hover,
+.myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-scheduleShowing:hover,
+.myhome-body .myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-input-group-addon,
+.myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-criteriaText,
+.myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-criteriaWindow .ui-widget-content .ui-slider-range,
+.myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-criteriaWindow .ui-widget-content,
+.myhome-body .idx-omnibar-form button,
+.myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-resultsDetailsLink a:hover,
+.myhome-body .IDX-type-roster #IDX-rosterFilterSubmit,
+.myhome-body .IDX-type-roster #IDX-rosterFilterSubmit:hover,
+.myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 #IDX-loginSubmit,
+.myhome-body #myhome-idx-wrapper .IDX-category-search #IDX-loginSubmit, 
+.myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 #IDX-loginSubmit:hover,
+.myhome-body #myhome-idx-wrapper .IDX-category-search #IDX-loginSubmit:hover,
+.myhome-body .myhome-idx-wrapper__my_account-myaccount-1000 input[type=submit],
+.myhome-body .myhome-idx-wrapper__my_account-myaccount-1000 input[type=submit]:hover,
+.myhome-body .myhome-idx-wrapper__user_signup-usersignup-1002 #IDX-submitBtn,
+.myhome-body .myhome-idx-wrapper__user_signup-usersignup-1002 #IDX-submitBtn:hover,
+.myhome-body .myhome-idx-wrapper__user_login-userlogin-1001 #IDX-loginSubmit,
+.myhome-body .myhome-idx-wrapper__user_login-userlogin-1001 #IDX-loginSubmit:hover,
+.myhome-body #IDX-widgetLeadLoginWrapper.IDX-widgetLeadLoginWrapper input[type=submit],
+.myhome-body #IDX-widgetLeadLoginWrapper.IDX-widgetLeadLoginWrapper input[type=submit]:hover,
+.myhome-body #LeadSignup.LeadSignup input[type=submit],
+.myhome-body #LeadSignup.LeadSignup input[type=submit]:hover,
+.myhome-body .IDX-quicksearchWrapper .IDX-quicksearchForm .IDX-qsInput.IDX-qsButtonInput,
+.myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-input-group-addon,
+.myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-btn-primary,
+.myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-btn-primary:hover,
+ html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen,
+ html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen:before,
+ html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen:after,
+ .IDX-registrationModal #IDX-registration .IDX-btn-primary,
+ .IDX-registrationModal #IDX-registration .IDX-btn-primary:hover,
+ .myhome-body .myhome-idx-wrapper__photo_gallery-mobileFirstPhotoGallery-1003 #IDX-photoGallery .IDX-arrow:hover,
+ .myhome-body div[id*=IDX-carouselGallery-] + a:hover,
+ .myhome-idx-wrapper__results-mobileFirstResults-1006 #IDX-resultsRefineSubmit,
+ .myhome-idx-wrapper__results-mobileFirstResults-1006 #IDX-resultsRefineSubmit:hover,                               
+ .myhome-body .mh-app-wrapper .primary,
+ .myhome-body div.awesomplete mark,
+ .myhome-body .mh-popup-login .mh-popup-login__tab-button.active,
+ .myhome-body .mh-app__sidebar-nav__avatar-placeholder:hover,
+ .myhome-body .mh-pricing-table__row--name,
+ .myhome-body .woocommerce #respond input#submit.alt,
+ .myhome-body .woocommerce a.button.alt,
+ .myhome-body .woocommerce button.button.alt,
+ .myhome-body .woocommerce input.button.alt,
+ .myhome-body .mh-field-plans__list__image__icon       
+  {background-color:#155375;}
+ .myhome-body blockquote,
+ .myhome-body html body .mh-menu-primary-color-background #mega_main_menu.mh-primary > .menu_holder > .mmm_fullwidth_container,
+ .myhome-body input[type=text]:focus,
+ .myhome-body input[type=text]:active,
+ .myhome-body input[type=password]:focus,
+ .myhome-body input[type=password]:active,
+ .myhome-body input[type=email]:focus,
+ .myhome-body input[type=email]:active,
+ .myhome-body input[type=search]:focus,
+ .myhome-body input[type=search]:active,
+ .myhome-body input[type=tel]:focus,
+ .myhome-body input[type=tel]:active,
+ .myhome-body textarea:focus,
+ .myhome-body textarea:active,
+ .myhome-body .sticky,
+ .myhome-body .mh-active-input input,
+ .myhome-body .mh-active-input .bootstrap-select.btn-group > .btn,
+ .myhome-body .mdl-button.mdl-button--primary-ghost,
+ .myhome-body .mh-compare,
+ .myhome-body .tagcloud a:hover, 
+ .myhome-body .tagcloud a:active,
+ .myhome-body .tagcloud a:focus,
+ .myhome-body .mh-map-panel,
+ .myhome-body .mh-map-zoom,
+ .myhome-body .mh-map-infobox:after,
+ .myhome-body .mh-map-infobox .mh-map-infobox__img-wrapper,
+ .myhome-body .mh-search-horizontal,
+ .myhome-body .mh-search-map-top .mh-search-horizontal,
+ .myhome-body .mh-social-icon:hover:after,
+ .myhome-body .mh-top-header--primary,
+ .myhome-body .owl-carousel .owl-dots .owl-dot.active span,
+ .myhome-body .mh-border-color-primary,
+ .myhome-body .mh-post .post-content blockquote,
+ .myhome-body .mh-user-panel-info,                       
+ .myhome-body.mh-active-input-primary .mh-search__panel > div:not(:first-child) .is-checked .mdl-radio__outer-circle,
+ html body.myhome-body .mh-menu-primary-color-background .mh-header:not(.mh-header--transparent) #mega_main_menu.mh-primary > .menu_holder > .mmm_fullwidth_container,
+ .myhome-body .myhome-idx-wrapper__photo_gallery-photogallery-1002 .IDX-photoGallery,
+ .myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-searchNavWrapper,
+ .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-propertyTypeHeader,
+ .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-resultsDetailsLink a,
+ .myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 #IDX-searchNavWrapper,
+ .myhome-body #myhome-idx-wrapper .IDX-category-search #IDX-searchNavWrapper,
+ .myhome-body .myhome-idx-wrapper__search_page-searchStandard-1002 #IDX-searchNavWrapper,
+ .myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-well,
+ .myhome-body div[id*=IDX-carouselGallery-] + a,
+ .myhome-body .mh-app-wrapper .primary,
+ .myhome-body .tabs
+ {border-color:#155375;}
+ .myhome-body .mh-navbar__menu ul:first-child > li:hover > a,
+ .myhome-body .mh-navbar__container .mh-navbar__menu ul:first-child > li:hover > a:first-child,
+ .myhome-body .mh-pagination a:hover,
+ .myhome-body .page-numbers.current,
+ .myhome-body .mh-footer-top--dark a:hover,
+ .myhome-body .mh-footer-top--dark a:active,
+ .myhome-body .mh-footer-top--dark a:focus,                              
+ .myhome-body.input-myhome .mh-active-input input,
+ .myhome-body .tt-highlight,
+ .myhome-body .mh-breadcrumbs__item a:hover, 
+ .myhome-body .mh-breadcrumbs__back:hover,
+ .myhome-body .mh-breadcrumbs__back:hover i,
+ .myhome-body .mh-active-input .bootstrap-select.btn-group > .btn,
+ .myhome-body .mh-active-input .bootstrap-select.btn-group .dropdown-toggle .filter-option,
+ .myhome-body .mdl-button.mdl-button--primary-ghost,
+ .myhome-body .mdl-button.mdl-button--primary-ghost:hover,
+ .myhome-body .mdl-button.mdl-button--primary-ghost:active,
+ .myhome-body .mdl-button.mdl-button--primary-ghost:focus,
+ .myhome-body .mdl-button.mdl-button--primary-font,
+ html body #mega_main_menu.mh-primary #mh-submit-button a,
+ html body.myhome-body #mega_main_menu.mh-primary #mh-submit-button a i,
+ html body.myhome-body #mega_main_menu.mh-primary > .menu_holder > .menu_inner > ul > li:hover > a:after,
+ html body.myhome-body  #mega_main_menu.mh-primary > .menu_holder > .menu_inner > ul > li:hover > .item_link *,
+ .myhome-body .comment-edit-link:hover,
+ .myhome-body .comment-reply-link:hover,
+ .myhome-body .mh-compare__feature-list li a:hover,
+ .myhome-body .mh-compare__list__element a:hover,
+ .myhome-body .mh-compare__list__element a:hover i,
+ .myhome-body .mh-estate__list__element a:hover,
+ .myhome-body .mh-estate__list__element a:hover i,
+ .myhome-body .mh-estate-horizontal__primary,
+ .myhome-body .mh-estate-vertical__primary,
+ .myhome-body .mh-filters__button.mh-filters__button--active,
+ .myhome-body .mh-filters__button.mh-filters__button--active:hover,
+ .myhome-body button.mh-filters__right__button--active,
+ .myhome-body .mh-loader-wrapper-map,
+ .myhome-body .mh-loader,
+ .myhome-body .mh-register-terms .mh-register-terms__text a,
+ .myhome-body .mh-register-field__terms .mh-register-field__terms__text a,
+ .myhome-body .mh-form-container__reset:hover,
+ .myhome-body .mh-map-wrapper__noresults,
+ .myhome-body .mh-map-pin i,
+ .myhome-body .mh-navbar__wrapper #mh-submit-button a:hover,
+ .myhome-body .mh-pagination--single-post,
+ .myhome-body .mh-post-single__meta a:hover,
+ .myhome-body .mh-search__heading-big,
+ .myhome-body .mh-button-transparent:hover,
+ .myhome-body .mh-user-panel__plans__row .mh-user-panel__plans__cell-4 button:hover,
+ .myhome-body .mh-browse-estate__cell-3 a:hover,
+ .myhome-body .mh-browse-estate__cell-payment a:hover,
+ .myhome-body .mh-user-pagination li:hover,
+ .myhome-body .mh-user-pagination li.mh-user-pagination__element-active,
+ .myhome-body .mh-top-header-big__element:not(.mh-top-header-big__panel) a:hover,
+ .myhome-body .mh-color-primary,
+ .myhome-body .mh-top-header:not(.mh-top-header--primary) a:hover,
+ .myhome-body .mh-top-header-big .mh-top-header-big__social-icons a:hover,                              
+ .myhome-body .mh-top-header-big .mh-top-header-big__social-icons button:hover,
+ .myhome-body .mh-estate__details > div a:hover,
+ .myhome-body .recentcomments a:hover,
+ .myhome-body .rsswidget:hover,
+ .myhome-body .mh-post .post-content a:hover,
+ .myhome-body .link-primary:hover,                              
+ .myhome-body .mh-estate__agent__content a:hover,     
+ .myhome-body .mh-pagination--properties li.active a,  
+ .myhome-body .mh-page-type-v2__content a,
+ .myhome-body .idx-omnibar-form.idx-omnibar-original-form .awesomplete > ul > li:hover,
+ .myhome-body .idx-omnibar-form.idx-omnibar-original-form .awesomplete > ul > li[aria-selected="true"],
+ .myhome-body #IDX-main #IDX-resultsRow .IDX-field-listingPrice.IDX-field-price.IDX-field .IDX-text,
+ .myhome-body #IDX-main #IDX-resultsRow .IDX-resultsDetailsLink a,
+ .myhome-body #IDX-main.IDX-category-details #IDX-detailsTopNav .IDX-topLink a:hover,
+ .myhome-body #IDX-main.IDX-category-details .IDX-listAsRow li span,
+ .myhome-body #IDX-main.IDX-category-details .IDX-listAsRow li a:hover,
+ .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li span,
+ .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li span,
+ .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li a:hover,
+ .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li a:hover,
+ .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li span,
+ .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li span,
+ .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li a:hover,
+ .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li a:hover,
+ .myhome-body #IDX-main.IDX-category-details #IDX-detailsField-listingPrice #IDX-detailsPrice,
+ .myhome-body .mh-rs-search #myhome-search-form-submit .mh-search__panel--keyword .mh-search__panel.mh-active-input:after,                        
+ .myhome-body.mh-active-input-primary .mh-search__panel > div:not(:first-child) .is-checked .mdl-radio__label,
+ .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-nextLastButtons #IDX-nextProp,
+ .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-nextLastButtons #IDX-nextProp,
+ .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-hotLinks a:hover,
+ .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-hotLinks a:hover,
+ .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-detailsField-listingPrice #IDX-detailsPrice,
+ .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-detailsField-listingPrice #IDX-detailsPrice,
+ .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-detailsTopNav .IDX-topLink a:hover,
+ .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-detailsTopNav .IDX-topLink a:hover,
+ .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details .IDX-listAsRow li span,
+ .myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-listAsRow li span,
+ .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details .IDX-listAsRow li a:hover,
+ .myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-listAsRow li a:hover,
+ .myhome-body .myhome-idx-wrapper__photo_gallery-photogallery-1002 .IDX-page-photogallery #IDX-previousPage a:hover,
+ .myhome-body .idx-omnibar-form .awesomplete > ul > li:hover,
+ .myhome-body .idx-omnibar-form .awesomplete > ul > li[aria-selected="true"],
+ .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-propertyTypeHeader,
+ .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-field-listingPrice.IDX-field-price.IDX-field .IDX-text,
+ .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-resultsDetailsLink a,
+ .myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 .IDX-emailUpdateSignupText,
+ .myhome-body #myhome-idx-wrapper .IDX-category-search .IDX-emailUpdateSignupText,
+ .myhome-body .myhome-idx-wrapper__my_account-myaccount-1000 .IDX-backLink:hover,
+ .myhome-body .myhome-idx-wrapper__user_signup-usersignup-1002 #IDX-loginText a,
+ .myhome-body div[id*=IDX-carouselGallery-] .IDX-carouselPrice,
+ .myhome-body .IDX-showcaseTable .IDX-showcasePrice,
+ .myhome-body .IDX-slideshowWrapper .IDX-slideshowPrice,                            
+ .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 #IDX-agentbio .IDX-actionLinks a,
+ .myhome-body .IDX-searchNavItem > span,
+ html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen,
+ .myhome-body .myhome-idx-wrapper__photo_gallery-mobileFirstPhotoGallery-1003 .IDX-showcaseThumbnails-button.IDX-active,
+ .myhome-body div[id*=IDX-carouselGallery-] + a,
+ .myhome-body .mh-popup-top-info i,
+ .myhome-body .mh-pricing-table__row--sold,
+ .myhome-body.mh-active-input-primary .mh-active-input input,
+ .myhome-body .mh-estate__list .mh-estate__list__inner .mh-estate__list__element--attachment a:hover                               
+  {color:#155375;}
+  body,
+  button,
+  input,
+  optgroup,
+  select,
+  textarea,
+  .mh-accordion .ui-accordion-header,
+  .mh-estate-horizontal__subheading,
+  .mh-estate-horizontal__primary,
+  .mh-estate-vertical__subheading,
+  .mh-estate-vertical__primary,
+  .mh-map-infobox,
+  .mh-user-panel-info__heading,
+  .mh-font-body
+  {font-family:Lato;font-weight:400;} .mh-main-font-italic{font-family:Lato;font-weight:400;font-style:italic;}                     
+  .mh-estate-horizontal__primary,
+  .mh-estate-vertical__primary   
+  {font-family:Lato;font-weight:700;}
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   h6,
+   .mh-estate__details__price,
+   .mh-top-header,
+   .mh-top-header-big__panel,   
+   .mh-caption__inner,
+   .mh-slider-single__price,
+   .mh-heading-font-bold,
+   .mh-search__results,
+   .mh-user-panel__user__content
+    {font-family:Play;font-weight:400;}
+     h1,
+     .mh-caption__inner,
+     .mh-slider-single__price,
+     .mh-heading-font-bold,
+     .mh-search__results,
+     .mh-user-panel__user__content,                     
+     #IDX-main .IDX-control-label,
+     .mh-top-title__heading, 
+     #myhome-idx-wrapper .IDX-control-label,
+     #myhome-idx-wrapper .IDX-addressField label,
+     #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-detailsFeaturedAgentdisplayname,
+     #myhome-idx-wrapper .IDX-page-listing #IDX-detailsFeaturedAgentdisplayname,
+     .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-bioName,
+     #IDX-featuredAgentWrap.IDX-featuredAgentWrap .IDX-featuredAgentContact,
+     .IDX-showcaseTable .IDX-showcasePrice,
+    .IDX-slideshowWrapper .IDX-slideshowPrice                
+     {font-family:Play;font-weight:700;}</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1532177424151{background-image: url(images/inside-whiter.jpg) !important;background-position: center !important;background-repeat: no-repeat !important;background-size: cover !important;}.vc_custom_1643284945002{background-color: #ffffff !important;}.vc_custom_1643284945002{background-color: #ffffff !important;}.vc_custom_1643284945002{background-color: #ffffff !important;}.vc_custom_1643284945002{background-color: #ffffff !important;}.vc_custom_1643284945002{background-color: #ffffff !important;}.vc_custom_1643817435826{background-color: #f7f7f7 !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}.vc_custom_1487058892069{padding-top: 39px !important;padding-bottom: 24px !important;}</style><noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
 
-<body id="myhome-app" class="home page-template page-template-page_full-width page-template-page_full-width-php page page-id-5 mmm mega_main_menu-2-2-1 myhome-body mh-hide-top-bar-on-mobile mh-active-input-primary myhome-3-1-57 essb-7.9 wpb-js-composer js-comp-ver-6.7.0 vc_responsive">
+    <body id="myhome-app" class="home page-template page-template-page_full-width page-template-page_full-width-php page page-id-5 mmm mega_main_menu-2-2-1 myhome-body mh-hide-top-bar-on-mobile mh-active-input-primary myhome-3-1-57 essb-7.9 wpb-js-composer js-comp-ver-6.7.0 vc_responsive">
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 0.49803921568627"/><fefuncg type="table" tableValues="0 0.49803921568627"/><fefuncb type="table" tableValues="0 0.49803921568627"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 1"/><fefuncg type="table" tableValues="0 1"/><fefuncb type="table" tableValues="0 1"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.54901960784314 0.98823529411765"/><fefuncg type="table" tableValues="0 1"/><fefuncb type="table" tableValues="0.71764705882353 0.25490196078431"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 1"/><fefuncg type="table" tableValues="0 0.27843137254902"/><fefuncb type="table" tableValues="0.5921568627451 0.27843137254902"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 0"/><fefuncg type="table" tableValues="0 0.64705882352941"/><fefuncb type="table" tableValues="0 1"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.78039215686275 1"/><fefuncg type="table" tableValues="0 0.94901960784314"/><fefuncb type="table" tableValues="0.35294117647059 0.47058823529412"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.65098039215686 0.40392156862745"/><fefuncg type="table" tableValues="0 1"/><fefuncb type="table" tableValues="0.44705882352941 0.4"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.098039215686275 1"/><fefuncg type="table" tableValues="0 0.66274509803922"/><fefuncb type="table" tableValues="0.84705882352941 0.41960784313725"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg>
-<div class="mh-fixed-menu mh-fixed-menu--transparent-light">
-                    <div class="mh-top-header mh-top-header--default">
-
-                    <div class="mh-layout">
-
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 0.49803921568627"/><fefuncg type="table" tableValues="0 0.49803921568627"/><fefuncb type="table" tableValues="0 0.49803921568627"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 1"/><fefuncg type="table" tableValues="0 1"/><fefuncb type="table" tableValues="0 1"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.54901960784314 0.98823529411765"/><fefuncg type="table" tableValues="0 1"/><fefuncb type="table" tableValues="0.71764705882353 0.25490196078431"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 1"/><fefuncg type="table" tableValues="0 0.27843137254902"/><fefuncb type="table" tableValues="0.5921568627451 0.27843137254902"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 0"/><fefuncg type="table" tableValues="0 0.64705882352941"/><fefuncb type="table" tableValues="0 1"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.78039215686275 1"/><fefuncg type="table" tableValues="0 0.94901960784314"/><fefuncb type="table" tableValues="0.35294117647059 0.47058823529412"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.65098039215686 0.40392156862745"/><fefuncg type="table" tableValues="0 1"/><fefuncb type="table" tableValues="0.44705882352941 0.4"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "/><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.098039215686275 1"/><fefuncg type="table" tableValues="0 0.66274509803922"/><fefuncb type="table" tableValues="0.84705882352941 0.41960784313725"/><fefunca type="table" tableValues="1 1"/></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"/></filter></defs></svg>
+    <div class="mh-fixed-menu mh-fixed-menu--transparent-light">
+      <div class="mh-top-header mh-top-header--default">
+        <div class="mh-layout">
+            <span class="mh-top-header__element mh-top-header__element--phone">
+				<a href="tel:+000000000/+00000000"><i class="flaticon-phone"></i> +92 000 0000000 / +92 000 0000000	</a>
+			</span>
+            <span class="mh-top-header__element">
+				<address><i class="flaticon-pin"></i>Karachi - Pakistan</address>
+			</span>
                         
-                                                    <span class="mh-top-header__element mh-top-header__element--phone">
-								<a href="tel:+000000000/+00000000">
-									<i class="flaticon-phone"></i>
-                                    +92 000 0000000 / +92 000 0000000								</a>
-							</span>
-                        
-                                                    <span class="mh-top-header__element">
-								<address>
-									<i class="flaticon-pin"></i>
-                                    Karachi - Pakistan								</address>
-							</span>
-                        
-                                                    <span class="mh-top-header__element mh-top-header__element--mail">
-								  <a href="mailto:arsalan.9798@gmail.com">
+            <span class="mh-top-header__element mh-top-header__element--mail">
+				<a href="mailto:arsalan.9798@gmail.com">
 									<i class="flaticon-mail-2"></i>
                                     arsalan.9798@gmail.com								</a>
 							</span>
@@ -861,8 +832,50 @@ Body {
                     <img src="{% static 'images/LOGO.png' %}" alt="Screenerpk">
                 </a>
                             </span>
-             			<!-- /class="nav_logo" --> 				<ul id="mega_main_menu_ul" class="mega_main_menu_ul"> <li id="menu-item-3630" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-3630 default_dropdown  drop_to_right submenu_default_width columns1"> 	<a href="#" class="item_link  disable_icon" tabindex="1"> 		<i class></i>  		<span class="link_content"> 			<span class="link_text"> 				Home 			</span> 		</span> 	</a> </li> <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	<a href="/mutualfunds" class="item_link  disable_icon" tabindex="2"> 		<i class></i>  		<span class="link_content"> 			<span class="link_text"> 				Mutual Funds 			</span> 		</span> 	</a> 	<ul class="mega_dropdown"> 	<li id="menu-item-3739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3739 default_dropdown  drop_to_right submenu_default_width columns1"> 		<a href="/mutualfunds" class="item_link  disable_icon" tabindex="3"> 			<i class></i>  			<span class="link_content"> 				<span class="link_text"> 					Mutual Funds in Pakistan				</span> 			</span> 		</a> 	</li> 	</ul><!-- /.mega_dropdown --> </li> 
-                         <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+             			<!-- /class="nav_logo" --> 				
+                        <ul id="mega_main_menu_ul" class="mega_main_menu_ul"> 
+                            <li id="menu-item-3630" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-3630 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                                <a href="#" class="item_link  disable_icon" tabindex="1"> 		
+                                    <i class></i>  		
+                                    <span class="link_content"> 			
+                                        <span class="link_text"> 				Home 			</span> 		
+                                    </span> 	
+                                </a> 
+                            </li> 
+                            <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                                <a href="/mutualfunds" class="item_link  disable_icon" tabindex="2"> 		
+                                  <i class></i>  		
+                                  <span class="link_content"> 			
+                                    <span class="link_text">Mutual Funds</span> 		
+                                  </span> 	</a> 	
+                                  <ul class="mega_dropdown"> 	
+                                    <li id="menu-item-3739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3739 default_dropdown  drop_to_right submenu_default_width columns1"> 		
+                                      <a href="/mutualfunds" class="item_link  disable_icon" tabindex="3"> 			
+                                        <i class></i>  			
+                                        <span class="link_content"> 				
+                                          <span class="link_text">Mutual Funds in Pakistan</span> 			
+                                        </span> 		
+                                      </a> 	
+                                    </li> 	
+                                    <li id="menu-item-3739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3739 default_dropdown  drop_to_right submenu_default_width columns1"> 		
+                                      <a href="/conventional" class="item_link  disable_icon" tabindex="3"> 			
+                                        <i class></i>  			
+                                        <span class="link_content"> 				
+                                          <span class="link_text">Conventional Banking</span> 			
+                                        </span> 		
+                                      </a> 	
+                                    </li> 	
+                                    <li id="menu-item-3739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3739 default_dropdown  drop_to_right submenu_default_width columns1"> 		
+                                      <a href="/islamic" class="item_link  disable_icon" tabindex="3"> 			
+                                        <i class></i>  			
+                                        <span class="link_content"> 				
+                                          <span class="link_text">Islamic Banking</span> 			
+                                        </span> 		
+                                      </a> 	
+                                    </li> 	
+                                  </ul><!-- /.mega_dropdown --> 
+                                </li> 
+                                <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
                                 <a href="/calculator" class="item_link  disable_icon" tabindex="2"> 		
                                     <i class></i>  		
                                     <span class="link_content"> 			
@@ -872,6 +885,26 @@ Body {
                                     </span> 	
                                 </a> 
                          </li>	
+                         <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                            <a href="/term-deposite" class="item_link  disable_icon" tabindex="2"> 		
+                                <i class></i>  		
+                                <span class="link_content"> 			
+                                    <span class="link_text"> 				
+                                        Term Deposits			
+                                    </span> 		
+                                </span> 	
+                            </a> 
+                        </li>
+                        <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                            <a href="/faq" class="item_link  disable_icon" tabindex="2"> 		
+                                <i class></i>  		
+                                <span class="link_content"> 			
+                                    <span class="link_text"> 				
+                                        FAQ's
+                                    </span> 		
+                                </span> 	
+                            </a> 
+                        </li>
                         
                             </ul> 		</div><!-- /class="menu_inner" --> 	</div><!-- /class="menu_holder" --> </div><!-- /id="mega_main_menu" -->                </div>
             </div>

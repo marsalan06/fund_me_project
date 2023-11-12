@@ -29,6 +29,29 @@ img.emoji {
 	background: none !important;
 	padding: 0 !important;
 }
+fixed_header {
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.fixed_header tbody {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 340px;
+}
+.fixed_header thead tr {
+  display: block;
+}
+.fixed_header thead {
+  background: black;
+  color: #fff;
+}
+.fixed_header th,
+.fixed_header td {
+  padding: 5px;
+  text-align: left;
+  width: 200px;
+}
 </style>
 	<link rel="stylesheet" id="wp-block-library-css" href="{% static 'css/style.min.css' %}" type="text/css" media="all">
 <style id="wp-block-library-theme-inline-css" type="text/css">
@@ -44,6 +67,8 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <link rel="stylesheet" id="redux-extendify-styles-css" href="{% static 'css/extendify-utilities.css' %}" type="text/css" media="all">
 <link rel="stylesheet" id="contact-form-7-css" href="{% static 'css/styles.css' %}" type="text/css" media="all">
 <link rel="stylesheet" id="myhome-style-css" href="{% static 'css/style.min_1.css' %}" type="text/css" media="all">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 <style id="myhome-style-inline-css" type="text/css">
             @media (min-width:1023px) {
             #mega_main_menu li.default_dropdown>.mega_dropdown {
@@ -346,8 +371,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <script type="text/javascript" src="{% static 'js/rbtools.min.js' %}" async id="tp-tools-js"></script>
 <script type="text/javascript" src="{% static 'js/rs6.min.js' %}" async id="revmin-js"></script>
 <meta name="generator" content="WordPress 6.2.2">
-<meta name="generator" content="Redux 4.4.4">            
-
+<meta name="generator" content="Redux 4.4.4"> 
 <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
 <script type="text/javascript">var essb_settings = {"ajax_url":"https:\/\/finrates.pk\/wp-admin\/admin-ajax.php","essb3_nonce":"4e0ecade0d","essb3_plugin_url":"https:\/\/finrates.pk\/wp-content\/plugins\/easy-social-share-buttons3","essb3_stats":false,"essb3_ga":false,"blog_url":"https:\/\/finrates.pk\/","post_id":"5"};</script><meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
 <meta name="generator" content="Powered by Slider Revolution 6.5.4 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
@@ -824,6 +848,12 @@ Body {
         </a>
     </span>
 							</span>
+                        
+                        <!--div class="mh-top-bar-user-panel-small">
+                                                            <div class="mh-top-bar-user-panel">
+                                    <user-bar id="myhome-user-bar"></user-bar>
+                                </div>
+                                                    </div-->
                     </div>
                 </div>
             
@@ -841,310 +871,572 @@ Body {
                 </a>
                             </span>
              			<!-- /class="nav_logo" --> 				
-                        <ul id="mega_main_menu_ul" class="mega_main_menu_ul"> 
-                            <li id="menu-item-3630" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-3630 default_dropdown  drop_to_right submenu_default_width columns1"> 	<a href="/" class="item_link  disable_icon" tabindex="1"> 		<i class></i>  		<span class="link_content"> 			<span class="link_text"> 				Home 			</span> 		</span> 	</a> 
-                            </li> 
-                            <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
-                                <a href="/mutualfunds" class="item_link  disable_icon" tabindex="2"> 		
-                                  <i class></i>  		
-                                  <span class="link_content"> 			
-                                    <span class="link_text">Mutual Funds</span> 		
-                                  </span> 	</a> 	
-                                  <ul class="mega_dropdown"> 	
-                                    <li id="menu-item-3739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3739 default_dropdown  drop_to_right submenu_default_width columns1"> 		
-                                      <a href="/mutualfunds" class="item_link  disable_icon" tabindex="3"> 			
-                                        <i class></i>  			
-                                        <span class="link_content"> 				
-                                          <span class="link_text">Mutual Funds in Pakistan</span> 			
-                                        </span> 		
-                                      </a> 	
-                                    </li> 	
-                                    <li id="menu-item-3739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3739 default_dropdown  drop_to_right submenu_default_width columns1"> 		
-                                      <a href="/conventional" class="item_link  disable_icon" tabindex="3"> 			
-                                        <i class></i>  			
-                                        <span class="link_content"> 				
-                                          <span class="link_text">Conventional Banking</span> 			
-                                        </span> 		
-                                      </a> 	
-                                    </li> 	
-                                    <li id="menu-item-3739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3739 default_dropdown  drop_to_right submenu_default_width columns1"> 		
-                                      <a href="/islamic" class="item_link  disable_icon" tabindex="3"> 			
-                                        <i class></i>  			
-                                        <span class="link_content"> 				
-                                          <span class="link_text">Islamic Banking</span> 			
-                                        </span> 		
-                                      </a> 	
-                                    </li> 	
-                                  </ul><!-- /.mega_dropdown --> 
-                                </li> 	
-                                <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
-                                    <a href="/calculator" class="item_link  disable_icon" tabindex="2"> 		
-                                        <i class></i>  		
-                                        <span class="link_content"> 			
-                                            <span class="link_text"> 				
-                                                Calculator 			
-                                            </span> 		
-                                        </span> 	
-                                    </a> 
-                             </li>
-                             <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
-                                <a href="/term-deposite" class="item_link  disable_icon" tabindex="2"> 		
+                  <ul id="mega_main_menu_ul" class="mega_main_menu_ul"> 
+                    <li id="menu-item-3630" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-3630 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                    <a href="#" class="item_link  disable_icon" tabindex="1"> 		
+                      <i class></i>  		
+                      <span class="link_content"> 			
+                        <span class="link_text"> 				Home 			</span> 		
+                      </span> 	
+                    </a> 
+                  </li> 
+                  <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                    <a href="/mutualfunds" class="item_link  disable_icon" tabindex="2"> 		
+                      <i class></i>  		
+                      <span class="link_content"> 			
+                        <span class="link_text">Mutual Funds</span> 		
+                      </span> 	</a> 	
+                      <ul class="mega_dropdown"> 	
+                        <li id="menu-item-3739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3739 default_dropdown  drop_to_right submenu_default_width columns1"> 		
+                          <a href="/mutualfunds" class="item_link  disable_icon" tabindex="3"> 			
+                            <i class></i>  			
+                            <span class="link_content"> 				
+                              <span class="link_text">Mutual Funds in Pakistan</span> 			
+                            </span> 		
+                          </a> 	
+                        </li> 	
+                        <li id="menu-item-3739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3739 default_dropdown  drop_to_right submenu_default_width columns1"> 		
+                          <a href="/conventional" class="item_link  disable_icon" tabindex="3"> 			
+                            <i class></i>  			
+                            <span class="link_content"> 				
+                              <span class="link_text">Conventional Banking</span> 			
+                            </span> 		
+                          </a> 	
+                        </li> 	
+                        <li id="menu-item-3739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3739 default_dropdown  drop_to_right submenu_default_width columns1"> 		
+                          <a href="/islamic" class="item_link  disable_icon" tabindex="3"> 			
+                            <i class></i>  			
+                            <span class="link_content"> 				
+                              <span class="link_text">Islamic Banking</span> 			
+                            </span> 		
+                          </a> 	
+                        </li> 	
+                      </ul><!-- /.mega_dropdown --> 
+                    </li>       
+                    <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                                <a href="/calculator" class="item_link  disable_icon" tabindex="2"> 		
                                     <i class></i>  		
                                     <span class="link_content"> 			
                                         <span class="link_text"> 				
-                                            Term Deposits			
+                                            Calculator 			
                                         </span> 		
                                     </span> 	
                                 </a> 
-                            </li>
-                            <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
-                                <a href="/faq" class="item_link  disable_icon" tabindex="2"> 		
-                                    <i class></i>  		
-                                    <span class="link_content"> 			
-                                        <span class="link_text"> 				
-                                            FAQ's
-                                        </span> 		
-                                    </span> 	
-                                </a> 
-                            </li>
-                            </ul><!-- /.mega_dropdown --> </li> 
-                            <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
-                                
                          </li>	
-                        </li>
-                        <li id="menu-item-3778" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3778 default_dropdown  drop_to_right submenu_default_width columns1"> 		<a href="#" class="item_link  disable_icon" tabindex="8"> 			<i class></i>  			<span class="link_content"> 				<span class="link_text"> </span> 			</span> 		</a> 	</li> 	</ul>/.mega_dropdown </li> <li id="menu-item-3688" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3688 default_dropdown  drop_to_right submenu_default_width columns1"> 	<a href="#" class="item_link  disable_icon" tabindex="9"> 		<i class></i>  		<span class="link_content"> 			<span class="link_text"> 				FLEET FINANCING 			</span> 		</span> 	</a> </li> <li id="menu-item-3694" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3694 default_dropdown  drop_to_right submenu_default_width columns1"> 	<a href="#" class="item_link  disable_icon" tabindex="10"> 		<i class></i>  		<span class="link_content"> 			<span class="link_text"> 				Settlements 			</span> 		</span> 	</a> </li> <li id="menu-item-3633" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3633 default_dropdown  drop_to_right submenu_default_width columns1"> 	<a href="#" class="item_link  disable_icon" tabindex="11"> 		<i class></i>  		<span class="link_content"> 			<span class="link_text"> 				Contact 			</span> 		</span> 	</a> </li></ul> 		</div></div>               
-                                </div>
+                         <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                          <a href="/term-deposite" class="item_link  disable_icon" tabindex="2"> 		
+                              <i class></i>  		
+                              <span class="link_content"> 			
+                                  <span class="link_text"> 				
+                                      Term Deposits			
+                                  </span> 		
+                              </span> 	
+                          </a> 
+                   </li>
+                   <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                    <a href="/faq" class="item_link  disable_icon" tabindex="2"> 		
+                        <i class></i>  		
+                        <span class="link_content"> 			
+                            <span class="link_text"> 				
+                                FAQ's
+                            </span> 		
+                        </span> 	
+                    </a> 
+                </li>
+                        
+                            </ul> 		</div><!-- /class="menu_inner" --> 	</div><!-- /class="menu_holder" --> </div><!-- /id="mega_main_menu" -->                </div>
             </div>
 <div class="mh-sticky-menu-placeholder
 					mh-sticky-menu-placeholder--active
 		"></div>
     <div class="mh-layout">
 		<div id="post-5" class="mh-post">
-        <div class="vc_row-full-width vc_clearfix"></div>
-        <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1643284945002 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12">
-            <div class="vc_column-inner vc_custom_1487058892069">
-              <div class="wpb_wrapper">
-                  <div class=" ">       
-                      <div class="mh-heading-wrapper">
-                        <h2 class="mh-heading  mh-heading--bottom-separator   " style="font-weight:700;">Calculator </h2>
-                      </div>
-                      {% include 'table.html' %}
-                  
-	              </div>
-              </div>
-             </div>
-        </div></div>
-    <div class="vc_row-full-width vc_clearfix"></div>
-    <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1643284945002 vc_row-has-fill">
-        <div class="wpb_column vc_column_container vc_col-sm-12">
-            <div class="vc_column-inner vc_custom_1487058892069">
-                <div class="wpb_wrapper">
-                    <div class="vc_row wpb_row vc_inner vc_row-fluid">
-                        <div class="wpb_column vc_column_container vc_col-sm-6">
-                            <div class="vc_column-inner"><div class="wpb_wrapper">
-                            </div>
-                        </div>
-                    </div>
-                <div class="wpb_column vc_column_container vc_col-sm-6">
-            <div class="vc_column-inner">
-        <div class="wpb_wrapper">
-            <div class=" ">
-	    </div>
-	
+    <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1532177424151 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487058892069"><div class="wpb_wrapper">
+			<!-- START MH Image Slider REVOLUTION SLIDER 6.5.4 --><p class="rs-p-wp-fix"></p>
+			<rs-module-wrap id="rev_slider_13_1_wrapper" data-source="gallery" style="visibility: hidden; background: transparent; padding: 0px; margin: 0px auto; height: 400px;">
+				<rs-module id="rev_slider_13_1" style="height: 400px;" data-version="6.5.4">
+					<rs-slides>
+						<rs-slide data-key="rs-17" data-title="Slide" data-thumb="" data-anim="ms:1200;" data-in="o:0;x:(100%);" data-out="a:false;">
+							<img src="{% static 'images/custom/investment_1.jpg' %}" title="Home Loan Eligibility Calculator by Kotak Bank" width="1440" height="400" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//finrates.pk/wp-content/uploads/2022/01/Home-Loan-Eligibility-Calculator-by-Kotak-Bank.jpg" data-no-retina>
 
-<!-- Start Section Term Deposits -->
-<div style="text-align:left;" class>
-</div></div></div></div></div></div></div></div></div>
-    <div class="vc_row-full-width vc_clearfix"></div>
-        <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1643284945002 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12">
-            <div class="vc_column-inner vc_custom_1487058892069">
-                <div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid">
-                    <div class="wpb_column vc_column_container vc_col-sm-6">
-                        <div class="vc_column-inner"><div class="wpb_wrapper">
-                            <!-- <div class=" ">
-                              <div class="mh-heading-wrapper">
-                                  <h2 class="mh-heading  mh-heading--bottom-separator" style="font-weight:700;">Key Aspects to look at before Investment:</h2>
-		                      </div>
-	                        </div> -->
-	                        <!-- <div class="wpb_text_column wpb_content_element ">
-	                        	<div class="wpb_wrapper">
-                                    <p>
-                                        <ol>
-                                            <li>What is your goal? What you want to achieve through investment?</li>
-                                            <li>For how long can you invest as longer the better it is?</li>
-                                            <li>Risk Appetite : How much risk can you take? As higher the risk higher the return</li>
-                                        </ol>
-                                    </p>
-                                    <h4>Benefits:</h4>
-                                    <p>
-                                        <ol>
-                                            <li>Professional management</li>
-                                            <li>Diversification of portfolio</li>
-                                            <li>Affordability</li>
-                                            <li>Tax benefits</li>
-                                            <li>Convenience</li>
-                                            <li>Return prospects</li>
-                                            <li>Transparency</li>
-                                            <li>Flexibility</li>
-                                            <li>Choices available</li>
-                                            <li>Well regulated</li>
-                                        </ol>
-                                    </p>
-                                </div>
-	                        </div> -->
+							<rs-layer id="slider-13-slide-17-layer-0" data-type="text" data-color="#212121" data-rsp_ch="on" data-xy="y:m;yo:-112px,-98px,-34px,-34px;" data-text="w:normal;s:50,43,15,15;l:25,21,7,7;fw:700;" data-frame_999="o:0;st:w;" style="z-index:5;font-family:Roboto;text-transform:uppercase;"><rs-bg-elem style="position:absolute; top:0px;left:0px;"></rs-bg-elem>
+                            INVESTEx
+							</rs-layer><!--
 
-<!-- End Section Term Deposits -->
+							--><rs-layer id="slider-13-slide-17-layer-1" data-type="text" data-color="#3d3d3d" data-rsp_ch="on" data-xy="xo:3px,2px,0,0;y:m;" data-text="w:normal;s:20,17,6,6;l:25,21,7,7;" data-dim="w:602px,529px,188px,188px;" data-frame_999="o:0;st:w;" style="z-index:6;font-family:Roboto;"><rs-bg-elem style="position:absolute; top:0px;left:0px;"></rs-bg-elem>
+<br>
+<br>
+<br>
+<br>
+At INVESTEX our aim is to empower you to make a smart and well informed decisions looking at every aspects.  Our team possess over three decades of financial sector  experience serving different financial institutions and know all the nuts and bolts of Investment business having sufficient knowledge of institutions as well as market. We can help you choose the right product and institution. We are not influenced by any one commercially and even when we are hooked up, we commit to ensure accuracy of content, its updating of content and priority to the customer.
+							</rs-layer>
+					</rs-slide>
+						<rs-slide data-key="rs-24" data-title="Slide" data-thumb="" data-anim="ms:1200;" data-in="o:0;x:(100%);" data-out="a:false;">
+							<img src="{% static 'images/custom/investment_1.jpg' %}" title="slider_02" width="1440" height="400" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//finrates.pk/wp-content/uploads/2022/01/slider_02.jpg" data-no-retina>
 
-<!-- Start Section FLEET FINANCING -->
-<div style="text-align:left;" class>
-	
-</div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
-	<!-- <div class="wpb_single_image wpb_content_element vc_align_left">
-		
-		<figure class="wpb_wrapper vc_figure">
-			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="800" height="800" style="height: 600px;" src="{% static 'images/custom/investment_6.jpg' %}" class="vc_single_image-img attachment-full" alt decoding="async" loading="lazy" srcset="{% static 'images/custom/investment_6.jpg 800w, images/custom/investment_6-300x300.jpg 300w, images/02-150x150.jpg 150w, images/02-768x768.jpg 768w, images/custom/investment_6-400x400.jpg 400w, images/custom/investment_6-200x200.jpg 200w, images/custom/investment_6-100x100.jpg 100w' %}" sizes="(max-width: 800px) 100vw, 800px"></div>
-		</figure>
-	</div> -->
+							<rs-layer id="slider-13-slide-24-layer-0" data-type="text" data-color="#212121" data-rsp_ch="on" data-xy="x:r;y:m;yo:-70px,-61px,-21px,-21px;" data-text="w:normal;s:50,43,15,15;l:25,21,7,7;fw:700;" data-frame_999="o:0;st:w;" style="z-index:5;font-family:Roboto;text-transform:uppercase;"><rs-bg-elem style="position:absolute; top:0px;left:0px;"></rs-bg-elem>
+                                Mutual Funds
+							</rs-layer>
+							<rs-layer id="slider-13-slide-24-layer-1" data-type="text" data-color="#3d3d3d" data-rsp_ch="on" data-xy="x:r;yo:177px,155px,55px,55px;" data-text="w:normal;s:20,17,6,6;l:25,21,7,7;" data-dim="w:462.78099999999995px,406px,144px,144px;" data-frame_999="o:0;st:w;" style="z-index:6;font-family:Roboto;"><rs-bg-elem style="position:absolute; top:0px;left:0px;"></rs-bg-elem>
+                            Mutual Funds offer an investment option to the small and large investors to invest in stocks  and optimize its income through professionally managed of portfolio of equity; debt and money market funds such as TFC's and Government securities.
+							</rs-layer>
+    					</rs-slide>
+						
+					</rs-slides>
+					<rs-static-layers>
+					</rs-static-layers>
+				</rs-module>
+				<script type="text/javascript">
+					setREVStartSize({c: 'rev_slider_13_1',rl:[1240,1024,778,480],el:[400,350,470,470],gw:[1024,900,320,320],gh:[400,350,470,470],type:'standard',justify:'',layout:'fullwidth',mh:"0"});
+				</script>
+			</rs-module-wrap>
+			<!-- END REVOLUTION SLIDER -->
+</div></div></div></div>
+<div class="vc_row-full-width vc_clearfix"></div>
+<div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1643284945002 vc_row-has-fill"></div>
 
-
-</div></div></div></div></div></div></div></div>
-
-    <div class="vc_row-full-width vc_clearfix"></div>
-    <!-- <div>
-        <h2 class="mh-heading  mh-heading--bottom-separator   " style="font-weight:700;">How it operates?</h2>
-        <p>Each shared asset scheme sticks to a particular speculation objective while putting away the cash gathered. Allocated units for the speculation sum contingent upon the  the predominant  NAV of the asset.</p>
-        <p>The worth of every unit is determined in light of the business sector cost of the relative multitude of resources held by the asset. This cost is known  as NAV= Net Asset Value, Resource net worth of the asset.</p>
-        <h3>While going for investment your investment goal could be :</h3>
-        <ul>
-            <li>Retirement</li>
-            <li>Buying a home</li>
-            <li>Children education</li>
-            <li>Children marriage</li>
-            <li>Additional Income</li>
-            <li>Hedge against inflation</li>
-        </ul>
-    <h3 style="align-items: left;">Time lag of Investment:</h3>
-    <ul>
-        <li>Short Time</li>
-        <li>Long term</li>
-    </ul>
-    <table>
-        <tbody>
-            <tr>
-                <td width="312"><strong>Open End Funds</strong></td>
-                <td width="312"><strong>Close End Funds</strong></td>
-            </tr>
-            <tr>
-                <td width="312">Open end continuously creates  new units on demand  of investors.</td>
-                <td width="312">Close end funds have a fixed number of shares outstanding.</td>
-            </tr>
-            <tr>
-                <td width="312">Unit holders can buy the units  of the funds/redeem them on a continuous basis at the prevailing NAV.</td>
-                <td width="312">Do not redeem, if investors want to sell, instead,, the shares trade in the secondary market. Its market price is determined by demand and supply and is not directly tied to its net asset value. </td>
-            </tr>
-            <tr>
-                <td width="312">It can be done by contacting Asset Management Company</td>
-                <td width="312">In order to buy or sell units of a close ended Mutual Fund, the investor shall need to contact the broker and not the Asset Management Company.</td>
-            </tr>
-        </tbody>
-    </table>
-     
-</div> -->
-    
 
 
 	</div>
 	</div>
-
+        <!-- Table Start -->
+        <div style="padding: 50px;">
+            <table class="table table-scrollable fixed_header">
+                <thead  class="table-dark">
+                  <tr>
+                    <th scope="col">S.no.</th>
+                    <th scope="col">AMC name</th>
+                    <th scope="col">Subsidiary of</th>
+                    <th scope="col">Fund Name</th>
+                    <th scope="col">Launch date</th>
+                    <th scope="col">Fund Size</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Risk</th>
+                    <th scope="col">Minimum *</th>
+                    <th scope="col">Performance in the past 3 years</th>
+                    <th scope="col">Return as of 2020</th>
+                    <th scope="col">Return as of 2021</th>
+                    <th scope="col">Return as of 2022</th>
+                    <th scope="col">Fund Type</th>
+                    <th scope="col">Front & Back end Loading</th>
+                    <th scope="col">Management Fee</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>AKD Securities Ltd.</td>
+                    <td>AKD Brokerage</td>
+                    <td>AKD Islamic Stock Fund</td>
+                    <td>Feb. 24, 2018</td>
+                    <td>253M</td>
+                    <td></td>
+                    <td>High</td>
+                    <td></td>
+                    <td>(12.44)</td>
+                    <td>(8.24)</td>
+                    <td>(3.14)</td>
+                    <td>20.38%</td>
+                    <td>Equity Fund</td>
+                    <td>3% & Nil</td>
+                    <td>2%</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">2</th>
+                  <td>HBL Asset Management</td>
+                  <td>HBL</td>
+                  <td>HBL Islamic Money Market Fund</td>
+                  <td>May 09, 2011</td>
+                  <td>15.42B</td>
+                  <td>AA+(f)</td>
+                  <td>Low Risk</td>
+                  <td>1000</td>
+                  <td>11.36</td>
+                  <td>6.47</td>
+                  <td>9.99</td>
+                  <td>20.62%</td>
+                  <td>Money Market</td>
+                  <td>1% & Nil</td>
+                  <td>0.76%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Lakson Investment Bank</td>
+                    <td>Lakson Group</td>
+                    <td>Lakson Islamic Money Market Fund</td>
+                    <td>Aug. 20, 2020</td>
+                    <td>18.49B</td>
+                    <td>AA(f)</td>
+                    <td>Low Risk</td>
+                    <td>No Minimum</td>
+                    <td>20.55%</td>
+                    <td>Not specified</td>
+                    <td>Not specified</td>
+                    <td>Not specified</td>
+                    <td>Money Market</td>
+                    <td>2.5% & Nil</td>
+                    <td>10% of the gross earnings</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>Faysal Asset Management</td>
+                      <td>Faysal Bank</td>
+                      <td>Faysal Islamic Cash Fund</td>
+                      <td>Dec. 22, 2020</td>
+                      <td>14.41B</td>
+                      <td>AA(f)</td>
+                      <td>Low Risk</td>
+                      <td>Not specified</td>
+                      <td>Not specified</td>
+                      <td>Not specified</td>
+                      <td>Not specified</td>
+                      <td>20.58%</td>
+                      <td>Money Market</td>
+                      <td>2% & 1%</td>
+                      <td>0.50%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">5</th>
+                      <td>Alfalah GHP Investment Management</td>
+                      <td>Bank Alfalah</td>
+                      <td>Alfalah Rozana Amdani Fund</td>
+                      <td>Sept. 21, 2020</td>
+                      <td>6.698B</td>
+                      <td>AA(f)</td>
+                      <td>Low Risk</td>
+                      <td>Not specified</td>
+                      
+                      <td>20.54%</td>
+                      <td>10.40%</td>
+                      <td>11.22%</td>
+                      <td>12.49%</td>
+                      <td>Money Market</td>
+                      <td>Nil</td>
+                      <td>0.55%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">6</th>
+                      <td>Faysal Asset Management</td>
+                      <td>Faysal Bank</td>
+                      <td>Faysal Halal Amdani Fund</td>
+                      <td>Oct. 10, 2019</td>
+                      <td>Not specified</td>
+                      <td>AA(f)</td>
+                      <td>Low Risk</td>
+                      <td>Not specified</td>
+                      <td>20.40%</td>
+                      <td>10.60%</td>
+                      <td>11.56%</td>
+                      <td>12.70%</td>
+                      <td>Money Market</td>
+                      <td>2% & Nil</td>
+                      <td>0.95%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">7</th>
+                      <td>786 Investment Management</td>
+                      <td>Dawood Group</td>
+                      <td>786 Smart Fund</td>
+                      <td>May 20, 2003</td>
+                      <td>888.5M</td>
+                      <td>AA-(f)</td>
+                      <td>Medium</td>
+                      <td>Not specified</td>
+                      <td>20.39%</td>
+                      <td>10.90%</td>
+                      <td>5.49%</td>
+                      <td>10.81%</td>
+                      <td>Income Fund</td>
+                      <td>Nil</td>
+                      <td>1.50%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">8</th>
+                      <td>NAFA</td>
+                      <td>NBP</td>
+                      <td>NBP Islamic Daily Dividend Fund</td>
+                      <td>Nov. 01, 2019</td>
+                      <td>11.119B</td>
+                      <td>AA+(f)</td>
+                      <td>Low Risk</td>
+                      <td>10,000</td>
+                      <td>20.31%</td>
+                      <td>10.18%</td>
+                      <td>11.15%</td>
+                      <td>12.28%</td>
+                      <td>Money Market</td>
+                      <td>1% & Nil</td>
+                      <td>0.81%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">9</th>
+                      <td>Atlas Asset Management Ltd</td>
+                      <td>Army Welfare</td>
+                      <td>AWT Islamic Income Fund</td>
+                      <td>May 04, 2014</td>
+                      <td>261M</td>
+                      <td>A+(f)</td>
+                      <td>Low</td>
+                      <td>Not specified</td>
+                      <td>21.40%</td>
+                      <td>7.75%</td>
+                      <td>5.48%</td>
+                      <td>8.46%</td>
+                      <td>Income Fund</td>
+                      <td>Nil</td>
+                      <td>0.70%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">10</th>
+                      <td>Atlas Asset Management Ltd</td>
+                      <td>Atlas Group</td>
+                      <td>Atlas Islamic Money Market Fund</td>
+                      <td>Jan. 2007</td>
+                      <td>3.860B</td>
+                      <td>AA(f)</td>
+                      <td>High</td>
+                      <td>Not specified</td>
+                      <td>20.44%</td>
+                      <td>10.25%</td>
+                      <td>11.24%</td>
+                      <td>12.42%</td>
+                      <td>Money Market</td>
+                      <td>Nil</td>
+                      <td>0.65%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">11</th>
+                      <td>Al Meezan Investment Management</td>
+                      <td>Meezan Bank</td>
+                      <td>Meezan Islamic Sovereign Fund</td>
+                      <td>Feb. 10, 2010</td>
+                      <td>6.196B</td>
+                      <td>AA(f)</td>
+                      <td>Low</td>
+                      <td>5000</td>
+                      <td>21.40%</td>
+                      <td>11.07%</td>
+                      <td>7.64%</td>
+                      <td>8.26%</td>
+                      <td>Income Fund</td>
+                      <td>Nil</td>
+                      <td>0.65%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">12</th>
+                      <td>HBL Asset Management</td>
+                      <td>HBL</td>
+                      <td>HBL Islamic Income Fund</td>
+                      <td>May 29, 2014</td>
+                      <td>4.670B</td>
+                      <td>A+(f)</td>
+                      <td>Medium</td>
+                      <td>1000</td>
+                      <td>22.21%</td>
+                      <td>10.31%</td>
+                      <td>5.45%</td>
+                      <td>11.14%</td>
+                      <td>Income Fund</td>
+                      <td>1% & Nil</td>
+                      <td>0.96%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">13</th>
+                      <td>Pak Oman Investment Ltd</td>
+                      <td>Pak Oman Inv.</td>
+                      <td>Pak Oman Advantage Islamic Income Fund</td>
+                      <td>Oct. 28, 2008</td>
+                      <td>1.482B</td>
+                      <td>A+(f)</td>
+                      <td>Medium</td>
+                      <td>Not specified</td>
+                      <td>20.63%</td>
+                      <td>8.78%</td>
+                      <td>6.96%</td>
+                      <td>9.04%</td>
+                      <td>Income Fund</td>
+                      <td>1.5% & Nil</td>
+                      <td>Nil</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">14</th>
+                      <td>AKD Securities Ltd.</td>
+                      <td>AKD Brokerage</td>
+                      <td>AKD Islamic Income Fund</td>
+                      <td>Feb. 20, 2018</td>
+                      <td>893M</td>
+                      <td>AA-(f)</td>
+                      <td>Medium</td>
+                      <td>Not specified</td>
+                      <td>18.84%</td>
+                      <td>11.51%</td>
+                      <td>6.95%</td>
+                      <td>9.39%</td>
+                      <td>Income Fund</td>
+                      <td>1% & Nil</td>
+                      <td>0.50%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">15</th>
+                      <td>UBL Funds</td>
+                      <td>UBL</td>
+                      <td>AlAmeen Islamic Cash Plan</td>
+                      <td>May 29, 2020</td>
+                      <td>18.919B</td>
+                      <td>AA+(f)</td>
+                      <td>Low</td>
+                      <td>500</td>
+                      <td>20.59%</td>
+                      <td>11.28%</td>
+                      <td>6.59%</td>
+                      <td>9.84%</td>
+                      <td>Money Market</td>
+                      <td>Nil</td>
+                      <td>0.92%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">16</th>
+                      <td>Al Meezan Investment Management</td>
+                      <td>Meezan Bank</td>
+                      <td>KSE Meezan Gold Fund</td>
+                      <td>Aug. 2015</td>
+                      <td>604M</td>
+                      <td>-</td>
+                      <td>High</td>
+                      <td>Not specified</td>
+                      <td>-10.26%</td>
+                      <td>23.54%</td>
+                      <td>-0.65%</td>
+                      <td>24.83%</td>
+                      <td>Income Fund</td>
+                      <td>2% & Nil</td>
+                      <td>3%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">17</th>
+                      <td>ABL Asset Management</td>
+                      <td>ABL</td>
+                      <td>ABL Islamic Income/cash Fund</td>
+                      <td>Not specified</td>
+                      <td>16.057B</td>
+                      <td>AA+(f)</td>
+                      <td>Low</td>
+                      <td>5000</td>
+                      <td>20.33%</td>
+                      <td>10.03%</td>
+                      <td>6.62%</td>
+                      <td>9.80%</td>
+                      <td>Income Fund</td>
+                      <td>1.5% Nil</td>
+                      <td>up to 1.5%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">18</th>
+                      <td>Al Meezan Investment Management</td>
+                      <td>Meezan Bank</td>
+                      <td>Meezan Rozana Amdani</td>
+                      <td>Dec. 2018</td>
+                      <td>71.689B</td>
+                      <td>AA+(f)</td>
+                      <td>Low</td>
+                      <td>500,000</td>
+                      <td>19.94%</td>
+                      <td>11.62%</td>
+                      <td>6.61%</td>
+                      <td>9.94%</td>
+                      <td>Money Market</td>
+                      <td>Nil</td>
+                      <td>0.90%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">19</th>
+                      <td>MCB Arif Habib</td>
+                      <td>MCB</td>
+                      <td>Alhamra Daily Dividend Fund</td>
+                      <td>10/4/2018</td>
+                      <td>7.652B</td>
+                      <td>AA-(f)</td>
+                      <td>Medium</td>
+                      <td>500</td>
+                      <td>18.70%</td>
+                      <td>11.83%</td>
+                      <td>6.44%</td>
+                      <td>10.06%</td>
+                      <td>Money Market</td>
+                      <td>1% & Nil</td>
+                      <td>1.32%</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">20</th>
+                      <td>Atlas Asset Management Ltd</td>
+                      <td>Atlas Group</td>
+                      <td>Atlas Islamic Income Fund</td>
+                      <td>18-10-2018</td>
+                      <td>1.556B</td>
+                      <td>AA-(f)</td>
+                      <td>Medium</td>
+                      <td>Not specified</td>
+                      <td>19.89%</td>
+                      <td>11.59%</td>
+                      <td>6.25%</td>
+                      <td>9.44%</td>
+                      <td>Income Fund</td>
+                      <td>Nil</td>
+                      <td>0.67%</td>
+                    </tr>
+                </tbody>
+              </table>
+              
+        </div>
+        <!-- Table End -->
+        <span style="text-align: center;;"><b>*There is no minimum imvestment in most of the funds except the ones mentioned.</b></span>
+        <div class="table-responsive" style="padding: 50px; width: 50%;">
+          <table class="table">
+            <thead class="table-dark">
+              <th>Average Return</th>
+              <th>Ave. as of Aug. 2023</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Money Market</td>
+                <td>20.54%</td>
+              </tr>
+              <tr>
+                <td>Income</td>
+                <td>20.67%</td>
+              </tr>
+              <tr>
+                <td>Equity</td>
+                <td>-7.04%</td>
+              </tr>
+              <tr>
+                <td>Balanced</td>
+                <td>-4.82%</td>
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+        </div>
 <!-- End Section FLEET FINANCING -->
 
-<!-- <div style="text-align:left;" class>
-
-<div class="vc_row-full-width vc_clearfix"></div><div id="SETTLEMENTS" data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1643284945002 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487058892069"><div class="wpb_wrapper"><div class=" ">
-	
-    <div class="mh-heading-wrapper">
-        <h2 class="mh-heading  mh-heading--bottom-separator " style="font-weight:700;">Types of Mutual Fund</h2>
-    </div>
-
-	</div>
-    
-    <div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
-	<div class="wpb_text_column wpb_content_element ">
-		<div class="wpb_wrapper">
-            <h3>1.	Money Market Fund</h3>
-			<p>
-                Its an open ended fund which offers an attractive, regular and stable profit payouts compared to other savings options. It is invested in short term, highly liquid and low risk sector with the object to protect the capital invested. <br/> The fund has no lock in period and one can invest its savings for short term in this fund.</p>
-            <p>
-            <h4>Key Aspects:</h4>
-            <p>
-                <ul>         
-                  <li>Better profit than other avenues   </li>         
-                  <li>Low risk</li>
-                  <li>Less than 90 days maturity</li>
-                  <li>No lock in period – can withdraw anytime if needed</li>
-                 </ul>
-            </p>
-            <h3>2.	Income Fund</h3>
-			<p>
-                It opts for maximum possible preservation of capital and reasonable rate of return via primarily in money market and debt securities  having a good credit rating and liquidity. Its an open end fund not exceeding 4 years.
-            <p>
-            <h4>Key Aspects:</h4>
-            <p>
-                <ul>         
-                  <li>Investment for short to medium term </li>         
-                  <li>Reasonable return </li>
-                  <li>Keeps the investment liquid </li>
-                  <li>Profit from a regular income </li>
-                 </ul>
-            </p>
-            <h3>3.	Equity Fund:</h3>
-			<p>
-              It aims to provide investors with long term capital growth from an actively managed portfolio invested primarily in listed companies in Pakistan. The risk profile of the fund remains moderate to high. Its an open end Fund. Stocks Funds or Equity Funds in Pakistan are considered to be the riskiest asset class since these funds purely invest in stocks of listed companies and the returns are primarily dependent upon individual stock performances and their dividends.
-            <p>
-            <p>
-              Since economic conditions impact stock prices the most, returns of Stock Funds in Pakistan vary from year to year and require long-term capital allocations.
-            </p>
-            <p>
-                A Stock Fund Manager himself decides which stock he wants to have in his portfolio, at what price he wants to buy or sell it, and how much he wants to buy. This means that returns may differ from mutual fund to mutual fund.
-            </p>   
-            <p>
-                According to the rules by SECP, stock funds, at all times, must have at least 70% of their allocation into stocks.
-            </p>
-            <p>
-                A conventional stock mutual fund is allowed to invest in every stock that is listed on the Pakistan Stock Exchange regardless of the industry they operate in, debt levels they have or any their
-                
-            </p>
-		</div>
-	</div>
-</div></div></div>
-
-</div></div></div></div></div>
-<div class="vc_row-full-width vc_clearfix"></div>
-</div></div> -->
-          
+</div></div></div></div>
 </div>
     </div>
 
 
 
-
-
+<!-- Footer -->
 <footer id="footer" class="mh-footer-top mh-background-cover mh-footer-top--dark">
-
-    
         <div class="mh-footer__inner">
             <div class="mh-layout">
                 <div class="mh-footer__row">
-
-                    
-                        <div class="mh-footer__row__column widget mh-footer__row__column--1of2">
-
-                                                            <div class="mh-footer__logo">
+                    <div class="mh-footer__row__column widget mh-footer__row__column--1of2">
+                        <div class="mh-footer__logo">
                                     <img src="{% static 'images/LOGO.png' %}" alt="Screenerpk">
-                                </div>
+                        </div>
                             
-                                                            <div class="mh-footer__text">
-                                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.                                 </div>
+                         <div class="mh-footer__text">
+                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.                                 </div>
                             
                                                             <address class="mh-footer__contact">
                                     <i class="flaticon-pin"></i>
