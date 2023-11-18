@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import BankProduct, Investment
+
 # Create your views here.
 
 
@@ -29,3 +31,18 @@ def term_deposites(request):
 
 def faqs(request):
     return render(request, 'faqs.html')
+
+
+def investment_list(request):
+    # Fetch all banks for the dropdown
+
+    banks = BankProduct.objects.all()
+    products = Investment.PRODUCT_CHOICES
+    investments = Investment.objects.all()
+    context = {
+        'banks': banks,
+        'products': products,
+        'investments': investments,
+    }
+
+    return render(request, 'products.html', context)
