@@ -3,8 +3,6 @@ from django.db import models
 # Create your models here.
 
 
-from django.db import models
-
 class Bank(models.Model):
     name = models.CharField(max_length=100)
     rating = models.CharField(max_length=10, default=None)
@@ -14,13 +12,15 @@ class Bank(models.Model):
     def __str__(self):
         return self.name
 
+
 class Product(models.Model):
-    name = models.CharField(max_length=100, default=None, blank=True, null=True)
+    name = models.CharField(
+        max_length=100, default=None, blank=True, null=True)
     bank = models.ForeignKey(Bank, on_delete=models.CASCADE)
     minimum_balance = models.DecimalField(max_digits=10, decimal_places=2)
     rate_lower_limit = models.DecimalField(max_digits=5, decimal_places=2)
     rate_upper_limit = models.DecimalField(max_digits=5, decimal_places=2)
-    
+
     OCCURRENCES_PER_YEAR = {
         'D': 365,
         'M': 12,
@@ -38,11 +38,14 @@ class Product(models.Model):
         ('A', 'Annually'),
         ('MA', 'Maturity'),
     )
-    profit_payout_freq = models.CharField(max_length=2, choices=profit_payout_freq_choices)
+    profit_payout_freq = models.CharField(
+        max_length=2, choices=profit_payout_freq_choices)
 
-    earning_per_1000_lower_limit = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    earning_per_1000_upper_limit = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
-    
+    earning_per_1000_lower_limit = models.DecimalField(
+        max_digits=10, decimal_places=2, blank=True, null=True)
+    earning_per_1000_upper_limit = models.DecimalField(
+        max_digits=10, decimal_places=2, blank=True, null=True)
+
     premature_encashment = models.CharField(max_length=100)
 
     def calculate_earning_per_1000_limits(self):
@@ -50,9 +53,11 @@ class Product(models.Model):
         occurrences_per_year = self.OCCURRENCES_PER_YEAR[self.profit_payout_freq]
         # earning_per_1000_lower_limit = self.minimum_balance * (self.rate_lower_limit / 1000) * occurrences_per_year
         # earning_per_1000_upper_limit = self.minimum_balance * (self.rate_upper_limit / 1000) * occurrences_per_year
-        
-        earning_per_1000_lower_limit = 1000 * (self.rate_lower_limit/occurrences_per_year)
-        earning_per_1000_upper_limit = 1000 * (self.rate_upper_limit/occurrences_per_year)
+
+        earning_per_1000_lower_limit = 1000 * \
+            (self.rate_lower_limit/occurrences_per_year)
+        earning_per_1000_upper_limit = 1000 * \
+            (self.rate_upper_limit/occurrences_per_year)
 
         return earning_per_1000_lower_limit, earning_per_1000_upper_limit
 
@@ -63,6 +68,46 @@ class Product(models.Model):
         self.earning_per_1000_upper_limit = earning_per_1000_upper_limit
 
         super().save(*args, **kwargs)
-    
+
     def __str__(self):
         return f"Product {self.id} - Bank: {self.bank.name}"
+
+
+class BankProduct(models.Model):
+
+    bank_name = models.CharField(max_length=100, null=False, unique=True)
+    rating_short_term = models.CharField(max_length=10)
+    rating_long_term = models.CharField(max_length=10)
+    # Add your specific choices here
+
+    def __str__(self):
+        return self.bank_name
+
+
+class Investment(models.Model):
+
+    PRODUCT_CHOICES = [
+        ('short_term', 'Short Notice Term Deposit Certificate'),
+        ('one_month', 'One Month Deposite Certificate'),
+        ('three_month', 'Three Months Term Deposite Certificate'),
+        ('six_month', 'Six Months Term Deposite Certificate'),
+        ('one_year', 'One Year Term Deposite Certificate'),
+        ('three_year', 'Three Year Term Deposite Certificate'),
+        ('five_year', 'Five Year Term Deposite Certificate'),
+        ('month_quarter_half', 'Monthly / Quaterly / Half Yearly Term Deposite Certificate'),
+        ('ten_year', 'Ten Year Term Deposite Certificate'),
+        ('recurring', 'Monthly Recurring Deposite Certificate')
+        # Add more banks as needed
+    ]
+
+    bank = models.ForeignKey(BankProduct, on_delete=models.CASCADE)
+    min_investment = models.DecimalField(max_digits=10, decimal_places=2)
+    max_investment = models.DecimalField(max_digits=10, decimal_places=2)
+    product_length = models.CharField(max_length=100)
+    profit_rate = models.DecimalField(max_digits=5, decimal_places=2)
+    payout_frequency = models.CharField(max_length=50)
+    choice_field = models.CharField(
+        max_length=50, choices=PRODUCT_CHOICES, null=False, default=PRODUCT_CHOICES[0])
+
+    def __str__(self):
+        return f"{self.bank.bank_name} - {self.product_length}"
