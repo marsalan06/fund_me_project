@@ -76,8 +76,6 @@ class Product(models.Model):
 class BankProduct(models.Model):
 
     bank_name = models.CharField(max_length=100, null=False, unique=True)
-    rating_short_term = models.CharField(max_length=10)
-    rating_long_term = models.CharField(max_length=10)
     # Add your specific choices here
 
     def __str__(self):
@@ -101,10 +99,12 @@ class Investment(models.Model):
     ]
 
     bank = models.ForeignKey(BankProduct, on_delete=models.CASCADE)
-    min_investment = models.DecimalField(max_digits=10, decimal_places=2)
-    max_investment = models.DecimalField(max_digits=10, decimal_places=2)
+    min_investment = models.DecimalField(max_digits=12, decimal_places=2)
+    max_investment = models.DecimalField(max_digits=12, decimal_places=2)
     product_length = models.CharField(max_length=100)
-    profit_rate = models.DecimalField(max_digits=5, decimal_places=2)
+    rating_short_term = models.CharField(max_length=10, null=True)
+    rating_long_term = models.CharField(max_length=10, null=True)
+    profit_rate = models.CharField(max_length=100)
     payout_frequency = models.CharField(max_length=50)
     choice_field = models.CharField(
         max_length=50, choices=PRODUCT_CHOICES, null=False, default=PRODUCT_CHOICES[0])

@@ -875,16 +875,7 @@ Body {
                                         </span> 		
                                       </a> 	
                                     </li>
-                                    <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
-                                        <a href="/products" class="item_link  disable_icon" tabindex="2"> 		
-                                            <i class></i>  		
-                                            <span class="link_content"> 			
-                                                <span class="link_text"> 				
-                                                    Products
-                                                </span> 		
-                                            </span> 	
-                                        </a> 
-                                    </li> 	
+                                     	
                                   </ul><!-- /.mega_dropdown --> 
                                 </li> 	
                                 <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
@@ -906,6 +897,18 @@ Body {
                                         </span> 		
                                     </span> 	
                                 </a> 
+                                <ul class="mega_dropdown">
+                                    <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                                        <a href="/products" class="item_link  disable_icon" tabindex="2"> 		
+                                            <i class></i>  		
+                                            <span class="link_content"> 			
+                                                <span class="link_text"> 				
+                                                    Products
+                                                </span> 		
+                                            </span> 	
+                                        </a> 
+                                    </li> 	
+                                </ul>
                             </li>
                             <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
                                 <a href="/faq" class="item_link  disable_icon" tabindex="2"> 		
@@ -966,6 +969,8 @@ Body {
             <th>Profit Rate</th>
             <th>Payout Frequency</th>
             <th>Product Time</th>
+            <th>Rating Long Term</th>
+            <th>Rating Short Term</th>
             <!-- Add more table headers as needed -->
         </tr>
     </thead>
@@ -979,6 +984,8 @@ Body {
                 <td>{{ investment.profit_rate }}</td>
                 <td>{{ investment.payout_frequency }}</td>
                 <td>{{investment.choice_field}}</td>
+                <td>{{investment.rating_long_term}}</td>
+                <td>{{investment.rating_short_term}}</td>
                 <!-- Add more table cells as needed -->
             </tr>
         {% endfor %}
