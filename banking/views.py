@@ -46,3 +46,11 @@ def investment_list(request):
     }
 
     return render(request, 'products.html', context)
+
+
+def life_insurance(request):
+    return render(request, 'life_insurance.html')
+
+
+def life_insurance_companies(request):
+    return render(request, 'life_insurance_companies.html')
