@@ -54,3 +54,7 @@ def life_insurance(request):
 
 def life_insurance_companies(request):
     return render(request, 'life_insurance_companies.html')
+
+
+def mutual_fund_companies(request):
+    return render(request, 'mutual_funds_companies.html')

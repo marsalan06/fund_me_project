@@ -13,7 +13,8 @@ urlpatterns = [
     path('products/', views.investment_list, name='investment_list'),
     path('life-insurance/', views.life_insurance, name='life_insurance'),
     path('life-insurance-companies/', views.life_insurance_companies,
-         name='life_insurance_companies')
-
+         name='life_insurance_companies'),
+    path('mutual-fund-companies/', views.mutual_fund_companies,
+         name='mutual_fund_companies')
     # Add more URL patterns here if needed
 ]
