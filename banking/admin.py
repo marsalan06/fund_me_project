@@ -95,6 +95,16 @@ class InsuranceProductResource(resources.ModelResource):
                         'product_benefit_3', 'product_benefit_4', 'product_benefit_5', 'product_benefit_6', 'product_benefit_7',
                         'optional_benefits')
 
+    def before_import_row(self, row, **kwargs):
+        # Check if the bank with the specified name exists, create if not
+        company_name = row.get('company')
+        print("======testing=====", company_name)
+        if company_name:
+            company, created = LifeInsuranceCompany.objects.get_or_create(
+                company_name=company_name)
+            row['company'] = company  # Set the bank object for the investment
+        return super().before_import_row(row, **kwargs)
+
 
 class InsuranceProductInline(admin.TabularInline):
     model = InsuranceProduct
