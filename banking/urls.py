@@ -15,6 +15,9 @@ urlpatterns = [
     path('life-insurance-companies/', views.life_insurance_companies,
          name='life_insurance_companies'),
     path('mutual-fund-companies/', views.mutual_fund_companies,
-         name='mutual_fund_companies')
+         name='mutual_fund_companies'),
+    path('life-insurance-products/', views.life_insurance_products,
+         name='life_insurance_list'),
+
     # Add more URL patterns here if needed
 ]

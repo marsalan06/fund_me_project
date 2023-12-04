@@ -9,7 +9,8 @@ from import_export import fields, resources
 from import_export.admin import ImportExportModelAdmin
 from import_export.widgets import ForeignKeyWidget
 
-from .models import Bank, BankProduct, Investment, Product
+from .models import (BankProduct, InsuranceProduct, Investment,
+                     LifeInsuranceCompany)
 
 # Register your models here.
 
@@ -74,5 +75,46 @@ class InvestmentAdmin(ImportExportModelAdmin):
     list_filter = ['bank__bank_name', 'choice_field']
 
 
+class InsuranceProductResource(resources.ModelResource):
+    # Define a custom field for the company name
+    company_name = fields.Field(column_name='company', attribute='company',
+                                widget=ForeignKeyWidget(LifeInsuranceCompany, 'company_name'))
+
+    class Meta:
+        model = InsuranceProduct
+        fields = ('id', 'company_name', 'rating', 'min_eligibility_age', 'max_eligibility_age', 'max_maturity_age',
+                  'minimum_premium', 'product_length', 'min_policy_term', 'max_policy_term', 'contribution_allocation',
+                  'premium_frequency', 'loan_against_premium_paid', 'free_look_up_period', 'partial_full_withdrawal',
+                  'inflation_protection', 'charges', 'bonus_allocation', 'product_benefit_1', 'product_benefit_2',
+                  'product_benefit_3', 'product_benefit_4', 'product_benefit_5', 'product_benefit_6', 'product_benefit_7',
+                  'optional_benefits')
+        export_order = ('id', 'company_name', 'rating', 'min_eligibility_age', 'max_eligibility_age', 'max_maturity_age',
+                        'minimum_premium', 'product_length', 'min_policy_term', 'max_policy_term', 'contribution_allocation',
+                        'premium_frequency', 'loan_against_premium_paid', 'free_look_up_period', 'partial_full_withdrawal',
+                        'inflation_protection', 'charges', 'bonus_allocation', 'product_benefit_1', 'product_benefit_2',
+                        'product_benefit_3', 'product_benefit_4', 'product_benefit_5', 'product_benefit_6', 'product_benefit_7',
+                        'optional_benefits')
+
+
+class InsuranceProductInline(admin.TabularInline):
+    model = InsuranceProduct
+    extra = 1
+
+
+class LifeInsuranceAdmin(admin.ModelAdmin):
+    inlines = [InsuranceProductInline]
+
+
+class InsuranceProductAdmin(ImportExportModelAdmin):
+
+    resource_class = InsuranceProductResource
+
+    list_display = ['company', 'rating',
+                    'product_length', 'premium_frequency']
+    list_filter = ['company__company_name', 'premium_frequency']
+
+
 admin.site.register(BankProduct, BankProductsAdmin)
 admin.site.register(Investment, InvestmentAdmin)
+admin.site.register(LifeInsuranceCompany, LifeInsuranceAdmin)
+admin.site.register(InsuranceProduct, InsuranceProductAdmin)

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
-from .models import BankProduct, Investment
+from .models import (BankProduct, InsuranceProduct, Investment,
+                     LifeInsuranceCompany)
 
 # Create your views here.
 
@@ -58,3 +59,17 @@ def life_insurance_companies(request):
 
 def mutual_fund_companies(request):
     return render(request, 'mutual_funds_companies.html')
+
+
+def life_insurance_products(request):
+    # Fetch all banks for the dropdown
+
+    life_insurance_companies = LifeInsuranceCompany.objects.all()
+    frequency = InsuranceProduct.FREQUENCY_CHOICES
+    insurance_products = InsuranceProduct.objects.all()
+    context = {
+        'life_insurance_companies': life_insurance_companies,
+        'frequency': frequency,
+        'insurance_products': insurance_products,
+    }
+    return render(request, 'life_insurance_products.html', context)
