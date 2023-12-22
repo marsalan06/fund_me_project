@@ -73,3 +73,7 @@ def life_insurance_products(request):
         'insurance_products': insurance_products,
     }
     return render(request, 'life_insurance_products.html', context)
+
+
+def future_value_calculator(request):
+    return render(request, 'future_value_calculator.html')

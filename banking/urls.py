@@ -18,6 +18,8 @@ urlpatterns = [
          name='mutual_fund_companies'),
     path('life-insurance-products/', views.life_insurance_products,
          name='life_insurance_list'),
+    path('future-value-calculator/', views.future_value_calculator,
+         name='future_value_calculator'),
 
     # Add more URL patterns here if needed
 ]

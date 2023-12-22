@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Investment Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .input-group { margin-bottom: 10px; }
+        .input-label { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Investment Calculator</h2>
+
+    <div class="input-group">
+        <label class="input-label">Initial Investment Value ($): </label>
+        <input type="number" id="initialInvestment" value="1000">
+    </div>
+
+    <div class="input-group">
+        <label class="input-label">Annual Interest Rate (%): </label>
+        <input type="range" id="annualInterestRate" min="0" max="15" value="5">
+        <input type="number" id="annualInterestRateNumber" value="5">
+    </div>
+
+    <div class="input-group">
+        <label class="input-label">Compounding Frequency (per Year): </label>
+        <input type="number" id="compoundingFrequency" value="12">
+    </div>
+
+    <div class="input-group">
+        <label class="input-label">Investment Term (Years): </label>
+        <input type="number" id="investmentTerm" value="5">
+    </div>
+
+    <div class="input-group">
+        <label class="input-label">Extra Deposit Amount ($): </label>
+        <input type="number" id="extraDeposit" value="100">
+    </div>
+
+    <div class="input-group">
+        <label class="input-label">Total Taxes (% on gains): </label>
+        <input type="range" id="taxRate" min="0" max="50" value="15">
+        <input type="number" id="taxRateNumber" value="15">
+    </div>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <h3>Future Value: <span id="futureValue">$0.00</span></h3>
+    <canvas id="investmentChart" width="400" height="200"></canvas>
+
+    <script>
+        var chart; // Global variable for the chart
+
+        function calculate() {
+            var P = parseFloat(document.getElementById('initialInvestment').value);
+            var r = parseFloat(document.getElementById('annualInterestRate').value) / 100;
+            var n = parseFloat(document.getElementById('compoundingFrequency').value);
+            var t = parseInt(document.getElementById('investmentTerm').value);
+            var D = parseFloat(document.getElementById('extraDeposit').value);
+            var taxRate = parseFloat(document.getElementById('taxRate').value) / 100;
+
+            var FV = calculateFutureValue(P, r, n, t, D, taxRate);
+            document.getElementById('futureValue').textContent = `$${FV.toFixed(2)}`;
+
+            // Calculate monthly growth for the chart
+            var monthlyGrowth = calculateMonthlyGrowth(P, r, n, t, D, taxRate);
+            updateChart(monthlyGrowth);
+        }
+
+        function calculateFutureValue(P, r, n, t, D, taxRate) {
+            var compoundInterest = Math.pow(1 + r / n, n * t);
+            var futureValueWithoutTax = P * compoundInterest + D * (compoundInterest - 1) * (n / r);
+            var tax = (futureValueWithoutTax - P) * taxRate; // Tax on the gains
+            return futureValueWithoutTax - tax;
+        }
+
+        function calculateMonthlyGrowth(P, r, n, t, D, taxRate) {
+            var monthlyGrowth = [];
+            var monthlyRate = r / n;
+            for (var month = 1; month <= t * n; month++) {
+                var currentFV = calculateFutureValue(P, monthlyRate, 1, month / n, D, taxRate);
+                monthlyGrowth.push(currentFV);
+            }
+            return monthlyGrowth;
+        }
+
+        function updateChart(data) {
+            if (chart) {
+                chart.destroy();
+            }
+            var ctx = document.getElementById('investmentChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: data.map((_, index) => index + 1),
+                    datasets: [{
+                        label: 'Investment Value Over Time',
+                        data: data,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }]
+                },
+                options: {}
+            });
+        }
+
+        // Sync sliders and number inputs
+        document.getElementById('annualInterestRate').addEventListener('input', function() {
+            document.getElementById('annualInterestRateNumber').value = this.value;
+        });
+        document.getElementById('annualInterestRateNumber').addEventListener('input', function() {
+            document.getElementById('annualInterestRate').value = this.value;
+        });
+
+        document.getElementById('taxRate').addEventListener('input', function() {
+            document.getElementById('taxRateNumber').value = this.value;
+        });
+        document.getElementById('taxRateNumber').addEventListener('input', function() {
+            document.getElementById('taxRate').value = this.value;
+        });
+        window.onload = function() {
+            calculate();
+        };
+    </script>
+</body>
+</html>
