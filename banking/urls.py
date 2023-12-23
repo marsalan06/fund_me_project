@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 
 from . import views
@@ -20,6 +22,11 @@ urlpatterns = [
          name='life_insurance_list'),
     path('future-value-calculator/', views.future_value_calculator,
          name='future_value_calculator'),
+    path('article/', views.upload_article, name='upload_article'),
 
     # Add more URL patterns here if needed
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

@@ -1,6 +1,11 @@
-from django.shortcuts import render
+import io
 
-from .models import (BankProduct, InsuranceProduct, Investment,
+from django.core.files.base import ContentFile
+from django.shortcuts import redirect, render
+from pdf2image import convert_from_bytes
+
+from .forms import ArticleForm
+from .models import (Article, BankProduct, InsuranceProduct, Investment,
                      LifeInsuranceCompany)
 
 # Create your views here.
@@ -77,3 +82,32 @@ def life_insurance_products(request):
 
 def future_value_calculator(request):
     return render(request, 'future_value_calculator.html')
+
+
+def upload_article(request):
+    if request.method == 'POST':
+        form = ArticleForm(request.POST, request.FILES)
+        if form.is_valid():
+            article = form.save(commit=False)
+
+            # Handle PDF preview generation
+            pdf = request.FILES['pdf']
+            pdf_bytes = pdf.read()
+
+            # Convert the first page of the PDF to an image
+            images = convert_from_bytes(pdf_bytes, first_page=1, last_page=1)
+            if images:
+                # Convert the first image to a JPEG
+                image_io = io.BytesIO()
+                images[0].save(image_io, format='JPEG', quality=85)
+                image_io.seek(0)
+                article.preview_image.save(
+                    f'preview_{article.title}.jpg', ContentFile(image_io.getvalue()), save=False)
+
+            article.save()
+            return redirect('upload_article')
+    else:
+        form = ArticleForm()
+
+    articles = Article.objects.all()
+    return render(request, 'article.html', {'form': form, 'articles': articles})

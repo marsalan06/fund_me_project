@@ -164,3 +164,13 @@ class InsuranceProduct(models.Model):
 
     def __str__(self):
         return f"{self.company.company_name} - {self.id}"
+
+
+class Article(models.Model):
+    title = models.CharField(max_length=100)
+    pdf = models.FileField(upload_to='pdfs/')
+    preview_image = models.ImageField(
+        upload_to='previews/', null=True, blank=True)
+
+    def __str__(self):
+        return self.title

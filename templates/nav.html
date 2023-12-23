@@ -1,4 +1,70 @@
 {% load static %}
+<style>
+    <style>
+        body {
+          font-family: 'Helvetica', 'Arial', sans-serif;
+          margin: 0;
+          padding: 0;
+          background: #f7f7f7;
+          color: #444;
+        }
+        .container {
+          max-width: 800px;
+          margin: 20px auto;
+          padding: 20px;
+          background: #fff;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .mh-heading {
+          font-size: 24px;
+          margin-bottom: 10px;
+          padding-bottom: 5px;
+          border-bottom: 2px solid #eaeaea;
+          font-weight: 700;
+        }
+        form {
+          margin-bottom: 20px;
+        }
+        form p {
+          margin: 10px 0;
+        }
+        button {
+          background-color: #5cb85c;
+          color: white;
+          padding: 10px 15px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+        }
+        button:hover {
+          background-color: #4cae4c;
+        }
+        ul {
+          list-style-type: none;
+          padding: 0;
+        }
+        li {
+          margin-bottom: 10px;
+          padding: 10px;
+          background: #f9f9f9;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+        li img {
+          vertical-align: middle;
+          margin-right: 10px;
+        }
+        a {
+          color: #337ab7;
+          text-decoration: none;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+</style>
 <ul id="mega_main_menu_ul" class="mega_main_menu_ul"> 
     <li id="menu-item-3630" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-3630 default_dropdown  drop_to_right submenu_default_width columns1"> 	
         <a href="/" class="item_link  disable_icon" tabindex="1"> 		
@@ -72,18 +138,6 @@
                         </span> 	
                     </a> 
                 </li> 	
-                
-                <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
-                    <a href="/future-value-calculator" class="item_link  disable_icon" tabindex="2"> 		
-                        <i class></i>  		
-                        <span class="link_content"> 			
-                            <span class="link_text"> 				
-                                Future Value Calculator
-                            </span> 		
-                        </span> 	
-                    </a> 
-                </li> 
-
                 <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
                     <a href="/products" class="item_link  disable_icon" tabindex="2"> 		
                         <i class></i>  		
@@ -93,7 +147,17 @@
                             </span> 		
                         </span> 	
                     </a> 
-                </li> 	
+                </li>
+                <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
+                    <a href="/future-value-calculator" class="item_link  disable_icon" tabindex="2"> 		
+                        <i class></i>  		
+                        <span class="link_content"> 			
+                            <span class="link_text"> 				
+                                Future Value Calculator
+                            </span> 		
+                        </span> 	
+                    </a> 
+                </li>  	
             </ul> 
         </li>
         <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
@@ -140,11 +204,11 @@
             </ul>  
         </li>
         <li id="menu-item-3632" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1"> 	
-        <a href="/calculator" class="item_link  disable_icon" tabindex="2"> 		
+        <a href="/article" class="item_link  disable_icon" tabindex="2"> 		
             <i class></i>  		
             <span class="link_content"> 			
                 <span class="link_text"> 				
-                    Calculator 			
+                    Articles 			
                 </span> 		
             </span> 	
         </a> 

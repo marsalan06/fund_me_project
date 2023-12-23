@@ -8,7 +8,7 @@ from import_export import fields, resources
 from import_export.admin import ImportExportModelAdmin
 from import_export.widgets import ForeignKeyWidget
 
-from .models import (BankProduct, InsuranceProduct, Investment,
+from .models import (Article, BankProduct, InsuranceProduct, Investment,
                      LifeInsuranceCompany)
 
 # Register your models here.
@@ -127,3 +127,4 @@ admin.site.register(BankProduct, BankProductsAdmin)
 admin.site.register(Investment, InvestmentAdmin)
 admin.site.register(LifeInsuranceCompany, LifeInsuranceAdmin)
 admin.site.register(InsuranceProduct, InsuranceProductAdmin)
+admin.site.register(Article)
