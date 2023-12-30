@@ -1,4 +1,5 @@
 import csv
+import json
 
 from django.contrib import admin
 from django.http import HttpResponse
@@ -9,7 +10,7 @@ from import_export.admin import ImportExportModelAdmin
 from import_export.widgets import ForeignKeyWidget
 
 from .models import (Article, BankProduct, InsuranceProduct, Investment,
-                     LifeInsuranceCompany)
+                     IslamicFund, LifeInsuranceCompany)
 
 # Register your models here.
 
@@ -122,6 +123,36 @@ class InsuranceProductAdmin(ImportExportModelAdmin):
                     'product_length', 'premium_frequency']
     list_filter = ['company__company_name', 'premium_frequency']
 
+
+class IslamicFundResource(resources.ModelResource):
+    class Meta:
+        model = IslamicFund
+        # Exclude the JSON field if you don't want it in the export
+        # exclude = ('ytd_as_of_date',)
+
+
+class IslamicFundAdmin(ImportExportModelAdmin):
+    resource_class = IslamicFundResource
+    list_display = ('asset_management_company', 'subsidiary_of', 'fund_name', 'fund_type',
+                    'launch_date', 'fund_size', 'rating', 'risk', 'minimum_investment_in_pkr',
+                    'performance_past_3_years', 'ytd_as_of_date',
+                    'front_back_end_loading_fee', 'management_fee')
+
+    # def get_ytd_2020(self, obj):
+    #     return json.loads(obj.ytd_as_of_date).get('2020', '-')
+    # get_ytd_2020.short_description = 'YTD 2020'
+
+    # def get_ytd_2021(self, obj):
+    #     return json.loads(obj.ytd_as_of_date).get('2021', '-')
+    # get_ytd_2021.short_description = 'YTD 2021'
+
+    # def get_ytd_2022(self, obj):
+    #     return json.loads(obj.ytd_as_of_date).get('2022', '-')
+    # get_ytd_2022.short_description = 'YTD 2022'
+
+
+# Register your model with the custom admin class
+admin.site.register(IslamicFund, IslamicFundAdmin)
 
 admin.site.register(BankProduct, BankProductsAdmin)
 admin.site.register(Investment, InvestmentAdmin)

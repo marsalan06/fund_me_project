@@ -6,7 +6,7 @@ from pdf2image import convert_from_bytes
 
 from .forms import ArticleForm
 from .models import (Article, BankProduct, InsuranceProduct, Investment,
-                     LifeInsuranceCompany)
+                     IslamicFund, LifeInsuranceCompany)
 
 # Create your views here.
 
@@ -23,8 +23,8 @@ def calculator(request):
     return render(request, 'calculator.html')
 
 
-def islamic(request):
-    return render(request, 'islamic.html')
+# def islamic(request):
+#     return render(request, 'islamic.html')
 
 
 def conventional(request):
@@ -111,3 +111,19 @@ def upload_article(request):
 
     articles = Article.objects.all()
     return render(request, 'article.html', {'form': form, 'articles': articles})
+
+
+def islamic(request):
+    funds = IslamicFund.objects.all()
+    # Extracting additional columns from ytd_as_of_date
+    additional_columns = set()
+    for fund in funds:
+        if fund.ytd_as_of_date:
+            additional_columns.update(fund.ytd_as_of_date.keys())
+
+    context = {
+        'funds': funds,
+        'additional_columns': sorted(additional_columns)
+    }
+    print("-------datrat----", context)
+    return render(request, 'islamic.html', context)

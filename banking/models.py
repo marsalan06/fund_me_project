@@ -174,3 +174,23 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class IslamicFund(models.Model):
+
+    asset_management_company = models.CharField(max_length=100)
+    subsidiary_of = models.CharField(max_length=100)
+    fund_name = models.CharField(max_length=100)
+    fund_type = models.CharField(max_length=50)
+    launch_date = models.DateField(null=True, blank=True)  # Format: YYYY-MM-DD
+    fund_size = models.CharField(max_length=20)
+    rating = models.CharField(max_length=10)
+    risk = models.CharField(max_length=50)
+    minimum_investment_in_pkr = models.CharField(max_length=50)
+    performance_past_3_years = models.CharField(max_length=100)
+    ytd_as_of_date = models.JSONField()
+    front_back_end_loading_fee = models.CharField(max_length=50)
+    management_fee = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.fund_name
