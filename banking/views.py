@@ -5,8 +5,8 @@ from django.shortcuts import redirect, render
 from pdf2image import convert_from_bytes
 
 from .forms import ArticleForm
-from .models import (Article, BankProduct, InsuranceProduct, Investment,
-                     IslamicFund, LifeInsuranceCompany)
+from .models import (Article, BankProduct, ConventionalFund, InsuranceProduct,
+                     Investment, IslamicFund, LifeInsuranceCompany)
 
 # Create your views here.
 
@@ -27,8 +27,8 @@ def calculator(request):
 #     return render(request, 'islamic.html')
 
 
-def conventional(request):
-    return render(request, 'conventional.html')
+# def conventional(request):
+#     return render(request, 'conventional.html')
 
 
 def term_deposites(request):
@@ -125,5 +125,19 @@ def islamic(request):
         'funds': funds,
         'additional_columns': sorted(additional_columns)
     }
-    print("-------datrat----", context)
     return render(request, 'islamic.html', context)
+
+
+def conventional(request):
+    funds = ConventionalFund.objects.all()
+    # Extracting additional columns from ytd_as_of_date
+    additional_columns = set()
+    for fund in funds:
+        if fund.ytd_as_of_date:
+            additional_columns.update(fund.ytd_as_of_date.keys())
+
+    context = {
+        'funds': funds,
+        'additional_columns': sorted(additional_columns)
+    }
+    return render(request, 'conventional.html', context)

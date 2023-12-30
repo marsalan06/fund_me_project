@@ -9,8 +9,8 @@ from import_export import fields, resources
 from import_export.admin import ImportExportModelAdmin
 from import_export.widgets import ForeignKeyWidget
 
-from .models import (Article, BankProduct, InsuranceProduct, Investment,
-                     IslamicFund, LifeInsuranceCompany)
+from .models import (Article, BankProduct, ConventionalFund, InsuranceProduct,
+                     Investment, IslamicFund, LifeInsuranceCompany)
 
 # Register your models here.
 
@@ -152,8 +152,23 @@ class IslamicFundAdmin(ImportExportModelAdmin):
 
 
 # Register your model with the custom admin class
-admin.site.register(IslamicFund, IslamicFundAdmin)
 
+
+class ConventionalFundResource(resources.ModelResource):
+    class Meta:
+        model = ConventionalFund
+
+
+class ConventionalFundAdmin(ImportExportModelAdmin):
+    resource_class = ConventionalFundResource
+    list_display = ('asset_management_company', 'subsidiary_of', 'fund_name', 'fund_type',
+                    'launch_date', 'fund_size', 'rating', 'risk', 'minimum_investment_in_pkr',
+                    'performance_past_3_years', 'ytd_as_of_date',
+                    'front_back_end_loading_fee', 'management_fee')
+
+
+admin.site.register(IslamicFund, IslamicFundAdmin)
+admin.site.register(ConventionalFund, ConventionalFundAdmin)
 admin.site.register(BankProduct, BankProductsAdmin)
 admin.site.register(Investment, InvestmentAdmin)
 admin.site.register(LifeInsuranceCompany, LifeInsuranceAdmin)

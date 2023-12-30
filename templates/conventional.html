@@ -1,4 +1,5 @@
 {%load static%}
+{% load custom_filters %}
 <!DOCTYPE html><html lang="en-US"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -926,346 +927,51 @@ At INVESTEX our aim is to empower you to make a smart and well informed decision
         <!-- Table Start -->
         <!-- overflow-y: scroll; height: 100px; -->
         <div style="padding: 50px;">
-            <table class="table table-scrollable fixed_header">
-                <thead class="table-dark">
-                  <tr>
-                    <th scope="col">S.no.</th>
-                    <th scope="col">Asset Management Company</th>
-                    <th scope="col">Subsidiary of</th>
-                    <th scope="col">Fund Name</th>
-                    <th scope="col">Fund Type</th>
-                    <th scope="col">Launch Date</th>
-                    <th scope="col">Fund Size</th>
-                    <th scope="col">Rating</th>
-                    <th scope="col">Risk</th>
-                    <th scope="col">Minimum Investment in PKR</th>
-                    <th scope="col">Performance in the past 3 years</th>
-                    <th scope="col">YTD as of Oct.09,2023</th>
-                    <th scope="col">Front & Back end loading fee</th>
-                    <th scope="col">Management Name</th>       
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>NAFA</td>
-                    <td>NBP</td>
-                    <td>NBP Gov't Securities Liquid Fund</td>
-                    <td>Money Market</td>
-                    <td>May, 2009</td>
-                    <td>1.23B</td>
-                    <td>AAA(f)</td>
-                    <td>Low</td>
-                    <td></td>
-                    <td>12.47% 6.41% 11.51%</td>
-                    <td>21.50%</td>
-                    <td>1% & Nil</td>
-                    <td>1% of net income</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>NAFA</td>
-                    <td>NBP</td>
-                    <td>NBP Money Market Funds</td>
-                    <td>Money Market</td>
-                    <td>Feb., 2012</td>
-                    <td>59.08B</td>
-                    <td>AA(f)</td>
-                    <td>Low</td>
-                    <td>10,000</td>
-                    <td>10.77% 6.69% 11.41%</td>
-                    <td>21.25%</td>
-                    <td>1% & Nil</td>
-                    <td>1%</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Lakson Investments</td>
-                    <td>Lakson Group</td>
-                    <td>Lakson Money Market Fund</td>
-                    <td>Money Market</td>
-                    <td>Nov., 2009</td>
-                    <td>18.49B</td>
-                    <td>AA+(f)</td>
-                    <td>Low</td>
-                    <td></td>
-                    <td>12.72% 6.88% 11.05%</td>
-                    <td>21.57%</td>
-                    <td>NIL</td>
-                    <td>0.10%</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Alfalah Securities</td>
-                    <td>Bank Alfalah</td>
-                    <td>Alfalah GHP Cash Fund</td>
-                    <td>Money Market</td>
-                    <td>Mar., 2010</td>
-                    <td>11.62B</td>
-                    <td>AA(f)</td>
-                    <td>Low</td>
-                    <td>500</td>
-                    <td>12.64% 7.01% 11.01%</td>
-                    <td>21.20%</td>
-                    <td>NIL</td>
-                    <td>0.75%</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">5</th>
-                    <td>Al Habib Asset Management</td>
-                    <td>BAHL</td>
-                    <td>Al Habib Cash Fund</td>
-                    <td>Money Market</td>
-                    <td>Mar., 2011</td>
-                    <td>22.91B</td>
-                    <td>AA+(f)</td>
-                    <td>Very Low</td>
-                    <td></td>
-                    <td>12.94% 6.84% 10.17%</td>
-                    <td>21.40%</td>
-                    <td>2%</td>
-                    <td>10% of gross earnings</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">6</th>
-                    <td>AWT Investment</td>
-                    <td>ACB</td>
-                    <td>Askari Sovereign Cash Fund</td>
-                    <td>Money Market</td>
-                    <td></td>
-                    <td></td>
-                    <td>AA+(f)</td>
-                    <td>Low</td>
-                    <td></td>
-                    <td>11.98% 6.80% 10.54%</td>
-                    <td>22.17%</td>
-                    <td>NIL</td>
-                    <td>NIL</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">7</th>
-                    <td>MCB Arif Habib</td>
-                    <td>MCB</td>
-                    <td>MCB Cash Management Fund</td>
-                    <td>Money Market</td>
-                    <td>Mar., 2008</td>
-                    <td>5.709B</td>
-                    <td>AA+(f)</td>
-                    <td>Low</td>
-                    <td></td>
-                    <td>11.98% 6.98% 10.87%</td>
-                    <td>21.20%</td>
-                    <td>NIL</td>
-                    <td>0.50%</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">8</th>
-                    <td>HBL Asset Management</td>
-                    <td>HBL</td>
-                    <td>HBL Cash Fund</td>
-                    <td>Income Fund</td>
-                    <td>Dec., 2010</td>
-                    <td>36.06B</td>
-                    <td>AA+(f)</td>
-                    <td>Low</td>
-                    <td>1000</td>
-                    <td>12.83% 6.97% 10.97%</td>
-                    <td>21.35%</td>
-                    <td>1% & Nil</td>
-                    <td>NIL</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">9</th>
-                    <td>HBL Asset Management</td>
-                    <td>HBL</td>
-                    <td>HBL Income Fund</td>
-                    <td>Income Fund</td>
-                    <td>Feb., 2007</td>
-                    <td>4.186B</td>
-                    <td>A+(f)</td>
-                    <td>Low</td>
-                    <td>1000</td>
-                    <td>13.28% 7.16% 11.43%</td>
-                    <td>30.21%</td>
-                    <td>1% & Nil</td>
-                    <td>NIL</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">10</th>
-                    <td>Faysal Asset Management Ltd.</td>
-                    <td>Faysal Bank</td>
-                    <td>Faysal Financial Sector Opportunity Fund</td>
-                    <td>Income Fund</td>
-                    <td>Jul., 2013</td>
-                    <td>3.613B</td>
-                    <td>AA-(f)</td>
-                    <td>Medium</td>
-                    <td></td>
-                    <td>12.91% 6.77% 10.90%</td>
-                    <td>22.71%</td>
-                    <td>2.10 % Nil</td>
-                    <td>0.50%</td>
-                  </tr>          
-                  <tr>
-                    <th scope="row">11</th>
-                    <td>NAFA</td>
-                    <td>NBP</td>
-                    <td>NBP Financial Sector Income Fund</td>
-                    <td>Income Fund</td>
-                    <td>Oct., 2011</td>
-                    <td>346M</td>
-                    <td>A</td>
-                    <td>High</td>
-                    <td>10,000</td>
-                    <td>13.46% 7.76% 10.70%</td>
-                    <td>21.71%</td>
-                    <td>3% & Nil</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">12</th>
-                    <td>NIT</td>
-                    <td>NIT</td>
-                    <td>NIT Income Fund</td>
-                    <td>Income Fund</td>
-                    <td>Feb., 2010</td>
-                    <td>2.91B</td>
-                    <td>AA-(f)</td>
-                    <td>Medium</td>
-                    <td>1000-5000</td>
-                    <td>12.58% 6.37% 10.64%</td>
-                    <td>21.98%</td>
-                    <td>1.83% & Nil</td>
-                    <td>1.50%</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">13</th>
-                    <td>NAFA</td>
-                    <td>NBP</td>
-                    <td>NBP Gov't Securities Savings Fund</td>
-                    <td>Equity</td>
-                    <td></td>
-                    <td>39.20B</td>
-                    <td>A+(f)</td>
-                    <td>Medium</td>
-                    <td></td>
-                    <td>21.16% 5.29% 10.32%</td>
-                    <td>22.82%</td>
-                    <td>1.44% & Nil</td>
-                    <td>10% of earnings</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">14</th>
-                    <td>UBL Funds</td>
-                    <td>UBL</td>
-                    <td>UBL Savings Plan V</td>
-                    <td>Equity</td>
-                    <td>Sept., 2019</td>
-                    <td>1.79B</td>
-                    <td>NOT GIVEN</td>
-                    <td>Low</td>
-                    <td></td>
-                    <td>16.31% 7.26% 64.81%</td>
-                    <td>22.98%</td>
-                    <td>1% and Nil</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">15</th>
-                    <td>ABL Asset Management</td>
-                    <td>ABL</td>
-                    <td>ABL Special Savings Fund Plan III</td>
-                    <td>Equity</td>
-                    <td>Aug., 2012</td>
-                    <td>6.141B</td>
-                    <td>NOT GIVEN</td>
-                    <td>Low</td>
-                    <td>500</td>
-                    <td>10.09% 6.79% 10.09%</td>
-                    <td>5.88%</td>
-                    <td>2% & Nil</td>
-                    <td>0.25%</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">16</th>
-                    <td>MCB Arif Habib Funds</td>
-                    <td>MCB</td>
-                    <td>Pakistan Income Enhancement Fund</td>
-                    <td>Equity</td>
-                    <td>Aug., 2008</td>
-                    <td>870M</td>
-                    <td>A+(f)</td>
-                    <td>High</td>
-                    <td></td>
-                    <td>14.41% 7.32% 10.42%</td>
-                    <td>19.58%</td>
-                    <td>2% 3%</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">17</th>
-                    <td>UBL Funds</td>
-                    <td>UBL</td>
-                    <td>UBL Growth & Income Fund</td>
-                    <td>Equity</td>
-                    <td></td>
-                    <td>1.434B</td>
-                    <td>A+(f)</td>
-                    <td>High</td>
-                    <td></td>
-                    <td>13.58% 10.85% 9.67%</td>
-                    <td>30.01%</td>
-                    <td>1.5% and Nil</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">18</th>
-                    <td>NAFA</td>
-                    <td>NBP</td>
-                    <td>NBP Balanced Fund</td>
-                    <td>Equity-Balanced</td>
-                    <td>Jan., 2007</td>
-                    <td>7.21B</td>
-                    <td>AMI by PACRA</td>
-                    <td>High</td>
-                    <td>10,000</td>
-                    <td>7.45% 19.27% 6.30%</td>
-                    <td>9.95%</td>
-                    <td>3% and Nil</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row">19</th>
-                    <td>MCB Arif Habib Funds</td>
-                    <td>MCB</td>
-                    <td>Pakistan Capital Market Fund</td>
-                    <td>Equity-Balanced</td>
-                    <td>Jan., 2004</td>
-                    <td>382M</td>
-                    <td>AMI by PACRA</td>
-                    <td>High</td>
-                    <td>500</td>
-                    <td>4.90% 31.10% -11.25%</td>
-                    <td>12.52%</td>
-                    <td>NIL</td>
-                    <td>1.50%</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">20</th>
-                    <td>JS Investments</td>
-                    <td>JS Group</td>
-                    <td>Unit Trust of Pakistan</td>
-                    <td>Equity-Balanced</td>
-                    <td>Nov., 2009</td>
-                    <td>54.679B</td>
-                    <td>AM2 by PACRA</td>
-                    <td>High</td>
-                    <td>one unit</td>
-                    <td>3.30% 25.03% 12.65%</td>
-                    <td>9.16%</td>
-                    <td>3% and Nil</td>
-                    <td></td>
-                  </tr>
+          <table id="conventionalfundsTable" class="table">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">S.no.</th>
+                <th scope="col">AMC name</th>
+                <th scope="col">Subsidiary of</th>
+                <th scope="col">Fund Name</th>
+                <th scope="col">Launch date</th>
+                <th scope="col">Fund Size</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Risk</th>
+                <th scope="col">Minimum *</th>
+                <th scope="col">Performance in the past 3 years</th>
+                {% for col in additional_columns %}
+                <th>YTD {{ col }}</th>
+                {% endfor %}
+                <!-- <th scope="col">Return as of 2020</th>
+                <th scope="col">Return as of 2021</th>
+                <th scope="col">Return as of 2022</th> -->
+                <th scope="col">Fund Type</th>
+                <th scope="col">Front & Back end Loading</th>
+                <th scope="col">Management Fee</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for fund in funds %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{ fund.asset_management_company }}</td>
+                <td>{{ fund.subsidiary_of }}</td>
+                <td>{{ fund.fund_name }}</td>
+                <td>{{fund.launch_date}}</td>
+                <td>{{fund.fund_size}}</td>
+                <td>{{fund.rating}}</td>
+                <td>{{fund.risk}}</td>
+                <td>{{fund.minimum_investment_in_pkr}}</td>
+                <td>{{fund.performance_past_3_years}}</td>
+                {% for col in additional_columns %}
+                <td>{{ fund.ytd_as_of_date|get_item:col|default_if_none:"" }}</td>
+                {% endfor %}
+                <td>{{fund.fund_type}}</td>
+                <td>{{fund.front_back_end_loading_fee}}</td>
+                <td>{{fund.management_fee}}</td>
+              </tr>
+              {% endfor %}
                 </tbody>
               </table>
               
@@ -1472,5 +1178,11 @@ var MyHome = {"site":"https:\/\/finrates.pk","compare":"1","api":"https:\/\/finr
 		if (window.RS_MODULES.checkMinimal!==undefined) { window.RS_MODULES.checkMinimal();};
 	</script>
 <script type="text/javascript">(function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async=true;; po.src = 'https://finrates.pk/wp-content/plugins/easy-social-share-buttons3/assets/js/essb-core.min.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();</script><script type="text/javascript"></script>
-
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready( function () {
+      $('#conventionalfundsTable').DataTable();
+  });
+</script>
 </body></html>
