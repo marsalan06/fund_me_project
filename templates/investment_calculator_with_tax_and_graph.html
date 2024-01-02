@@ -7,20 +7,156 @@
         body { font-family: Arial, sans-serif; }
         .input-group { margin-bottom: 10px; }
         .input-label { margin-right: 10px; }
+        main {
+	display: flex;
+	flex-direction: column;
+	gap: 2.2em;
+	padding: 1em 0;
+}
+
+
+
+/* === range theme and appearance === */
+input[type="range"] {
+	font-size: 1.5rem;
+	width: 10.5em;
+}
+
+input[type="range"] {
+	color: #3f51b5;
+	--thumb-height: 1.125em;
+	--track-height: 0.125em;
+	--track-color: rgba(0, 0, 0, 0.2);
+	--brightness-hover: 180%;
+	--brightness-down: 80%;
+	--clip-edges: 0.125em;
+}
+
+input[type="range"].win10-thumb {
+	color: #2b2d42;
+
+	--thumb-height: 1.375em;
+	--thumb-width: 0.5em;
+	--clip-edges: 0.0125em;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		background-color: #000;
+	}
+
+	html::before {
+		background: radial-gradient(circle at center, #101112, #000);
+	}
+
+	input[type="range"] {
+		color: #f07167;
+		--track-color: rgba(255, 255, 255, 0.1);
+	}
+
+	input[type="range"].win10-thumb {
+		color: #3a86ff;
+	}
+}
+
+/* === range commons === */
+input[type="range"] {
+	position: relative;
+	background: #fff0;
+	overflow: hidden;
+}
+
+input[type="range"]:active {
+	cursor: grabbing;
+}
+
+input[type="range"]:disabled {
+	filter: grayscale(1);
+	opacity: 0.3;
+	cursor: not-allowed;
+}
+
+/* === WebKit specific styles === */
+input[type="range"],
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	transition: all ease 100ms;
+	height: var(--thumb-height);
+}
+
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+	position: relative;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	--thumb-radius: calc((var(--thumb-height) * 0.5) - 1px);
+	--clip-top: calc((var(--thumb-height) - var(--track-height)) * 0.5 - 0.5px);
+	--clip-bottom: calc(var(--thumb-height) - var(--clip-top));
+	--clip-further: calc(100% + 1px);
+	--box-fill: calc(-100vmax - var(--thumb-width, var(--thumb-height))) 0 0
+		100vmax currentColor;
+
+	width: var(--thumb-width, var(--thumb-height));
+	background: linear-gradient(currentColor 0 0) scroll no-repeat left center /
+		50% calc(var(--track-height) + 1px);
+	background-color: currentColor;
+	box-shadow: var(--box-fill);
+	border-radius: var(--thumb-width, var(--thumb-height));
+
+	filter: brightness(100%);
+	clip-path: polygon(
+		100% -1px,
+		var(--clip-edges) -1px,
+		0 var(--clip-top),
+		-100vmax var(--clip-top),
+		-100vmax var(--clip-bottom),
+		0 var(--clip-bottom),
+		var(--clip-edges) 100%,
+		var(--clip-further) var(--clip-further)
+	);
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+	filter: brightness(var(--brightness-hover));
+	cursor: grab;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+	filter: brightness(var(--brightness-down));
+	cursor: grabbing;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+	background: linear-gradient(var(--track-color) 0 0) scroll no-repeat center /
+		100% calc(var(--track-height) + 1px);
+}
+
+
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <h2>Investment Calculator</h2>
-
-    <div class="input-group">
-        <label class="input-label">Initial Investment Value ($): </label>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" style="width: 30rem;">
+        <div class="card-header" style="border: 1px solid black; padding: 20px; text-align: center;">
+        <h2>Investment Calculator</h2>
+        </div>
+        <div class="card-body" style="border: 1px solid black; padding: 20px;">
+      <!-- <h5 class="card-title">Card title</h5> -->
+      <div class="input-group">
+        <!-- <label class="input-label">Initial Investment Value ($): </label> -->
+        <h5 class="card-title">Initial Investment Value ($):</h5> 
         <input type="number" id="initialInvestment" value="1000">
     </div>
 
     <div class="input-group">
         <label class="input-label">Annual Interest Rate (%): </label>
-        <input type="range" id="annualInterestRate" min="0" max="15" value="5">
-        <input type="number" id="annualInterestRateNumber" value="5">
+        <!-- <input type="range" id="annualInterestRate" min="0" max="15" value="5" class="form-range"/> -->
+        <input type="range" id="annualInterestRate" min="0" max="100" value="5" step="5" />
+        <input type="number" id="annualInterestRateNumber" value="5" class="mt-2"/>
     </div>
 
     <div class="input-group">
@@ -40,88 +176,96 @@
 
     <div class="input-group">
         <label class="input-label">Total Taxes (% on gains): </label>
-        <input type="range" id="taxRate" min="0" max="50" value="15">
-        <input type="number" id="taxRateNumber" value="15">
+        <input type="range" id="taxRate" min="0" max="100" value="15">
+        <input type="number" id="taxRateNumber" value="15" class="mt-2">
     </div>
 
-    <button onclick="calculate()">Calculate</button>
+    <!-- <button class="btn btn-dark" onclick="calculate()">Calculate</button> -->
+    <button type="button" class="btn btn-dark mt-3" onclick="calculate()" style="width: 27.3rem;background-color: ">Calculate</button>
 
-    <h3>Future Value: <span id="futureValue">$0.00</span></h3>
-    <canvas id="investmentChart" width="400" height="200"></canvas>
+    <!-- <h3>Future Value: <span id="futureValue">$0.00</span></h3>
+    <canvas id="investmentChart" width="400" height="200"></canvas> -->
 
-    <script>
-        var chart; // Global variable for the chart
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card" style="width: 38rem;">
+        <div class="card-header" style="border: 1px solid black; padding: 20px; text-align: center;">
+            <h3>Future Value: <span id="futureValue">$0.00</span></h3>
+            </div>
+        <div class="card-body" style="border: 1px solid black; padding: 20px;">
+          <canvas id="investmentChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        function calculate() {
-            var P = parseFloat(document.getElementById('initialInvestment').value);
-            var r = parseFloat(document.getElementById('annualInterestRate').value) / 100;
-            var n = parseFloat(document.getElementById('compoundingFrequency').value);
-            var t = parseInt(document.getElementById('investmentTerm').value);
-            var D = parseFloat(document.getElementById('extraDeposit').value);
-            var taxRate = parseFloat(document.getElementById('taxRate').value) / 100;
-
-            var FV = calculateFutureValue(P, r, n, t, D, taxRate);
-            document.getElementById('futureValue').textContent = `$${FV.toFixed(2)}`;
-
-            // Calculate monthly growth for the chart
-            var monthlyGrowth = calculateMonthlyGrowth(P, r, n, t, D, taxRate);
-            updateChart(monthlyGrowth);
+<script>
+    var chart; // Global variable for the chart
+    function calculate() {
+        var P = parseFloat(document.getElementById('initialInvestment').value);
+        var r = parseFloat(document.getElementById('annualInterestRate').value) / 100;
+        var n = parseFloat(document.getElementById('compoundingFrequency').value);
+        var t = parseInt(document.getElementById('investmentTerm').value);
+        var D = parseFloat(document.getElementById('extraDeposit').value);
+        var taxRate = parseFloat(document.getElementById('taxRate').value) / 100;
+        var FV = calculateFutureValue(P, r, n, t, D, taxRate);
+        document.getElementById('futureValue').textContent = `$${FV.toFixed(2)}`;
+        // Calculate monthly growth for the chart
+        var monthlyGrowth = calculateMonthlyGrowth(P, r, n, t, D, taxRate);
+        updateChart(monthlyGrowth);
+    }
+    function calculateFutureValue(P, r, n, t, D, taxRate) {
+        var compoundInterest = Math.pow(1 + r / n, n * t);
+        var futureValueWithoutTax = P * compoundInterest + D * (compoundInterest - 1) * (n / r);
+        var tax = (futureValueWithoutTax - P) * taxRate; // Tax on the gains
+        return futureValueWithoutTax - tax;
+    }
+    function calculateMonthlyGrowth(P, r, n, t, D, taxRate) {
+        var monthlyGrowth = [];
+        var monthlyRate = r / n;
+        for (var month = 1; month <= t * n; month++) {
+            var currentFV = calculateFutureValue(P, monthlyRate, 1, month / n, D, taxRate);
+            monthlyGrowth.push(currentFV);
         }
-
-        function calculateFutureValue(P, r, n, t, D, taxRate) {
-            var compoundInterest = Math.pow(1 + r / n, n * t);
-            var futureValueWithoutTax = P * compoundInterest + D * (compoundInterest - 1) * (n / r);
-            var tax = (futureValueWithoutTax - P) * taxRate; // Tax on the gains
-            return futureValueWithoutTax - tax;
+        return monthlyGrowth;
+    }
+    function updateChart(data) {
+        if (chart) {
+            chart.destroy();
         }
-
-        function calculateMonthlyGrowth(P, r, n, t, D, taxRate) {
-            var monthlyGrowth = [];
-            var monthlyRate = r / n;
-            for (var month = 1; month <= t * n; month++) {
-                var currentFV = calculateFutureValue(P, monthlyRate, 1, month / n, D, taxRate);
-                monthlyGrowth.push(currentFV);
-            }
-            return monthlyGrowth;
-        }
-
-        function updateChart(data) {
-            if (chart) {
-                chart.destroy();
-            }
-            var ctx = document.getElementById('investmentChart').getContext('2d');
-            chart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: data.map((_, index) => index + 1),
-                    datasets: [{
-                        label: 'Investment Value Over Time',
-                        data: data,
-                        borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1
-                    }]
-                },
-                options: {}
-            });
-        }
-
-        // Sync sliders and number inputs
-        document.getElementById('annualInterestRate').addEventListener('input', function() {
-            document.getElementById('annualInterestRateNumber').value = this.value;
+        var ctx = document.getElementById('investmentChart').getContext('2d');
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: data.map((_, index) => index + 1),
+                datasets: [{
+                    label: 'Investment Value Over Time',
+                    data: data,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            },
+            options: {}
         });
-        document.getElementById('annualInterestRateNumber').addEventListener('input', function() {
-            document.getElementById('annualInterestRate').value = this.value;
-        });
-
-        document.getElementById('taxRate').addEventListener('input', function() {
-            document.getElementById('taxRateNumber').value = this.value;
-        });
-        document.getElementById('taxRateNumber').addEventListener('input', function() {
-            document.getElementById('taxRate').value = this.value;
-        });
-        window.onload = function() {
-            calculate();
-        };
-    </script>
+    }
+    // Sync sliders and number inputs
+    document.getElementById('annualInterestRate').addEventListener('input', function() {
+        document.getElementById('annualInterestRateNumber').value = this.value;
+    });
+    document.getElementById('annualInterestRateNumber').addEventListener('input', function() {
+        document.getElementById('annualInterestRate').value = this.value;
+    });
+    document.getElementById('taxRate').addEventListener('input', function() {
+        document.getElementById('taxRateNumber').value = this.value;
+    });
+    document.getElementById('taxRateNumber').addEventListener('input', function() {
+        document.getElementById('taxRate').value = this.value;
+    });
+    window.onload = function() {
+        calculate();
+    };
+</script>
 </body>
 </html>
