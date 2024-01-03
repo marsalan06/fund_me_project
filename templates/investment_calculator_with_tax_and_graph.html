@@ -148,36 +148,36 @@ input[type="range"]::-webkit-slider-runnable-track {
       <!-- <h5 class="card-title">Card title</h5> -->
       <div class="input-group">
         <!-- <label class="input-label">Initial Investment Value ($): </label> -->
-        <h5 class="card-title">Initial Investment Value ($):</h5> 
+        <h5 class="card-title"> Investment Amount :</h5> 
         <input type="number" id="initialInvestment" value="1000">
     </div>
 
     <div class="input-group">
-        <label class="input-label">Annual Interest Rate (%): </label>
+        <label class="input-label">Profit Rate (% Per Annum): </label>
         <!-- <input type="range" id="annualInterestRate" min="0" max="15" value="5" class="form-range"/> -->
-        <input type="range" id="annualInterestRate" min="0" max="100" value="5" step="5" />
+        <input type="range" id="annualInterestRate" min="0" max="100" value="5" step="1" />
         <input type="number" id="annualInterestRateNumber" value="5" class="mt-2"/>
     </div>
 
     <div class="input-group">
-        <label class="input-label">Compounding Frequency (per Year): </label>
+        <label class="input-label">Frequency (Years): </label>
         <input type="number" id="compoundingFrequency" value="12">
     </div>
 
     <div class="input-group">
-        <label class="input-label">Investment Term (Years): </label>
+        <label class="input-label">Length Of Investment (Years): </label>
         <input type="number" id="investmentTerm" value="5">
     </div>
 
-    <div class="input-group">
+    <!-- <div class="input-group">
         <label class="input-label">Extra Deposit Amount ($): </label>
         <input type="number" id="extraDeposit" value="100">
-    </div>
+    </div> -->
 
     <div class="input-group">
         <label class="input-label">Total Taxes (% on gains): </label>
-        <input type="range" id="taxRate" min="0" max="100" value="15">
-        <input type="number" id="taxRateNumber" value="15" class="mt-2">
+        <input type="range" id="taxRate" min="0" max="2" value="2">
+        <input type="number" id="taxRateNumber" value="2" class="mt-2">
     </div>
 
     <!-- <button class="btn btn-dark" onclick="calculate()">Calculate</button> -->
@@ -192,7 +192,10 @@ input[type="range"]::-webkit-slider-runnable-track {
     <div class="col-md-6">
       <div class="card" style="width: 38rem;">
         <div class="card-header" style="border: 1px solid black; padding: 20px; text-align: center;">
-            <h3>Future Value: <span id="futureValue">$0.00</span></h3>
+            <h3>Future Value Before Taxes: <span id="futureValueBeforeTax">Rs0.00</span></h3>
+            <h3>Tax Amount: <span id="taxAmount">Rs0.00</span></h3>
+            <h3>Future Value After Taxes: <span id="futureValue">Rs0.00</span></h3>
+            <h3>Net Profit: <span id="netProfit">Rs0.00</span></h3>
             </div>
         <div class="card-body" style="border: 1px solid black; padding: 20px;">
           <canvas id="investmentChart" width="400" height="200"></canvas>
@@ -208,11 +211,22 @@ input[type="range"]::-webkit-slider-runnable-track {
         var r = parseFloat(document.getElementById('annualInterestRate').value) / 100;
         var n = parseFloat(document.getElementById('compoundingFrequency').value);
         var t = parseInt(document.getElementById('investmentTerm').value);
-        var D = parseFloat(document.getElementById('extraDeposit').value);
+        // var D = parseFloat(document.getElementById('extraDeposit').value);
+        var D = 0;
         var taxRate = parseFloat(document.getElementById('taxRate').value) / 100;
         var FV = calculateFutureValue(P, r, n, t, D, taxRate);
-        document.getElementById('futureValue').textContent = `$${FV.toFixed(2)}`;
+        document.getElementById('futureValue').textContent = `Rs${FV.toFixed(2)}`;
         // Calculate monthly growth for the chart
+        // Additional Calculations
+        var futureValueWithoutTax = calculateFutureValue(P, r, n, t, D, 0);
+        var taxAmount = futureValueWithoutTax - FV;
+        var netProfit = FV - P;
+
+        // Update HTML elements
+        document.getElementById('futureValueBeforeTax').textContent = `Rs${futureValueWithoutTax.toFixed(2)}`;
+        document.getElementById('taxAmount').textContent = `Rs${taxAmount.toFixed(2)}`;
+        document.getElementById('netProfit').textContent = `Rs${netProfit.toFixed(2)}`;
+
         var monthlyGrowth = calculateMonthlyGrowth(P, r, n, t, D, taxRate);
         updateChart(monthlyGrowth);
     }
