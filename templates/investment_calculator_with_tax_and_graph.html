@@ -160,7 +160,7 @@ input[type="range"]::-webkit-slider-runnable-track {
     </div>
 
     <div class="input-group">
-        <label class="input-label">Frequency (Years): </label>
+        <label class="input-label">Frequency (Months): </label>
         <input type="number" id="compoundingFrequency" value="12">
     </div>
 
@@ -191,11 +191,12 @@ input[type="range"]::-webkit-slider-runnable-track {
     </div>
     <div class="col-md-6">
       <div class="card" style="width: 38rem;">
-        <div class="card-header" style="border: 1px solid black; padding: 20px; text-align: center;">
-            <h3>Future Value Before Taxes: <span id="futureValueBeforeTax">Rs0.00</span></h3>
-            <h3>Tax Amount: <span id="taxAmount">Rs0.00</span></h3>
-            <h3>Future Value After Taxes: <span id="futureValue">Rs0.00</span></h3>
-            <h3>Net Profit: <span id="netProfit">Rs0.00</span></h3>
+        <div class="card-header" style="border: 1px solid black; padding: 20px; text-align: left;">
+            <h4>Principal Plus Profit: <span id="futureValueBeforeTax">Rs 0.00</span></h4>
+            <h4>Profit Earned: <span id="profitearned">Rs 0.00</span></h4>            
+            <h4>Tax Amount: <span id="taxAmount">Rs 0.00</span></h4>
+            <!-- <h4>Future Value After Taxes: <span id="futureValue">Rs 0.00</span></h4> -->
+            <h4>Net Profit: <span id="netProfit">Rs 0.00</span></h4>
             </div>
         <div class="card-body" style="border: 1px solid black; padding: 20px;">
           <canvas id="investmentChart" width="400" height="200"></canvas>
@@ -215,17 +216,20 @@ input[type="range"]::-webkit-slider-runnable-track {
         var D = 0;
         var taxRate = parseFloat(document.getElementById('taxRate').value) / 100;
         var FV = calculateFutureValue(P, r, n, t, D, taxRate);
-        document.getElementById('futureValue').textContent = `Rs${FV.toFixed(2)}`;
+        // document.getElementById('futureValue').textContent = `Rs${FV.toFixed(2)}`;
         // Calculate monthly growth for the chart
         // Additional Calculations
         var futureValueWithoutTax = calculateFutureValue(P, r, n, t, D, 0);
         var taxAmount = futureValueWithoutTax - FV;
         var netProfit = FV - P;
+        var netProfitBeforeTax = futureValueWithoutTax - P;
 
         // Update HTML elements
-        document.getElementById('futureValueBeforeTax').textContent = `Rs${futureValueWithoutTax.toFixed(2)}`;
-        document.getElementById('taxAmount').textContent = `Rs${taxAmount.toFixed(2)}`;
-        document.getElementById('netProfit').textContent = `Rs${netProfit.toFixed(2)}`;
+        document.getElementById('futureValueBeforeTax').textContent = `Rs ${futureValueWithoutTax.toFixed(2)}`;
+        document.getElementById('taxAmount').textContent = `Rs ${taxAmount.toFixed(2)}`;
+        document.getElementById('netProfit').textContent = `Rs ${netProfit.toFixed(2)}`;
+        document.getElementById('profitearned').textContent = `Rs ${netProfitBeforeTax.toFixed(2)}`;
+        
 
         var monthlyGrowth = calculateMonthlyGrowth(P, r, n, t, D, taxRate);
         updateChart(monthlyGrowth);
