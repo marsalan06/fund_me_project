@@ -3,6 +3,8 @@ import io
 from django.core.files.base import ContentFile
 from django.shortcuts import redirect, render
 from pdf2image import convert_from_bytes
+from django.db.models import Q
+
 
 from .forms import ArticleForm
 from .models import (Article, BankProduct, ConventionalFund, InsuranceProduct,
@@ -45,10 +47,14 @@ def investment_list(request):
     banks = BankProduct.objects.all()
     products = Investment.PRODUCT_CHOICES
     investments = Investment.objects.all()
+    top_products = Investment.objects.exclude(
+        Q(profit_rate__contains='disclosed') | Q(profit_rate__contains='-') | Q(profit_rate__contains=' ')
+    ).order_by('-profit_rate')[:5]    
     context = {
         'banks': banks,
         'products': products,
         'investments': investments,
+        'top_products': top_products,
     }
 
     return render(request, 'products.html', context)
