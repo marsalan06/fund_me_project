@@ -89,6 +89,25 @@ def life_insurance_products(request):
 def future_value_calculator(request):
     return render(request, 'future_value_calculator.html')
 
+def calculators(request):
+    return render(request, 'calculators.html')
+
+def quarterly(request):
+    return render(request, 'quarterly.html')
+
+
+def monthly(request):
+    return render(request, 'monthly.html')
+
+def biannual(request):
+    return render(request, 'biannual.html')
+
+
+def recurring(request):
+    return render(request, 'recurring.html')
+
+def mutualfundcalculator(request):
+    return render(request, 'mutualfundcalculator.html')
 
 def upload_article(request):
     if request.method == 'POST':
