@@ -1,10 +1,9 @@
 import io
 
 from django.core.files.base import ContentFile
+from django.db.models import Q
 from django.shortcuts import redirect, render
 from pdf2image import convert_from_bytes
-from django.db.models import Q
-
 
 from .forms import ArticleForm
 from .models import (Article, BankProduct, ConventionalFund, InsuranceProduct,
@@ -48,8 +47,9 @@ def investment_list(request):
     products = Investment.PRODUCT_CHOICES
     investments = Investment.objects.all()
     top_products = Investment.objects.exclude(
-        Q(profit_rate__contains='disclosed') | Q(profit_rate__contains='-') | Q(profit_rate__contains=' ')
-    ).order_by('-profit_rate')[:5]    
+        Q(profit_rate__contains='disclosed') | Q(
+            profit_rate__contains='-') | Q(profit_rate__contains=' ')
+    ).order_by('-profit_rate')[:5]
     context = {
         'banks': banks,
         'products': products,
@@ -89,8 +89,10 @@ def life_insurance_products(request):
 def future_value_calculator(request):
     return render(request, 'future_value_calculator.html')
 
+
 def calculators(request):
     return render(request, 'calculators.html')
+
 
 def quarterly(request):
     return render(request, 'quarterly.html')
@@ -99,15 +101,18 @@ def quarterly(request):
 def monthly(request):
     return render(request, 'monthly.html')
 
+
 def biannual(request):
     return render(request, 'biannual.html')
 
 
 def recurring(request):
-    return render(request, 'recurring.html')
+    return render(request, 'recurring_template.html')
+
 
 def mutualfundcalculator(request):
     return render(request, 'mutualfundcalculator.html')
+
 
 def upload_article(request):
     if request.method == 'POST':
