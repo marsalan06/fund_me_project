@@ -91,7 +91,7 @@ def future_value_calculator(request):
 
 
 def calculators(request):
-    return render(request, 'calculators.html')
+    return render(request, 'calculators_template.html')
 
 
 def quarterly(request):
