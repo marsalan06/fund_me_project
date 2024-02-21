@@ -95,15 +95,15 @@ def calculators(request):
 
 
 def quarterly(request):
-    return render(request, 'quarterly.html')
+    return render(request, 'quarterly_template.html')
 
 
 def monthly(request):
-    return render(request, 'monthly.html')
+    return render(request, 'monthly_template.html')
 
 
 def biannual(request):
-    return render(request, 'biannual.html')
+    return render(request, 'biannual_template.html')
 
 
 def recurring(request):
@@ -111,7 +111,7 @@ def recurring(request):
 
 
 def mutualfundcalculator(request):
-    return render(request, 'mutualfundcalculator.html')
+    return render(request, 'mutualfundcalculator_template.html')
 
 
 def upload_article(request):
