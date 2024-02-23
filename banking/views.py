@@ -1,6 +1,7 @@
 import io
 
 from django.core.files.base import ContentFile
+from django.db.models import Q
 from django.shortcuts import redirect, render
 from pdf2image import convert_from_bytes
 
@@ -45,10 +46,15 @@ def investment_list(request):
     banks = BankProduct.objects.all()
     products = Investment.PRODUCT_CHOICES
     investments = Investment.objects.all()
+    top_products = Investment.objects.exclude(
+        Q(profit_rate__contains='disclosed') | Q(
+            profit_rate__contains='-') | Q(profit_rate__contains=' ')
+    ).order_by('-profit_rate')[:5]
     context = {
         'banks': banks,
         'products': products,
         'investments': investments,
+        'top_products': top_products,
     }
 
     return render(request, 'products.html', context)
@@ -82,6 +88,30 @@ def life_insurance_products(request):
 
 def future_value_calculator(request):
     return render(request, 'future_value_calculator.html')
+
+
+def calculators(request):
+    return render(request, 'calculators_template.html')
+
+
+def quarterly(request):
+    return render(request, 'quarterly_template.html')
+
+
+def monthly(request):
+    return render(request, 'monthly_template.html')
+
+
+def biannual(request):
+    return render(request, 'biannual_template.html')
+
+
+def recurring(request):
+    return render(request, 'recurring_template.html')
+
+
+def mutualfundcalculator(request):
+    return render(request, 'mutualfundcalculator_template.html')
 
 
 def upload_article(request):

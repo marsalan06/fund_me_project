@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .input-label {
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Principal with profit at Maturity Investment<br>
+                    Profit cycle quarterly<br>
+                    1 year maturity</h2>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <label class="input-label">Investment Amount :</label> 
+                    <input type="number" id="initialInvestment" value="1000000">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-label">Length of Investment (Years):</label>
+                    <select id="investmentTerm">
+                        <option value="1">1 Year</option>
+                        <option value="3">3 Years</option>
+                        <option value="5">5 Years</option>
+                        <option value="10">10 Years</option>
+                        <option value="15">15 Years</option>
+                        <option value="20">20 Years</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-label">Cycle/Frequency (Quarters):</label>
+                    <input type="number" id="compoundingFrequency" value="4">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-label">Profit Rate (% Per Annum):</label>
+                    <input type="number" id="annualInterestRate" value="20">
+                </div>
+                <button onclick="calculate()">Calculate</button>
+                <div class="result" id="result" style="display:none;">
+                    <p>Principal plus Profit: <span id="futureValue"></span></p>
+                    <p>Profit Earned: <span id="profitEarned"></span></p>
+                    <p>Taxes: <span id="taxes"></span></p>
+                    <p>Net Profit: <span id="netProfit"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            var PV = parseFloat(document.getElementById('initialInvestment').value.replace(/,/g, ''));
+            var n = parseInt(document.getElementById('investmentTerm').value);
+            var per = parseInt(document.getElementById('compoundingFrequency').value);
+            var i = parseFloat(document.getElementById('annualInterestRate').value) / 100;
+
+            var nper = n * per;
+            var FV = PV * Math.pow((1 + i / per), nper);
+            var profitEarned = FV - PV;
+            var taxes = profitEarned * 0.02;
+            var netProfit = profitEarned - taxes;
+
+            document.getElementById('futureValue').textContent = 'Rs ' + FV.toLocaleString();
+            document.getElementById('profitEarned').textContent = 'Rs ' + profitEarned.toLocaleString();
+            document.getElementById('taxes').textContent = 'Rs ' + taxes.toLocaleString();
+            document.getElementById('netProfit').textContent = 'Rs ' + netProfit.toLocaleString();
+
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

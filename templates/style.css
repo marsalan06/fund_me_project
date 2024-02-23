@@ -1,0 +1,38 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+input[type="range"] {
+    font-size: 1.5rem;
+    width: 10.5em;
+    color: #3f51b5;
+    --thumb-height: 1.125em;
+    --track-height: 0.125em;
+    --track-color: rgba(0, 0, 0, 0.2);
+    --brightness-hover: 180%;
+    --brightness-down: 80%;
+    --clip-edges: 0.125em;
+}
+
+/* ... Add other styles as needed */
