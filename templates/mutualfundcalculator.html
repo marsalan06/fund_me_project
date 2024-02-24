@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Fund Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .calculator {
+            padding: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            font-weight: bold;
+        }
+        input[type="number"], input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            width: 48%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <h2>Mutual Fund Calculator</h2>
+            <div class="input-group">
+                <label for="principalAmount">Principal amount:</label>
+                <input type="number" id="principalAmount" value="5000000">
+            </div>
+            <div class="input-group">
+                <label for="depositFrequency">Deposit Frequency:</label>
+                <select id="depositFrequency">
+                    <option value="12">Monthly</option>
+                    <option value="4">Quarterly</option>
+                    <option value="2">Semi-Annually</option>
+                    <option value="1">Annually</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="holdingPeriod">Holding Period (years):</label>
+                <input type="number" id="holdingPeriod" value="5">
+            </div>
+            <div class="input-group">
+                <label for="annualProfitRate">Annual Profit Rate (%):</label>
+                <input type="number" id="annualProfitRate" value="15">
+            </div>
+            <div class="input-group">
+                <label for="frontEndLoading">Front End Loading (%):</label>
+                <input type="number" id="frontEndLoading" value="3">
+            </div>
+            <div class="input-group">
+                <label for="managementFee">Management Fee (%):</label>
+                <input type="number" id="managementFee" value="0.5">
+            </div>
+            <div class="input-group">
+                <label for="backEndLoading">Back End Loading (%):</label>
+                <input type="number" id="backEndLoading" value="0">
+            </div>
+            <div class="input-group">
+                <label for="redemptionFee">Redemption Fee (%):</label>
+                <input type="number" id="redemptionFee" value="0">
+            </div>
+            <div class="input-group">
+                <label for="others">Others:</label>
+                <input type="number" id="others" value="0">
+            </div>
+            <div class="input-group">
+                <button onclick="resetInputs()">Reset</button>
+                <button onclick="calculate()">Calculate</button>
+            </div>
+            <div class="result" id="result" style="display:none;">
+                <p>Total Principal: <span id="totalPrincipal"></span></p>
+                <p>Total Balance without fees: <span id="totalBalanceWithoutFees"></span></p>
+                <p>Total Fees: <span id="totalFees"></span></p>
+                <p>Management Fee: <span id="managementFeeAmount"></span></p>
+                <p>Redemption Fee: <span id="redemptionFeeAmount"></span></p>
+                <p>Total Balance with fees: <span id="totalBalanceWithFees"></span></p>
+                <p>Total Profit without fees: <span id="totalProfitWithoutFees"></span></p>
+                <p>Total Return with fees: <span id="totalReturnWithFees"></span></p>
+                <p>Tax: <span id="tax"></span></p>
+                <p>Net Profit: <span id="netProfit"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            var principalAmount = parseFloat(document.getElementById('principalAmount').value.replace(/,/g, ''));
+            var depositFrequency = parseInt(document.getElementById('depositFrequency').value);
+            var holdingPeriod = parseInt(document.getElementById('holdingPeriod').value);
+            var annualProfitRate = parseFloat(document.getElementById('annualProfitRate').value) / 100;
+            var frontEndLoading = parseFloat(document.getElementById('frontEndLoading').value) / 100;
+            var managementFee = parseFloat(document.getElementById('managementFee').value) / 100;
+            var backEndLoading = parseFloat(document.getElementById('backEndLoading').value) / 100;
+            var redemptionFee = parseFloat(document.getElementById('redemptionFee').value) / 100;
+            var others = parseFloat(document.getElementById('others').value);
+
+            var totalPrincipal = principalAmount;
+            var totalBalanceWithoutFees = principalAmount * Math.pow(1 + annualProfitRate / depositFrequency, holdingPeriod * depositFrequency);
+            var managementFeeAmount = totalPrincipal * managementFee;
+            var redemptionFeeAmount = totalPrincipal * redemptionFee;
+            var totalFees = managementFeeAmount + redemptionFeeAmount + others;
+            var totalBalanceWithFees = totalBalanceWithoutFees - totalFees;
+            var totalProfitWithoutFees = totalBalanceWithoutFees - totalPrincipal;
+            var totalReturnWithFees = totalBalanceWithFees - totalPrincipal;
+            var tax = totalReturnWithFees * 0.02;
+            var netProfit = totalReturnWithFees - tax;
+
+            document.getElementById('totalPrincipal').textContent = 'Rs ' + totalPrincipal.toFixed(2).toLocaleString();
+            document.getElementById('totalBalanceWithoutFees').textContent = 'Rs ' + totalBalanceWithoutFees.toFixed(2).toLocaleString();
+            document.getElementById('managementFeeAmount').textContent = 'Rs ' + managementFeeAmount.toFixed(2).toLocaleString();
+            document.getElementById('redemptionFeeAmount').textContent = 'Rs ' + redemptionFeeAmount.toFixed(2).toLocaleString();
+            document.getElementById('totalFees').textContent = 'Rs ' + totalFees.toFixed(2).toLocaleString();
+            document.getElementById('totalBalanceWithFees').textContent = 'Rs ' + totalBalanceWithFees.toFixed(2).toLocaleString();
+            document.getElementById('totalProfitWithoutFees').textContent = 'Rs ' + totalProfitWithoutFees.toFixed(2).toLocaleString();
+            document.getElementById('totalReturnWithFees').textContent = 'Rs ' + totalReturnWithFees.toFixed(2).toLocaleString();
+            document.getElementById('tax').textContent = 'Rs ' + tax.toFixed(2).toLocaleString();
+            document.getElementById('netProfit').textContent = 'Rs ' + netProfit.toFixed(2).toLocaleString();
+
+            document.getElementById('result').style.display = 'block';
+        }
+
+        function resetInputs() {
+            document.getElementById('principalAmount').value = "0";
+            document.getElementById('depositFrequency').value = "12";
+            document.getElementById('holdingPeriod').value = "0";
+            document.getElementById('annualProfitRate').value = "0";
+            document.getElementById('frontEndLoading').value = "0";
+            document.getElementById('managementFee').value = "0";
+            document.getElementById('backEndLoading').value = "0";
+            document.getElementById('redemptionFee').value = "0";
+            document.getElementById('others').value = "0";
+        }
+    </script>
+</body>
+</html>

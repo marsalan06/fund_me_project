@@ -1,6 +1,7 @@
 import io
 
 from django.core.files.base import ContentFile
+from django.db.models import Q
 from django.shortcuts import redirect, render
 from pdf2image import convert_from_bytes
 from django.db.models import Q
@@ -88,6 +89,30 @@ def life_insurance_products(request):
 
 def future_value_calculator(request):
     return render(request, 'future_value_calculator.html')
+
+
+def calculators(request):
+    return render(request, 'calculators_template.html')
+
+
+def quarterly(request):
+    return render(request, 'quarterly_template.html')
+
+
+def monthly(request):
+    return render(request, 'monthly_template.html')
+
+
+def biannual(request):
+    return render(request, 'biannual_template.html')
+
+
+def recurring(request):
+    return render(request, 'recurring_template.html')
+
+
+def mutualfundcalculator(request):
+    return render(request, 'mutualfundcalculator_template.html')
 
 
 def upload_article(request):

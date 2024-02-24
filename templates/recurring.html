@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recurring Monthly Deposit Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .input-label {
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Recurring Deposit Calculator</h2>
+            </div>
+            <div class="card-body">
+                <div class="input-group mb-3">
+                    <label class="input-label">Monthly Deposit (PKR):</label> 
+                    <input type="number" id="monthlyDeposit" value="1000">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-label">Length of Investment (Years):</label>
+                    <select id="investmentTerm" onchange="updateNumberOfTimesProfitPaid()">
+                        <option value="3">3 Years</option>
+                        <option value="5">5 Years</option>
+                        <option value="10">10 Years</option>
+                        <option value="15">15 Years</option>
+                        <option value="20">20 Years</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-label">Cycle/Frequency (Months):</label>
+                    <input type="number" id="compoundingFrequency" value="12">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-label">Rate of Profit (% Per Annum):</label>
+                    <input type="number" id="annualInterestRate" value="20">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-label">Number of times profit paid:</label>
+                    <input type="number" id="numberOfTimesProfitPaid" value="36" readonly>
+                </div>
+                <button onclick="calculate()">Calculate</button>
+                <div class="result" id="result" style="display:none;">
+                    <p>Principal plus Profit: <span id="futureValue"></span></p>
+                    <p>Total payments made: <span id="totalPayments"></span></p>
+                    <p>Profit Earned: <span id="profitEarned"></span></p>
+                    <p>Taxes: <span id="taxes"></span></p>
+                    <p>Net Profit: <span id="netProfit"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateNumberOfTimesProfitPaid() {
+            var investmentTerm = parseInt(document.getElementById('investmentTerm').value);
+            document.getElementById('numberOfTimesProfitPaid').value = investmentTerm * 12;
+        }
+
+        function calculate() {
+            var PMT = parseFloat(document.getElementById('monthlyDeposit').value.replace(/,/g, ''));
+            var n = parseInt(document.getElementById('investmentTerm').value);
+            var per = parseInt(document.getElementById('compoundingFrequency').value);
+            var i = parseFloat(document.getElementById('annualInterestRate').value) / 100;
+
+            var nper = n * per;
+            var FV = PMT * ((Math.pow((1 + i / per), nper) - 1) / (i / per)) * (1 + i / per);
+            var totalPayments = PMT * nper;
+            var profitEarned = FV - totalPayments;
+            var taxes = profitEarned * 0.02;
+            var netProfit = profitEarned - taxes;
+
+            document.getElementById('futureValue').textContent = 'PKR ' + FV.toLocaleString(undefined, { maximumFractionDigits: 2 });
+            document.getElementById('totalPayments').textContent = nper.toLocaleString();
+            document.getElementById('profitEarned').textContent = 'PKR ' + profitEarned.toLocaleString(undefined, { maximumFractionDigits: 2 });
+            document.getElementById('taxes').textContent = 'PKR ' + taxes.toLocaleString(undefined, { maximumFractionDigits: 2 });
+            document.getElementById('netProfit').textContent = 'PKR ' + netProfit.toLocaleString(undefined, { maximumFractionDigits: 2 });
+
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

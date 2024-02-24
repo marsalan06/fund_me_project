@@ -1,0 +1,2232 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+
+    <title>Screenerpk</title>
+    <meta name="robots" content="max-image-preview:large">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="text/javascript" async src="{% static 'js/essb-core.min.js' %}"></script>
+    <script type="text/javascript">
+        window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/screenerpk.pk\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.2.2" } };
+        /*! This file is auto-generated */
+        !function (e, a, t) { var n, r, o, i = a.createElement("canvas"), p = i.getContext && i.getContext("2d"); function s(e, t) { p.clearRect(0, 0, i.width, i.height), p.fillText(e, 0, 0); e = i.toDataURL(); return p.clearRect(0, 0, i.width, i.height), p.fillText(t, 0, 0), e === i.toDataURL() } function c(e) { var t = a.createElement("script"); t.src = e, t.defer = t.type = "text/javascript", a.getElementsByTagName("head")[0].appendChild(t) } for (o = Array("flag", "emoji"), t.supports = { everything: !0, everythingExceptFlag: !0 }, r = 0; r < o.length; r++)t.supports[o[r]] = function (e) { if (p && p.fillText) switch (p.textBaseline = "top", p.font = "600 32px Arial", e) { case "flag": return s("\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", "\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f") ? !1 : !s("\ud83c\uddfa\ud83c\uddf3", "\ud83c\uddfa\u200b\ud83c\uddf3") && !s("\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f", "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f"); case "emoji": return !s("\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff", "\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff") }return !1 }(o[r]), t.supports.everything = t.supports.everything && t.supports[o[r]], "flag" !== o[r] && (t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && t.supports[o[r]]); t.supports.everythingExceptFlag = t.supports.everythingExceptFlag && !t.supports.flag, t.DOMReady = !1, t.readyCallback = function () { t.DOMReady = !0 }, t.supports.everything || (n = function () { t.readyCallback() }, a.addEventListener ? (a.addEventListener("DOMContentLoaded", n, !1), e.addEventListener("load", n, !1)) : (e.attachEvent("onload", n), a.attachEvent("onreadystatechange", function () { "complete" === a.readyState && t.readyCallback() })), (e = t.source || {}).concatemoji ? c(e.concatemoji) : e.wpemoji && e.twemoji && (c(e.twemoji), c(e.wpemoji))) }(window, document, window._wpemojiSettings);
+    </script>
+    <script src="{% static 'js/wp-emoji-release.min.js' %}" type="text/javascript" defer></script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 0.07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel="stylesheet" id="wp-block-library-css" href="{% static 'css/style.min.css' %}" type="text/css"
+        media="all">
+    <style id="wp-block-library-theme-inline-css" type="text/css">
+        .wp-block-audio figcaption {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .wp-block-audio figcaption {
+            color: hsla(0, 0%, 100%, .65)
+        }
+
+        .wp-block-audio {
+            margin: 0 0 1em
+        }
+
+        .wp-block-code {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: Menlo, Consolas, monaco, monospace;
+            padding: .8em 1em
+        }
+
+        .wp-block-embed figcaption {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .wp-block-embed figcaption {
+            color: hsla(0, 0%, 100%, .65)
+        }
+
+        .wp-block-embed {
+            margin: 0 0 1em
+        }
+
+        .blocks-gallery-caption {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .blocks-gallery-caption {
+            color: hsla(0, 0%, 100%, .65)
+        }
+
+        .wp-block-image figcaption {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .wp-block-image figcaption {
+            color: hsla(0, 0%, 100%, .65)
+        }
+
+        .wp-block-image {
+            margin: 0 0 1em
+        }
+
+        .wp-block-pullquote {
+            border-bottom: 4px solid;
+            border-top: 4px solid;
+            color: currentColor;
+            margin-bottom: 1.75em
+        }
+
+        .wp-block-pullquote cite,
+        .wp-block-pullquote footer,
+        .wp-block-pullquote__citation {
+            color: currentColor;
+            font-size: .8125em;
+            font-style: normal;
+            text-transform: uppercase
+        }
+
+        .wp-block-quote {
+            border-left: .25em solid;
+            margin: 0 0 1.75em;
+            padding-left: 1em
+        }
+
+        .wp-block-quote cite,
+        .wp-block-quote footer {
+            color: currentColor;
+            font-size: .8125em;
+            font-style: normal;
+            position: relative
+        }
+
+        .wp-block-quote.has-text-align-right {
+            border-left: none;
+            border-right: .25em solid;
+            padding-left: 0;
+            padding-right: 1em
+        }
+
+        .wp-block-quote.has-text-align-center {
+            border: none;
+            padding-left: 0
+        }
+
+        .wp-block-quote.is-large,
+        .wp-block-quote.is-style-large,
+        .wp-block-quote.is-style-plain {
+            border: none
+        }
+
+        .wp-block-search .wp-block-search__label {
+            font-weight: 700
+        }
+
+        .wp-block-search__button {
+            border: 1px solid #ccc;
+            padding: .375em .625em
+        }
+
+        :where(.wp-block-group.has-background) {
+            padding: 1.25em 2.375em
+        }
+
+        .wp-block-separator.has-css-opacity {
+            opacity: .4
+        }
+
+        .wp-block-separator {
+            border: none;
+            border-bottom: 2px solid;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .wp-block-separator.has-alpha-channel-opacity {
+            opacity: 1
+        }
+
+        .wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+            width: 100px
+        }
+
+        .wp-block-separator.has-background:not(.is-style-dots) {
+            border-bottom: none;
+            height: 1px
+        }
+
+        .wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots) {
+            height: 2px
+        }
+
+        .wp-block-table {
+            margin: 0 0 1em
+        }
+
+        .wp-block-table td,
+        .wp-block-table th {
+            word-break: normal
+        }
+
+        .wp-block-table figcaption {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .wp-block-table figcaption {
+            color: hsla(0, 0%, 100%, .65)
+        }
+
+        .wp-block-video figcaption {
+            color: #555;
+            font-size: 13px;
+            text-align: center
+        }
+
+        .is-dark-theme .wp-block-video figcaption {
+            color: hsla(0, 0%, 100%, .65)
+        }
+
+        .wp-block-video {
+            margin: 0 0 1em
+        }
+
+        .wp-block-template-part.has-background {
+            margin-bottom: 0;
+            margin-top: 0;
+            padding: 1.25em 2.375em
+        }
+    </style>
+    <link rel="stylesheet" id="classic-theme-styles-css" href="{% static 'css/classic-themes.min.css' %}"
+        type="text/css" media="all">
+    <style id="global-styles-inline-css" type="text/css">
+        body {
+            --wp--preset--color--black: #000000;
+            --wp--preset--color--cyan-bluish-gray: #abb8c3;
+            --wp--preset--color--white: #ffffff;
+            --wp--preset--color--pale-pink: #f78da7;
+            --wp--preset--color--vivid-red: #cf2e2e;
+            --wp--preset--color--luminous-vivid-orange: #ff6900;
+            --wp--preset--color--luminous-vivid-amber: #fcb900;
+            --wp--preset--color--light-green-cyan: #7bdcb5;
+            --wp--preset--color--vivid-green-cyan: #00d084;
+            --wp--preset--color--pale-cyan-blue: #8ed1fc;
+            --wp--preset--color--vivid-cyan-blue: #0693e3;
+            --wp--preset--color--vivid-purple: #9b51e0;
+            --wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
+            --wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
+            --wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
+            --wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255, 105, 0, 1) 0%, rgb(207, 46, 46) 100%);
+            --wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238, 238, 238) 0%, rgb(169, 184, 195) 100%);
+            --wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74, 234, 220) 0%, rgb(151, 120, 209) 20%, rgb(207, 42, 186) 40%, rgb(238, 44, 130) 60%, rgb(251, 105, 98) 80%, rgb(254, 248, 76) 100%);
+            --wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255, 206, 236) 0%, rgb(152, 150, 240) 100%);
+            --wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254, 205, 165) 0%, rgb(254, 45, 45) 50%, rgb(107, 0, 62) 100%);
+            --wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255, 203, 112) 0%, rgb(199, 81, 192) 50%, rgb(65, 88, 208) 100%);
+            --wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
+            --wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
+            --wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+            --wp--preset--duotone--dark-grayscale: url('index_1.html#wp-duotone-dark-grayscale');
+            --wp--preset--duotone--grayscale: url('index_1.html#wp-duotone-grayscale');
+            --wp--preset--duotone--purple-yellow: url('index_1.html#wp-duotone-purple-yellow');
+            --wp--preset--duotone--blue-red: url('index_1.html#wp-duotone-blue-red');
+            --wp--preset--duotone--midnight: url('index_1.html#wp-duotone-midnight');
+            --wp--preset--duotone--magenta-yellow: url('index_1.html#wp-duotone-magenta-yellow');
+            --wp--preset--duotone--purple-green: url('index_1.html#wp-duotone-purple-green');
+            --wp--preset--duotone--blue-orange: url('index_1.html#wp-duotone-blue-orange');
+            --wp--preset--font-size--small: 13px;
+            --wp--preset--font-size--medium: 20px;
+            --wp--preset--font-size--large: 36px;
+            --wp--preset--font-size--x-large: 42px;
+            --wp--preset--spacing--20: 0.44rem;
+            --wp--preset--spacing--30: 0.67rem;
+            --wp--preset--spacing--40: 1rem;
+            --wp--preset--spacing--50: 1.5rem;
+            --wp--preset--spacing--60: 2.25rem;
+            --wp--preset--spacing--70: 3.38rem;
+            --wp--preset--spacing--80: 5.06rem;
+            --wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+            --wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+            --wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+            --wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);
+        }
+
+        :where(.is-layout-flex) {
+            gap: 0.5em;
+        }
+
+        body .is-layout-flow>.alignleft {
+            float: left;
+            margin-inline-start: 0;
+            margin-inline-end: 2em;
+        }
+
+        body .is-layout-flow>.alignright {
+            float: right;
+            margin-inline-start: 2em;
+            margin-inline-end: 0;
+        }
+
+        body .is-layout-flow>.aligncenter {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained>.alignleft {
+            float: left;
+            margin-inline-start: 0;
+            margin-inline-end: 2em;
+        }
+
+        body .is-layout-constrained>.alignright {
+            float: right;
+            margin-inline-start: 2em;
+            margin-inline-end: 0;
+        }
+
+        body .is-layout-constrained>.aligncenter {
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained> :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+            max-width: var(--wp--style--global--content-size);
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        body .is-layout-constrained>.alignwide {
+            max-width: var(--wp--style--global--wide-size);
+        }
+
+        body .is-layout-flex {
+            display: flex;
+        }
+
+        body .is-layout-flex {
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        body .is-layout-flex>* {
+            margin: 0;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        .has-black-color {
+            color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-color {
+            color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-color {
+            color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-color {
+            color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-color {
+            color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-color {
+            color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-color {
+            color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-color {
+            color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-color {
+            color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-color {
+            color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-color {
+            color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-color {
+            color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-background-color {
+            background-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-background-color {
+            background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-background-color {
+            background-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-background-color {
+            background-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-background-color {
+            background-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-background-color {
+            background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-background-color {
+            background-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-background-color {
+            background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-background-color {
+            background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-background-color {
+            background-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-black-border-color {
+            border-color: var(--wp--preset--color--black) !important;
+        }
+
+        .has-cyan-bluish-gray-border-color {
+            border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+        }
+
+        .has-white-border-color {
+            border-color: var(--wp--preset--color--white) !important;
+        }
+
+        .has-pale-pink-border-color {
+            border-color: var(--wp--preset--color--pale-pink) !important;
+        }
+
+        .has-vivid-red-border-color {
+            border-color: var(--wp--preset--color--vivid-red) !important;
+        }
+
+        .has-luminous-vivid-orange-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-amber-border-color {
+            border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+        }
+
+        .has-light-green-cyan-border-color {
+            border-color: var(--wp--preset--color--light-green-cyan) !important;
+        }
+
+        .has-vivid-green-cyan-border-color {
+            border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+        }
+
+        .has-pale-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+        }
+
+        .has-vivid-cyan-blue-border-color {
+            border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+        }
+
+        .has-vivid-purple-border-color {
+            border-color: var(--wp--preset--color--vivid-purple) !important;
+        }
+
+        .has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+            background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+        }
+
+        .has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+            background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+        }
+
+        .has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+        }
+
+        .has-luminous-vivid-orange-to-vivid-red-gradient-background {
+            background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+        }
+
+        .has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+            background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+        }
+
+        .has-cool-to-warm-spectrum-gradient-background {
+            background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+        }
+
+        .has-blush-light-purple-gradient-background {
+            background: var(--wp--preset--gradient--blush-light-purple) !important;
+        }
+
+        .has-blush-bordeaux-gradient-background {
+            background: var(--wp--preset--gradient--blush-bordeaux) !important;
+        }
+
+        .has-luminous-dusk-gradient-background {
+            background: var(--wp--preset--gradient--luminous-dusk) !important;
+        }
+
+        .has-pale-ocean-gradient-background {
+            background: var(--wp--preset--gradient--pale-ocean) !important;
+        }
+
+        .has-electric-grass-gradient-background {
+            background: var(--wp--preset--gradient--electric-grass) !important;
+        }
+
+        .has-midnight-gradient-background {
+            background: var(--wp--preset--gradient--midnight) !important;
+        }
+
+        .has-small-font-size {
+            font-size: var(--wp--preset--font-size--small) !important;
+        }
+
+        .has-medium-font-size {
+            font-size: var(--wp--preset--font-size--medium) !important;
+        }
+
+        .has-large-font-size {
+            font-size: var(--wp--preset--font-size--large) !important;
+        }
+
+        .has-x-large-font-size {
+            font-size: var(--wp--preset--font-size--x-large) !important;
+        }
+
+        .wp-block-navigation a:where(:not(.wp-element-button)) {
+            color: inherit;
+        }
+
+        :where(.wp-block-columns.is-layout-flex) {
+            gap: 2em;
+        }
+
+        .wp-block-pullquote {
+            font-size: 1.5em;
+            line-height: 1.6;
+        }
+    </style>
+    <link rel="stylesheet" id="redux-extendify-styles-css" href="{% static 'css/extendify-utilities.css' %}"
+        type="text/css" media="all">
+    <link rel="stylesheet" id="contact-form-7-css" href="{% static 'css/styles.css' %}" type="text/css" media="all">
+    <link rel="stylesheet" id="myhome-style-css" href="{% static 'css/style.min_1.css' %}" type="text/css" media="all">
+    <style id="myhome-style-inline-css" type="text/css">
+        @media (min-width:1023px) {
+            #mega_main_menu li.default_dropdown>.mega_dropdown {
+                width: 225px !important;
+            }
+        }
+
+        :root {
+            --primary: #155375;
+        }
+
+        .mh-active-input-primary input[type=text]:focus,
+        .mh-active-input-primary input[type=text]:active,
+        .mh-active-input-primary input[type=search]:focus,
+        .mh-active-input-primary input[type=search]:active,
+        .mh-active-input-primary input[type=email]:focus,
+        .mh-active-input-primary input[type=email]:active,
+        .mh-active-input-primary input[type=password]:focus,
+        .mh-active-input-primary input[type=password]:active,
+        .mh-active-input-primary textarea:focus,
+        .mh-active-input-primary textarea:active,
+        .mh-active-input-primary .mh-active-input input,
+        .mh-active-input-primary .mh-active-input input,
+        .myhome-body.mh-active-input-primary .mh-active-input .bootstrap-select.btn-group>.btn {
+            background: rgba(21, 83, 117, 0.05) !important;
+        }
+
+        html body .primary {
+            background: rgba(21, 83, 117) !important;
+        }
+
+
+        html body .mh-fixed-menu--active #mega_main_menu.mh-primary #mh-submit-button a,
+        html body .mh-fixed-menu--active #mega_main_menu.mh-primary #mh-submit-button a i {
+            color: rgba(21, 83, 117) !important;
+        }
+
+        .mh-app-wrapper .stepper__header .stepper__step--complete+.divider {
+            background: rgba(21, 83, 117) !important;
+        }
+
+        html body .primary--text {
+            color: rgba(21, 83, 117) !important;
+        }
+
+        html body .primary--text textarea,
+        html body .primary--text input {
+            caret-color: rgba(21, 83, 117) !important;
+        }
+
+        @media (min-width:1023px) {
+            html body #mega_main_menu.mh-primary .nav_logo img {
+                height: 40px !important;
+            }
+        }
+
+        /* Menu */
+
+
+        @media (min-width:1023px) {
+            .mh-sticky-menu-placeholder--active {
+                min-height: 80px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* General */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Top Bar */
+
+
+
+
+
+
+
+
+
+        /* Footer */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Top Title */
+
+
+
+        /* Breadcrumbs */
+
+
+
+
+
+
+        /* Single Property Page */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Property card */
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Search Form */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Agent Carousel / List */
+
+
+
+
+
+
+
+
+        /* Blog */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Sidebar */
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Post Card */
+
+
+
+
+
+
+
+        /* Map */
+
+
+
+
+
+
+
+
+
+
+
+        /* Compare Bar */
+
+
+
+
+
+
+
+
+
+
+        /* User panel */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        @media (min-width: 1023px) {
+            .logo_link {
+                margin-right: 48px !important;
+            }
+        }
+
+        @media (min-width: 1023px) {
+            html body #mega_main_menu.mh-primary>.menu_holder>.menu_inner>ul>li[class*="columns"] {
+                margin-right: 10px !important;
+            }
+        }
+    </style>
+    <link rel="stylesheet" id="easy-social-share-buttons-css"
+        href="{% static 'css/easy-social-share-buttons.min.css' %}" type="text/css" media="all">
+    <link rel="stylesheet" id="mmm_mega_main_menu-css" href="{% static 'css/cache.skin.css' %}" type="text/css"
+        media="all">
+    <link rel="stylesheet" id="js_composer_front-css" href="{% static 'css/js_composer.min.css' %}" type="text/css"
+        media="all">
+    <link rel="stylesheet" id="myhome-idx-broker-css" href="{% static 'css/main.css' %}" type="text/css" media="all">
+    <!-- <link rel="stylesheet" id="myhome-font-awesome-css" href="{% static 'css/all.min.css' %}" type="text/css" media="all"> -->
+    <link rel="stylesheet" id="bsf-Defaults-css" href="{% static 'css/Defaults.css' %}" type="text/css" media="all">
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700%7CPlay:400,700&subset=latin-ext&display=block&ver=1685529640">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700%7CPlay:400,700&amp;subset=latin-ext&amp;display=block&amp;ver=1685529640"
+        media="print" onload="this.media='all'"><noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700%7CPlay:400,700&amp;subset=latin-ext&amp;display=block&amp;ver=1685529640">
+    </noscript>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}" id="jquery-core-js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-migrate.min.js' %}" id="jquery-migrate-js"></script>
+    <script type="text/javascript" src="{% static 'js/rbtools.min.js' %}" async id="tp-tools-js"></script>
+    <script type="text/javascript" src="{% static 'js/rs6.min.js' %}" async id="revmin-js"></script>
+    <meta name="generator" content="WordPress 6.2.2">
+    <meta name="generator" content="Redux 4.4.4">
+
+    <style type="text/css">
+        .recentcomments a {
+            display: inline !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    </style>
+    <script
+        type="text/javascript">var essb_settings = { "ajax_url": "https:\/\/screenerpk.pk\/wp-admin\/admin-ajax.php", "essb3_nonce": "4e0ecade0d", "essb3_plugin_url": "https:\/\/screenerpk.pk\/wp-content\/plugins\/easy-social-share-buttons3", "essb3_stats": false, "essb3_ga": false, "blog_url": "https:\/\/screenerpk.pk\/", "post_id": "5" };</script>
+    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
+    <meta name="generator"
+        content="Powered by Slider Revolution 6.5.4 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+    <script type="text/javascript">function setREVStartSize(e) {
+            //window.requestAnimationFrame(function() {				 
+            window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+            window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+            try {
+                var pw = document.getElementById(e.c).parentNode.offsetWidth,
+                    newh;
+                pw = pw === 0 || isNaN(pw) ? window.RSIW : pw;
+                e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+                e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+                e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+                e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+                e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+                e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+                e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+                if (e.layout === "fullscreen" || e.l === "fullscreen")
+                    newh = Math.max(e.mh, window.RSIH);
+                else {
+                    e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+                    for (var i in e.rl) if (e.gw[i] === undefined || e.gw[i] === 0) e.gw[i] = e.gw[i - 1];
+                    e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+                    e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+                    for (var i in e.rl) if (e.gh[i] === undefined || e.gh[i] === 0) e.gh[i] = e.gh[i - 1];
+
+                    var nl = new Array(e.rl.length),
+                        ix = 0,
+                        sl;
+                    e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+                    e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+                    e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+                    e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+                    for (var i in e.rl) nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+                    sl = nl[0];
+                    for (var i in nl) if (sl > nl[i] && nl[i] > 0) { sl = nl[i]; ix = i; }
+                    var m = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw - (e.tabw + e.thumbw)) / (e.gw[ix]);
+                    newh = (e.gh[ix] * m) + (e.tabh + e.thumbh);
+                }
+                var el = document.getElementById(e.c);
+                if (el !== null && el) el.style.height = newh + "px";
+                el = document.getElementById(e.c + "_wrapper");
+                if (el !== null && el) el.style.height = newh + "px";
+            } catch (e) {
+                console.log("Failure at Presize of Slider:" + e)
+            }
+            //});
+        };</script>
+    <style type="text/css" id="wp-custom-css">
+        /*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+        @media (min-width:1023px) {
+            #mega_main_menu li.default_dropdown>.mega_dropdown {
+                width: 242px !important;
+            }
+        }
+
+        .mh-post-grid__thumbnail .mh-thumbnail__inner img {
+            max-width: 100%;
+        }
+
+        Body {
+            pointer-events: non
+        }
+    </style>
+    <style id="myhome_redux-dynamic-css" title="dynamic-css" class="redux-options-output">
+        html body.myhome-body .mh-menu-primary-color-background .mh-header:not(.mh-header--transparent) #mega_main_menu.mh-primary>.menu_holder>.menu_inner>span.nav_logo,
+        html body.myhome-body .mh-menu-primary-color-background .mh-header:not(.mh-header--transparent) #mega_main_menu.mh-primary>.menu_holder>.mmm_fullwidth_container,
+        .myhome-body .mh-thumbnail__featured,
+        .myhome-body .calendar_wrap table tbody td a:hover,
+        .myhome-body .dropdown-menu>li.selected a,
+        .myhome-body .mdl-button.mdl-button--raised.mdl-button--primary,
+        .myhome-body .mdl-button.mdl-button--primary-ghost:hover,
+        .myhome-body .mdl-button.mdl-button--primary-ghost:active,
+        .myhome-body .mdl-button.mdl-button--primary-ghost:focus,
+        .myhome-body .mdl-button.mdl-button--compare-active,
+        .myhome-body .mdl-button.mdl-button--compare-active:hover,
+        .myhome-body .mdl-button.mdl-button--compare-active:active,
+        .myhome-body .mdl-button.mdl-button--compare-active:focus,
+        .myhome-body .mh-accordion .ui-accordion-header.ui-accordion-header-active,
+        .myhome-body .mh-caption__inner,
+        .myhome-body .mh-compare__price,
+        .myhome-body .mh-estate__slider__price,
+        .myhome-body .mh-estate__details__price,
+        .myhome-body .mh-heading--top-separator:after,
+        .myhome-body .mh-heading--bottom-separator:after,
+        .myhome-body .mh-loader,
+        .myhome-body .wpcf7-form .wpcf7-form-control.wpcf7-submit,
+        .myhome-body .mh-loader:before,
+        .myhome-body .mh-loader:after,
+        .myhome-body .mh-map-panel__element button:hover,
+        .myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active,
+        .myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active:hover,
+        .myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active:active,
+        .myhome-body .mh-map-panel .mh-map-panel__element button.mh-button--active:focus,
+        .myhome-body .mh-map-zoom__element button:hover,
+        .myhome-body .mh-map-infobox,
+        .myhome-body .mh-post-single__nav__prev:before,
+        .myhome-body .mh-post-single__nav__next:before,
+        .myhome-body .mh-slider__card-short__price,
+        .myhome-body .mh-slider__card-default__price,
+        .myhome-body #estate_slider_card .tparrows:hover:before,
+        .myhome-body #estate_slider_card_short .tparrows:hover:before,
+        .myhome-body #mh_rev_slider_single .tparrows:hover:before,
+        .myhome-body #mh_rev_gallery_single .tparrows:hover:before,
+        .myhome-body .mh-social-icon:hover,
+        .myhome-body .mh-top-header--primary,
+        .myhome-body .mh-top-header-big:not(.mh-top-header-big--primary) .mh-top-header-big__panel,
+        .myhome-body .mh-top-header-big.mh-top-header-big--primary,
+        .myhome-body .mh-browse-estate__row:first-child,
+        .myhome-body .mh-widget-title__text:before,
+        .myhome-body .owl-carousel .owl-dots .owl-dot.active span,
+        .myhome-body .tagcloud a:hover,
+        .myhome-body .tagcloud a:active,
+        .myhome-body .tagcloud a:focus,
+        .myhome-body .mh-menu ul li a:before,
+        .myhome-body .widget_pages ul li a:before,
+        .myhome-body .widget_meta ul li a:before,
+        .myhome-body .widget_recent_entries ul li a:before,
+        .myhome-body .widget_nav_menu ul li a:before,
+        .myhome-body .widget_categories ul li a:before,
+        .myhome-body .widget_archive ul li a:before,
+        .myhome-body .calendar_wrap table #today,
+        .myhome-body .mh-background-color-primary,
+        .myhome-body .mh-user-panel__menu ul li.mh-user-panel__menu__li--active button,
+        .myhome-body .mh-user-panel__menu ul li.mh-user-panel__menu__li--active a,
+        .myhome-body .mh-top-header--primary .mh-top-bar-user-panel__user-info,
+        .myhome-body .mh-top-header-big .mh-top-bar-user-panel__user-info,
+        .myhome-body .awesomplete mark,
+        .myhome-body .idx-omnibar-form.idx-omnibar-original-form button,
+        .myhome-body .idx-omnibar-form.idx-omnibar-original-form .awesomplete>ul>li mark,
+        .myhome-body #IDX-main #IDX-resultsRow .IDX-resultsDetailsLink a:hover,
+        .myhome-body #IDX-main #IDX-formSubmit,
+        .myhome-body #IDX-main #IDX-submitBtn,
+        .myhome-body #IDX-main #IDX-scheduleShowing,
+        .myhome-body #IDX-main #IDX-photoGalleryLink,
+        .myhome-body #IDX-main .IDX-detailsVirtualTourLink,
+        .myhome-body #IDX-main #IDX-detailsVirtualTour,
+        .myhome-body .IDX-qsInput.IDX-qsButtonInput,
+        .myhome-body #IDX-main.IDX-category-map #IDX-criteriaText,
+        .myhome-body .mh-fixed-menu--active .mh-menu-primary-color-background .mega_main_menu,
+        .myhome-body.mh-active-input-primary .mh-search__panel>div:not(:first-child) .is-checked .mdl-radio__inner-circle,
+        .myhome-body #myhome-idx-wrapper #IDX-leadToolsBar,
+        .myhome-body #myhome-idx-wrapper #IDX-submitBtn,
+        .myhome-body #myhome-idx-wrapper #IDX-formSubmit,
+        .myhome-body #myhome-idx-wrapper #IDX-submitBtn:hover,
+        .myhome-body #myhome-idx-wrapper #IDX-formSubmit:hover,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 .IDX-detailsVirtualTourLink,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-detailsVirtualTourLink,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 .IDX-detailsVirtualTourLink:hover,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-detailsVirtualTourLink:hover,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-photoGalleryLink,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-scheduleShowing,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-photoGalleryLink,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-scheduleShowing,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-photoGalleryLink:hover,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-scheduleShowing:hover,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-photoGalleryLink:hover,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-scheduleShowing:hover,
+        .myhome-body .myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-input-group-addon,
+        .myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-criteriaText,
+        .myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-criteriaWindow .ui-widget-content .ui-slider-range,
+        .myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-criteriaWindow .ui-widget-content,
+        .myhome-body .idx-omnibar-form button,
+        .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-resultsDetailsLink a:hover,
+        .myhome-body .IDX-type-roster #IDX-rosterFilterSubmit,
+        .myhome-body .IDX-type-roster #IDX-rosterFilterSubmit:hover,
+        .myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 #IDX-loginSubmit,
+        .myhome-body #myhome-idx-wrapper .IDX-category-search #IDX-loginSubmit,
+        .myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 #IDX-loginSubmit:hover,
+        .myhome-body #myhome-idx-wrapper .IDX-category-search #IDX-loginSubmit:hover,
+        .myhome-body .myhome-idx-wrapper__my_account-myaccount-1000 input[type=submit],
+        .myhome-body .myhome-idx-wrapper__my_account-myaccount-1000 input[type=submit]:hover,
+        .myhome-body .myhome-idx-wrapper__user_signup-usersignup-1002 #IDX-submitBtn,
+        .myhome-body .myhome-idx-wrapper__user_signup-usersignup-1002 #IDX-submitBtn:hover,
+        .myhome-body .myhome-idx-wrapper__user_login-userlogin-1001 #IDX-loginSubmit,
+        .myhome-body .myhome-idx-wrapper__user_login-userlogin-1001 #IDX-loginSubmit:hover,
+        .myhome-body #IDX-widgetLeadLoginWrapper.IDX-widgetLeadLoginWrapper input[type=submit],
+        .myhome-body #IDX-widgetLeadLoginWrapper.IDX-widgetLeadLoginWrapper input[type=submit]:hover,
+        .myhome-body #LeadSignup.LeadSignup input[type=submit],
+        .myhome-body #LeadSignup.LeadSignup input[type=submit]:hover,
+        .myhome-body .IDX-quicksearchWrapper .IDX-quicksearchForm .IDX-qsInput.IDX-qsButtonInput,
+        .myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-input-group-addon,
+        .myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-btn-primary,
+        .myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-btn-primary:hover,
+        html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen,
+        html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen:before,
+        html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen:after,
+        .IDX-registrationModal #IDX-registration .IDX-btn-primary,
+        .IDX-registrationModal #IDX-registration .IDX-btn-primary:hover,
+        .myhome-body .myhome-idx-wrapper__photo_gallery-mobileFirstPhotoGallery-1003 #IDX-photoGallery .IDX-arrow:hover,
+        .myhome-body div[id*=IDX-carouselGallery-]+a:hover,
+        .myhome-idx-wrapper__results-mobileFirstResults-1006 #IDX-resultsRefineSubmit,
+        .myhome-idx-wrapper__results-mobileFirstResults-1006 #IDX-resultsRefineSubmit:hover,
+        .myhome-body .mh-app-wrapper .primary,
+        .myhome-body div.awesomplete mark,
+        .myhome-body .mh-popup-login .mh-popup-login__tab-button.active,
+        .myhome-body .mh-app__sidebar-nav__avatar-placeholder:hover,
+        .myhome-body .mh-pricing-table__row--name,
+        .myhome-body .woocommerce #respond input#submit.alt,
+        .myhome-body .woocommerce a.button.alt,
+        .myhome-body .woocommerce button.button.alt,
+        .myhome-body .woocommerce input.button.alt,
+        .myhome-body .mh-field-plans__list__image__icon {
+            background-color: #155375;
+        }
+
+        .myhome-body blockquote,
+        .myhome-body html body .mh-menu-primary-color-background #mega_main_menu.mh-primary>.menu_holder>.mmm_fullwidth_container,
+        .myhome-body input[type=text]:focus,
+        .myhome-body input[type=text]:active,
+        .myhome-body input[type=password]:focus,
+        .myhome-body input[type=password]:active,
+        .myhome-body input[type=email]:focus,
+        .myhome-body input[type=email]:active,
+        .myhome-body input[type=search]:focus,
+        .myhome-body input[type=search]:active,
+        .myhome-body input[type=tel]:focus,
+        .myhome-body input[type=tel]:active,
+        .myhome-body textarea:focus,
+        .myhome-body textarea:active,
+        .myhome-body .sticky,
+        .myhome-body .mh-active-input input,
+        .myhome-body .mh-active-input .bootstrap-select.btn-group>.btn,
+        .myhome-body .mdl-button.mdl-button--primary-ghost,
+        .myhome-body .mh-compare,
+        .myhome-body .tagcloud a:hover,
+        .myhome-body .tagcloud a:active,
+        .myhome-body .tagcloud a:focus,
+        .myhome-body .mh-map-panel,
+        .myhome-body .mh-map-zoom,
+        .myhome-body .mh-map-infobox:after,
+        .myhome-body .mh-map-infobox .mh-map-infobox__img-wrapper,
+        .myhome-body .mh-search-horizontal,
+        .myhome-body .mh-search-map-top .mh-search-horizontal,
+        .myhome-body .mh-social-icon:hover:after,
+        .myhome-body .mh-top-header--primary,
+        .myhome-body .owl-carousel .owl-dots .owl-dot.active span,
+        .myhome-body .mh-border-color-primary,
+        .myhome-body .mh-post .post-content blockquote,
+        .myhome-body .mh-user-panel-info,
+        .myhome-body.mh-active-input-primary .mh-search__panel>div:not(:first-child) .is-checked .mdl-radio__outer-circle,
+        html body.myhome-body .mh-menu-primary-color-background .mh-header:not(.mh-header--transparent) #mega_main_menu.mh-primary>.menu_holder>.mmm_fullwidth_container,
+        .myhome-body .myhome-idx-wrapper__photo_gallery-photogallery-1002 .IDX-photoGallery,
+        .myhome-body .myhome-idx-wrapper__map_search_page-mapsearch-1000 #IDX-searchNavWrapper,
+        .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-propertyTypeHeader,
+        .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-resultsDetailsLink a,
+        .myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 #IDX-searchNavWrapper,
+        .myhome-body #myhome-idx-wrapper .IDX-category-search #IDX-searchNavWrapper,
+        .myhome-body .myhome-idx-wrapper__search_page-searchStandard-1002 #IDX-searchNavWrapper,
+        .myhome-body #myhome-idx-wrapper.myhome-idx-wrapper__mortgage_calculator-mobileFirstMortgage-1002 .IDX-well,
+        .myhome-body div[id*=IDX-carouselGallery-]+a,
+        .myhome-body .mh-app-wrapper .primary,
+        .myhome-body .tabs {
+            border-color: #155375;
+        }
+
+        .myhome-body .mh-navbar__menu ul:first-child>li:hover>a,
+        .myhome-body .mh-navbar__container .mh-navbar__menu ul:first-child>li:hover>a:first-child,
+        .myhome-body .mh-pagination a:hover,
+        .myhome-body .page-numbers.current,
+        .myhome-body .mh-footer-top--dark a:hover,
+        .myhome-body .mh-footer-top--dark a:active,
+        .myhome-body .mh-footer-top--dark a:focus,
+        .myhome-body.input-myhome .mh-active-input input,
+        .myhome-body .tt-highlight,
+        .myhome-body .mh-breadcrumbs__item a:hover,
+        .myhome-body .mh-breadcrumbs__back:hover,
+        .myhome-body .mh-breadcrumbs__back:hover i,
+        .myhome-body .mh-active-input .bootstrap-select.btn-group>.btn,
+        .myhome-body .mh-active-input .bootstrap-select.btn-group .dropdown-toggle .filter-option,
+        .myhome-body .mdl-button.mdl-button--primary-ghost,
+        .myhome-body .mdl-button.mdl-button--primary-ghost:hover,
+        .myhome-body .mdl-button.mdl-button--primary-ghost:active,
+        .myhome-body .mdl-button.mdl-button--primary-ghost:focus,
+        .myhome-body .mdl-button.mdl-button--primary-font,
+        html body #mega_main_menu.mh-primary #mh-submit-button a,
+        html body.myhome-body #mega_main_menu.mh-primary #mh-submit-button a i,
+        html body.myhome-body #mega_main_menu.mh-primary>.menu_holder>.menu_inner>ul>li:hover>a:after,
+        html body.myhome-body #mega_main_menu.mh-primary>.menu_holder>.menu_inner>ul>li:hover>.item_link *,
+        .myhome-body .comment-edit-link:hover,
+        .myhome-body .comment-reply-link:hover,
+        .myhome-body .mh-compare__feature-list li a:hover,
+        .myhome-body .mh-compare__list__element a:hover,
+        .myhome-body .mh-compare__list__element a:hover i,
+        .myhome-body .mh-estate__list__element a:hover,
+        .myhome-body .mh-estate__list__element a:hover i,
+        .myhome-body .mh-estate-horizontal__primary,
+        .myhome-body .mh-estate-vertical__primary,
+        .myhome-body .mh-filters__button.mh-filters__button--active,
+        .myhome-body .mh-filters__button.mh-filters__button--active:hover,
+        .myhome-body button.mh-filters__right__button--active,
+        .myhome-body .mh-loader-wrapper-map,
+        .myhome-body .mh-loader,
+        .myhome-body .mh-register-terms .mh-register-terms__text a,
+        .myhome-body .mh-register-field__terms .mh-register-field__terms__text a,
+        .myhome-body .mh-form-container__reset:hover,
+        .myhome-body .mh-map-wrapper__noresults,
+        .myhome-body .mh-map-pin i,
+        .myhome-body .mh-navbar__wrapper #mh-submit-button a:hover,
+        .myhome-body .mh-pagination--single-post,
+        .myhome-body .mh-post-single__meta a:hover,
+        .myhome-body .mh-search__heading-big,
+        .myhome-body .mh-button-transparent:hover,
+        .myhome-body .mh-user-panel__plans__row .mh-user-panel__plans__cell-4 button:hover,
+        .myhome-body .mh-browse-estate__cell-3 a:hover,
+        .myhome-body .mh-browse-estate__cell-payment a:hover,
+        .myhome-body .mh-user-pagination li:hover,
+        .myhome-body .mh-user-pagination li.mh-user-pagination__element-active,
+        .myhome-body .mh-top-header-big__element:not(.mh-top-header-big__panel) a:hover,
+        .myhome-body .mh-color-primary,
+        .myhome-body .mh-top-header:not(.mh-top-header--primary) a:hover,
+        .myhome-body .mh-top-header-big .mh-top-header-big__social-icons a:hover,
+        .myhome-body .mh-top-header-big .mh-top-header-big__social-icons button:hover,
+        .myhome-body .mh-estate__details>div a:hover,
+        .myhome-body .recentcomments a:hover,
+        .myhome-body .rsswidget:hover,
+        .myhome-body .mh-post .post-content a:hover,
+        .myhome-body .link-primary:hover,
+        .myhome-body .mh-estate__agent__content a:hover,
+        .myhome-body .mh-pagination--properties li.active a,
+        .myhome-body .mh-page-type-v2__content a,
+        .myhome-body .idx-omnibar-form.idx-omnibar-original-form .awesomplete>ul>li:hover,
+        .myhome-body .idx-omnibar-form.idx-omnibar-original-form .awesomplete>ul>li[aria-selected="true"],
+        .myhome-body #IDX-main #IDX-resultsRow .IDX-field-listingPrice.IDX-field-price.IDX-field .IDX-text,
+        .myhome-body #IDX-main #IDX-resultsRow .IDX-resultsDetailsLink a,
+        .myhome-body #IDX-main.IDX-category-details #IDX-detailsTopNav .IDX-topLink a:hover,
+        .myhome-body #IDX-main.IDX-category-details .IDX-listAsRow li span,
+        .myhome-body #IDX-main.IDX-category-details .IDX-listAsRow li a:hover,
+        .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li span,
+        .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li span,
+        .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li a:hover,
+        .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li a:hover,
+        .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li span,
+        .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li span,
+        .myhome-body #IDX-main.IDX-category-search .IDX-listAsRow li a:hover,
+        .myhome-body #IDX-main.IDX-category-map .IDX-listAsRow li a:hover,
+        .myhome-body #IDX-main.IDX-category-details #IDX-detailsField-listingPrice #IDX-detailsPrice,
+        .myhome-body .mh-rs-search #myhome-search-form-submit .mh-search__panel--keyword .mh-search__panel.mh-active-input:after,
+        .myhome-body.mh-active-input-primary .mh-search__panel>div:not(:first-child) .is-checked .mdl-radio__label,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-nextLastButtons #IDX-nextProp,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-nextLastButtons #IDX-nextProp,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-hotLinks a:hover,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-hotLinks a:hover,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-detailsField-listingPrice #IDX-detailsPrice,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-detailsField-listingPrice #IDX-detailsPrice,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details #IDX-detailsTopNav .IDX-topLink a:hover,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing #IDX-detailsTopNav .IDX-topLink a:hover,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details .IDX-listAsRow li span,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-listAsRow li span,
+        .myhome-body #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-main.IDX-category-details .IDX-listAsRow li a:hover,
+        .myhome-body #myhome-idx-wrapper .IDX-page-listing .IDX-listAsRow li a:hover,
+        .myhome-body .myhome-idx-wrapper__photo_gallery-photogallery-1002 .IDX-page-photogallery #IDX-previousPage a:hover,
+        .myhome-body .idx-omnibar-form .awesomplete>ul>li:hover,
+        .myhome-body .idx-omnibar-form .awesomplete>ul>li[aria-selected="true"],
+        .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-propertyTypeHeader,
+        .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-field-listingPrice.IDX-field-price.IDX-field .IDX-text,
+        .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-resultsDetailsLink a,
+        .myhome-body .myhome-idx-wrapper__search_page-searchBase-1005 .IDX-emailUpdateSignupText,
+        .myhome-body #myhome-idx-wrapper .IDX-category-search .IDX-emailUpdateSignupText,
+        .myhome-body .myhome-idx-wrapper__my_account-myaccount-1000 .IDX-backLink:hover,
+        .myhome-body .myhome-idx-wrapper__user_signup-usersignup-1002 #IDX-loginText a,
+        .myhome-body div[id*=IDX-carouselGallery-] .IDX-carouselPrice,
+        .myhome-body .IDX-showcaseTable .IDX-showcasePrice,
+        .myhome-body .IDX-slideshowWrapper .IDX-slideshowPrice,
+        .myhome-body .myhome-idx-wrapper__results-mobileFirstResults-1006 #IDX-agentbio .IDX-actionLinks a,
+        .myhome-body .IDX-searchNavItem>span,
+        html body.myhome-body .ui-dialog[aria-labelledby*=IDX-loadingScreen] #IDX-loadingScreen,
+        .myhome-body .myhome-idx-wrapper__photo_gallery-mobileFirstPhotoGallery-1003 .IDX-showcaseThumbnails-button.IDX-active,
+        .myhome-body div[id*=IDX-carouselGallery-]+a,
+        .myhome-body .mh-popup-top-info i,
+        .myhome-body .mh-pricing-table__row--sold,
+        .myhome-body.mh-active-input-primary .mh-active-input input,
+        .myhome-body .mh-estate__list .mh-estate__list__inner .mh-estate__list__element--attachment a:hover {
+            color: #155375;
+        }
+
+        body,
+        button,
+        input,
+        optgroup,
+        select,
+        textarea,
+        .mh-accordion .ui-accordion-header,
+        .mh-estate-horizontal__subheading,
+        .mh-estate-horizontal__primary,
+        .mh-estate-vertical__subheading,
+        .mh-estate-vertical__primary,
+        .mh-map-infobox,
+        .mh-user-panel-info__heading,
+        .mh-font-body {
+            font-family: Lato;
+            font-weight: 400;
+        }
+
+        .mh-main-font-italic {
+            font-family: Lato;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .mh-estate-horizontal__primary,
+        .mh-estate-vertical__primary {
+            font-family: Lato;
+            font-weight: 700;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .mh-estate__details__price,
+        .mh-top-header,
+        .mh-top-header-big__panel,
+        .mh-caption__inner,
+        .mh-slider-single__price,
+        .mh-heading-font-bold,
+        .mh-search__results,
+        .mh-user-panel__user__content {
+            font-family: Play;
+            font-weight: 400;
+        }
+
+        h1,
+        .mh-caption__inner,
+        .mh-slider-single__price,
+        .mh-heading-font-bold,
+        .mh-search__results,
+        .mh-user-panel__user__content,
+        #IDX-main .IDX-control-label,
+        .mh-top-title__heading,
+        #myhome-idx-wrapper .IDX-control-label,
+        #myhome-idx-wrapper .IDX-addressField label,
+        #myhome-idx-wrapper__details-detailsDynamic-1008 #IDX-detailsFeaturedAgentdisplayname,
+        #myhome-idx-wrapper .IDX-page-listing #IDX-detailsFeaturedAgentdisplayname,
+        .myhome-idx-wrapper__results-mobileFirstResults-1006 .IDX-bioName,
+        #IDX-featuredAgentWrap.IDX-featuredAgentWrap .IDX-featuredAgentContact,
+        .IDX-showcaseTable .IDX-showcasePrice,
+        .IDX-slideshowWrapper .IDX-slideshowPrice {
+            font-family: Play;
+            font-weight: 700;
+        }
+    </style>
+    <style type="text/css" data-type="vc_shortcodes-custom-css">
+        .vc_custom_1532177424151 {
+            background-image: url(images/inside-whiter.jpg) !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+
+        .vc_custom_1643284945002 {
+            background-color: #ffffff !important;
+        }
+
+        .vc_custom_1643284945002 {
+            background-color: #ffffff !important;
+        }
+
+        .vc_custom_1643284945002 {
+            background-color: #ffffff !important;
+        }
+
+        .vc_custom_1643284945002 {
+            background-color: #ffffff !important;
+        }
+
+        .vc_custom_1643284945002 {
+            background-color: #ffffff !important;
+        }
+
+        .vc_custom_1643817435826 {
+            background-color: #f7f7f7 !important;
+        }
+
+        .vc_custom_1487058892069 {
+            padding-top: 39px !important;
+            padding-bottom: 24px !important;
+        }
+
+        .vc_custom_1487058892069 {
+            padding-top: 39px !important;
+            padding-bottom: 24px !important;
+        }
+
+        .vc_custom_1487058892069 {
+            padding-top: 39px !important;
+            padding-bottom: 24px !important;
+        }
+
+        .vc_custom_1487058892069 {
+            padding-top: 39px !important;
+            padding-bottom: 24px !important;
+        }
+
+        .vc_custom_1487058892069 {
+            padding-top: 39px !important;
+            padding-bottom: 24px !important;
+        }
+
+        .vc_custom_1487058892069 {
+            padding-top: 39px !important;
+            padding-bottom: 24px !important;
+        }
+
+        .vc_custom_1487058892069 {
+            padding-top: 39px !important;
+            padding-bottom: 24px !important;
+        }
+    </style><noscript>
+        <style>
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }
+        </style>
+    </noscript>
+</head>
+
+<body id="myhome-app"
+    class="home page-template page-template-page_full-width page-template-page_full-width-php page page-id-5 mmm mega_main_menu-2-2-1 myhome-body mh-hide-top-bar-on-mobile mh-active-input-primary myhome-3-1-57 essb-7.9 wpb-js-composer js-comp-ver-6.7.0 vc_responsive">
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none"
+        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-dark-grayscale">
+                <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <fecomponenttransfer color-interpolation-filters="sRGB">
+                    <fefuncr type="table" tableValues="0 0.49803921568627" />
+                    <fefuncg type="table" tableValues="0 0.49803921568627" />
+                    <fefuncb type="table" tableValues="0 0.49803921568627" />
+                    <fefunca type="table" tableValues="1 1" />
+                </fecomponenttransfer>
+                <fecomposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none"
+        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-grayscale">
+                <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <fecomponenttransfer color-interpolation-filters="sRGB">
+                    <fefuncr type="table" tableValues="0 1" />
+                    <fefuncg type="table" tableValues="0 1" />
+                    <fefuncb type="table" tableValues="0 1" />
+                    <fefunca type="table" tableValues="1 1" />
+                </fecomponenttransfer>
+                <fecomposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none"
+        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-purple-yellow">
+                <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <fecomponenttransfer color-interpolation-filters="sRGB">
+                    <fefuncr type="table" tableValues="0.54901960784314 0.98823529411765" />
+                    <fefuncg type="table" tableValues="0 1" />
+                    <fefuncb type="table" tableValues="0.71764705882353 0.25490196078431" />
+                    <fefunca type="table" tableValues="1 1" />
+                </fecomponenttransfer>
+                <fecomposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none"
+        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-blue-red">
+                <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <fecomponenttransfer color-interpolation-filters="sRGB">
+                    <fefuncr type="table" tableValues="0 1" />
+                    <fefuncg type="table" tableValues="0 0.27843137254902" />
+                    <fefuncb type="table" tableValues="0.5921568627451 0.27843137254902" />
+                    <fefunca type="table" tableValues="1 1" />
+                </fecomponenttransfer>
+                <fecomposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none"
+        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-midnight">
+                <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <fecomponenttransfer color-interpolation-filters="sRGB">
+                    <fefuncr type="table" tableValues="0 0" />
+                    <fefuncg type="table" tableValues="0 0.64705882352941" />
+                    <fefuncb type="table" tableValues="0 1" />
+                    <fefunca type="table" tableValues="1 1" />
+                </fecomponenttransfer>
+                <fecomposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none"
+        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-magenta-yellow">
+                <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <fecomponenttransfer color-interpolation-filters="sRGB">
+                    <fefuncr type="table" tableValues="0.78039215686275 1" />
+                    <fefuncg type="table" tableValues="0 0.94901960784314" />
+                    <fefuncb type="table" tableValues="0.35294117647059 0.47058823529412" />
+                    <fefunca type="table" tableValues="1 1" />
+                </fecomponenttransfer>
+                <fecomposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none"
+        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-purple-green">
+                <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <fecomponenttransfer color-interpolation-filters="sRGB">
+                    <fefuncr type="table" tableValues="0.65098039215686 0.40392156862745" />
+                    <fefuncg type="table" tableValues="0 1" />
+                    <fefuncb type="table" tableValues="0.44705882352941 0.4" />
+                    <fefunca type="table" tableValues="1 1" />
+                </fecomponenttransfer>
+                <fecomposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none"
+        style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;">
+        <defs>
+            <filter id="wp-duotone-blue-orange">
+                <fecolormatrix color-interpolation-filters="sRGB" type="matrix"
+                    values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " />
+                <fecomponenttransfer color-interpolation-filters="sRGB">
+                    <fefuncr type="table" tableValues="0.098039215686275 1" />
+                    <fefuncg type="table" tableValues="0 0.66274509803922" />
+                    <fefuncb type="table" tableValues="0.84705882352941 0.41960784313725" />
+                    <fefunca type="table" tableValues="1 1" />
+                </fecomponenttransfer>
+                <fecomposite in2="SourceGraphic" operator="in" />
+            </filter>
+        </defs>
+    </svg>
+    <div class="mh-fixed-menu mh-fixed-menu--transparent-light">
+        <div class="mh-top-header mh-top-header--default">
+
+            <div class="mh-layout">
+
+
+                <span class="mh-top-header__element mh-top-header__element--phone">
+                    <a href="tel:+000000000/+00000000">
+                        <i class="flaticon-phone"></i>
+                        +92 345 8832795/ +92 335 3235010 </a>
+                </span>
+
+                <span class="mh-top-header__element">
+                    <address>
+                        <i class="flaticon-pin"></i>
+                        Karachi - Pakistan
+                    </address>
+                </span>
+
+                <span class="mh-top-header__element mh-top-header__element--mail">
+                    <a href="mailto:arsalan.9798@gmail.com">
+                        <i class="flaticon-mail-2"></i>
+                        arsalan.9798@gmail.com </a>
+                </span>
+
+                <span class="mh-top-header__element mh-top-header__element--social-icons">
+                    <span>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-facebook mh-top-header-big__element__icon-big"></i>
+                        </a>
+                    </span>
+
+                    <span>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-twitter mh-top-header-big__element__icon-big"></i>
+                        </a>
+                    </span>
+
+                    <span>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-instagram mh-top-header-big__element__icon-big"></i>
+                        </a>
+                    </span>
+
+                    <span>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-linkedin mh-top-header-big__element__icon-big"></i>
+                        </a>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+
+        <div class="mh-header default">
+            <!-- begin "mega_main_menu" -->
+            <div id="mega_main_menu"
+                class="mh-primary primary_style-flat icons-left first-lvl-align-left first-lvl-separator-none direction-horizontal fullwidth-disable pushing_content-disable mobile_minimized-enable dropdowns_trigger-hover dropdowns_animation-anim_4 no-logo no-search no-woo_cart no-buddypress responsive-enable coercive_styles-disable indefinite_location_mode-disable language_direction-ltr version-2-2-1 mh-primary primary_style-flat icons-left first-lvl-align-left first-lvl-separator-none direction-horizontal fullwidth-disable pushing_content-disable mobile_minimized-enable dropdowns_trigger-hover dropdowns_animation-anim_4 no-logo no-search no-woo_cart no-buddypress responsive-enable coercive_styles-disable indefinite_location_mode-disable language_direction-ltr version-2-2-1 mega_main mega_main_menu">
+                <div class="menu_holder">
+                    <div class="mmm_fullwidth_container"></div><!-- class="fullwidth_container" -->
+                    <div class="menu_inner"> <span class="nav_logo">
+                            <a class="mobile_toggle">
+                                <span class="mobile_button">
+                                    <span class="symbol_menu"><i class="fas fa-bars"></i></span>
+                                    <span class="symbol_cross"><i class="fas fa-times"></i></span>
+                                </span>
+                            </a>
+                            <a class="logo_link" href="/" title="Screenerpk">
+                                <img src="{% static 'images/custom/site_logo.png' %}" alt="Screenerpk">
+                            </a>
+                        </span>
+                        <!-- /class="nav_logo" -->
+                        {% include 'nav.html' %}
+                        <!-- /.mega_dropdown --> </li>
+                        <li id="menu-item-3632"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-3632 default_dropdown  drop_to_right submenu_default_width columns1">
+
+                        </li>
+                        </li>
+                        <li id="menu-item-3778"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3778 default_dropdown  drop_to_right submenu_default_width columns1">
+                            <a href="#" class="item_link  disable_icon" tabindex="8"> <i class></i> <span
+                                    class="link_content"> <span class="link_text"> </span> </span> </a> </li>
+                        </ul>/.mega_dropdown </li>
+                        <li id="menu-item-3688"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3688 default_dropdown  drop_to_right submenu_default_width columns1">
+                            <a href="#" class="item_link  disable_icon" tabindex="9"> <i class></i> <span
+                                    class="link_content"> <span class="link_text"> FLEET FINANCING </span> </span> </a>
+                        </li>
+                        <li id="menu-item-3694"
+                            class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-3694 default_dropdown  drop_to_right submenu_default_width columns1">
+                            <a href="#" class="item_link  disable_icon" tabindex="10"> <i class></i> <span
+                                    class="link_content"> <span class="link_text"> Settlements </span> </span> </a>
+                        </li>
+                        <li id="menu-item-3633"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3633 default_dropdown  drop_to_right submenu_default_width columns1">
+                            <a href="#" class="item_link  disable_icon" tabindex="11"> <i class></i> <span
+                                    class="link_content"> <span class="link_text"> Contact </span> </span> </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mh-sticky-menu-placeholder
+					mh-sticky-menu-placeholder--active
+		"></div>
+        <div class="mh-layout">
+            <div id="post-5" class="mh-post">
+                <div class="vc_row-full-width vc_clearfix"></div>
+                <div data-vc-full-width="true" data-vc-full-width-init="false"
+                    class="vc_row wpb_row vc_row-fluid vc_custom_1643284945002 vc_row-has-fill">
+                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                        <div class="vc_column-inner vc_custom_1487058892069">
+                            <div class="wpb_wrapper">
+                                <div class=" ">
+                                    <div class="mh-heading-wrapper">
+                                        <!-- <h2 class="mh-heading  mh-heading--bottom-separator   " style="font-weight:700;">Recurring Deposit</h2> -->
+                                    </div>
+                                    <!---table here-->
+
+                                    {% include 'calculators.html' %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vc_row-full-width vc_clearfix"></div>
+                <div data-vc-full-width="true" data-vc-full-width-init="false"
+                    class="vc_row wpb_row vc_row-fluid vc_custom_1643284945002 vc_row-has-fill">
+                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                        <div class="vc_column-inner vc_custom_1487058892069">
+                            <div class="wpb_wrapper">
+                                <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                                        <div class="vc_column-inner">
+                                            <div class="wpb_wrapper">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                                        <div class="vc_column-inner">
+                                            <div class="wpb_wrapper">
+                                                <div class=" ">
+                                                </div>
+
+
+                                                <!-- Start Section Term Deposits -->
+                                                <div style="text-align:left;" class>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vc_row-full-width vc_clearfix"></div>
+                <div data-vc-full-width="true" data-vc-full-width-init="false"
+                    class="vc_row wpb_row vc_row-fluid vc_custom_1643284945002 vc_row-has-fill">
+                    <div class="wpb_column vc_column_container vc_col-sm-12">
+                        <div class="vc_column-inner vc_custom_1487058892069">
+                            <div class="wpb_wrapper">
+                                <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                                        <div class="vc_column-inner">
+                                            <div class="wpb_wrapper">
+
+                                                <div style="text-align:left;" class>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wpb_column vc_column_container vc_col-sm-6">
+                                        <div class="vc_column-inner">
+                                            <div class="wpb_wrapper">
+                                                <!-- <div class="wpb_single_image wpb_content_element vc_align_left">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="800" height="800" style="height: 600px;" src="{% static 'images/custom/investment_6.jpg' %}" class="vc_single_image-img attachment-full" alt decoding="async" loading="lazy" srcset="{% static 'images/custom/investment_6.jpg 800w, images/custom/investment_6-300x300.jpg 300w, images/02-150x150.jpg 150w, images/02-768x768.jpg 768w, images/custom/investment_6-400x400.jpg 400w, images/custom/investment_6-200x200.jpg 200w, images/custom/investment_6-100x100.jpg 100w' %}" sizes="(max-width: 800px) 100vw, 800px"></div>
+		</figure>
+	</div> -->
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vc_row-full-width vc_clearfix"></div>
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+
+
+
+
+    <footer id="footer" class="mh-footer-top mh-background-cover mh-footer-top--dark">
+
+
+        <div class="mh-footer__inner">
+            <div class="mh-layout">
+                <div class="mh-footer__row">
+
+
+                    <div class="mh-footer__row__column widget mh-footer__row__column--1of2">
+
+                        <div class="mh-footer__logo">
+                            <img src="{% static 'images/custom/site_logo.png' %}" alt="Screenerpk">
+                        </div>
+
+                    </div>
+
+
+                    <div class="mh-footer__row__column mh-footer__row__column--1of2 widget widget_archive"
+                        id="archives-4">
+                        <div class="mh-footer__text">
+                        </div>
+
+                        <address class="mh-footer__contact">
+                            <i class="flaticon-pin"></i>
+                            Karachi - Pakistan
+                        </address>
+
+                        <div class="mh-footer__contact">
+                            <a href="tel:+000000000/+0000000000">
+                                <i class="flaticon-phone"></i>
+                                +92 345 8832795/ +92 335 3235010 </a>
+                        </div>
+
+                        <div class="mh-footer__contact">
+                            <a href="mailto:arsalan.9798@gmail.com">
+                                <i class="flaticon-mail-2"></i>
+                                arsalan.9798@gmail.com </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mh-footer-bottom ">
+                <div class="mh-layout">
+                    2023 Screenerpk Designed & Developed by Arsalan-Ramish. All rights reserved. </div>
+            </div>
+
+
+    </footer>
+    <account id="myhome-account"></account>
+    <save-search id="myhome-save-search"></save-search>
+    <div>
+        <compare-area id="myhome-compare-area"></compare-area>
+    </div>
+
+    <script type="text/javascript">
+        window.RS_MODULES = window.RS_MODULES || {};
+        window.RS_MODULES.modules = window.RS_MODULES.modules || {};
+        window.RS_MODULES.waiting = window.RS_MODULES.waiting || [];
+        window.RS_MODULES.defered = false;
+        window.RS_MODULES.moduleWaiting = window.RS_MODULES.moduleWaiting || {};
+        window.RS_MODULES.type = 'compiled';
+    </script>
+    <script>
+        var flag = true;
+        jQuery(document).on('vc-full-width-row', function () {
+            if (flag) {
+                flag = false
+
+                window.dispatchEvent(new Event('resize'));
+
+                lazySizes.autoSizer.checkElems();
+            }
+        });
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700%2C400" rel="stylesheet" property="stylesheet"
+        media="all" type="text/css">
+
+    <script type="text/javascript">
+        if (typeof revslider_showDoubleJqueryError === "undefined") { function revslider_showDoubleJqueryError(sliderID) { console.log("You have some jquery.js library include that comes after the Slider Revolution files js inclusion."); console.log("To fix this, you can:"); console.log("1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on"); console.log("2. Find the double jQuery.js inclusion and remove it"); return "Double Included jQuery Library"; } }
+    </script>
+    <link rel="stylesheet" id="rs-plugin-settings-css" href="{% static 'css/rs6.css' %}" type="text/css" media="all">
+    <style id="rs-plugin-settings-inline-css" type="text/css">
+        #rev_slider_13_1_wrapper .ares.tp-bullets {}
+
+        #rev_slider_13_1_wrapper .ares.tp-bullets:before {
+            content: ' ';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            padding: 10px;
+            margin-left: -10px;
+            margin-top: -10px;
+            box-sizing: content-box
+        }
+
+        #rev_slider_13_1_wrapper .ares .tp-bullet {
+            width: 13px;
+            height: 13px;
+            position: absolute;
+            background: #e5e5e5;
+            border-radius: 50%;
+            cursor: pointer;
+            box-sizing: content-box
+        }
+
+        #rev_slider_13_1_wrapper .ares .tp-bullet.rs-touchhover,
+        #rev_slider_13_1_wrapper .ares .tp-bullet.selected {
+            background: #ffffff
+        }
+
+        #rev_slider_13_1_wrapper .ares .tp-bullet-title {
+            position: absolute;
+            color: #888888;
+            font-size: 12px;
+            padding: 0px 10px;
+            font-weight: 600;
+            right: 27px;
+            top: -4px;
+            background: rgba(255, 255, 255, 0.75);
+            visibility: hidden;
+            transform: translatex(-20px);
+            -webkit-transform: translatex(-20px);
+            transition: transform 0.3s;
+            -webkit-transition: transform 0.3s;
+            line-height: 20px;
+            white-space: nowrap
+        }
+
+        #rev_slider_13_1_wrapper .ares .tp-bullet-title:after {
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent rgba(255, 255, 255, 0.75);
+            content: ' ';
+            position: absolute;
+            right: -10px;
+            top: 0px
+        }
+
+        #rev_slider_13_1_wrapper .ares .tp-bullet.rs-touchhover .tp-bullet-title {
+            visibility: visible;
+            transform: translatex(0px);
+            -webkit-transform: translatex(0px)
+        }
+
+        #rev_slider_13_1_wrapper .ares .tp-bullet.selected.rs-touchhover .tp-bullet-title {
+            background: #ffffff
+        }
+
+        #rev_slider_13_1_wrapper .ares .tp-bullet.selected.rs-touchhover .tp-bullet-title:after {
+            border-color: transparent transparent transparent #ffffff
+        }
+
+        #rev_slider_13_1_wrapper .ares.tp-bullets.rs-touchhover .tp-bullet-title {
+            visibility: hidden
+        }
+
+        #rev_slider_13_1_wrapper .ares.tp-bullets.rs-touchhover .tp-bullet.rs-touchhover .tp-bullet-title {
+            visibility: visible;
+            transform: translateX(0px) translatey(0px);
+            -webkit-transform: translateX(0px) translatey(0px)
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-vertical.nav-pos-hor-left .tp-bullet-title {
+            right: auto;
+            left: 27px;
+            transform: translatex(20px);
+            -webkit-transform: translatex(20px)
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-vertical.nav-pos-hor-left .tp-bullet-title:after {
+            border-width: 10px 10px 10px 0 !important;
+            border-color: transparent rgba(255, 255, 255, 0.75) transparent transparent;
+            right: auto !important;
+            left: -10px !important
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-vertical.nav-pos-hor-left .tp-bullet.selected.rs-touchhover .tp-bullet-title:after {
+            border-color: transparent #ffffff transparent transparent !important
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-center .tp-bullet-title,
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-bottom .tp-bullet-title {
+            top: -35px;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%) translateY(-10px);
+            -webkit-transform: translateX(-50%) translateY(-10px)
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-center .tp-bullet-title:after,
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-bottom .tp-bullet-title:after {
+            border-width: 10px 10px 0px 10px;
+            border-color: rgba(255, 255, 255, 0.75) transparent transparent transparent;
+            right: auto;
+            left: 50%;
+            margin-left: -10px;
+            top: auto;
+            bottom: -10px
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-center .tp-bullet.selected.rs-touchhover .tp-bullet-title:after,
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-bottom .tp-bullet.selected.rs-touchhover .tp-bullet-title:after {
+            border-color: #ffffff transparent transparent transparent
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-center .tp-bullet.rs-touchhover .tp-bullet-title,
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-bottom .tp-bullet.rs-touchhover .tp-bullet-title {
+            transform: translateX(-50%) translatey(0px);
+            -webkit-transform: translateX(-50%) translatey(0px)
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-top .tp-bullet-title {
+            top: 25px;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%) translateY(10px);
+            -webkit-transform: translateX(-50%) translateY(10px)
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-top .tp-bullet-title:after {
+            border-width: 0 10px 10px 10px;
+            border-color: transparent transparent rgba(255, 255, 255, 0.75) transparent;
+            right: auto;
+            left: 50%;
+            margin-left: -10px;
+            bottom: auto;
+            top: -10px
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-top .tp-bullet.selected.rs-touchhover .tp-bullet-title:after {
+            border-color: transparent transparent #ffffff transparent
+        }
+
+        #rev_slider_13_1_wrapper .ares.nav-dir-horizontal.nav-pos-ver-top .tp-bullet.rs-touchhover .tp-bullet-title {
+            transform: translateX(-50%) translatey(0px);
+            -webkit-transform: translateX(-50%) translatey(0px)
+        }
+    </style>
+    <script type="text/javascript" src="{% static 'js/index.js ' %}" id="swv-js"></script>
+    <script type="text/javascript" id="contact-form-7-js-extra">
+        /* <![CDATA[ */
+        var wpcf7 = { "api": { "root": "https:\/\/screenerpk.pk\/wp-json\/", "namespace": "contact-form-7\/v1" } };
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="{% static 'js/index_1.js' %}" id="contact-form-7-js"></script>
+    <script type="text/javascript" id="lazy-sizes-js-before">
+        window.lazySizesConfig = window.lazySizesConfig || {};
+        window.lazySizesConfig.loadMode = 1;
+
+    </script>
+    <script type="text/javascript" src="{% static 'js/lazysizes.min.js' %}" id="lazy-sizes-js"></script>
+    <script type="text/javascript" id="myhome-min-js-extra">
+        /* <![CDATA[ */
+        var MyHome = { "site": "https:\/\/screenerpk.pk", "compare": "1", "api": "https:\/\/screenerpk.pk\/wp-json\/myhome\/v1\/estates", "panelUrl": "https:\/\/screenerpk.pk\/panel\/", "user_fields": [], "is_register_open": "", "requestUrl": "https:\/\/screenerpk.pk\/wp-admin\/admin-ajax.php", "nonce": "d01222dfc3", "mapStyle": "[{featureType:\"administrative\",elementType:\"labels.text.fill\",stylers:[{color:\"#444444\"}]},{featureType:\"landscape\",elementType:\"all\",stylers:[{color:\"#f2f2f2\"}]},{featureType:\"poi\",elementType:\"all\",stylers:[{visibility:\"off\"}]},{featureType:\"road\",elementType:\"all\",stylers:[{saturation:-100},{lightness:45}]},{featureType:\"road.highway\",elementType:\"all\",stylers:[{visibility:\"simplified\"}]},{featureType:\"road.arterial\",elementType:\"labels.icon\",stylers:[{visibility:\"off\"}]},{featureType:\"transit\",elementType:\"all\",stylers:[{visibility:\"off\"}]},{featureType:\"water\",elementType:\"all\",stylers:[{color:\"#d7e1f2\"},{visibility:\"on\"}]}]", "mapType": "roadmap", "contact_price_label": "Contact for price", "user_bar_label": "Login \/ Register", "property_link_new_tab": "", "show_date": "true", "show_favorite": "1", "show_save_search": "1", "captcha_enabled": "", "captcha_site_key": "", "account_types": { "agent": "Agent", "agency": "Agency", "buyer": "Buyer" }, "account_type": "agent", "user_select_type": "", "clustering": "1", "street": "1", "show_rules": "", "rules_link": "#", "buyer_can_submit_property": "", "account_register_open": "", "account_active_tab": "login", "notLoggedPopup": "", "translations": { "username": "Username", "accept": "I agree to the", "terms_of_service": "Terms of Service", "alphabetically": "Alphabetical", "compare": "Compare", "added": "Added", "details": "Details", "more": "More", "newest": "Newest", "sort_by": "Sort by:", "popular": "Popular", "price": "Price", "reset": "Reset", "full_screen": "Full Screen", "price_high_to_low": "Price (high to low)", "price_low_to_high": "Price (low to high)", "results": "results", "found": "Found", "any": "Any", "search": "Search", "from": "From", "to": "To", "advanced": "Advanced", "hide_advanced": "Hide", "clear": "clear", "street_view": "Street View", "prev": "Prev", "next": "Next", "fullscreen": "Full screen", "fullscreen_close": "Close full screen", "clear_search": "Clear search", "no_results": "No results found", "hide": "Hide", "show": "Show", "attributes": "Attributes", "show_location": "Show location", "near": "Show near", "login": "Login", "login2": "Login", "register": "Register", "submit_property": "Submit property", "my_properties": "My properties", "edit_profile": "Edit profile", "view_profile": "View my profile", "log_out": "Log out", "currency": "Currency", "enter_login": "Enter your login ", "enter_password": "Enter your password", "retrieve_password": "reset password", "save_this_search": "Save this search", "agents": "Agents", "hello": "Hello", "reg_completed": "Registration completed. Thank you!", "check_email": "Please check your email to activate your account", "back": "back", "email_required": "Email field is required", "enter_email": "Please enter your email address to request a password reset.", "reset_password": "Reset Password", "ok": "OK", "exclamation_mark": "!", "no_user": "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.", "password": "Password", "email": "Email", "repeat_password": "Repeat password", "password_mismatch": "Password mismatch", "account_type": "Account type", "connect_with": "Connect with", "saved_success": "Saved successfully", "saving": "Saving...", "save_search": "Save search", "name_required": "Name field is required", "save": "Save", "enter_s_name": "Enter search name", "removed": "Removed", "added_to_favorite": "Added to favorite", "add_to_favorite": "Add to favorite", "favorite": "Favorite", "saved_searches": "Saved searches", "add_to_compare": "Add to compare", "added_to_compare": "Added to compare" }, "theme_url": "https:\/\/screenerpk.pk\/wp-content\/themes\/myhome" };
+        /* ]]> */
+    </script>
+    <script type="text/javascript" src="{% static 'js/myhome.min.js' %}" id="myhome-min-js"></script>
+    <script type="text/javascript" src="{% static 'js/frontend.js' %}" id="mmm_menu_functions-js"></script>
+
+    <script type="text/javascript" src="{% static 'js/js_composer_front.min.js' %}"
+        id="wpb_composer_front_js-js"></script>
+    <script type="text/javascript" id="rs-initialisation-scripts">
+        var tpj = jQuery;
+
+        var revapi13;
+
+        if (window.RS_MODULES === undefined) window.RS_MODULES = {};
+        if (RS_MODULES.modules === undefined) RS_MODULES.modules = {};
+        RS_MODULES.modules["revslider131"] = {
+            init: function () {
+                revapi13 = jQuery("#rev_slider_13_1");
+                if (revapi13 == undefined || revapi13.revolution == undefined) { revslider_showDoubleJqueryError("rev_slider_13_1"); return; }
+                revapi13.revolutionInit({
+                    DPR: "dpr",
+                    sliderLayout: "fullwidth",
+                    duration: 3500,
+                    visibilityLevels: "1240,1024,778,480",
+                    gridwidth: "1024,900,320,320",
+                    gridheight: "400,350,470,470",
+                    lazyType: "smart",
+                    perspective: 600,
+                    perspectiveType: "local",
+                    editorheight: "400,350,470,470",
+                    responsiveLevels: "1240,1024,778,480",
+                    progressBar: { disableProgressBar: true },
+                    navigation: {
+                        mouseScrollNavigation: false,
+                        wheelCallDelay: 1000,
+                        onHoverStop: false,
+                        bullets: {
+                            enable: true,
+                            tmp: "<span class=\"tp-bullet-title\">{{title}}</span>",
+                            style: "ares"
+                        }
+                    },
+                    fanim: {
+                        in: { "o": 0 },
+                        out: { "a": false },
+                        speed: 300
+                    },
+                    viewPort: {
+                        global: true,
+                        globalDist: "-200px",
+                        enable: false,
+                        visible_area: "20%"
+                    },
+                    fallbacks: {
+                        allowHTML5AutoPlayOnAndroid: true
+                    },
+                });
+
+            }
+        } // End of RevInitScript
+
+        if (window.RS_MODULES.checkMinimal !== undefined) { window.RS_MODULES.checkMinimal(); };
+    </script>
+    <script
+        type="text/javascript">(function () { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;; po.src = 'https://screenerpk.pk/wp-content/plugins/easy-social-share-buttons3/assets/js/essb-core.min.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();</script>
+    <script type="text/javascript"></script>
+    <!---table js-->
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            // Initialize DataTable
+            var table = $('#investmentTable').DataTable();
+            var topProfitTable = $('#topProfitTable').DataTable({ "order": [[4, "desc"]] });
+
+
+            // Add event listener for changes in the filter elements
+            $('#bankFilter, #productFilter').on('change', function () {
+                var selectedBank = $('#bankFilter').val();
+                var selectedProduct = $('#productFilter').val();
+
+                // Apply filters to DataTable
+                table.columns(0).search(selectedBank).columns(6).search(selectedProduct).draw();
+            });
+        });
+
+    </script>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #343a40;
+            font-weight: bold;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select {
+            margin-bottom: 20px;
+        }
+
+        #getTopProfitProducts {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #dee2e6;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .dataTables_paginate {
+            margin-top: 10px;
+            /* Adjust the value as needed */
+        }
+
+        .dataTables_paginate span,
+        .dataTables_paginate a {
+            margin: 0 5px;
+            /* Adjust the value as needed */
+        }
+
+        select {
+            border-radius: 10px;
+            /* Add border-radius for curved edges */
+            padding: 8px;
+            /* Add padding for better appearance */
+            margin-right: 10px;
+            /* Add some space between filters */
+        }
+
+        /* Style for the button */
+        button {
+            border-radius: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            /* Blue color, you can change it */
+            color: #fff;
+            /* White text */
+            border: none;
+            cursor: pointer;
+        }
+
+        .display {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .display th,
+        .display td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .display th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        /* Add alternate row colors */
+        .display tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+            /* Light gray */
+        }
+
+        .display tbody tr:hover {
+            background-color: #e0e0e0;
+            /* Lighter gray on hover */
+        }
+    </style>
+</body>
+
+</html>
