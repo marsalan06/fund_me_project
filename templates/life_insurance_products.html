@@ -342,7 +342,6 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <!-- <link rel="stylesheet" id="myhome-font-awesome-css" href="{% static 'css/all.min.css' %}" type="text/css" media="all"> -->
 <link rel="stylesheet" id="bsf-Defaults-css" href="{% static 'css/Defaults.css' %}" type="text/css" media="all">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700%7CPlay:400,700&subset=latin-ext&display=block&ver=1685529640"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700%7CPlay:400,700&amp;subset=latin-ext&amp;display=block&amp;ver=1685529640" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,700%7CPlay:400,700&amp;subset=latin-ext&amp;display=block&amp;ver=1685529640"></noscript><script type="text/javascript" src="{% static 'js/jquery.min.js' %}" id="jquery-core-js"></script>
-<script type="text/javascript" src="{% static 'js/jquery-migrate.min.js' %}" id="jquery-migrate-js"></script>
 <script type="text/javascript" src="{% static 'js/rbtools.min.js' %}" async id="tp-tools-js"></script>
 <script type="text/javascript" src="{% static 'js/rs6.min.js' %}" async id="revmin-js"></script>
 <meta name="generator" content="WordPress 6.2.2">
@@ -872,17 +871,20 @@ Body {
     {% endfor %}
 </select>
 
-<label for="frequencyFilter">Filter by frequency:</label>
+<!-- <label for="frequencyFilter">Filter by frequency:</label>
 <select id="frequencyFilter">
     <option value="">All Frequency</option>
     {% for freq in frequency %}
         <option value="{{ freq.0 }}">{{ freq.0 }}</option>
     {% endfor %}
-</select>
+</select> -->
+
+<!-- <label for="productLengthFilter">Filter by Product Length:</label>
+<input type="text" id="productLengthFilter" placeholder="Enter product length..."> -->
 
 <!-- Table to display data -->
 <table id="investmentTable" class="display">
-    <thead style="background-color: #343a40; color: white;">
+    <thead style="background-color: blue; color: white;">
         <tr>
             <th>Company Name</th>
             <th>Rating</th>
@@ -1136,15 +1138,24 @@ var MyHome = {"site":"https:\/\/screenerpk.pk","compare":"1","api":"https:\/\/sc
 
 $(document).ready(function() {
         // Initialize DataTable
-        var table = $('#investmentTable').DataTable();
+        var table = $('#investmentTable').DataTable({
+        language: {
+            searchPlaceholder: "Enter search terms...",
+            search: "Product Description Search:" // Replace "Custom Label" with whatever you want the label to be
+        }
+    });
 
         // Add event listener for changes in the filter elements
-        $('#life_insurance_companies_filter, #frequencyFilter').on('change', function() {
+        $('#life_insurance_companies_filter').on('change', function() {
             var selectedLifeInsurance = $('#life_insurance_companies_filter').val();
-            var selectedFreq = $('#frequencyFilter').val();
+            console.log(selectedLifeInsurance)
+            // var selectedFreq = $('#frequencyFilter').val();
+            // var selectedProductLength = $('#productLengthFilter').val().trim(); // Use trim to remove unnecessary whitespace
+
 
             // Apply filters to DataTable
-            table.columns(0).search(selectedLifeInsurance).columns(4).search(selectedFreq).draw();
+            table.columns(0).search(selectedLifeInsurance).draw();
+            // table.columns(0).search(selectedLifeInsurance).columns(4).search(selectedFreq).draw();
         });
     });
 
