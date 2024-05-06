@@ -110,6 +110,10 @@ def recurring(request):
     return render(request, 'recurring_template.html')
 
 
+def ruleof72(request):
+    return render(request, 'rule_of_72_template.html')
+
+
 def mutualfundcalculator(request):
     return render(request, 'mutualfundcalculator_template.html')
 

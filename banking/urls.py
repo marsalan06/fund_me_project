@@ -32,6 +32,8 @@ urlpatterns = [
          name='biannual'),
     path('recurring/', views.recurring,
          name='recurring'),
+    path('ruleof72/', views.ruleof72,
+         name='ruleof72'),
     path('mutualfundcalculator/', views.mutualfundcalculator,
          name='mutualfundcalculator'),
     path('article/', views.upload_article, name='upload_article'),
