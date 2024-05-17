@@ -13,6 +13,7 @@ urlpatterns = [
     path('term-deposits/', views.term_deposites, name='term_deposites'),
     path('faq/', views.faqs, name='faqs'),
     path('products/', views.investment_list, name='investment_list'),
+    path('foreign/', views.foreign_investment_list, name='foreign_currency'),
     path('life-insurance/', views.life_insurance, name='life_insurance'),
     path('life-insurance-companies/', views.life_insurance_companies,
          name='life_insurance_companies'),

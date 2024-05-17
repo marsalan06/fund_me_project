@@ -38,18 +38,19 @@ class InvestmentResource(resources.ModelResource):
     bank_name = fields.Field(column_name='bank', attribute='bank',
                              widget=ForeignKeyWidget(BankProduct, 'bank_name'))
 
+    investment_type = fields.Field(
+        column_name='investment_type', attribute='investment_type')
+
     class Meta:
         model = Investment
         fields = ('id', 'bank_name', 'rating_long_term', 'rating_short_term', 'min_investment', 'max_investment',
-                  'product_length', 'profit_rate', 'payout_frequency', 'choice_field')
+                  'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type')
         export_order = ('id', 'bank_name', 'rating_long_term', 'rating_short_term', 'min_investment', 'max_investment',
-                        'product_length', 'profit_rate', 'payout_frequency', 'choice_field')
+                        'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type')
 
     def before_import_row(self, row, **kwargs):
         # Check if the bank with the specified name exists, create if not
         bank_name = row.get('bank')
-        print("======testing=====", bank_name)
-        print(row, row.get('profit_rate'))
         if bank_name:
             bank, created = BankProduct.objects.get_or_create(
                 bank_name=bank_name)
@@ -67,12 +68,11 @@ class BankProductsAdmin(admin.ModelAdmin):
 
 
 class InvestmentAdmin(ImportExportModelAdmin):
-
     resource_class = InvestmentResource
 
     list_display = ['bank', 'min_investment', 'max_investment', 'rating_long_term', 'rating_short_term',
-                    'product_length', 'profit_rate', 'payout_frequency', 'choice_field']
-    list_filter = ['bank__bank_name', 'choice_field']
+                    'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type']
+    list_filter = ['bank__bank_name', 'choice_field', 'investment_type']
 
 
 class InsuranceProductResource(resources.ModelResource):

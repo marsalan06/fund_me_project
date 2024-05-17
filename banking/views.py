@@ -42,11 +42,10 @@ def faqs(request):
 
 def investment_list(request):
     # Fetch all banks for the dropdown
-
     banks = BankProduct.objects.all()
     products = Investment.PRODUCT_CHOICES
-    investments = Investment.objects.all()
-    top_products = Investment.objects.exclude(
+    investments = Investment.objects.filter(investment_type='local')
+    top_products = investments.exclude(
         Q(profit_rate__contains='disclosed') | Q(
             profit_rate__contains='-') | Q(profit_rate__contains=' ')
     ).order_by('-profit_rate')[:5]
@@ -58,6 +57,25 @@ def investment_list(request):
     }
 
     return render(request, 'products.html', context)
+
+
+def foreign_investment_list(request):
+    # Fetch all banks for the dropdown
+    banks = BankProduct.objects.all()
+    products = Investment.PRODUCT_CHOICES
+    investments = Investment.objects.filter(investment_type='foreign')
+    top_products = investments.exclude(
+        Q(profit_rate__contains='disclosed') | Q(
+            profit_rate__contains='-') | Q(profit_rate__contains=' ')
+    ).order_by('-profit_rate')[:5]
+    context = {
+        'banks': banks,
+        'products': products,
+        'investments': investments,
+        'top_products': top_products,
+    }
+
+    return render(request, 'foreign_products.html', context)
 
 
 def life_insurance(request):
