@@ -872,13 +872,13 @@ Body {
     {% endfor %}
 </select>
 
-<label for="productFilter">Filter by Product:</label>
+<!-- <label for="productFilter">Filter by Product:</label>
 <select id="productFilter">
     <option value="">All Products</option>
     {% for product in products %}
         <option value="{{ product.0 }}">{{ product.0 }}</option>
     {% endfor %}
-</select>
+</select> -->
 
 <!-- Table to display data -->
 <table id="investmentTable" class="display">
@@ -1178,7 +1178,12 @@ var MyHome = {"site":"https:\/\/screenerpk.pk","compare":"1","api":"https:\/\/sc
 
 $(document).ready(function() {
         // Initialize DataTable
-        var table = $('#investmentTable').DataTable();
+        var table = $('#investmentTable').DataTable({
+            language: {
+            searchPlaceholder: "Enter search terms...",
+            search: "Product Description Search:" // Replace "Custom Label" with whatever you want the label to be
+        }}
+        );
         var topProfitTable = $('#topProfitTable').DataTable({"order": [[4, "desc"]]});
 
 
