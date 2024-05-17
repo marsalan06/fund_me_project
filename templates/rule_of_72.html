@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule of 72 Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #0056b3;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #003580;
+        }
+        .result, .notes {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .notes {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Rule of 72 Calculator</h2>
+        <label for="rateOfReturn">Rate of Return (%):</label>
+        <input type="number" id="rateOfReturn" placeholder="Enter annual rate of return">
+        <button onclick="calculate()">Calculate</button>
+        <div class="result" id="result"></div>
+        <div class="notes">
+            <p><strong>Notes:</strong></p>
+            <ul>
+                <li>The thumb rule is a quick method to estimate the time needed for an investment to double in value terms.</li>
+                <li>The Rule of 72 is calculated by dividing 72 by the annual rate of return.</li>
+                <li>The Rule of 72 is a reliable approximation intended for "back of the envelope" math but the estimated number of years is still a mere approximation at the end of the day.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            var rateOfReturn = document.getElementById('rateOfReturn').value;
+            var years = 72 / rateOfReturn;
+            var resultDiv = document.getElementById('result');
+            if (!isNaN(years) && rateOfReturn > 0) {
+                resultDiv.innerHTML = `Estimated number of years to double the investment: <strong>${years.toFixed(2)}</strong> years`;
+            } else {
+                resultDiv.innerHTML = "Please enter a positive number for the rate of return.";
+            }
+        }
+    </script>
+</body>
+</html>

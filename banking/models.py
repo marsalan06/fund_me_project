@@ -99,6 +99,11 @@ class Investment(models.Model):
         # Add more banks as needed
     ]
 
+    INVESTMENT_TYPE_CHOICES = [
+        ('local', 'Local'),
+        ('foreign', 'Foreign')
+    ]
+
     bank = models.ForeignKey(BankProduct, on_delete=models.CASCADE)
     min_investment = models.DecimalField(max_digits=12, decimal_places=2)
     max_investment = models.DecimalField(max_digits=12, decimal_places=2)
@@ -109,6 +114,12 @@ class Investment(models.Model):
     payout_frequency = models.CharField(max_length=50)
     choice_field = models.CharField(
         max_length=50, choices=PRODUCT_CHOICES, null=False, default=PRODUCT_CHOICES[0])
+    investment_type = models.CharField(
+        max_length=50, choices=INVESTMENT_TYPE_CHOICES, null=False, default=INVESTMENT_TYPE_CHOICES[0][0])
+
+    class Meta:
+        verbose_name = "Term Deposit"
+        verbose_name_plural = "Term Deposits"
 
     def __str__(self):
         return f"{self.bank.bank_name} - {self.product_length}"
