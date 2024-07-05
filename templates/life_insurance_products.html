@@ -863,13 +863,13 @@ Body {
                         <h2 class="mh-heading  mh-heading--bottom-separator   " style="font-weight:700;">Life Insurance Products </h2>
                       </div>
                       <!---table here-->
-                      <label for="life_insurance_companies_filter">Filter by life insurance companies:</label>
+                      <!-- <label for="life_insurance_companies_filter">Filter by life insurance companies:</label>
 <select id="life_insurance_companies_filter">
     <option value="">All life insurance companies</option>
     {% for life_insurance_company in life_insurance_companies %}
         <option value="{{ life_insurance_company.company_name }}">{{ life_insurance_company.company_name }}</option>
     {% endfor %}
-</select>
+</select> -->
 
 <!-- <label for="frequencyFilter">Filter by frequency:</label>
 <select id="frequencyFilter">
@@ -883,7 +883,7 @@ Body {
 <input type="text" id="productLengthFilter" placeholder="Enter product length..."> -->
 
 <!-- Table to display data -->
-<table id="investmentTable" class="display">
+<!-- <table id="investmentTable" class="display">
     <thead style="background-color: blue; color: white;">
         <tr>
             <th>Company Name</th>
@@ -893,7 +893,6 @@ Body {
             <th>Premium Frequency</th>
             <th>inflation_protection</th>
             
-            <!-- Add more table headers as needed -->
         </tr>
     </thead>
     <tbody>
@@ -906,11 +905,113 @@ Body {
                 <td>{{ insurance.premium_frequency }}</td>
                 <td>{{insurance.inflation_protection}}</td>
                
-                <!-- Add more table cells as needed -->
             </tr>
         {% endfor %}
     </tbody>
-</table>
+</table> -->
+<!-- 
+<div class="container mt-2">
+    <h2 class="text-center mb-4">All Life Insurance Products</h2>
+    <div class="row" id="insuranceContainer">
+        {{insurance_products}}  
+        {% for insurance in insurance_products %}
+        <div class="col-md-4">
+            <div class="card mb-2 shadow-sm">
+                {% if life_insurance_companies.company_image %}
+                <img src="{{ life_insurance_companies.company_image.url }}" class="card-img-top" alt="{{ insurance.company.company_name }}" style="max-height: 100px; max-width: 120px; display: block; margin: 0 auto;">
+                {% else %}
+                <img src="path/to/placeholder-image.jpg" class="card-img-top" alt="No image available">
+                {% endif %}
+                <div class="card-body">
+                    <h6 class="card-title"><strong>{{ insurance.company.company_name }}</strong></h6>
+                    <p class="card-text mb-1">Rating: {{ insurance.rating }}</p>
+                    <p class="card-text mb-1">Product Description: {{ insurance.product_length }}</p>
+                    <p class="card-text mb-1">Min Policy Term: {{ insurance.min_policy_term }}</p>
+                    <p class="card-text mb-1">Premium Frequency: {{ insurance.premium_frequency }}</p>
+                    <p class="card-text mb-1">Inflation Protection: {{ insurance.inflation_protection }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        .card-margin {
+            margin-bottom: 20px;
+        }
+    </style>
+    <div class="container mt-2">
+        <h2 class="text-center mb-4">All Products</h2>
+        <label for="life_insurance_companies_filter">Filter by life insurance companies:</label>
+        <select id="life_insurance_companies_filter" class="form-control mb-3">
+            <option value="">All life insurance companies</option>
+            {% for life_insurance_company in life_insurance_companies %}
+                <option value="{{ life_insurance_company.company_name }}">{{ life_insurance_company.company_name }}</option>
+            {% endfor %}
+        </select>
+        
+        <div class="row" id="investmentContainer">
+            {% for insurance in insurance_products %}
+                <div class="col-md-4 card-margin">
+                    <div class="card mb-2 shadow-sm">
+                        {% if insurance.company.company_image %}
+                            <img src="{{ insurance.company.company_image.url }}" class="card-img-top" alt="{{ insurance.company.company_name }}" style="max-height: 100px; max-width: 120px; display: block; margin: 0 auto;">
+                        {% else %}
+                            <img src="path/to/placeholder-image.jpg" class="card-img-top" alt="No image available">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>{{ insurance.company.company_name }}</strong></h5>
+                            <p class="card-text mb-1">Product Description: {{ insurance.product_length }}</p>
+
+                            <div id="details-{{ forloop.counter }}" style="display: none;">
+                                <p class="card-text mb-1">Rating: {{ insurance.rating }}</p>
+                                <p class="card-text mb-1">Min Policy Term: {{ insurance.min_policy_term }}</p>
+                                <p class="card-text mb-1">Premium Frequency: {{ insurance.premium_frequency }}</p>
+                                <p class="card-text mb-1">Inflation Protection: {{ insurance.inflation_protection }}</p>
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" id="toggle-button-{{ forloop.counter }}" onclick="toggleDetails({{ forloop.counter }})">View More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        function toggleDetails(id) {
+            const details = document.getElementById('details-' + id);
+            const button = document.getElementById('toggle-button-' + id);
+            if (details.style.display === 'none') {
+                details.style.display = 'block';
+                button.textContent = 'View Less';
+            } else {
+                details.style.display = 'none';
+                button.textContent = 'View More';
+            }
+        }
+
+        // Filter function
+        document.getElementById('life_insurance_companies_filter').addEventListener('change', function () {
+            const companyName = this.value;
+            const products = document.querySelectorAll('#investmentContainer .col-md-4');
+            products.forEach(product => {
+                product.style.display = product.querySelector('.card-title').textContent.includes(companyName) || !companyName ? 'block' : 'none';
+            });
+        });
+    </script>
+
+
 	              </div>
               </div>
              </div>
@@ -1135,6 +1236,17 @@ var MyHome = {"site":"https:\/\/screenerpk.pk","compare":"1","api":"https:\/\/sc
 <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 <script>
+function toggleDetails(id) {
+        const details = document.getElementById(`details-${id}`);
+        const button = document.getElementById(`toggle-button-${id}`);
+        if (details.style.display === 'none') {
+            details.style.display = 'block';
+            button.textContent = 'View Less';
+        } else {
+            details.style.display = 'none';
+            button.textContent = 'View More';
+        }
+    }
 
 $(document).ready(function() {
         // Initialize DataTable
@@ -1160,4 +1272,111 @@ $(document).ready(function() {
     });
 
 </script>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+        margin-top: 50px;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: #343a40;
+        font-weight: bold;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    select {
+        margin-bottom: 20px;
+    }
+
+    #getTopProfitProducts {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #dee2e6;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: blue;
+        color: white;
+    }
+
+    .dataTables_paginate {
+  margin-top: 10px; /* Adjust the value as needed */
+      }
+
+      .dataTables_paginate span, .dataTables_paginate a {
+          margin: 0 5px; /* Adjust the value as needed */
+      }
+      
+  select {
+      border-radius: 10px; /* Add border-radius for curved edges */
+      padding: 8px; /* Add padding for better appearance */
+      margin-right: 10px; /* Add some space between filters */
+  }
+
+  /* Style for the button */
+  button {
+      border-radius: 10px;
+      padding: 10px 20px;
+      background-color: #007bff; /* Blue color, you can change it */
+      color: #fff; /* White text */
+      border: none;
+      cursor: pointer;
+  }
+
+  .display {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  .display th, .display td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+  }
+
+  .display th {
+      background-color: blue;
+      color: white;
+  }
+
+  /* Add alternate row colors */
+  .display tbody tr:nth-child(even) {
+      background-color: #f2f2f2; /* Light gray */
+  }
+
+  .display tbody tr:hover {
+      background-color: #e0e0e0; /* Lighter gray on hover */
+  }
+
+</style>
 </body></html>
