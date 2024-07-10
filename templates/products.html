@@ -863,49 +863,71 @@ Body {
                       <div class="mh-heading-wrapper">
                         <h2 class="mh-heading  mh-heading--bottom-separator   " style="font-weight:700;">Products</h2>
                       </div>
-<div class="container mt-2">
-    <h2 class="text-center mb-4">All Products</h2>
-    <label for="bankFilter">Filter by Bank:</label>
-    <select id="bankFilter">
-        <option value="">All Banks</option>
-        {% for bank in banks %}
-            <option value="{{ bank.bank_name }}">{{ bank.bank_name }}</option>
-        {% endfor %}
-    </select>
-    <div class="row" id="investmentContainer">
-        {% for investment in investments %}
-        <div class="col-md-4">
-            <div class="card mb-2 shadow-sm">
-                {% if investment.bank.bank_image %}
-                <img src="{{ investment.bank.bank_image.url }}" class="card-img-top" alt="{{ investment.bank.bank_name }}" style="max-height: 100px; max-width: 120px; display: block; margin: 0 auto;">
-                {% else %}
-                <img src="path/to/placeholder-image.jpg" class="card-img-top" alt="No image available">
-                {% endif %}
-                <div class="card-body">
-                    <!-- <h5 class="card-title">{{ investment.bank.bank_name }}</h5> -->
-                    <h6 class="card-title"><strong>{{ investment.product_length }}</strong></h6>
-                    <p class="card-text mb-1">Profit Rate: {{ investment.profit_rate }} - {{ investment.rate_upper_limit }}</p>
-
-                    <div id="details-{{ forloop.counter }}" style="display: none;">
-                        <p class="card-text mb-1">Min Investment: {{ investment.min_investment }}</p>
-                        <p class="card-text mb-1">Max Investment: {{ investment.max_investment }}</p>
-                        <p class="card-text mb-1">Payout Freq: {{ investment.payout_frequency }}</p>
-                        <p class="card-text mb-1">Period: {{ investment.get_choice_field_display }}</p>
-                        <p class="card-text mb-1">Rating Long: {{ investment.rating_long_term }}</p>
-                        <p class="card-text mb-1">Rating Short: {{ investment.rating_short_term }}</p>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary" id="toggle-button-{{ forloop.counter }}" onclick="toggleDetails({{ forloop.counter }})">View More</button>
+                      <body>
+                        <div class="container mt-2">
+                            <h2 class="text-center mb-4">All Products</h2>
+                            <div class="form-row mb-3">
+                                <div class="col">
+                                    <label for="bankFilter">Filter by Bank:</label>
+                                    <select id="bankFilter" class="form-control">
+                                        <option value="">All Banks</option>
+                                        {% for bank in bank_filter %}
+                                            <option value="{{ bank.bank_name }}">{{ bank.bank_name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="payoutFrequencyFilter">Filter by Payout Frequency:</label>
+                                    <select id="payoutFrequencyFilter" class="form-control">
+                                        <option value="">All Payout Frequencies</option>
+                                        {% for frequency in payout_frequencies %}
+                                        <option value="{{ frequency }}">{{ frequency }}</option>
+                                    {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="periodFilter">Filter by Period:</label>
+                                    <select id="periodFilter" class="form-control">
+                                        <option value="">All Periods</option>
+                                        {% for period in periods %}
+                                        <option value="{{ period }}">{{ period }}</option>
+                                    {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" id="investmentContainer">
+                                {% for investment in investments %}
+                                    <div class="col-md-4 card-margin investment-item" data-bank="{{ investment.bank.bank_name }}" data-frequency="{{ investment.payout_frequency }}" data-period="{{ investment.get_choice_field_display }}">
+                                        <div class="card mb-2 shadow-sm">
+                                            {% if investment.bank.bank_image %}
+                                                <img src="{{ investment.bank.bank_image.url }}" class="card-img-top" alt="{{ investment.bank.bank_name }}" style="max-height: 100px; max-width: 120px; display: block; margin: 0 auto;">
+                                            {% else %}
+                                                <img src="path/to/placeholder-image.jpg" class="card-img-top" alt="No image available">
+                                            {% endif %}
+                                            <div class="card-body">
+                                                <h6 class="card-title"><strong>{{ investment.product_length }}</strong></h6>
+                                                <p class="card-text mb-1">Profit Rate: {{ investment.profit_rate }} - {{ investment.rate_upper_limit }}</p>
+                    
+                                                <div id="details-{{ forloop.counter }}" style="display: none;">
+                                                    <p class="card-text mb-1">Min Investment: {{ investment.min_investment }}</p>
+                                                    <p class="card-text mb-1">Max Investment: {{ investment.max_investment }}</p>
+                                                    <p class="card-text mb-1">Payout Freq: {{ investment.payout_frequency }}</p>
+                                                    <p class="card-text mb-1">Period: {{ investment.get_choice_field_display }}</p>
+                                                    <p class="card-text mb-1">Rating Long: {{ investment.rating_long_term }}</p>
+                                                    <p class="card-text mb-1">Rating Short: {{ investment.rating_short_term }}</p>
+                                                </div>
+                    
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary" id="toggle-button-{{ forloop.counter }}" onclick="toggleDetails({{ forloop.counter }})">View More</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-</div>
 
 <br/>
 <div class="container mt-2">
@@ -925,7 +947,7 @@ Body {
                 <h6 class="card-title"><strong>{{ product.product_length }}</strong></h6> <!-- Rank number -->
                 <p class="card-text mb-1">Profit Rate: {{ product.profit_rate }} - {{ product.rate_upper_limit }}</p>
 
-                <div id="details-{{ forloop.counter0 }}" style="display: none;">
+                <div id="top-details-{{ forloop.counter }}" style="display: none;">
                     <p class="card-text mb-1">Min Investment: {{ product.min_investment }}</p>
                     <p class="card-text mb-1">Max Investment: {{ product.max_investment }}</p>
                     <p class="card-text mb-1">Payout Freq: {{ product.payout_frequency }}</p>
@@ -936,7 +958,7 @@ Body {
 
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary" id="toggle-button-{{ forloop.counter0 }}" onclick="toggleDetails0({{ forloop.counter0 }})">View More</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary" id="top-toggle-button-{{ forloop.counter }}" onclick="toggleTopDetails({{ forloop.counter }})">View More</button>
                     </div>
                 </div>
             </div>
@@ -947,41 +969,56 @@ Body {
 </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
-
     function toggleDetails(id) {
-            const details = document.getElementById(`details-${id}`);
-            const button = document.getElementById(`toggle-button-${id}`);
-            if (details.style.display === 'none') {
-                details.style.display = 'block';
-                button.textContent = 'View Less';
-            } else {
-                details.style.display = 'none';
-                button.textContent = 'View More';
-            }
+        const details = document.getElementById(`details-${id}`);
+        const button = document.getElementById(`toggle-button-${id}`);
+        if (details.style.display === 'none') {
+            details.style.display = 'block';
+            button.textContent = 'View Less';
+        } else {
+            details.style.display = 'none';
+            button.textContent = 'View More';
         }
-    
-    function toggleDetails0(id) {
-            const details = document.getElementById(`details-${id}`);
-            const button = document.getElementById(`toggle-button-${id}`);
-            if (details.style.display === 'none') {
-                details.style.display = 'block';
-                button.textContent = 'View Less';
-            } else {
-                details.style.display = 'none';
-                button.textContent = 'View More';
-            }
+    }
+
+    function toggleTopDetails(id) {
+        const details = document.getElementById(`top-details-${id}`);
+        const button = document.getElementById(`top-toggle-button-${id}`);
+        if (details.style.display === 'none') {
+            details.style.display = 'block';
+            button.textContent = 'View Less';
+        } else {
+            details.style.display = 'none';
+            button.textContent = 'View More';
         }
-    
-        // Add event listener for changes in the bank filter
-        $('#bankFilter').on('change', function() {
-            var selectedBank = $(this).val();
-            
-            // Apply filter to DataTable
-            table.column(0).search(selectedBank).draw(); // Assuming the bank name column index is 0
+    }
+
+    function filterProducts() {
+        const bankFilter = document.getElementById('bankFilter').value.toLowerCase();
+        const payoutFrequencyFilter = document.getElementById('payoutFrequencyFilter').value.toLowerCase();
+        const periodFilter = document.getElementById('periodFilter').value.toLowerCase();
+        const products = document.querySelectorAll('#investmentContainer .investment-item');
+
+        products.forEach(product => {
+            const bank = product.getAttribute('data-bank').toLowerCase();
+            const frequency = product.getAttribute('data-frequency').toLowerCase();
+            const period = product.getAttribute('data-period').toLowerCase();
+            const matchesBank = !bankFilter || bank.includes(bankFilter);
+            const matchesFrequency = !payoutFrequencyFilter || frequency.includes(payoutFrequencyFilter);
+            const matchesPeriod = !periodFilter || period.includes(periodFilter);
+
+            product.style.display = matchesBank && matchesFrequency && matchesPeriod ? 'block' : 'none';
         });
-    
-    </script>
+    }
+
+    document.getElementById('bankFilter').addEventListener('change', filterProducts);
+    document.getElementById('payoutFrequencyFilter').addEventListener('change', filterProducts);
+    document.getElementById('periodFilter').addEventListener('change', filterProducts);
+</script>
 	              </div>
               </div>
              </div>

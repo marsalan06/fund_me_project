@@ -978,162 +978,176 @@ At Screenerpk our aim is to empower you to make a smart and well informed decisi
               margin-bottom: 20px;
           }
       </style>
-        <div class="container mt-2">
-          <h2 class="text-center mb-4">Mutual Funds</h2>
-      
-          <div class="row mb-3">
-            <div class="col-md-6">
-                <select id="subsidiaryFilter" class="form-control">
-                    <option value="">All Subsidiaries</option>
-                    {% for fund in funds %}
-                    <option value="{{ fund.subsidiary_of }}">{{ fund.subsidiary_of }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div class="col-md-6">
-                <select id="fundNameFilter" class="form-control">
-                  <option value="">All Funds</option>
-                  {% for fund in funds %}
-                      <option value="{{ fund.fund_name }}">{{ fund.fund_name }}</option>
-                  {% endfor %}
-                </select>
-            </div>
+<div class="container mt-2">
+    <h2 class="text-center mb-4">Mutual Funds</h2>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <select id="subsidiaryFilter" class="form-control">
+                <option value="">All Subsidiaries</option>
+                {% for subsidiary in subsidiary_of %}
+                    <option value="{{ subsidiary }}">{{ subsidiary }}</option>
+                {% endfor %}
+            </select>
         </div>
+        <div class="col-md-6">
+            <select id="fundNameFilter" class="form-control">
+                <option value="">All Funds</option>
+                {% for fund in funds %}
+                    <option value="{{ fund.fund_name }}">{{ fund.fund_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
 
-      
-          <div class="row" id="fundContainer">
-              {% for fund in funds %}
-                  <div class="col-md-4">
-                      <div class="card mb-2 shadow-sm">
-                          <div class="card-body">
-                              <h5 class="card-title"><strong>{{ fund.fund_name }}</strong></h5>
-                              <p class="card-text mb-1">AMC Name: {{ fund.asset_management_company }}</p>
-                              <p class="card-text mb-1">Subsidiary of: {{ fund.subsidiary_of }}</p>
-                              <p class="card-text mb-1">Launch Date: {{ fund.launch_date }}</p>
-                              <p class="card-text mb-1">Fund Size: {{ fund.fund_size }}</p>
-      
-                              <div id="details-{{ forloop.counter }}" style="display: none;">
-                                  <p class="card-text mb-1">Rating: {{ fund.rating }}</p>
-                                  <p class="card-text mb-1">Risk: {{ fund.risk }}</p>
-                                  <p class="card-text mb-1">Minimum Investment: {{ fund.minimum_investment_in_pkr }}</p>
-                                  <p class="card-text mb-1">Performance (3 Years): {{ fund.performance_past_3_years }}</p>
-                                  {% for col in additional_columns %}
-                                      <p class="card-text mb-1">YTD {{ col }}: {{ fund.ytd_as_of_date|get_item:col|default_if_none:"" }}</p>
-                                  {% endfor %}
-                                  <p class="card-text mb-1">Fund Type: {{ fund.fund_type }}</p>
-                                  <p class="card-text mb-1">Front & Back End Loading: {{ fund.front_back_end_loading_fee }}</p>
-                                  <p class="card-text mb-1">Management Fee: {{ fund.management_fee }}</p>
-                              </div>
-      
-                              <div class="d-flex justify-content-between align-items-center">
-                                  <div class="btn-group">
-                                      <button type="button" class="btn btn-sm btn-outline-secondary" id="toggle-button-{{ forloop.counter }}" onclick="toggleDetails({{ forloop.counter }})">View More</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                      </div><div class="row">
-                  {% endif %}
-              {% endfor %}
-          </div>
-          <span style="text-align: center;"><b>*There is no minimum investment in most of the funds except the ones mentioned.</b></span>
-          <div class="table-responsive" style="padding: 50px; width: 50%;">
-              <table class="table">
-                  <thead style="background-color: blue; color: white;">
-                      <th>Average Return</th>
-                      <th>Ave. as of Aug. 2023</th>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>Money Market</td>
-                          <td>20.54%</td>
-                      </tr>
-                      <tr>
-                          <td>Income</td>
-                          <td>20.67%</td>
-                      </tr>
-                      <tr>
-                          <td>Equity</td>
-                          <td>-7.04%</td>
-                      </tr>
-                      <tr>
-                          <td>Balanced</td>
-                          <td>-4.82%</td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div>
-      </div>
+    <div class="row" id="fundContainer">
+        {% for fund in funds %}
+            <div class="col-md-4 fund-item"
+                 data-subsidiary="{{ fund.subsidiary_of|lower }}"
+                 data-fund-name="{{ fund.fund_name|lower }}">
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>{{ fund.fund_name }}</strong></h5>
+                        <p class="card-text mb-1">AMC Name: {{ fund.asset_management_company }}</p>
+                        <p class="card-text mb-1">Subsidiary of: {{ fund.subsidiary_of }}</p>
+                        <p class="card-text mb-1">Launch Date: {{ fund.launch_date }}</p>
+                        <p class="card-text mb-1">Fund Size: {{ fund.fund_size }}</p>
 
-      <script>
-        function toggleDetails(counter) {
-            var details = document.getElementById("details-" + counter);
-            var button = document.getElementById("toggle-button-" + counter);
-        
-            if (details.style.display === "none") {
-                details.style.display = "block";
-                button.textContent = "View Less";
-            } else {
-                details.style.display = "none";
-                button.textContent = "View More";
-            }
+                        <div id="details-{{ forloop.counter }}" style="display: none;">
+                            <p class="card-text mb-1">Rating: {{ fund.rating }}</p>
+                            <p class="card-text mb-1">Risk: {{ fund.risk }}</p>
+                            <p class="card-text mb-1">Minimum Investment: {{ fund.minimum_investment_in_pkr }}</p>
+                            <p class="card-text mb-1">Performance (3 Years): {{ fund.performance_past_3_years }}</p>
+                            {% for col in additional_columns %}
+                                <p class="card-text mb-1">YTD {{ col }}: {{ fund.ytd_as_of_date|get_item:col|default_if_none:"" }}</p>
+                            {% endfor %}
+                            <p class="card-text mb-1">Fund Type: {{ fund.fund_type }}</p>
+                            <p class="card-text mb-1">Front & Back End Loading: {{ fund.front_back_end_loading_fee }}</p>
+                            <p class="card-text mb-1">Management Fee: {{ fund.management_fee }}</p>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleDetails({{ forloop.counter }})">View More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                </div><div class="row">
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <span style="text-align: center;;"><b>*There is no minimum imvestment in most of the funds except the ones mentioned.</b></span>
+    <div class="table-responsive" style="padding: 50px; width: 50%;">
+      <table class="table">
+        <thead style="background-color: blue; color: white;">
+          <th>Average Return</th>
+          <th>Ave. as of Aug. 2023</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Money Market</td>
+            <td>20.54%</td>
+          </tr>
+          <tr>
+            <td>Income</td>
+            <td>20.67%</td>
+          </tr>
+          <tr>
+            <td>Equity</td>
+            <td>-7.04%</td>
+          </tr>
+          <tr>
+            <td>Balanced</td>
+            <td>-4.82%</td>
+          </tr>
+          <tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    function toggleDetails(counter) {
+        const details = document.getElementById('details-' + counter);
+        const button = document.getElementById('toggle-button-' + counter);
+        if (details.style.display === 'none') {
+            details.style.display = 'block';
+            button.textContent = 'View Less';
+        } else {
+            details.style.display = 'none';
+            button.textContent = 'View More';
         }
-        
-        $(document).ready(function() {
-            // Initialize DataTable
-            var table = $('#investmentTable').DataTable({
-                language: {
-                    searchPlaceholder: "Enter search terms...",
-                    search: "Product Description Search:" // Replace "Custom Label" with whatever you want the label to be
-                }
-            });
-        
-            // Add event listener for changes in the filter elements
-            $('#life_insurance_companies_filter, #fund_name_filter, #subsidiary_filter').on('change', function() {
-                var selectedLifeInsurance = $('#life_insurance_companies_filter').val();
-                var selectedFundName = $('#fund_name_filter').val();
-                var selectedSubsidiary = $('#subsidiary_filter').val();
-                
-                table.columns(0).search(selectedLifeInsurance)
-                     .columns(1).search(selectedFundName)
-                     .columns(2).search(selectedSubsidiary)
-                     .draw();
-            });
+    }
+
+    // Function to filter funds based on subsidiary and fund name
+    function filterFunds() {
+        const selectedSubsidiary = document.getElementById('subsidiaryFilter').value.trim().toLowerCase();
+        const selectedFundName = document.getElementById('fundNameFilter').value.trim().toLowerCase();
+
+        // Filter cards
+        const fundItems = document.querySelectorAll('.fund-item');
+        fundItems.forEach(item => {
+            const itemSubsidiary = item.getAttribute('data-subsidiary').trim().toLowerCase();
+            const itemFundName = item.getAttribute('data-fund-name').trim().toLowerCase();
+
+            const isVisible = (selectedSubsidiary === '' || itemSubsidiary.includes(selectedSubsidiary)) &&
+                              (selectedFundName === '' || itemFundName.includes(selectedFundName));
+
+            item.style.display = isVisible ? 'block' : 'none';
         });
-        </script>
-      
-        <!-- Table End -->
-        <!-- <span style="text-align: center;;"><b>*There is no minimum imvestment in most of the funds except the ones mentioned.</b></span>
-        <div class="table-responsive" style="padding: 50px; width: 50%;">
-          <table class="table">
-            <thead style="background-color: blue; color: white;">
-              <th>Average Return</th>
-              <th>Ave. as of Aug. 2023</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Money Market</td>
-                <td>20.54%</td>
-              </tr>
-              <tr>
-                <td>Income</td>
-                <td>20.67%</td>
-              </tr>
-              <tr>
-                <td>Equity</td>
-                <td>-7.04%</td>
-              </tr>
-              <tr>
-                <td>Balanced</td>
-                <td>-4.82%</td>
-              </tr>
-              <tr>
-            </tbody>
-          </table>
-        </div> -->
-<!-- End Section FLEET FINANCING -->
+
+        // Filter table rows
+        const tableRows = document.querySelectorAll('.fund-row');
+        tableRows.forEach(row => {
+            const rowSubsidiary = row.getAttribute('data-subsidiary').trim().toLowerCase();
+            const rowFundName = row.getAttribute('data-fund-name').trim().toLowerCase();
+
+            const isVisible = (selectedSubsidiary === '' || rowSubsidiary.includes(selectedSubsidiary)) &&
+                              (selectedFundName === '' || rowFundName.includes(selectedFundName));
+
+            row.style.display = isVisible ? 'table-row' : 'none';
+        });
+
+        // Update fund name filter options based on selected subsidiary
+        updateFundNameFilterOptions(selectedSubsidiary);
+    }
+
+    // Function to update fund name filter options based on selected subsidiary
+    function updateFundNameFilterOptions(selectedSubsidiary) {
+        const fundNameFilter = document.getElementById('fundNameFilter');
+        fundNameFilter.innerHTML = '<option value="">All Funds</option>';
+
+        const fundItems = document.querySelectorAll('.fund-item');
+        fundItems.forEach(item => {
+            const itemSubsidiary = item.getAttribute('data-subsidiary').trim().toLowerCase();
+            const itemFundName = item.getAttribute('data-fund-name').trim().toLowerCase();
+
+            if (selectedSubsidiary === '' || itemSubsidiary.includes(selectedSubsidiary)) {
+                const option = document.createElement('option');
+                option.value = itemFundName;
+                option.textContent = itemFundName;
+                fundNameFilter.appendChild(option);
+            }
+        });
+    }
+
+    // Event listeners for filter changes
+    document.getElementById('subsidiaryFilter').addEventListener('change', filterFunds);
+
+    document.getElementById('fundNameFilter').addEventListener('change', filterFunds);
+</script>
+
+
+
 
 </div></div></div></div>
 </div>

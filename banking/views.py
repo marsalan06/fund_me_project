@@ -45,6 +45,11 @@ def investment_list(request):
     banks = BankProduct.objects.all()
     products = Investment.PRODUCT_CHOICES
     investments = Investment.objects.filter(investment_type='local')
+    bank_filter_names = investments.values_list('bank__bank_name', flat=True).distinct()
+    bank_filter = [{'bank_name': name} for name in bank_filter_names]
+    payout_frequencies = investments.values_list('payout_frequency', flat=True).distinct()
+    period_keys = investments.values_list('choice_field', flat=True).distinct()
+    period_display_names = [dict(Investment.PRODUCT_CHOICES)[key] for key in period_keys]
     top_products = investments.exclude(
         Q(profit_rate__contains='disclosed') | Q(
             profit_rate__contains='-') | Q(profit_rate__contains=' ')
@@ -54,6 +59,9 @@ def investment_list(request):
         'products': products,
         'investments': investments,
         'top_products': top_products,
+        'payout_frequencies': payout_frequencies,
+        'periods': period_display_names,
+        'bank_filter': bank_filter
     }
 
     return render(request, 'products.html', context)
@@ -64,6 +72,11 @@ def foreign_investment_list(request):
     banks = BankProduct.objects.all()
     products = Investment.PRODUCT_CHOICES
     investments = Investment.objects.filter(investment_type='foreign')
+    bank_filter_names = investments.values_list('bank__bank_name', flat=True).distinct()
+    bank_filter = [{'bank_name': name} for name in bank_filter_names]
+    payout_frequencies = investments.values_list('payout_frequency', flat=True).distinct()
+    period_keys = investments.values_list('choice_field', flat=True).distinct()
+    period_display_names = [dict(Investment.PRODUCT_CHOICES)[key] for key in period_keys]
     top_products = investments.exclude(
         Q(profit_rate__contains='disclosed') | Q(
             profit_rate__contains='-') | Q(profit_rate__contains=' ')
@@ -73,6 +86,9 @@ def foreign_investment_list(request):
         'products': products,
         'investments': investments,
         'top_products': top_products,
+        'payout_frequencies': payout_frequencies,
+        'periods': period_display_names,
+        'bank_filter': bank_filter
     }
 
     return render(request, 'foreign_products.html', context)
@@ -167,6 +183,7 @@ def upload_article(request):
 
 def islamic(request):
     funds = IslamicFund.objects.all()
+    subsidiary_of = funds.values_list('subsidiary_of', flat=True).distinct()
     # Extracting additional columns from ytd_as_of_date
     additional_columns = set()
     for fund in funds:
@@ -175,7 +192,8 @@ def islamic(request):
 
     context = {
         'funds': funds,
-        'additional_columns': sorted(additional_columns)
+        'additional_columns': sorted(additional_columns),
+        'subsidiary_of': subsidiary_of
     }
     return render(request, 'islamic.html', context)
 
@@ -183,6 +201,7 @@ def islamic(request):
 def conventional(request):
     funds = ConventionalFund.objects.all()
     # Extracting additional columns from ytd_as_of_date
+    subsidiary_of = funds.values_list('subsidiary_of', flat=True).distinct()
     additional_columns = set()
     for fund in funds:
         if fund.ytd_as_of_date:
@@ -190,6 +209,7 @@ def conventional(request):
 
     context = {
         'funds': funds,
-        'additional_columns': sorted(additional_columns)
+        'additional_columns': sorted(additional_columns),
+        'subsidiary_of': subsidiary_of
     }
     return render(request, 'conventional.html', context)
