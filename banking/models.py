@@ -9,6 +9,7 @@ class Bank(models.Model):
     rating = models.CharField(max_length=10, default=None)
     branches = models.PositiveIntegerField(default=1)
     date_of_operation = models.DateField(default=None)
+    bank_image = models.ImageField(upload_to='bank_images/', null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -77,7 +78,7 @@ class Product(models.Model):
 class BankProduct(models.Model):
 
     bank_name = models.CharField(max_length=100, null=False, unique=True)
-    # Add your specific choices here
+    bank_image = models.ImageField(upload_to='bank_images/', null=True, blank=True)
 
     def __str__(self):
         return self.bank_name
@@ -128,7 +129,8 @@ class Investment(models.Model):
 class LifeInsuranceCompany(models.Model):
 
     company_name = models.CharField(max_length=100, null=False, unique=True)
-    # Add your specific choices here
+    company_image = models.ImageField(upload_to='company_images/', null=True, blank=True)
+
 
     def __str__(self):
         return self.company_name

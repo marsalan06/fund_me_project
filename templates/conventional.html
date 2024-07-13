@@ -874,10 +874,10 @@ Body {
 <div class="mh-sticky-menu-placeholder
 					mh-sticky-menu-placeholder--active
 		"></div>
-    <div class="mh-layout">
+    <!-- <div class="mh-layout">
 		<div id="post-5" class="mh-post">
     <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1532177424151 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487058892069"><div class="wpb_wrapper">
-			<!-- START MH Image Slider REVOLUTION SLIDER 6.5.4 --><p class="rs-p-wp-fix"></p>
+			<p class="rs-p-wp-fix"></p>
 			<rs-module-wrap id="rev_slider_13_1_wrapper" data-source="gallery" style="visibility: hidden; background: transparent; padding: 0px; margin: 0px auto; height: 400px;">
 				<rs-module id="rev_slider_13_1" style="height: 400px;" data-version="6.5.4">
 					<rs-slides>
@@ -886,9 +886,7 @@ Body {
 
 							<rs-layer id="slider-13-slide-17-layer-0" data-type="text" data-color="#212121" data-rsp_ch="on" data-xy="y:m;yo:-112px,-98px,-34px,-34px;" data-text="w:normal;s:50,43,15,15;l:25,21,7,7;fw:700;" data-frame_999="o:0;st:w;" style="z-index:5;font-family:Roboto;text-transform:uppercase;"><rs-bg-elem style="position:absolute; top:0px;left:0px;"></rs-bg-elem>
                             Screenerpk
-							</rs-layer><!--
-
-							--><rs-layer id="slider-13-slide-17-layer-1" data-type="text" data-color="#3d3d3d" data-rsp_ch="on" data-xy="xo:3px,2px,0,0;y:m;" data-text="w:normal;s:20,17,6,6;l:25,21,7,7;" data-dim="w:602px,529px,188px,188px;" data-frame_999="o:0;st:w;" style="z-index:6;font-family:Roboto;"><rs-bg-elem style="position:absolute; top:0px;left:0px;"></rs-bg-elem>
+							</rs-layer><rs-layer id="slider-13-slide-17-layer-1" data-type="text" data-color="#3d3d3d" data-rsp_ch="on" data-xy="xo:3px,2px,0,0;y:m;" data-text="w:normal;s:20,17,6,6;l:25,21,7,7;" data-dim="w:602px,529px,188px,188px;" data-frame_999="o:0;st:w;" style="z-index:6;font-family:Roboto;"><rs-bg-elem style="position:absolute; top:0px;left:0px;"></rs-bg-elem>
 <br>
 <br>
 <br>
@@ -915,7 +913,6 @@ At Screenerpk our aim is to empower you to make a smart and well informed decisi
 					setREVStartSize({c: 'rev_slider_13_1',rl:[1240,1024,778,480],el:[400,350,470,470],gw:[1024,900,320,320],gh:[400,350,470,470],type:'standard',justify:'',layout:'fullwidth',mh:"0"});
 				</script>
 			</rs-module-wrap>
-			<!-- END REVOLUTION SLIDER -->
 </div></div></div></div>
 <div class="vc_row-full-width vc_clearfix"></div>
 <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1643284945002 vc_row-has-fill"></div>
@@ -923,100 +920,178 @@ At Screenerpk our aim is to empower you to make a smart and well informed decisi
 
 
 	</div>
-	</div>
+	</div> -->
         <!-- Table Start -->
         <!-- overflow-y: scroll; height: 100px; -->
-        <div style="padding: 50px;">
-          <table id="conventionalfundsTable" class="table" >
-            <thead class="table-dark" style="background-color: blue; color: white;">
-              <tr>
-                <th scope="col">S.no.</th>
-                <th scope="col">AMC name</th>
-                <th scope="col">Subsidiary of</th>
-                <th scope="col">Fund Name</th>
-                <th scope="col">Launch date</th>
-                <th scope="col">Fund Size</th>
-                <th scope="col">Rating</th>
-                <th scope="col">Risk</th>
-                <th scope="col">Minimum *</th>
-                <th scope="col">Performance in the past 3 years</th>
-                {% for col in additional_columns %}
-                <th>YTD {{ col }}</th>
-                {% endfor %}
-                <!-- <th scope="col">Return as of 2020</th>
-                <th scope="col">Return as of 2021</th>
-                <th scope="col">Return as of 2022</th> -->
-                <th scope="col">Fund Type</th>
-                <th scope="col">Front & Back end Loading</th>
-                <th scope="col">Management Fee</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for fund in funds %}
-              <tr>
-                <th scope="row">{{forloop.counter}}</th>
-                <td>{{ fund.asset_management_company }}</td>
-                <td>{{ fund.subsidiary_of }}</td>
-                <td>{{ fund.fund_name }}</td>
-                <td>{{fund.launch_date}}</td>
-                <td>{{fund.fund_size}}</td>
-                <td>{{fund.rating}}</td>
-                <td>{{fund.risk}}</td>
-                <td>{{fund.minimum_investment_in_pkr}}</td>
-                <td>{{fund.performance_past_3_years}}</td>
-                {% for col in additional_columns %}
-                <td>{{ fund.ytd_as_of_date|get_item:col|default_if_none:"" }}</td>
-                {% endfor %}
-                <td>{{fund.fund_type}}</td>
-                <td>{{fund.front_back_end_loading_fee}}</td>
-                <td>{{fund.management_fee}}</td>
-              </tr>
-              {% endfor %}
-                </tbody>
-              </table>
-              
-        </div>
-        <!-- Table End -->
-        <span style="text-align: center;"><b>**  There is no minimum investment  other than the ones  have the requirement.</b></span>
-        <div class="table-responsive" style="padding: 50px; width: 50%;">
-          <table class="table">
-            <thead class="table-dark" style="background-color: blue; color: white;">
-              <th>Average Return</th>
-              <th>Ave. as of Aug. 2023</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Money Market</td>
-                <td>20.54%</td>
-              </tr>
-              <tr>
-                <td>Income</td>
-                <td>20.67%</td>
-              </tr>
-              <tr>
-                <td>Equity</td>
-                <td>-7.04%</td>
-              </tr>
-              <tr>
-                <td>Balanced</td>
-                <td>-4.82%</td>
-              </tr>
-              <tr>
-            </tbody>
-          </table>
-        </div>
-        <span style="padding-left: 50px;"><b>Note: The above data is obtained fron MUFAP, reports, reviews and Years.</b></span>
-        <span style="padding-left: 50px;"><b>Apologize for minor omissions if there is any.</b></span>
-        <br/>
-        <span style="padding-left: 50px;"><b>Key Takeaways</b></span>
-        <ul style="padding-left: 70px;">
-          <li>Decide on investing on Shariah Compliant Fund or Conventional</li>
-          <li>Decide on the Asset Management Company performance in the past and owner's strength</li>
-          <li>Decide on the options available i.e Money Market; Income Fund: Equity or Balanced Fund</li>
-          <li>What you are looking monthly profit; fixed profit or income accumulation.</li>
-          <li>Please keep this mind that whatever amount you are investing say if you are investing Rs.100,000/- and Front End Loading is 2% then  100,000- 2,000= 98,000/- will be invested.</li>
-        </ul>
-<!-- End Section FLEET FINANCING -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+            <style>
+                .card-margin {
+                    margin-bottom: 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container mt-2">
+                <h2 class="text-center mb-4">Mutual Funds</h2>
+                
+                <!-- Filters -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <select id="subsidiaryFilter" class="form-control">
+                            <option value="">All Subsidiaries</option>
+                            {% for fund in subsidiary_of %}
+                                <option value="{{ fund }}">{{ fund }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="fundNameFilter" class="form-control">
+                            <option value="">All Funds</option>
+                            {% for fund in funds %}
+                                <option value="{{ fund.fund_name }}">{{ fund.fund_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Cards -->
+                <div class="row" id="fundContainer">
+                    {% for fund in funds %}
+                        <div class="col-md-4 card-margin" data-subsidiary="{{ fund.subsidiary_of }}" data-fund-name="{{ fund.fund_name }}">
+                            <div class="card mb-2 shadow-sm">
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong>{{ fund.fund_name }}</strong></h5>
+                                    <p class="card-text mb-1">AMC Name: {{ fund.asset_management_company }}</p>
+                                    <p class="card-text mb-1">Subsidiary of: {{ fund.subsidiary_of }}</p>
+                                    <p class="card-text mb-1">Launch Date: {{ fund.launch_date }}</p>
+                                    <p class="card-text mb-1">Fund Size: {{ fund.fund_size }}</p>
+            
+                                    <div id="details-{{ forloop.counter }}" style="display: none;">
+                                        <p class="card-text mb-1">Rating: {{ fund.rating }}</p>
+                                        <p class="card-text mb-1">Risk: {{ fund.risk }}</p>
+                                        <p class="card-text mb-1">Minimum Investment: {{ fund.minimum_investment_in_pkr }}</p>
+                                        <p class="card-text mb-1">Performance (3 Years): {{ fund.performance_past_3_years }}</p>
+                                        {% for col in additional_columns %}
+                                            <p class="card-text mb-1">YTD {{ col }}: {{ fund.ytd_as_of_date|get_item:col|default_if_none:"" }}</p>
+                                        {% endfor %}
+                                        <p class="card-text mb-1">Fund Type: {{ fund.fund_type }}</p>
+                                        <p class="card-text mb-1">Front & Back End Loading: {{ fund.front_back_end_loading_fee }}</p>
+                                        <p class="card-text mb-1">Management Fee: {{ fund.management_fee }}</p>
+                                    </div>
+            
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" id="toggle-button-{{ forloop.counter }}" onclick="toggleDetails({{ forloop.counter }})">View More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            
+                <!-- Note -->
+                <span style="text-align: center;"><b>**  There is no minimum investment  other than the ones  have the requirement.</b></span>
+                <div class="table-responsive" style="padding: 50px; width: 50%;">
+                  <table class="table">
+                    <thead class="table-dark" style="background-color: blue; color: white;">
+                      <th>Average Return</th>
+                      <th>Ave. as of Aug. 2023</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Money Market</td>
+                        <td>20.54%</td>
+                      </tr>
+                      <tr>
+                        <td>Income</td>
+                        <td>20.67%</td>
+                      </tr>
+                      <tr>
+                        <td>Equity</td>
+                        <td>-7.04%</td>
+                      </tr>
+                      <tr>
+                        <td>Balanced</td>
+                        <td>-4.82%</td>
+                      </tr>
+                      <tr>
+                    </tbody>
+                  </table>
+                </div>
+                <span style="padding-left: 50px;"><b>Note: The above data is obtained fron MUFAP, reports, reviews and Years.</b></span>
+                <br/>
+                <span style="padding-left: 50px;"><b>Apologize for minor omissions if there is any.</b></span>
+                <br/>
+                <br/>
+
+                <span style="padding-left: 50px;"><b>Key Takeaways</b></span>
+                <ul style="padding-left: 70px;">
+                  <li>Decide on investing on Shariah Compliant Fund or Conventional</li>
+                  <li>Decide on the Asset Management Company performance in the past and owner's strength</li>
+                  <li>Decide on the options available i.e Money Market; Income Fund: Equity or Balanced Fund</li>
+                  <li>What you are looking monthly profit; fixed profit or income accumulation.</li>
+                  <li>Please keep this mind that whatever amount you are investing say if you are investing Rs.100,000/- and Front End Loading is 2% then  100,000- 2,000= 98,000/- will be invested.</li>
+                </ul>
+            </div>
+            
+            <!-- JavaScript -->
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+            <script>
+                function toggleDetails(id) {
+                    const details = document.getElementById('details-' + id);
+                    const button = document.getElementById('toggle-button-' + id);
+                    if (details.style.display === 'none') {
+                        details.style.display = 'block';
+                        button.textContent = 'View Less';
+                    } else {
+                        details.style.display = 'none';
+                        button.textContent = 'View More';
+                    }
+                }
+            
+                // Filter functions
+                document.getElementById('subsidiaryFilter').addEventListener('change', function () {
+                    const subsidiary = this.value.trim().toLowerCase();
+                    const fundNameFilter = document.getElementById('fundNameFilter');
+                    fundNameFilter.innerHTML = '<option value="">All Funds</option>';
+                    
+                    const funds = document.querySelectorAll('#fundContainer .col-md-4');
+                    funds.forEach(fund => {
+                        const fundSubsidiary = fund.getAttribute('data-subsidiary').trim().toLowerCase();
+                        const fundName = fund.getAttribute('data-fund-name');
+                        
+                        if (fundSubsidiary.includes(subsidiary) || !subsidiary) {
+                            fund.style.display = 'block';
+                            const option = document.createElement('option');
+                            option.value = fundName;
+                            option.textContent = fundName;
+                            fundNameFilter.appendChild(option);
+                        } else {
+                            fund.style.display = 'none';
+                        }
+                    });
+                });
+            
+                document.getElementById('fundNameFilter').addEventListener('change', function () {
+                    const fundName = this.value.trim().toLowerCase();
+                    const funds = document.querySelectorAll('#fundContainer .col-md-4');
+                    funds.forEach(fund => {
+                        const fundNameTitle = fund.querySelector('.card-title').textContent.trim().toLowerCase();
+                        if (fundNameTitle.includes(fundName) || !fundName) {
+                            fund.style.display = 'block';
+                        } else {
+                            fund.style.display = 'none';
+                        }
+                    });
+                });
+            </script>
+            
+        </body>
+        </html>
+        
 
 </div></div></div></div>
 </div>
