@@ -191,44 +191,67 @@ class Article(models.Model):
 
 
 class IslamicFund(models.Model):
-
     asset_management_company = models.CharField(max_length=100)
     subsidiary_of = models.CharField(max_length=100)
-    fund_name = models.CharField(max_length=100)
-    fund_type = models.CharField(max_length=50)
-    launch_date = models.DateField(null=True, blank=True)  # Format: YYYY-MM-DD
-    fund_size = models.CharField(max_length=20)
-    rating = models.CharField(max_length=10)
-    risk = models.CharField(max_length=50)
-    minimum_investment_in_pkr = models.CharField(max_length=50)
-    performance_past_3_years = models.CharField(max_length=100)
+    fund_name = models.CharField(max_length=100)  # FUND NAME
+    fund_type = models.CharField(max_length=50)  # FUND TYPE
+    objective = models.TextField()  # OBJECTIVE
+    fund_size = models.CharField(max_length=20)  # FUND SIZE
+    minimum_investment_in_pkr = models.CharField(max_length=50)  # MIN INV
+    front_end_load = models.CharField(max_length=50)  # FRONT END LOAD
+    management_fee = models.CharField(max_length=50)  # MANAGEMENT FEE
+    risk = models.CharField(max_length=50)  # RISK
+    tenor_period = models.CharField(max_length=50)  # TENOR(PERIOD)
+    back_end_load = models.CharField(max_length=50)  # BACK END LOAD
+    benchmark = models.CharField(max_length=100)  # BENCH MARK
+    pricing = models.CharField(max_length=50)  # PRICING
+    launch_date = models.DateField(null=True, blank=True)  # LAUNCH DATE
+    category = models.CharField(max_length=50)  # CATEGORY
+    features = models.TextField()  # FEATURES
+    no_lock_in_period = models.BooleanField(default=False)  # NO LOCK IN PERIOD
+    retain_for_24_months = models.BooleanField(default=False)  # RETAIN FOR 24 MONTHS
+    easy_redemption = models.BooleanField(default=False)  # EASY REDEMPTION
+    max_preservation_of_capital = models.BooleanField(default=False)  # MAX PRESERVATION OF CAPITAL
+    systematic_investment_plan_facility = models.BooleanField(default=False)  # SYSTEMATIC INV. PLAN FACILITY
+    tax_benefits = models.BooleanField(default=False)  # TAX BENEFITS
+    rating = models.CharField(max_length=10)  # RATING
+    performance = models.TextField()  # PERFORMANCE
+    return_field = models.CharField(max_length=100)  # RETURN
     ytd_as_of_date = models.JSONField()
     front_back_end_loading_fee = models.CharField(max_length=50)
-    management_fee = models.CharField(max_length=50)
 
     def __str__(self):
         return self.fund_name
 
-
 class ConventionalFund(models.Model):
     asset_management_company = models.CharField(max_length=100)
-    subsidiary_of = models.CharField(
-        max_length=100, blank=True, null=True)  # Optional
-    fund_name = models.CharField(max_length=100)
-    fund_type = models.CharField(max_length=50)
-    launch_date = models.DateField(null=True, blank=True)  # Format: YYYY-MM-DD
-    fund_size = models.CharField(max_length=20)
-    rating = models.CharField(max_length=10, blank=True, null=True)  # Optional
-    risk = models.CharField(max_length=50)
-    minimum_investment_in_pkr = models.CharField(max_length=50)
-    performance_past_3_years = models.CharField(
-        max_length=100, blank=True, null=True)  # Optional
-    # Storing YTD data as a JSON object
-    ytd_as_of_date = models.JSONField(default=dict)
-    front_back_end_loading_fee = models.CharField(
-        max_length=50, blank=True, null=True)  # Optional
-    # Assuming 'Management Name' refers to a fee
-    management_fee = models.CharField(max_length=50)
+    subsidiary_of = models.CharField(max_length=100, blank=True, null=True)  # Optional
+    fund_name = models.CharField(max_length=100)  # FUND NAME
+    fund_type = models.CharField(max_length=50)  # FUND TYPE
+    objective = models.TextField()  # OBJECTIVE
+    fund_size = models.CharField(max_length=20)  # FUND SIZE
+    minimum_investment_in_pkr = models.CharField(max_length=50)  # MIN INV
+    front_end_load = models.CharField(max_length=50)  # FRONT END LOAD
+    management_fee = models.CharField(max_length=50)  # MANAGEMENT FEE
+    risk = models.CharField(max_length=50)  # RISK
+    tenor_period = models.CharField(max_length=50)  # TENOR(PERIOD)
+    back_end_load = models.CharField(max_length=50)  # BACK END LOAD
+    benchmark = models.CharField(max_length=100)  # BENCH MARK
+    pricing = models.CharField(max_length=50)  # PRICING
+    launch_date = models.DateField(null=True, blank=True)  # LAUNCH DATE
+    category = models.CharField(max_length=50)  # CATEGORY
+    features = models.TextField()  # FEATURES
+    no_lock_in_period = models.BooleanField(default=False)  # NO LOCK IN PERIOD
+    retain_for_24_months = models.BooleanField(default=False)  # RETAIN FOR 24 MONTHS
+    easy_redemption = models.BooleanField(default=False)  # EASY REDEMPTION
+    max_preservation_of_capital = models.BooleanField(default=False)  # MAX PRESERVATION OF CAPITAL
+    systematic_investment_plan_facility = models.BooleanField(default=False)  # SYSTEMATIC INV. PLAN FACILITY
+    tax_benefits = models.BooleanField(default=False)  # TAX BENEFITS
+    rating = models.CharField(max_length=10, blank=True, null=True)  # RATING (Optional)
+    performance = models.TextField(blank=True, null=True)  # PERFORMANCE (Optional)
+    return_field = models.CharField(max_length=100, blank=True, null=True)  # RETURN (Optional)
+    ytd_as_of_date = models.JSONField(default=dict)  # YTD Data as a JSON object
+    front_back_end_loading_fee = models.CharField(max_length=50, blank=True, null=True)  # Optional
 
     def __str__(self):
         return self.fund_name
