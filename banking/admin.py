@@ -133,10 +133,32 @@ class IslamicFundResource(resources.ModelResource):
 
 class IslamicFundAdmin(ImportExportModelAdmin):
     resource_class = IslamicFundResource
-    list_display = ('asset_management_company', 'subsidiary_of', 'fund_name', 'fund_type',
-                    'launch_date', 'fund_size', 'rating', 'risk', 'minimum_investment_in_pkr',
-                    'performance_past_3_years', 'ytd_as_of_date',
-                    'front_back_end_loading_fee', 'management_fee')
+    list_display = [
+        'fund_name',
+        'fund_type',
+        'objective',
+        'fund_size',
+        'minimum_investment_in_pkr',
+        'front_end_load',
+        'management_fee',
+        'risk',
+        'tenor_period',
+        'back_end_load',
+        'benchmark',
+        'pricing',
+        'launch_date',
+        'category',
+        'features',
+        'no_lock_in_period',
+        'retain_for_24_months',
+        'easy_redemption',
+        'max_preservation_of_capital',
+        'systematic_investment_plan_facility',
+        'tax_benefits',
+        'rating',
+        'performance',
+        'return_field'
+    ]
 
     # def get_ytd_2020(self, obj):
     #     return json.loads(obj.ytd_as_of_date).get('2020', '-')
@@ -161,10 +183,32 @@ class ConventionalFundResource(resources.ModelResource):
 
 class ConventionalFundAdmin(ImportExportModelAdmin):
     resource_class = ConventionalFundResource
-    list_display = ('asset_management_company', 'subsidiary_of', 'fund_name', 'fund_type',
-                    'launch_date', 'fund_size', 'rating', 'risk', 'minimum_investment_in_pkr',
-                    'performance_past_3_years', 'ytd_as_of_date',
-                    'front_back_end_loading_fee', 'management_fee')
+    list_display = [
+        'fund_name',
+        'fund_type',
+        'objective',
+        'fund_size',
+        'minimum_investment_in_pkr',
+        'front_end_load',
+        'management_fee',
+        'risk',
+        'tenor_period',
+        'back_end_load',
+        'benchmark',
+        'pricing',
+        'launch_date',
+        'category',
+        'features',
+        'no_lock_in_period',
+        'retain_for_24_months',
+        'easy_redemption',
+        'max_preservation_of_capital',
+        'systematic_investment_plan_facility',
+        'tax_benefits',
+        'rating',
+        'performance',
+        'return_field'
+    ]
 
 
 admin.site.register(IslamicFund, IslamicFundAdmin)

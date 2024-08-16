@@ -933,14 +933,13 @@ At Screenerpk our aim is to empower you to make a smart and well informed decisi
         <body>
             <div class="container mt-2">
                 <h2 class="text-center mb-4">Mutual Funds</h2>
-                
-                <!-- Filters -->
+            
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <select id="subsidiaryFilter" class="form-control">
                             <option value="">All Subsidiaries</option>
-                            {% for fund in subsidiary_of %}
-                                <option value="{{ fund }}">{{ fund }}</option>
+                            {% for subsidiary in subsidiary_of %}
+                                <option value="{{ subsidiary }}">{{ subsidiary }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -953,11 +952,12 @@ At Screenerpk our aim is to empower you to make a smart and well informed decisi
                         </select>
                     </div>
                 </div>
-                
-                <!-- Cards -->
+            
                 <div class="row" id="fundContainer">
                     {% for fund in funds %}
-                        <div class="col-md-4 card-margin" data-subsidiary="{{ fund.subsidiary_of }}" data-fund-name="{{ fund.fund_name }}">
+                        <div class="col-md-4 fund-item"
+                             data-subsidiary="{{ fund.subsidiary_of|lower }}"
+                             data-fund-name="{{ fund.fund_name|lower }}">
                             <div class="card mb-2 shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong>{{ fund.fund_name }}</strong></h5>
@@ -965,30 +965,48 @@ At Screenerpk our aim is to empower you to make a smart and well informed decisi
                                     <p class="card-text mb-1">Subsidiary of: {{ fund.subsidiary_of }}</p>
                                     <p class="card-text mb-1">Launch Date: {{ fund.launch_date }}</p>
                                     <p class="card-text mb-1">Fund Size: {{ fund.fund_size }}</p>
+                                    <p class="card-text mb-1">Fund Type: {{ fund.fund_type }}</p>
             
                                     <div id="details-{{ forloop.counter }}" style="display: none;">
-                                        <p class="card-text mb-1">Rating: {{ fund.rating }}</p>
-                                        <p class="card-text mb-1">Risk: {{ fund.risk }}</p>
+                                        <p class="card-text mb-1">Objective: {{ fund.objective }}</p>
                                         <p class="card-text mb-1">Minimum Investment: {{ fund.minimum_investment_in_pkr }}</p>
-                                        <p class="card-text mb-1">Performance (3 Years): {{ fund.performance_past_3_years }}</p>
+                                        <p class="card-text mb-1">Front End Load: {{ fund.front_end_load }}</p>
+                                        <p class="card-text mb-1">Management Fee: {{ fund.management_fee }}</p>
+                                        <p class="card-text mb-1">Risk: {{ fund.risk }}</p>
+                                        <p class="card-text mb-1">Tenor (Period): {{ fund.tenor_period }}</p>
+                                        <p class="card-text mb-1">Back End Load: {{ fund.back_end_load }}</p>
+                                        <p class="card-text mb-1">Benchmark: {{ fund.benchmark }}</p>
+                                        <p class="card-text mb-1">Pricing: {{ fund.pricing }}</p>
+                                        <p class="card-text mb-1">Category: {{ fund.category }}</p>
+                                        <p class="card-text mb-1">Features: {{ fund.features }}</p>
+                                        <p class="card-text mb-1">No Lock-In Period: {{ fund.no_lock_in_period|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1">Retain for 24 Months: {{ fund.retain_for_24_months|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1">Easy Redemption: {{ fund.easy_redemption|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1">Max Preservation of Capital: {{ fund.max_preservation_of_capital|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1">Systematic Investment Plan Facility: {{ fund.systematic_investment_plan_facility|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1">Tax Benefits: {{ fund.tax_benefits|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1">Rating: {{ fund.rating }}</p>
+                                        <p class="card-text mb-1">Performance: {{ fund.performance }}</p>
+                                        <p class="card-text mb-1">Return: {{ fund.return_field }}</p>
                                         {% for col in additional_columns %}
                                             <p class="card-text mb-1">YTD {{ col }}: {{ fund.ytd_as_of_date|get_item:col|default_if_none:"" }}</p>
                                         {% endfor %}
-                                        <p class="card-text mb-1">Fund Type: {{ fund.fund_type }}</p>
-                                        <p class="card-text mb-1">Front & Back End Loading: {{ fund.front_back_end_loading_fee }}</p>
-                                        <p class="card-text mb-1">Management Fee: {{ fund.management_fee }}</p>
                                     </div>
             
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" id="toggle-button-{{ forloop.counter }}" onclick="toggleDetails({{ forloop.counter }})">View More</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleDetails({{ forloop.counter }})">View More</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                            </div><div class="row">
+                        {% endif %}
                     {% endfor %}
                 </div>
+            </div>
             
                 <!-- Note -->
                 <span style="text-align: center;"><b>**  There is no minimum investment  other than the ones  have the requirement.</b></span>
