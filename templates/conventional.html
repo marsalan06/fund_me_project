@@ -961,35 +961,35 @@ At Screenerpk our aim is to empower you to make a smart and well informed decisi
                             <div class="card mb-2 shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong>{{ fund.fund_name }}</strong></h5>
-                                    <p class="card-text mb-1">AMC Name: {{ fund.asset_management_company }}</p>
-                                    <p class="card-text mb-1">Subsidiary of: {{ fund.subsidiary_of }}</p>
-                                    <p class="card-text mb-1">Launch Date: {{ fund.launch_date }}</p>
-                                    <p class="card-text mb-1">Fund Size: {{ fund.fund_size }}</p>
-                                    <p class="card-text mb-1">Fund Type: {{ fund.fund_type }}</p>
+                                    <p class="card-text mb-1"><strong>AMC Name:</strong> {{ fund.asset_management_company }}</p>
+                                    <p class="card-text mb-1"><strong>Subsidiary of:</strong> {{ fund.subsidiary_of }}</p>
+                                    <p class="card-text mb-1"><strong>Launch Date:</strong> {{ fund.launch_date }}</p>
+                                    <p class="card-text mb-1"><strong>Fund Size:</strong> {{ fund.fund_size }}</p>
+                                    <p class="card-text mb-1"><strong>Fund Type:</strong> {{ fund.fund_type }}</p>
             
                                     <div id="details-{{ forloop.counter }}" style="display: none;">
-                                        <p class="card-text mb-1">Objective: {{ fund.objective }}</p>
-                                        <p class="card-text mb-1">Minimum Investment: {{ fund.minimum_investment_in_pkr }}</p>
-                                        <p class="card-text mb-1">Front End Load: {{ fund.front_end_load }}</p>
-                                        <p class="card-text mb-1">Management Fee: {{ fund.management_fee }}</p>
-                                        <p class="card-text mb-1">Risk: {{ fund.risk }}</p>
-                                        <p class="card-text mb-1">Tenor (Period): {{ fund.tenor_period }}</p>
-                                        <p class="card-text mb-1">Back End Load: {{ fund.back_end_load }}</p>
-                                        <p class="card-text mb-1">Benchmark: {{ fund.benchmark }}</p>
-                                        <p class="card-text mb-1">Pricing: {{ fund.pricing }}</p>
-                                        <p class="card-text mb-1">Category: {{ fund.category }}</p>
-                                        <p class="card-text mb-1">Features: {{ fund.features }}</p>
-                                        <p class="card-text mb-1">No Lock-In Period: {{ fund.no_lock_in_period|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1">Retain for 24 Months: {{ fund.retain_for_24_months|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1">Easy Redemption: {{ fund.easy_redemption|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1">Max Preservation of Capital: {{ fund.max_preservation_of_capital|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1">Systematic Investment Plan Facility: {{ fund.systematic_investment_plan_facility|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1">Tax Benefits: {{ fund.tax_benefits|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1">Rating: {{ fund.rating }}</p>
-                                        <p class="card-text mb-1">Performance: {{ fund.performance }}</p>
-                                        <p class="card-text mb-1">Return: {{ fund.return_field }}</p>
+                                        <p class="card-text mb-1"><strong>Objective:</strong> {{ fund.objective }}</p>
+                                        <p class="card-text mb-1"><strong>Minimum Investment:</strong> {{ fund.minimum_investment_in_pkr }}</p>
+                                        <p class="card-text mb-1"><strong>Front End Load:</strong> {{ fund.front_end_load }}</p>
+                                        <p class="card-text mb-1"><strong>Management Fee:</strong> {{ fund.management_fee }}</p>
+                                        <p class="card-text mb-1"><strong>Risk:</strong> {{ fund.risk }}</p>
+                                        <p class="card-text mb-1"><strong>Tenor (Period):</strong> {{ fund.tenor_period }}</p>
+                                        <p class="card-text mb-1"><strong>Back End Load:</strong> {{ fund.back_end_load }}</p>
+                                        <p class="card-text mb-1"><strong>Benchmark:</strong> {{ fund.benchmark }}</p>
+                                        <p class="card-text mb-1"><strong>Pricing:</strong> {{ fund.pricing }}</p>
+                                        <p class="card-text mb-1"><strong>Category:</strong> {{ fund.category }}</p>
+                                        <p class="card-text mb-1"><strong>Features:</strong> {{ fund.features }}</p>
+                                        <p class="card-text mb-1"><strong>No Lock-In Period:</strong> {{ fund.no_lock_in_period|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1"><strong>Retain for 24 Months:</strong> {{ fund.retain_for_24_months|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1"><strong>Easy Redemption:</strong> {{ fund.easy_redemption|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1"><strong>Max Preservation of Capital:</strong> {{ fund.max_preservation_of_capital|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1"><strong>Systematic Investment Plan Facility:</strong> {{ fund.systematic_investment_plan_facility|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1"><strong>Tax Benefits:</strong> {{ fund.tax_benefits|yesno:"Yes,No" }}</p>
+                                        <p class="card-text mb-1"><strong>Rating:</strong> {{ fund.rating }}</p>
+                                        <p class="card-text mb-1"><strong>Performance:</strong> {{ fund.performance }}</p>
+                                        <p class="card-text mb-1"><strong>Return:</strong> {{ fund.return_field }}</p>
                                         {% for col in additional_columns %}
-                                            <p class="card-text mb-1">YTD {{ col }}: {{ fund.ytd_as_of_date|get_item:col|default_if_none:"" }}</p>
+                                            <p class="card-text mb-1"><strong>YTD {{ col }}:</strong> {{ fund.ytd_as_of_date|get_item:col|default_if_none:"" }}</p>
                                         {% endfor %}
                                     </div>
             

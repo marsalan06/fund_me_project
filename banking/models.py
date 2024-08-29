@@ -148,9 +148,10 @@ class InsuranceProduct(models.Model):
     rating = models.CharField(max_length=10, null=True, blank=True)
     min_eligibility_age = models.IntegerField()
     max_eligibility_age = models.IntegerField()
-    max_maturity_age = models.BooleanField(default=False)
+    max_maturity_age = models.IntegerField()
     minimum_premium = models.DecimalField(max_digits=12, decimal_places=2)
     product_length = models.CharField(max_length=100, null=True, blank=True)
+    description = models.CharField(max_length=300, null=True, blank=True)
     min_policy_term = models.CharField(max_length=100, null=True, blank=True)
     max_policy_term = models.CharField(max_length=100, null=True, blank=True)
     contribution_allocation = models.CharField(
