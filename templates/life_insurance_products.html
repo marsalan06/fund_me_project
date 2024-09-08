@@ -949,40 +949,59 @@ Body {
             <option value="">All life insurance companies</option>
             {% for life_insurance_company in life_insurance_companies %}
                 <option value="{{ life_insurance_company.company_name }}">{{ life_insurance_company.company_name }}</option>
-            {% endfor %}
+            {% endfor %}    
         </select>
         
-        <div class="row" id="investmentContainer">
-            {% for insurance in insurance_products %}
-                <div class="col-md-4 card-margin">
-                    <div class="card mb-2 shadow-sm">
-                        {% if insurance.company.company_image %}
-                            <img src="{{ insurance.company.company_image.url }}" class="card-img-top" alt="{{ insurance.company.company_name }}" style="max-height: 100px; max-width: 120px; display: block; margin: 0 auto;">
-                        {% else %}
-                            <img src="path/to/placeholder-image.jpg" class="card-img-top" alt="No image available">
-                        {% endif %}
-                        <div class="card-body">
-                            <h5 class="card-title"><strong>{{ insurance.company.company_name }}</strong></h5>
-                            <p class="card-text mb-1">Product Description: {{ insurance.product_length }}</p>
+            <div class="row" id="investmentContainer">
+                {% for insurance in insurance_products %}
+                    <div class="col-md-4 card-margin">
+                        <div class="card mb-2 shadow-sm">
+                            {% if insurance.company.company_image %}
+                                <img src="{{ insurance.company.company_image.url }}" class="card-img-top" alt="{{ insurance.company.company_name }}" style="max-height: 100px; max-width: 120px; display: block; margin: 0 auto;">
+                            {% else %}
+                                <img src="path/to/placeholder-image.jpg" class="card-img-top" alt="No image available">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title"><strong>{{ insurance.company.company_name }}</strong></h5>
+                                <p class="card-text mb-1"><strong>Product Title:</strong> {{ insurance.product_length }}</p>
 
-                            <div id="details-{{ forloop.counter }}" style="display: none;">
-                                <p class="card-text mb-1">Rating: {{ insurance.rating }}</p>
-                                <p class="card-text mb-1">Min Policy Term: {{ insurance.min_policy_term }}</p>
-                                <p class="card-text mb-1">Premium Frequency: {{ insurance.premium_frequency }}</p>
-                                <p class="card-text mb-1">Inflation Protection: {{ insurance.inflation_protection }}</p>
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" id="toggle-button-{{ forloop.counter }}" onclick="toggleDetails({{ forloop.counter }})">View More</button>
+                    <div id="details-{{ forloop.counter }}" style="display: none;">
+                        <p class="card-text mb-1"><strong> Description:</strong> {{ insurance.description }}</p>
+                        <p class="card-text mb-1"><strong> Rating:</strong> {{ insurance.rating }}</p>
+                        <p class="card-text mb-1"><strong> Min Eligibility Age:</strong> {{ insurance.min_eligibility_age }}</p>
+                        <p class="card-text mb-1"><strong> Max Eligibility Age:</strong> {{ insurance.max_eligibility_age }}</p>
+                        <p class="card-text mb-1"><strong> Max Maturity Age:</strong> {{ insurance.max_maturity_age }}</p>
+                        <p class="card-text mb-1"><strong> Minimum Premium:</strong> {{ insurance.minimum_premium }}</p>
+                        <p class="card-text mb-1"><strong> Min Policy Term:</strong> {{ insurance.min_policy_term }}</p>
+                        <p class="card-text mb-1"><strong> Max Policy Term:</strong> {{ insurance.max_policy_term }}</p>
+                        <p class="card-text mb-1"><strong> Contribution Allocation:</strong> {{ insurance.contribution_allocation }}</p>
+                        <p class="card-text mb-1"><strong> Premium Frequency:</strong> {{ insurance.get_premium_frequency_display }}</p>
+                        <p class="card-text mb-1"><strong> Loan Against Premium Paid:</strong> {{ insurance.loan_against_premium_paid }}</p>
+                        <p class="card-text mb-1"><strong> Free Look Up Period:</strong> {{ insurance.free_look_up_period }}</p>
+                        <p class="card-text mb-1"><strong> Partial/Full Withdrawal:</strong> {{ insurance.partial_full_withdrawal }}</p>
+                        <p class="card-text mb-1"><strong> Inflation Protection:</strong> {{ insurance.inflation_protection }}</p>
+                        <p class="card-text mb-1"><strong> Charges:</strong> {{ insurance.charges }}</p>
+                        <p class="card-text mb-1"><strong> Bonus Allocation:</strong> {{ insurance.bonus_allocation }}</p>
+                        <p class="card-text mb-1"><strong> Product Benefit 1:</strong> {{ insurance.product_benefit_1 }}</p>
+                        <p class="card-text mb-1"><strong> Product Benefit 2:</strong> {{ insurance.product_benefit_2 }}</p>
+                        <p class="card-text mb-1"><strong> Product Benefit 3:</strong> {{ insurance.product_benefit_3 }}</p>
+                        <p class="card-text mb-1"><strong> Product Benefit 4:</strong> {{ insurance.product_benefit_4 }}</p>
+                        <p class="card-text mb-1"><strong> Product Benefit 5:</strong> {{ insurance.product_benefit_5 }}</p>
+                        <p class="card-text mb-1"><strong> Product Benefit 6:</strong> {{ insurance.product_benefit_6 }}</p>
+                        <p class="card-text mb-1"><strong> Product Benefit 7:</strong> {{ insurance.product_benefit_7 }}</p>
+                        <p class="card-text mb-1"><strong> Optional Benefits:</strong> {{ insurance.optional_benefits }}</p>
+                    </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary" id="toggle-button-{{ forloop.counter }}" onclick="toggleDetails({{ forloop.counter }})">View More</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
 
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>

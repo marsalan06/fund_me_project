@@ -915,15 +915,15 @@ Body {
                     {% endif %}
                     <div class="card-body">
                         <h6 class="card-title"><strong>{{ investment.product_length }}</strong></h6>
-                        <p class="card-text mb-1">Profit Rate: {{ investment.profit_rate }} - {{ investment.rate_upper_limit }}</p>
+                        <p class="card-text mb-1"><strong>Profit Rate:</strong> {{ investment.profit_rate }} - {{ investment.rate_upper_limit }}</p>
 
                         <div id="details-{{ forloop.counter }}" style="display: none;">
-                            <p class="card-text mb-1">Min Investment: {{ investment.min_investment }}</p>
-                            <p class="card-text mb-1">Max Investment: {{ investment.max_investment }}</p>
-                            <p class="card-text mb-1">Payout Freq: {{ investment.payout_frequency }}</p>
-                            <p class="card-text mb-1">Period: {{ investment.get_choice_field_display }}</p>
-                            <p class="card-text mb-1">Rating Long: {{ investment.rating_long_term }}</p>
-                            <p class="card-text mb-1">Rating Short: {{ investment.rating_short_term }}</p>
+                            <p class="card-text mb-1"><strong>Min Investment:</strong> {{ investment.min_investment }}</p>
+                            <p class="card-text mb-1"><strong>Max Investment:</strong> {{ investment.max_investment }}</p>
+                            <p class="card-text mb-1"><strong>Payout Freq:</strong> {{ investment.payout_frequency }}</p>
+                            <p class="card-text mb-1"><strong>Period:</strong> {{ investment.get_choice_field_display }}</p>
+                            <p class="card-text mb-1"><strong>Rating Long:</strong> {{ investment.rating_long_term }}</p>
+                            <p class="card-text mb-1"><strong>Rating Short:</strong> {{ investment.rating_short_term }}</p>
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center">
@@ -953,15 +953,15 @@ Body {
                     <div class="card-body">
                         <h6 class="card-title"><strong>Ranked: {{ forloop.counter }}</strong></h6>
                         <h6 class="card-title"><strong>{{ product.product_length }}</strong></h6>
-                        <p class="card-text mb-1">Profit Rate: {{ product.profit_rate }} - {{ product.rate_upper_limit }}</p>
+                        <p class="card-text mb-1"><strong>Profit Rate:</strong> {{ product.profit_rate }} - {{ product.rate_upper_limit }}</p>
 
                         <div id="top-details-{{ forloop.counter }}" style="display: none;">
-                            <p class="card-text mb-1">Min Investment: {{ product.min_investment }}</p>
-                            <p class="card-text mb-1">Max Investment: {{ product.max_investment }}</p>
-                            <p class="card-text mb-1">Payout Freq: {{ product.payout_frequency }}</p>
-                            <p class="card-text mb-1">Period: {{ product.get_choice_field_display }}</p>
-                            <p class="card-text mb-1">Rating Long: {{ product.rating_long_term }}</p>
-                            <p class="card-text mb-1">Rating Short: {{ product.rating_short_term }}</p>
+                            <p class="card-text mb-1"><strong>Min Investment:</strong> {{ product.min_investment }}</p>
+                            <p class="card-text mb-1"><strong>Max Investment:</strong> {{ product.max_investment }}</p>
+                            <p class="card-text mb-1"><strong>Payout Freq:</strong> {{ product.payout_frequency }}</p>
+                            <p class="card-text mb-1"><strong>Period:</strong> {{ product.get_choice_field_display }}</p>
+                            <p class="card-text mb-1"><strong>Rating Long:</strong> {{ product.rating_long_term }}</p>
+                            <p class="card-text mb-1"><strong>Rating Short:</strong> {{ product.rating_short_term }}</p>
                         </div>
 
                         <div class="d-flex justify-content-between align-items-center">
