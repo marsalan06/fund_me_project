@@ -84,6 +84,9 @@ class BankProduct(models.Model):
         return self.bank_name
 
 
+from django.core.exceptions import ValidationError
+from django.db import models
+
 class Investment(models.Model):
 
     PRODUCT_CHOICES = [
@@ -96,16 +99,23 @@ class Investment(models.Model):
         ('five_year', 'Five Year Term Deposite Certificate'),
         ('month_quarter_half', 'Monthly / Quaterly / Half Yearly Term Deposite Certificate'),
         ('ten_year', 'Ten Year Term Deposite Certificate'),
-        ('recurring', 'Monthly Recurring Deposite Certificate')
-        # Add more banks as needed
+        ('recurring', 'Monthly Recurring Deposite Certificate'),
     ]
 
     INVESTMENT_TYPE_CHOICES = [
         ('local', 'Local'),
-        ('foreign', 'Foreign')
+        ('foreign', 'Foreign'),
     ]
 
-    bank = models.ForeignKey(BankProduct, on_delete=models.CASCADE)
+    FOREIGN_CURRENCY_CHOICES = [
+        ('USD', 'US Dollar'),
+        ('GBP', 'British Pound'),
+        ('EUR', 'Euro'),
+        ('AED', 'UAE Dirham'),
+        ('SAR', 'Saudi Riyal'),
+    ]
+
+    bank = models.ForeignKey('BankProduct', on_delete=models.CASCADE)
     min_investment = models.DecimalField(max_digits=12, decimal_places=2)
     max_investment = models.DecimalField(max_digits=12, decimal_places=2)
     product_length = models.CharField(max_length=100)
@@ -114,16 +124,30 @@ class Investment(models.Model):
     profit_rate = models.CharField(max_length=100)
     payout_frequency = models.CharField(max_length=50)
     choice_field = models.CharField(
-        max_length=50, choices=PRODUCT_CHOICES, null=False, default=PRODUCT_CHOICES[0])
+        max_length=50, choices=PRODUCT_CHOICES, null=False, default=PRODUCT_CHOICES[0][0])
     investment_type = models.CharField(
         max_length=50, choices=INVESTMENT_TYPE_CHOICES, null=False, default=INVESTMENT_TYPE_CHOICES[0][0])
+    currency = models.CharField(max_length=3, choices=FOREIGN_CURRENCY_CHOICES, blank=True, null=True)
 
     class Meta:
         verbose_name = "Term Deposit"
         verbose_name_plural = "Term Deposits"
 
+    def clean(self):
+        """Validate currency choices based on investment_type."""
+        if self.investment_type == 'foreign' and self.currency not in dict(self.FOREIGN_CURRENCY_CHOICES):
+            raise ValidationError(f"For foreign investments, currency must be one of: {', '.join(dict(self.FOREIGN_CURRENCY_CHOICES).keys())}.")
+        elif self.investment_type == 'local' and self.currency:
+            raise ValidationError("Local investments should not have a currency specified.")
+
+    def save(self, *args, **kwargs):
+        # Ensure the validation logic runs before saving
+        self.clean()
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return f"{self.bank.bank_name} - {self.product_length}"
+
 
 
 class LifeInsuranceCompany(models.Model):
