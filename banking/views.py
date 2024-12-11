@@ -77,6 +77,8 @@ def foreign_investment_list(request):
     payout_frequencies = investments.values_list('payout_frequency', flat=True).distinct()
     period_keys = investments.values_list('choice_field', flat=True).distinct()
     period_display_names = [dict(Investment.PRODUCT_CHOICES)[key] for key in period_keys]
+    FOREIGN_CURRENCY_CHOICES = investments.values_list('currency', flat=True).distinct()  # Modify as needed
+
     top_products = investments.exclude(
         Q(profit_rate__contains='disclosed') | Q(
             profit_rate__contains='-') | Q(profit_rate__contains=' ')
@@ -88,7 +90,8 @@ def foreign_investment_list(request):
         'top_products': top_products,
         'payout_frequencies': payout_frequencies,
         'periods': period_display_names,
-        'bank_filter': bank_filter
+        'bank_filter': bank_filter,
+         'foreign_currency_choices': FOREIGN_CURRENCY_CHOICES  # Include in context
     }
 
     return render(request, 'foreign_products.html', context)

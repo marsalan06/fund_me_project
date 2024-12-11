@@ -810,7 +810,7 @@ Body {
                                                     <span class="mh-top-header__element mh-top-header__element--phone">
 								<a href="tel:+000000000/+00000000">
 									<i class="flaticon-phone"></i>
-                                    +92 345 8832795/ +92 335 3235010								</a>
+                                    +92 321 8270280 / +92 336 6826355								</a>
 							</span>
                         
                                                     <span class="mh-top-header__element">
@@ -820,9 +820,9 @@ Body {
 							</span>
                         
                                                     <span class="mh-top-header__element mh-top-header__element--mail">
-								  <a href="mailto:arsalan.9798@gmail.com">
+								  <a href="mailto:szhasan78@gmail.com">
 									<i class="flaticon-mail-2"></i>
-                                    arsalan.9798@gmail.com								</a>
+                                    szhasan78@gmail.com								</a>
 							</span>
                         
                                                     <span class="mh-top-header__element mh-top-header__element--social-icons">
@@ -961,37 +961,37 @@ At Screenerpk our aim is to empower you to make a smart and well informed decisi
                             <div class="card mb-2 shadow-sm">
                                 <div class="card-body">
                                     <h5 class="card-title"><strong>{{ fund.fund_name }}</strong></h5>
-                                    <p class="card-text mb-1"><strong>AMC Name:</strong> {{ fund.asset_management_company }}</p>
-                                    <p class="card-text mb-1"><strong>Subsidiary of:</strong> {{ fund.subsidiary_of }}</p>
-                                    <p class="card-text mb-1"><strong>Launch Date:</strong> {{ fund.launch_date }}</p>
-                                    <p class="card-text mb-1"><strong>Fund Size:</strong> {{ fund.fund_size }}</p>
-                                    <p class="card-text mb-1"><strong>Fund Type:</strong> {{ fund.fund_type }}</p>
-            
-                                    <div id="details-{{ forloop.counter }}" style="display: none;">
-                                        <p class="card-text mb-1"><strong>Objective:</strong> {{ fund.objective }}</p>
-                                        <p class="card-text mb-1"><strong>Minimum Investment:</strong> {{ fund.minimum_investment_in_pkr }}</p>
-                                        <p class="card-text mb-1"><strong>Front End Load:</strong> {{ fund.front_end_load }}</p>
-                                        <p class="card-text mb-1"><strong>Management Fee:</strong> {{ fund.management_fee }}</p>
-                                        <p class="card-text mb-1"><strong>Risk:</strong> {{ fund.risk }}</p>
-                                        <p class="card-text mb-1"><strong>Tenor (Period):</strong> {{ fund.tenor_period }}</p>
-                                        <p class="card-text mb-1"><strong>Back End Load:</strong> {{ fund.back_end_load }}</p>
-                                        <p class="card-text mb-1"><strong>Benchmark:</strong> {{ fund.benchmark }}</p>
-                                        <p class="card-text mb-1"><strong>Pricing:</strong> {{ fund.pricing }}</p>
-                                        <p class="card-text mb-1"><strong>Category:</strong> {{ fund.category }}</p>
-                                        <p class="card-text mb-1"><strong>Features:</strong> {{ fund.features }}</p>
-                                        <p class="card-text mb-1"><strong>No Lock-In Period:</strong> {{ fund.no_lock_in_period|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1"><strong>Retain for 24 Months:</strong> {{ fund.retain_for_24_months|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1"><strong>Easy Redemption:</strong> {{ fund.easy_redemption|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1"><strong>Max Preservation of Capital:</strong> {{ fund.max_preservation_of_capital|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1"><strong>Systematic Investment Plan Facility:</strong> {{ fund.systematic_investment_plan_facility|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1"><strong>Tax Benefits:</strong> {{ fund.tax_benefits|yesno:"Yes,No" }}</p>
-                                        <p class="card-text mb-1"><strong>Rating:</strong> {{ fund.rating }}</p>
-                                        <p class="card-text mb-1"><strong>Performance:</strong> {{ fund.performance }}</p>
-                                        <p class="card-text mb-1"><strong>Return:</strong> {{ fund.return_field }}</p>
-                                        {% for col in additional_columns %}
-                                            <p class="card-text mb-1"><strong>YTD {{ col }}:</strong> {{ fund.ytd_as_of_date|get_item:col|default_if_none:"" }}</p>
-                                        {% endfor %}
-                                    </div>
+                        <p class="card-text mb-1"><strong>AMC Name:</strong> {{ fund.asset_management_company }}</p>
+                        <p class="card-text mb-1"><strong>Subsidiary of:</strong> {{ fund.subsidiary_of }}</p>
+                        <p class="card-text mb-1"><strong>Pricing:</strong> {{ fund.pricing }}</p>
+                        <p class="card-text mb-1"><strong>Return:</strong> {{ fund.return_field }}</p>
+
+                        <div id="details-{{ forloop.counter }}" style="display: none;">
+                            <p class="card-text mb-1"><strong>Objective:</strong> {{ fund.objective }}</p>
+                            <p class="card-text mb-1"><strong>Minimum Investment:</strong> {{ fund.minimum_investment_in_pkr }}</p>
+                            <p class="card-text mb-1"><strong>Front End Load:</strong> {{ fund.front_end_load }}</p>
+                            <p class="card-text mb-1"><strong>Management Fee:</strong> {{ fund.management_fee }}</p>
+                            <p class="card-text mb-1"><strong>Risk:</strong> {{ fund.risk }}</p>
+                            <p class="card-text mb-1"><strong>Tenor (Period):</strong> {{ fund.tenor_period }}</p>
+                            <p class="card-text mb-1"><strong>Back End Load:</strong> {{ fund.back_end_load }}</p>
+                            <p class="card-text mb-1"><strong>Benchmark:</strong> {{ fund.benchmark }}</p>
+                            <p class="card-text mb-1"><strong>Category:</strong> {{ fund.category }}</p>
+                            <p class="card-text mb-1"><strong>Features:</strong> {{ fund.features }}</p>
+                            <p class="card-text mb-1"><strong>No Lock-In Period:</strong> {{ fund.no_lock_in_period|yesno:"Yes,No" }}</p>
+                            <p class="card-text mb-1"><strong>Retain for 24 Months:</strong> {{ fund.retain_for_24_months|yesno:"Yes,No" }}</p>
+                            <p class="card-text mb-1"><strong>Easy Redemption:</strong> {{ fund.easy_redemption|yesno:"Yes,No" }}</p>
+                            <p class="card-text mb-1"><strong>Max Preservation of Capital:</strong> {{ fund.max_preservation_of_capital|yesno:"Yes,No" }}</p>
+                            <p class="card-text mb-1"><strong>Systematic Investment Plan Facility:</strong> {{ fund.systematic_investment_plan_facility|yesno:"Yes,No" }}</p>
+                            <p class="card-text mb-1"><strong>Tax Benefits:</strong> {{ fund.tax_benefits|yesno:"Yes,No" }}</p>
+                            <p class="card-text mb-1"><strong>Rating:</strong> {{ fund.rating }}</p>
+                            <p class="card-text mb-1"><strong>Performance:</strong> {{ fund.performance }}</p>
+                            <p class="card-text mb-1"><strong>Launch Date:</strong> {{ fund.launch_date }}</p>
+                            <p class="card-text mb-1"><strong>Fund Size:</strong> {{ fund.fund_size }}</p>
+                            <p class="card-text mb-1"><strong>Fund Type:</strong> {{ fund.fund_type }}</p>
+                            {% for col in additional_columns %}
+                            <p class="card-text mb-1"><strong>YTD {{ col }}:</strong> {{ fund.ytd_as_of_date|get_item:col|default_if_none:"" }}</p>
+                            {% endfor %}
+                        </div>
             
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
