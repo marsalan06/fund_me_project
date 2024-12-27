@@ -87,19 +87,25 @@ class BankProduct(models.Model):
 from django.core.exceptions import ValidationError
 from django.db import models
 
+from django.core.exceptions import ValidationError
+from django.db import models
+
+from django.core.exceptions import ValidationError
+from django.db import models
+
 class Investment(models.Model):
 
     PRODUCT_CHOICES = [
         ('short_term', 'Short Notice Term Deposit Certificate'),
-        ('one_month', 'One Month Deposite Certificate'),
-        ('three_month', 'Three Months Term Deposite Certificate'),
-        ('six_month', 'Six Months Term Deposite Certificate'),
-        ('one_year', 'One Year Term Deposite Certificate'),
-        ('three_year', 'Three Year Term Deposite Certificate'),
-        ('five_year', 'Five Year Term Deposite Certificate'),
-        ('month_quarter_half', 'Monthly / Quaterly / Half Yearly Term Deposite Certificate'),
-        ('ten_year', 'Ten Year Term Deposite Certificate'),
-        ('recurring', 'Monthly Recurring Deposite Certificate'),
+        ('one_month', 'One Month Deposit Certificate'),
+        ('three_month', 'Three Months Term Deposit Certificate'),
+        ('six_month', 'Six Months Term Deposit Certificate'),
+        ('one_year', 'One Year Term Deposit Certificate'),
+        ('three_year', 'Three Year Term Deposit Certificate'),
+        ('five_year', 'Five Year Term Deposit Certificate'),
+        ('month_quarter_half', 'Monthly / Quaterly / Half Yearly Term Deposit Certificate'),
+        ('ten_year', 'Ten Year Term Deposit Certificate'),
+        ('recurring', 'Monthly Recurring Deposit Certificate'),
     ]
 
     INVESTMENT_TYPE_CHOICES = [
@@ -107,7 +113,8 @@ class Investment(models.Model):
         ('foreign', 'Foreign'),
     ]
 
-    FOREIGN_CURRENCY_CHOICES = [
+    CURRENCY_CHOICES = [
+        ('PKR', 'Pakistani Rupee'),
         ('USD', 'US Dollar'),
         ('GBP', 'British Pound'),
         ('EUR', 'Euro'),
@@ -115,9 +122,17 @@ class Investment(models.Model):
         ('SAR', 'Saudi Riyal'),
     ]
 
+    MAX_INVESTMENT_CHOICES = [
+        ('mention_amount', 'Mention the Amount'),
+        ('no_limit', 'No Limit'),
+        ('amount_above', 'Amount in Figure & Above'),
+    ]
+
     bank = models.ForeignKey('BankProduct', on_delete=models.CASCADE)
     min_investment = models.DecimalField(max_digits=12, decimal_places=2)
-    max_investment = models.DecimalField(max_digits=12, decimal_places=2)
+    max_investment_type = models.CharField(
+        max_length=20, choices=MAX_INVESTMENT_CHOICES, null=False, default='mention_amount')
+    max_investment = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     product_length = models.CharField(max_length=100)
     rating_short_term = models.CharField(max_length=10, null=True)
     rating_long_term = models.CharField(max_length=10, null=True)
@@ -127,26 +142,44 @@ class Investment(models.Model):
         max_length=50, choices=PRODUCT_CHOICES, null=False, default=PRODUCT_CHOICES[0][0])
     investment_type = models.CharField(
         max_length=50, choices=INVESTMENT_TYPE_CHOICES, null=False, default=INVESTMENT_TYPE_CHOICES[0][0])
-    currency = models.CharField(max_length=3, choices=FOREIGN_CURRENCY_CHOICES, blank=True, null=True)
+    currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, blank=True, null=True)
 
     class Meta:
         verbose_name = "Term Deposit"
         verbose_name_plural = "Term Deposits"
 
     def clean(self):
-        """Validate currency choices based on investment_type."""
-        if self.investment_type == 'foreign' and self.currency not in dict(self.FOREIGN_CURRENCY_CHOICES):
-            raise ValidationError(f"For foreign investments, currency must be one of: {', '.join(dict(self.FOREIGN_CURRENCY_CHOICES).keys())}.")
-        elif self.investment_type == 'local' and self.currency:
-            raise ValidationError("Local investments should not have a currency specified.")
+        """Validate currency choices and enforce PKR for local investments."""
+        if self.investment_type == 'local':
+            # Force currency to PKR for local investments
+            if self.currency != 'PKR':
+                raise ValidationError("Local investments must have PKR as the currency.")
+        elif self.investment_type == 'foreign':
+            # Ensure PKR is not selected for foreign investments
+            if self.currency == 'PKR':
+                raise ValidationError("PKR cannot be selected for foreign investments.")
+            if self.currency not in dict(self.CURRENCY_CHOICES):
+                raise ValidationError(f"Invalid currency. Must be one of: {', '.join(dict(self.CURRENCY_CHOICES).keys())}.")
+
+        # Validate max investment based on the selected type
+        if self.max_investment_type == 'mention_amount' and not self.max_investment:
+            raise ValidationError("Maximum investment amount must be specified when 'Mention the Amount' is selected.")
+        if self.max_investment_type == 'no_limit' and self.max_investment:
+            raise ValidationError("Maximum investment amount should not be specified when 'No Limit' is selected.")
+        if self.max_investment_type == 'amount_above' and not self.max_investment:
+            raise ValidationError("Maximum investment base amount must be specified for 'Amount in Figure & Above'.")
 
     def save(self, *args, **kwargs):
-        # Ensure the validation logic runs before saving
+        # Auto-assign PKR for local investments before saving
+        if self.investment_type == 'local':
+            self.currency = 'PKR'
         self.clean()
         super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.bank.bank_name} - {self.product_length}"
+
+
 
 
 
