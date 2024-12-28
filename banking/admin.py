@@ -43,9 +43,9 @@ class InvestmentResource(resources.ModelResource):
 
     class Meta:
         model = Investment
-        fields = ('id', 'bank_name', 'rating_long_term', 'rating_short_term', 'min_investment', 'max_investment_type', 'max_investment',
+        fields = ('id', 'bank_name', 'rating_long_term', 'rating_short_term', 'min_investment', 'max_investment',
                   'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency')
-        export_order = ('id', 'bank_name', 'rating_long_term', 'rating_short_term', 'min_investment', 'max_investment_type', 'max_investment',
+        export_order = ('id', 'bank_name', 'rating_long_term', 'rating_short_term', 'min_investment', 'max_investment',
                   'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency')
 
     def before_import_row(self, row, **kwargs):
@@ -70,7 +70,7 @@ class BankProductsAdmin(admin.ModelAdmin):
 class InvestmentAdmin(ImportExportModelAdmin):
     resource_class = InvestmentResource
 
-    list_display = ['bank', 'min_investment', 'max_investment_type','max_investment', 'rating_long_term', 'rating_short_term',
+    list_display = ['bank', 'min_investment', 'max_investment', 'rating_long_term', 'rating_short_term',
                     'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency']
     list_filter = ['bank__bank_name', 'choice_field', 'investment_type', 'currency']
 

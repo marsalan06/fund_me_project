@@ -114,25 +114,27 @@ class Investment(models.Model):
     ]
 
     CURRENCY_CHOICES = [
-        ('PKR', 'Pakistani Rupee'),
-        ('USD', 'US Dollar'),
-        ('GBP', 'British Pound'),
-        ('EUR', 'Euro'),
-        ('AED', 'UAE Dirham'),
-        ('SAR', 'Saudi Riyal'),
+        ('PKR', 'PKR'),
+        ('USD', 'USD'),
+        ('GBP', 'GBP'),
+        ('EUR', 'EUR'),
+        ('AED', 'AED'),
+        ('SAR', 'SAR'),
     ]
 
-    MAX_INVESTMENT_CHOICES = [
-        ('mention_amount', 'Mention the Amount'),
-        ('no_limit', 'No Limit'),
-        ('amount_above', 'Amount in Figure & Above'),
-    ]
+    # MAX_INVESTMENT_CHOICES = [
+    #     ('mention_amount', 'Mention the Amount'),
+    #     ('no_limit', 'No Limit'),
+    #     ('amount_above', 'Amount in Figure & Above'),
+    # ]
 
     bank = models.ForeignKey('BankProduct', on_delete=models.CASCADE)
-    min_investment = models.DecimalField(max_digits=12, decimal_places=2)
-    max_investment_type = models.CharField(
-        max_length=20, choices=MAX_INVESTMENT_CHOICES, null=False, default='mention_amount')
-    max_investment = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    # min_investment = models.DecimalField(max_digits=12, decimal_places=2)
+    # max_investment_type = models.CharField(
+    #     max_length=20, choices=MAX_INVESTMENT_CHOICES, null=False, default='mention_amount')
+    # max_investment = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    min_investment = models.CharField(max_length=100, null=True)
+    max_investment = models.CharField(max_length=100, null=True)
     product_length = models.CharField(max_length=100)
     rating_short_term = models.CharField(max_length=10, null=True)
     rating_long_term = models.CharField(max_length=10, null=True)
@@ -162,12 +164,12 @@ class Investment(models.Model):
                 raise ValidationError(f"Invalid currency. Must be one of: {', '.join(dict(self.CURRENCY_CHOICES).keys())}.")
 
         # Validate max investment based on the selected type
-        if self.max_investment_type == 'mention_amount' and not self.max_investment:
-            raise ValidationError("Maximum investment amount must be specified when 'Mention the Amount' is selected.")
-        if self.max_investment_type == 'no_limit' and self.max_investment:
-            raise ValidationError("Maximum investment amount should not be specified when 'No Limit' is selected.")
-        if self.max_investment_type == 'amount_above' and not self.max_investment:
-            raise ValidationError("Maximum investment base amount must be specified for 'Amount in Figure & Above'.")
+        # if self.max_investment_type == 'mention_amount' and not self.max_investment:
+        #     raise ValidationError("Maximum investment amount must be specified when 'Mention the Amount' is selected.")
+        # if self.max_investment_type == 'no_limit' and self.max_investment:
+        #     raise ValidationError("Maximum investment amount should not be specified when 'No Limit' is selected.")
+        # if self.max_investment_type == 'amount_above' and not self.max_investment:
+        #     raise ValidationError("Maximum investment base amount must be specified for 'Amount in Figure & Above'.")
 
     def save(self, *args, **kwargs):
         # Auto-assign PKR for local investments before saving

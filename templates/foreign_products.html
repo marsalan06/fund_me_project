@@ -929,7 +929,8 @@ Body {
 
                         <div id="details-{{ forloop.counter }}" style="display: none;">
                             <p class="card-text mb-1"><strong>Min Investment:</strong> {{ investment.min_investment }}</p>
-                            <p class="card-text mb-1"><strong>Max Investment:</strong> 
+                            <p class="card-text mb-1"><strong>Min Investment:</strong> {{ investment.max_investment }}</p>
+                            <!-- <p class="card-text mb-1"><strong>Max Investment:</strong> 
                                 {% if investment.max_investment_type == "mention_amount" %}
                                     {{ investment.max_investment }}
                                 {% elif investment.max_investment_type == "no_limit" %}
@@ -937,7 +938,7 @@ Body {
                                 {% elif investment.max_investment_type == "amount_above" %}
                                     {{ investment.max_investment }} or above
                                 {% endif %}
-                            </p>
+                            </p> -->
                             <p class="card-text mb-1"><strong>Payout Freq:</strong> {{ investment.payout_frequency }}</p>
                             <p class="card-text mb-1"><strong>Period:</strong> {{ investment.get_choice_field_display }}</p>
                             <p class="card-text mb-1"><strong>Rating Long:</strong> {{ investment.rating_long_term }}</p>
