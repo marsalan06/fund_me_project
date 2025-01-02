@@ -138,7 +138,8 @@ class Investment(models.Model):
     product_length = models.CharField(max_length=100)
     rating_short_term = models.CharField(max_length=10, null=True)
     rating_long_term = models.CharField(max_length=10, null=True)
-    profit_rate = models.CharField(max_length=100)
+    is_expected_profit_rate = models.BooleanField(default=False)
+    profit_rate = models.FloatField()
     payout_frequency = models.CharField(max_length=50)
     choice_field = models.CharField(
         max_length=50, choices=PRODUCT_CHOICES, null=False, default=PRODUCT_CHOICES[0][0])
