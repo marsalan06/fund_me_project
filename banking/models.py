@@ -245,7 +245,7 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     pdf = models.FileField(upload_to='pdfs/')
     preview_image = models.ImageField(
-        upload_to='previews/', null=True, blank=True)
+        upload_to='previews/',blank=False, null=False)
 
     def __str__(self):
         return self.title
