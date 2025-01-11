@@ -4,6 +4,8 @@ from django.core.files.base import ContentFile
 from django.db.models import Q
 from django.shortcuts import redirect, render
 from pdf2image import convert_from_bytes
+from django import template
+
 
 from .forms import ArticleForm
 from .models import (Article, BankProduct, ConventionalFund, InsuranceProduct,
@@ -189,9 +191,15 @@ def islamic(request):
     subsidiary_of = funds.values_list('subsidiary_of', flat=True).distinct()
     # Extracting additional columns from ytd_as_of_date
     additional_columns = set()
+    # for fund in funds:
+    #     if fund.ytd_as_of_date:
+    #         additional_columns.update(fund.ytd_as_of_date.keys())
+
     for fund in funds:
-        if fund.ytd_as_of_date:
-            additional_columns.update(fund.ytd_as_of_date.keys())
+        if fund.performance:
+            fund.performance = fund.performance.replace(',', ',<br>').replace(':', ':<br>').replace(';', ';<br>')
+    
+    
 
     context = {
         'funds': funds,
@@ -206,10 +214,14 @@ def conventional(request):
     # Extracting additional columns from ytd_as_of_date
     subsidiary_of = funds.values_list('subsidiary_of', flat=True).distinct()
     additional_columns = set()
-    for fund in funds:
-        if fund.ytd_as_of_date:
-            additional_columns.update(fund.ytd_as_of_date.keys())
+    # for fund in funds:
+    #     if fund.ytd_as_of_date:
+    #         additional_columns.update(fund.ytd_as_of_date.keys())
 
+    for fund in funds:
+        if fund.performance:
+            fund.performance = fund.performance.replace(',', ',<br>').replace(':', ':<br>').replace(';', ';<br>')
+    
     context = {
         'funds': funds,
         'additional_columns': sorted(additional_columns),

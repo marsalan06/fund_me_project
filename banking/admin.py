@@ -44,9 +44,9 @@ class InvestmentResource(resources.ModelResource):
     class Meta:
         model = Investment
         fields = ('id', 'bank_name', 'rating_long_term', 'rating_short_term', 'min_investment', 'max_investment',
-                  'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency')
+                  'product_length', 'profit_rate', 'is_expected_profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency')
         export_order = ('id', 'bank_name', 'rating_long_term', 'rating_short_term', 'min_investment', 'max_investment',
-                  'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency')
+                  'product_length', 'profit_rate', 'is_expected_profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency')
 
     def before_import_row(self, row, **kwargs):
         # Check if the bank with the specified name exists, create if not
@@ -71,7 +71,7 @@ class InvestmentAdmin(ImportExportModelAdmin):
     resource_class = InvestmentResource
 
     list_display = ['bank', 'min_investment', 'max_investment', 'rating_long_term', 'rating_short_term',
-                    'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency']
+                    'product_length', 'profit_rate', 'is_expected_profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency']
     list_filter = ['bank__bank_name', 'choice_field', 'investment_type', 'currency']
 
 
@@ -134,31 +134,21 @@ class IslamicFundResource(resources.ModelResource):
 class IslamicFundAdmin(ImportExportModelAdmin):
     resource_class = IslamicFundResource
     list_display = [
-        'fund_name',
-        'fund_type',
-        'objective',
-        'fund_size',
-        'minimum_investment_in_pkr',
-        'front_end_load',
-        'management_fee',
-        'risk',
-        'tenor_period',
-        'back_end_load',
-        'benchmark',
-        'pricing',
-        'launch_date',
-        'category',
-        'features',
-        'no_lock_in_period',
-        'retain_for_24_months',
-        'easy_redemption',
-        'max_preservation_of_capital',
-        'systematic_investment_plan_facility',
-        'tax_benefits',
-        'rating',
-        'performance',
-        'return_field'
+        'asset_management_company',  # AMC Name
+        'subsidiary_of',             # Subsidiary of
+        'fund_name',                 # Fund Name
+        'launch_date',               # Launch Date
+        'fund_size',                 # Fund Size
+        'fund_type',                 # Fund Type
+        'rating',                    # Rating
+        'risk',                      # Risk
+        'minimum_investment_in_pkr', # Minimum Investment
+        'performance',               # Performance in the past 3 years (%)
+        'return_field',              # Return as of Last Month
+        'front_back_end_load',            # Front-end Loading
+        'management_fee',            # Management Fee
     ]
+
 
     # def get_ytd_2020(self, obj):
     #     return json.loads(obj.ytd_as_of_date).get('2020', '-')
@@ -184,30 +174,19 @@ class ConventionalFundResource(resources.ModelResource):
 class ConventionalFundAdmin(ImportExportModelAdmin):
     resource_class = ConventionalFundResource
     list_display = [
-        'fund_name',
-        'fund_type',
-        'objective',
-        'fund_size',
-        'minimum_investment_in_pkr',
-        'front_end_load',
-        'management_fee',
-        'risk',
-        'tenor_period',
-        'back_end_load',
-        'benchmark',
-        'pricing',
-        'launch_date',
-        'category',
-        'features',
-        'no_lock_in_period',
-        'retain_for_24_months',
-        'easy_redemption',
-        'max_preservation_of_capital',
-        'systematic_investment_plan_facility',
-        'tax_benefits',
-        'rating',
-        'performance',
-        'return_field'
+        'asset_management_company',  # AMC Name
+        'subsidiary_of',             # Subsidiary of
+        'fund_name',                 # Fund Name
+        'launch_date',               # Launch Date
+        'fund_size',                 # Fund Size
+        'fund_type',                 # Fund Type
+        'rating',                    # Rating
+        'risk',                      # Risk
+        'minimum_investment_in_pkr', # Minimum Investment
+        'performance',               # Performance in the past 3 years (%)
+        'return_field',              # Return as of Last Month
+        'front_back_end_load',            # Front-end Loading
+        'management_fee',            # Management Fee
     ]
 
 
