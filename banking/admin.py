@@ -44,9 +44,9 @@ class InvestmentResource(resources.ModelResource):
     class Meta:
         model = Investment
         fields = ('id', 'bank_name', 'rating_long_term', 'rating_short_term', 'min_investment', 'max_investment',
-                  'product_length', 'profit_rate', 'is_expected_profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency')
+                  'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency')
         export_order = ('id', 'bank_name', 'rating_long_term', 'rating_short_term', 'min_investment', 'max_investment',
-                  'product_length', 'profit_rate', 'is_expected_profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency')
+                  'product_length', 'profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency')
 
     def before_import_row(self, row, **kwargs):
         # Check if the bank with the specified name exists, create if not
@@ -71,7 +71,7 @@ class InvestmentAdmin(ImportExportModelAdmin):
     resource_class = InvestmentResource
 
     list_display = ['bank', 'min_investment', 'max_investment', 'rating_long_term', 'rating_short_term',
-                    'product_length', 'profit_rate', 'is_expected_profit_rate', 'payout_frequency', 'choice_field', 'investment_type', 'currency']
+                    'product_length', 'profit_rate',  'payout_frequency', 'choice_field', 'investment_type', 'currency']
     list_filter = ['bank__bank_name', 'choice_field', 'investment_type', 'currency']
 
 
@@ -144,7 +144,7 @@ class IslamicFundAdmin(ImportExportModelAdmin):
         'risk',                      # Risk
         'minimum_investment_in_pkr', # Minimum Investment
         'performance',               # Performance in the past 3 years (%)
-        'return_field',              # Return as of Last Month
+        'ytd_as_of',              # Return as of Last Month
         'front_back_end_load',            # Front-end Loading
         'management_fee',            # Management Fee
     ]
@@ -184,7 +184,7 @@ class ConventionalFundAdmin(ImportExportModelAdmin):
         'risk',                      # Risk
         'minimum_investment_in_pkr', # Minimum Investment
         'performance',               # Performance in the past 3 years (%)
-        'return_field',              # Return as of Last Month
+        'ytd_as_of',              # Return as of Last Month
         'front_back_end_load',            # Front-end Loading
         'management_fee',            # Management Fee
     ]

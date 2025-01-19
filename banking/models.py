@@ -138,7 +138,7 @@ class Investment(models.Model):
     product_length = models.CharField(max_length=100)
     rating_short_term = models.CharField(max_length=10, null=True)
     rating_long_term = models.CharField(max_length=10, null=True)
-    is_expected_profit_rate = models.BooleanField(default=False)
+    # is_expected_profit_rate = models.BooleanField(default=False)
     profit_rate = models.CharField(max_length=100)
     payout_frequency = models.CharField(max_length=50)
     choice_field = models.CharField(
@@ -262,7 +262,7 @@ class IslamicFund(models.Model):
     risk = models.CharField(max_length=50, null=True)  # Risk
     minimum_investment_in_pkr = models.CharField(max_length=50, null=True)  # Minimum Investment
     performance = models.TextField(null=True)  # Performance in the past 3 years (%)
-    return_field = models.CharField(max_length=100, null=True)  # Return as of Last Month
+    ytd_as_of = models.CharField(max_length=100, null=True)  # Return as of Last Month
     front_back_end_load = models.CharField(max_length=50, null=True)  # Front & Back-end Loading
     # back_end_load = models.CharField(max_length=50)  # Back-end Loading
     management_fee = models.CharField(max_length=50, null=True)  # Management Fee
@@ -282,7 +282,7 @@ class ConventionalFund(models.Model):
     risk = models.CharField(max_length=50, null=True)  # Risk
     minimum_investment_in_pkr = models.CharField(max_length=50, null=True)  # Minimum Investment
     performance = models.TextField(null=True)  # Performance in the past 3 years (%)
-    return_field = models.CharField(max_length=100, null=True)  # Return as of Last Month
+    ytd_as_of = models.CharField(max_length=100, null=True)  # Return as of Last Month
     front_back_end_load = models.CharField(max_length=50, null=True)  # Front & Back-end Loading
     # back_end_load = models.CharField(max_length=50)  # Back-end Loading
     management_fee = models.CharField(max_length=50, null=True)  # Management Feedef __str__(self):

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule of 78 Loan Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #343a40;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .input-label {
+            margin-bottom: 0;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h2>Rule of 78 Loan Calculator</h2>
+        </div>
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <label class="input-label">Loan Amount:</label>
+                <input type="number" id="loanAmount" value="1000000">
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-label">Loan Term (Months):</label>
+                <input type="number" id="loanTerm" value="60">
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-label">Annual Profit Rate (%):</label>
+                <input type="number" id="annualProfitRate" value="12">
+            </div>
+            <button onclick="calculateRuleOf78()">Calculate</button>
+            <button onclick="resetCalculator()">Reset</button>
+    
+            <div class="result" id="result" style="display:none;">
+                <p>Monthly Payment: <span id="monthlyPayment"></span></p>
+                <p>Total Markup: <span id="totalMarkup"></span></p>
+                <p>Total Payment: <span id="totalPayment"></span></p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function calculateRuleOf78() {
+            var loanAmount = parseFloat(document.getElementById('loanAmount').value.replace(/,/g, ''));
+            var loanTerm = parseInt(document.getElementById('loanTerm').value);
+            var annualProfitRate = parseFloat(document.getElementById('annualProfitRate').value) / 100;
+    
+            // Convert annual rate to monthly rate
+            var monthlyRate = annualProfitRate / 12;
+    
+            // Calculate monthly payment using PMT formula
+            var monthlyPayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -loanTerm));
+    
+            // Calculate total markup and total payment
+            var totalPayment = monthlyPayment * loanTerm;
+            var totalMarkup = totalPayment - loanAmount;
+    
+            // Update results
+            document.getElementById('monthlyPayment').textContent = 'Rs ' + monthlyPayment.toFixed(2).toLocaleString();
+            document.getElementById('totalMarkup').textContent = 'Rs ' + totalMarkup.toFixed(2).toLocaleString();
+            document.getElementById('totalPayment').textContent = 'Rs ' + totalPayment.toFixed(2).toLocaleString();
+    
+            document.getElementById('result').style.display = 'block';
+        }
+    
+        function resetCalculator() {
+            document.getElementById('loanAmount').value = 1000000;
+            document.getElementById('loanTerm').value = 60;
+            document.getElementById('annualProfitRate').value = 12;
+            document.getElementById('result').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

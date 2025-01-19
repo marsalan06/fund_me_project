@@ -927,11 +927,7 @@ Body {
                         <p class="card-text mb-1"><strong>Currency:</strong> {{ investment.currency }}</p>
                         <p class="card-text mb-1">
                             <strong>Profit Rate:</strong>
-                            {% if investment.is_expected_profit_rate %}
-                                Expected {{ investment.profit_rate }}
-                            {% else %}
                                 {{ investment.profit_rate }}
-                            {% endif %}
                         </p>
 
                         <div id="details-{{ forloop.counter }}" style="display: none;">
@@ -982,11 +978,7 @@ Body {
                         <p class="card-text mb-1"><strong>Currency:</strong> {{ product.currency }}</p>
                         <p class="card-text mb-1">
                             <strong>Profit Rate:</strong>
-                            {% if product.is_expected_profit_rate %}
-                                Expected {{ product.profit_rate }}
-                            {% else %}
                                 {{ product.profit_rate }}
-                            {% endif %}
                         </p>
 
                         <div id="top-details-{{ forloop.counter }}" style="display: none;">
