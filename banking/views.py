@@ -5,6 +5,9 @@ from django.db.models import Q
 from django.shortcuts import redirect, render
 from pdf2image import convert_from_bytes
 from django import template
+from django.http import JsonResponse
+from .models import BankProduct, Investment
+
 
 
 from .forms import ArticleForm
@@ -41,50 +44,61 @@ def term_deposites(request):
 def faqs(request):
     return render(request, 'faqs.html')
 
-
 def investment_list(request):
     # Fetch all banks for the dropdown
     banks = BankProduct.objects.all()
     products = Investment.PRODUCT_CHOICES
     investments = Investment.objects.filter(investment_type='local')
+
+    # Filter dropdown data
     bank_filter_names = investments.values_list('bank__bank_name', flat=True).distinct()
     bank_filter = [{'bank_name': name} for name in bank_filter_names]
     payout_frequencies = investments.values_list('payout_frequency', flat=True).distinct()
     period_keys = investments.values_list('choice_field', flat=True).distinct()
     period_display_names = [dict(Investment.PRODUCT_CHOICES)[key] for key in period_keys]
-    top_products = investments.exclude(
-        Q(profit_rate__contains='disclosed') | Q(
-            profit_rate__contains='-') | Q(profit_rate__contains=' ')
+
+    # Read filter values from query parameters
+    selected_frequency = request.GET.get('payout_frequency', '')
+    selected_period = request.GET.get('period', '')
+
+    # Filter investments based on query parameters
+    filtered_investments = investments
+    if selected_frequency:
+        filtered_investments = filtered_investments.filter(payout_frequency=selected_frequency)
+    if selected_period:
+        # Convert period display name back to the key
+        period_key = next(
+            (key for key, value in Investment.PRODUCT_CHOICES if value == selected_period), None
+        )
+        if period_key:
+            filtered_investments = filtered_investments.filter(choice_field=period_key)
+
+    # Get top 5 products based on filtered investments
+    top_products = filtered_investments.exclude(
+        Q(profit_rate__contains='disclosed') | Q(profit_rate__contains='-') | Q(profit_rate__contains=' ')
     ).order_by('-profit_rate')[:5]
-    context = {
-        'banks': banks,
-        'products': products,
-        'investments': investments,
-        'top_products': top_products,
-        'payout_frequencies': payout_frequencies,
-        'periods': period_display_names,
-        'bank_filter': bank_filter
-    }
 
-    return render(request, 'products.html', context)
+    # Check for AJAX request (to update top products dynamically)
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        top_products_data = [
+            {
+                'bank_name': product.bank.bank_name,
+                'bank_image': product.bank.bank_image.url if product.bank.bank_image else None,
+                'product_length': product.product_length,
+                'profit_rate': product.profit_rate,
+                'payout_frequency': product.payout_frequency,
+                'period': dict(Investment.PRODUCT_CHOICES).get(product.choice_field, ''),
+                'currency': product.currency,
+                'min_investment': product.min_investment,
+                'max_investment': product.max_investment,
+                'rating_long_term': product.rating_long_term,
+                'rating_short_term': product.rating_short_term,
+            }
+            for product in top_products
+        ]
+        return JsonResponse({'top_products': top_products_data})
 
-
-def foreign_investment_list(request):
-    # Fetch all banks for the dropdown
-    banks = BankProduct.objects.all()
-    products = Investment.PRODUCT_CHOICES
-    investments = Investment.objects.filter(investment_type='foreign')
-    bank_filter_names = investments.values_list('bank__bank_name', flat=True).distinct()
-    bank_filter = [{'bank_name': name} for name in bank_filter_names]
-    payout_frequencies = investments.values_list('payout_frequency', flat=True).distinct()
-    period_keys = investments.values_list('choice_field', flat=True).distinct()
-    period_display_names = [dict(Investment.PRODUCT_CHOICES)[key] for key in period_keys]
-    FOREIGN_CURRENCY_CHOICES = investments.values_list('currency', flat=True).distinct()  # Modify as needed
-
-    top_products = investments.exclude(
-        Q(profit_rate__contains='disclosed') | Q(
-            profit_rate__contains='-') | Q(profit_rate__contains=' ')
-    ).order_by('-profit_rate')[:5]
+    # Pass the context to the template
     context = {
         'banks': banks,
         'products': products,
@@ -93,7 +107,80 @@ def foreign_investment_list(request):
         'payout_frequencies': payout_frequencies,
         'periods': period_display_names,
         'bank_filter': bank_filter,
-         'foreign_currency_choices': FOREIGN_CURRENCY_CHOICES  # Include in context
+    }
+
+    return render(request, 'products.html', context)
+
+
+
+
+def foreign_investment_list(request):
+    # Fetch all banks for the dropdown
+    banks = BankProduct.objects.all()
+    products = Investment.PRODUCT_CHOICES
+    investments = Investment.objects.filter(investment_type='foreign')
+
+    # Filter dropdown data
+    bank_filter_names = investments.values_list('bank__bank_name', flat=True).distinct()
+    bank_filter = [{'bank_name': name} for name in bank_filter_names]
+    payout_frequencies = investments.values_list('payout_frequency', flat=True).distinct()
+    period_keys = investments.values_list('choice_field', flat=True).distinct()
+    period_display_names = [dict(Investment.PRODUCT_CHOICES)[key] for key in period_keys]
+    FOREIGN_CURRENCY_CHOICES = investments.values_list('currency', flat=True).distinct()
+
+    # Read filter values from query parameters
+    selected_frequency = request.GET.get('payout_frequency', '')
+    selected_period = request.GET.get('period', '')
+    selected_currency = request.GET.get('currency', '')
+
+    # Filter investments based on query parameters
+    filtered_investments = investments
+    if selected_frequency:
+        filtered_investments = filtered_investments.filter(payout_frequency=selected_frequency)
+    if selected_period:
+        # Convert period display name back to the key
+        period_key = next(
+            (key for key, value in Investment.PRODUCT_CHOICES if value == selected_period), None
+        )
+        if period_key:
+            filtered_investments = filtered_investments.filter(choice_field=period_key)
+    if selected_currency:
+        filtered_investments = filtered_investments.filter(currency=selected_currency)
+
+    # Get top 5 products based on filtered investments
+    top_products = filtered_investments.exclude(
+        Q(profit_rate__contains='disclosed') | Q(profit_rate__contains='-') | Q(profit_rate__contains=' ')
+    ).order_by('-profit_rate')[:5]
+
+    # Check for AJAX request (to update top products dynamically)
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        top_products_data = [
+            {
+                'bank_name': product.bank.bank_name,
+                'bank_image': product.bank.bank_image.url if product.bank.bank_image else None,
+                'product_length': product.product_length,
+                'currency': product.currency,
+                'profit_rate': product.profit_rate,
+                'min_investment': product.min_investment,
+                'max_investment': product.max_investment,
+                'payout_frequency': product.payout_frequency,
+                'period': dict(Investment.PRODUCT_CHOICES)[product.choice_field],
+                'rating_long_term': product.rating_long_term,
+                'rating_short_term': product.rating_short_term,
+            }
+            for product in top_products
+        ]
+        return JsonResponse({'top_products': top_products_data})
+
+    context = {
+        'banks': banks,
+        'products': products,
+        'investments': investments,
+        'top_products': top_products,
+        'payout_frequencies': payout_frequencies,
+        'periods': period_display_names,
+        'bank_filter': bank_filter,
+        'foreign_currency_choices': FOREIGN_CURRENCY_CHOICES,
     }
 
     return render(request, 'foreign_products.html', context)
