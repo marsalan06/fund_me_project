@@ -195,7 +195,6 @@ class LifeInsuranceCompany(models.Model):
     def __str__(self):
         return self.company_name
 
-
 class InsuranceProduct(models.Model):
     FREQUENCY_CHOICES = [
         ('yearly', 'Yearly'),
@@ -204,42 +203,35 @@ class InsuranceProduct(models.Model):
         ('monthly', 'Monthly'),
     ]
 
-    company = models.ForeignKey(LifeInsuranceCompany, on_delete=models.CASCADE)
+    company = models.ForeignKey(LifeInsuranceCompany, on_delete=models.CASCADE, null=True, blank=True)
     rating = models.CharField(max_length=10, null=True, blank=True)
-    min_eligibility_age = models.IntegerField()
-    max_eligibility_age = models.IntegerField()
-    max_maturity_age = models.IntegerField()
-    minimum_premium = models.DecimalField(max_digits=12, decimal_places=2)
-    product_length = models.CharField(max_length=100, null=True, blank=True)
+    min_eligibility_age = models.IntegerField(null=True, blank=True)
+    max_eligibility_age = models.IntegerField(null=True, blank=True)
+    max_maturity_age = models.IntegerField(null=True, blank=True)
+    minimum_premium = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    product_length = models.CharField(max_length=150, null=True, blank=True)
     description = models.CharField(max_length=300, null=True, blank=True)
     min_policy_term = models.CharField(max_length=100, null=True, blank=True)
     max_policy_term = models.CharField(max_length=100, null=True, blank=True)
-    contribution_allocation = models.CharField(
-        max_length=100, null=True, blank=True)
-    premium_frequency = models.CharField(
-        max_length=20, choices=FREQUENCY_CHOICES, null=False)
-    loan_against_premium_paid = models.CharField(
-        max_length=100, null=True, blank=True)
-    free_look_up_period = models.CharField(
-        max_length=10, null=True, blank=True)
-    partial_full_withdrawal = models.CharField(
-        max_length=100, null=True, blank=True)
-    inflation_protection = models.CharField(
-        max_length=100, null=True, blank=True)
+    contribution_allocation = models.CharField(max_length=100, null=True, blank=True)
+    premium_frequency = models.CharField(max_length=20, choices=FREQUENCY_CHOICES, null=True, blank=True)
+    loan_against_premium_paid = models.CharField(max_length=100, null=True, blank=True)
+    free_look_up_period = models.CharField(max_length=10, null=True, blank=True)
+    partial_full_withdrawal = models.CharField(max_length=100, null=True, blank=True)
+    inflation_protection = models.CharField(max_length=100, null=True, blank=True)
     charges = models.CharField(max_length=255, null=True, blank=True)
     bonus_allocation = models.CharField(max_length=100, null=True, blank=True)
-    product_benefit_1 = models.CharField(max_length=100, null=True, blank=True)
-    product_benefit_2 = models.CharField(max_length=100, null=True, blank=True)
-    product_benefit_3 = models.CharField(max_length=100, null=True, blank=True)
-    product_benefit_4 = models.CharField(max_length=100, null=True, blank=True)
-    product_benefit_5 = models.CharField(max_length=100, null=True, blank=True)
-    product_benefit_6 = models.CharField(max_length=100, null=True, blank=True)
-    product_benefit_7 = models.CharField(max_length=100, null=True, blank=True)
-    optional_benefits = models.CharField(max_length=100, null=True, blank=True)
+    product_benefit_1 = models.CharField(max_length=200, null=True, blank=True)
+    product_benefit_2 = models.CharField(max_length=200, null=True, blank=True)
+    product_benefit_3 = models.CharField(max_length=200, null=True, blank=True)
+    product_benefit_4 = models.CharField(max_length=200, null=True, blank=True)
+    product_benefit_5 = models.CharField(max_length=200, null=True, blank=True)
+    product_benefit_6 = models.CharField(max_length=200, null=True, blank=True)
+    product_benefit_7 = models.CharField(max_length=200, null=True, blank=True)
+    optional_benefits = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return f"{self.company.company_name} - {self.id}"
-
+        return f"{self.company.company_name if self.company else 'No Company'} - {self.id}"
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
