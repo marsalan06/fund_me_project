@@ -83,13 +83,13 @@ class InsuranceProductResource(resources.ModelResource):
     class Meta:
         model = InsuranceProduct
         fields = ('id', 'company_name', 'rating', 'min_eligibility_age', 'max_eligibility_age', 'max_maturity_age',
-                  'minimum_premium', 'product_length', 'min_policy_term', 'max_policy_term', 'contribution_allocation',
+                  'minimum_premium', 'product_length', 'description', 'min_policy_term', 'max_policy_term', 'contribution_allocation',
                   'premium_frequency', 'loan_against_premium_paid', 'free_look_up_period', 'partial_full_withdrawal',
                   'inflation_protection', 'charges', 'bonus_allocation', 'product_benefit_1', 'product_benefit_2',
                   'product_benefit_3', 'product_benefit_4', 'product_benefit_5', 'product_benefit_6', 'product_benefit_7',
                   'optional_benefits')
         export_order = ('id', 'company_name', 'rating', 'min_eligibility_age', 'max_eligibility_age', 'max_maturity_age',
-                        'minimum_premium', 'product_length', 'min_policy_term', 'max_policy_term', 'contribution_allocation',
+                        'minimum_premium', 'product_length', 'description','min_policy_term', 'max_policy_term', 'contribution_allocation',
                         'premium_frequency', 'loan_against_premium_paid', 'free_look_up_period', 'partial_full_withdrawal',
                         'inflation_protection', 'charges', 'bonus_allocation', 'product_benefit_1', 'product_benefit_2',
                         'product_benefit_3', 'product_benefit_4', 'product_benefit_5', 'product_benefit_6', 'product_benefit_7',
@@ -119,8 +119,10 @@ class InsuranceProductAdmin(ImportExportModelAdmin):
 
     resource_class = InsuranceProductResource
 
-    list_display = ['company', 'rating',
-                    'product_length', 'premium_frequency']
+    list_display = ['id', 'company', 'rating', 'min_eligibility_age', 'max_eligibility_age', 'max_maturity_age',
+                  'minimum_premium', 'product_length', 'description', 'min_policy_term', 'max_policy_term', 'contribution_allocation',
+                  'premium_frequency', 'loan_against_premium_paid', 'free_look_up_period', 'partial_full_withdrawal',
+                  'inflation_protection', 'charges', 'bonus_allocation']
     list_filter = ['company__company_name', 'premium_frequency']
 
 
