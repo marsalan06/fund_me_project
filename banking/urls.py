@@ -35,6 +35,8 @@ urlpatterns = [
          name='recurring'),
     path('ruleof72/', views.ruleof72,
          name='ruleof72'),
+    path('ruleof78/', views.ruleof78,
+         name='ruleof78'),
     path('mutualfundcalculator/', views.mutualfundcalculator,
          name='mutualfundcalculator'),
     path('article/', views.upload_article, name='upload_article'),

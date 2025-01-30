@@ -87,19 +87,25 @@ class BankProduct(models.Model):
 from django.core.exceptions import ValidationError
 from django.db import models
 
+from django.core.exceptions import ValidationError
+from django.db import models
+
+from django.core.exceptions import ValidationError
+from django.db import models
+
 class Investment(models.Model):
 
     PRODUCT_CHOICES = [
         ('short_term', 'Short Notice Term Deposit Certificate'),
-        ('one_month', 'One Month Deposite Certificate'),
-        ('three_month', 'Three Months Term Deposite Certificate'),
-        ('six_month', 'Six Months Term Deposite Certificate'),
-        ('one_year', 'One Year Term Deposite Certificate'),
-        ('three_year', 'Three Year Term Deposite Certificate'),
-        ('five_year', 'Five Year Term Deposite Certificate'),
-        ('month_quarter_half', 'Monthly / Quaterly / Half Yearly Term Deposite Certificate'),
-        ('ten_year', 'Ten Year Term Deposite Certificate'),
-        ('recurring', 'Monthly Recurring Deposite Certificate'),
+        ('one_month', 'One Month Deposit Certificate'),
+        ('three_month', 'Three Months Term Deposit Certificate'),
+        ('six_month', 'Six Months Term Deposit Certificate'),
+        ('one_year', 'One Year Term Deposit Certificate'),
+        ('three_year', 'Three Year Term Deposit Certificate'),
+        ('five_year', 'Five Year Term Deposit Certificate'),
+        ('month_quarter_half', 'Monthly / Quaterly / Half Yearly Term Deposit Certificate'),
+        ('ten_year', 'Ten Year Term Deposit Certificate'),
+        ('recurring', 'Monthly Recurring Deposit Certificate'),
     ]
 
     INVESTMENT_TYPE_CHOICES = [
@@ -107,46 +113,76 @@ class Investment(models.Model):
         ('foreign', 'Foreign'),
     ]
 
-    FOREIGN_CURRENCY_CHOICES = [
-        ('USD', 'US Dollar'),
-        ('GBP', 'British Pound'),
-        ('EUR', 'Euro'),
-        ('AED', 'UAE Dirham'),
-        ('SAR', 'Saudi Riyal'),
+    CURRENCY_CHOICES = [
+        ('PKR', 'PKR'),
+        ('USD', 'USD'),
+        ('GBP', 'GBP'),
+        ('EUR', 'EUR'),
+        ('AED', 'AED'),
+        ('SAR', 'SAR'),
     ]
 
+    # MAX_INVESTMENT_CHOICES = [
+    #     ('mention_amount', 'Mention the Amount'),
+    #     ('no_limit', 'No Limit'),
+    #     ('amount_above', 'Amount in Figure & Above'),
+    # ]
+
     bank = models.ForeignKey('BankProduct', on_delete=models.CASCADE)
-    min_investment = models.DecimalField(max_digits=12, decimal_places=2)
-    max_investment = models.DecimalField(max_digits=12, decimal_places=2)
+    # min_investment = models.DecimalField(max_digits=12, decimal_places=2)
+    # max_investment_type = models.CharField(
+    #     max_length=20, choices=MAX_INVESTMENT_CHOICES, null=False, default='mention_amount')
+    # max_investment = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
+    min_investment = models.CharField(max_length=100, null=True)
+    max_investment = models.CharField(max_length=100, null=True)
     product_length = models.CharField(max_length=100)
     rating_short_term = models.CharField(max_length=10, null=True)
     rating_long_term = models.CharField(max_length=10, null=True)
+    # is_expected_profit_rate = models.BooleanField(default=False)
     profit_rate = models.CharField(max_length=100)
     payout_frequency = models.CharField(max_length=50)
     choice_field = models.CharField(
         max_length=50, choices=PRODUCT_CHOICES, null=False, default=PRODUCT_CHOICES[0][0])
     investment_type = models.CharField(
         max_length=50, choices=INVESTMENT_TYPE_CHOICES, null=False, default=INVESTMENT_TYPE_CHOICES[0][0])
-    currency = models.CharField(max_length=3, choices=FOREIGN_CURRENCY_CHOICES, blank=True, null=True)
+    currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES, blank=True, null=True)
 
     class Meta:
         verbose_name = "Term Deposit"
         verbose_name_plural = "Term Deposits"
 
     def clean(self):
-        """Validate currency choices based on investment_type."""
-        if self.investment_type == 'foreign' and self.currency not in dict(self.FOREIGN_CURRENCY_CHOICES):
-            raise ValidationError(f"For foreign investments, currency must be one of: {', '.join(dict(self.FOREIGN_CURRENCY_CHOICES).keys())}.")
-        elif self.investment_type == 'local' and self.currency:
-            raise ValidationError("Local investments should not have a currency specified.")
+        """Validate currency choices and enforce PKR for local investments."""
+        if self.investment_type == 'local':
+            # Force currency to PKR for local investments
+            if self.currency != 'PKR':
+                raise ValidationError("Local investments must have PKR as the currency.")
+        elif self.investment_type == 'foreign':
+            # Ensure PKR is not selected for foreign investments
+            if self.currency == 'PKR':
+                raise ValidationError("PKR cannot be selected for foreign investments.")
+            if self.currency not in dict(self.CURRENCY_CHOICES):
+                raise ValidationError(f"Invalid currency. Must be one of: {', '.join(dict(self.CURRENCY_CHOICES).keys())}.")
+
+        # Validate max investment based on the selected type
+        # if self.max_investment_type == 'mention_amount' and not self.max_investment:
+        #     raise ValidationError("Maximum investment amount must be specified when 'Mention the Amount' is selected.")
+        # if self.max_investment_type == 'no_limit' and self.max_investment:
+        #     raise ValidationError("Maximum investment amount should not be specified when 'No Limit' is selected.")
+        # if self.max_investment_type == 'amount_above' and not self.max_investment:
+        #     raise ValidationError("Maximum investment base amount must be specified for 'Amount in Figure & Above'.")
 
     def save(self, *args, **kwargs):
-        # Ensure the validation logic runs before saving
+        # Auto-assign PKR for local investments before saving
+        if self.investment_type == 'local':
+            self.currency = 'PKR'
         self.clean()
         super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.bank.bank_name} - {self.product_length}"
+
+
 
 
 
@@ -209,74 +245,48 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     pdf = models.FileField(upload_to='pdfs/')
     preview_image = models.ImageField(
-        upload_to='previews/', null=True, blank=True)
+        upload_to='previews/',blank=False, null=False)
 
     def __str__(self):
         return self.title
 
 
 class IslamicFund(models.Model):
-    asset_management_company = models.CharField(max_length=100)
-    subsidiary_of = models.CharField(max_length=100)
-    fund_name = models.CharField(max_length=100)  # FUND NAME
-    fund_type = models.CharField(max_length=50)  # FUND TYPE
-    objective = models.TextField()  # OBJECTIVE
-    fund_size = models.CharField(max_length=20)  # FUND SIZE
-    minimum_investment_in_pkr = models.CharField(max_length=50)  # MIN INV
-    front_end_load = models.CharField(max_length=50)  # FRONT END LOAD
-    management_fee = models.CharField(max_length=50)  # MANAGEMENT FEE
-    risk = models.CharField(max_length=50)  # RISK
-    tenor_period = models.CharField(max_length=50)  # TENOR(PERIOD)
-    back_end_load = models.CharField(max_length=50)  # BACK END LOAD
-    benchmark = models.CharField(max_length=100)  # BENCH MARK
-    pricing = models.CharField(max_length=50)  # PRICING
-    launch_date = models.DateField(null=True, blank=True)  # LAUNCH DATE
-    category = models.CharField(max_length=50)  # CATEGORY
-    features = models.TextField()  # FEATURES
-    no_lock_in_period = models.BooleanField(default=False)  # NO LOCK IN PERIOD
-    retain_for_24_months = models.BooleanField(default=False)  # RETAIN FOR 24 MONTHS
-    easy_redemption = models.BooleanField(default=False)  # EASY REDEMPTION
-    max_preservation_of_capital = models.BooleanField(default=False)  # MAX PRESERVATION OF CAPITAL
-    systematic_investment_plan_facility = models.BooleanField(default=False)  # SYSTEMATIC INV. PLAN FACILITY
-    tax_benefits = models.BooleanField(default=False)  # TAX BENEFITS
-    rating = models.CharField(max_length=10)  # RATING
-    performance = models.TextField()  # PERFORMANCE
-    return_field = models.CharField(max_length=100)  # RETURN
-    ytd_as_of_date = models.JSONField()
-    front_back_end_loading_fee = models.CharField(max_length=50)
+    asset_management_company = models.CharField(max_length=100, null=True, blank=True)
+    subsidiary_of = models.CharField(max_length=100, null=True)  # Subsidiary of
+    fund_name = models.CharField(max_length=100, null=True)  # Fund Name
+    launch_date = models.CharField(max_length=100, null=True)   # Launch Date
+    fund_size = models.CharField(max_length=20, null=True)  # Fund Size
+    fund_type = models.CharField(max_length=50, null=True)  # Fund Type
+    rating = models.CharField(max_length=10, null=True)  # Rating
+    risk = models.CharField(max_length=50, null=True)  # Risk
+    minimum_investment_in_pkr = models.CharField(max_length=50, null=True)  # Minimum Investment
+    performance = models.TextField(null=True)  # Performance in the past 3 years (%)
+    ytd_as_of = models.CharField(max_length=100, null=True)  # Return as of Last Month
+    front_back_end_load = models.CharField(max_length=50, null=True)  # Front & Back-end Loading
+    # back_end_load = models.CharField(max_length=50)  # Back-end Loading
+    management_fee = models.CharField(max_length=50, null=True)  # Management Fee
 
     def __str__(self):
         return self.fund_name
 
-class ConventionalFund(models.Model):
-    asset_management_company = models.CharField(max_length=100)
-    subsidiary_of = models.CharField(max_length=100, blank=True, null=True)  # Optional
-    fund_name = models.CharField(max_length=100)  # FUND NAME
-    fund_type = models.CharField(max_length=50)  # FUND TYPE
-    objective = models.TextField()  # OBJECTIVE
-    fund_size = models.CharField(max_length=20)  # FUND SIZE
-    minimum_investment_in_pkr = models.CharField(max_length=50)  # MIN INV
-    front_end_load = models.CharField(max_length=50)  # FRONT END LOAD
-    management_fee = models.CharField(max_length=50)  # MANAGEMENT FEE
-    risk = models.CharField(max_length=50)  # RISK
-    tenor_period = models.CharField(max_length=50)  # TENOR(PERIOD)
-    back_end_load = models.CharField(max_length=50)  # BACK END LOAD
-    benchmark = models.CharField(max_length=100)  # BENCH MARK
-    pricing = models.CharField(max_length=50)  # PRICING
-    launch_date = models.DateField(null=True, blank=True)  # LAUNCH DATE
-    category = models.CharField(max_length=50)  # CATEGORY
-    features = models.TextField()  # FEATURES
-    no_lock_in_period = models.BooleanField(default=False)  # NO LOCK IN PERIOD
-    retain_for_24_months = models.BooleanField(default=False)  # RETAIN FOR 24 MONTHS
-    easy_redemption = models.BooleanField(default=False)  # EASY REDEMPTION
-    max_preservation_of_capital = models.BooleanField(default=False)  # MAX PRESERVATION OF CAPITAL
-    systematic_investment_plan_facility = models.BooleanField(default=False)  # SYSTEMATIC INV. PLAN FACILITY
-    tax_benefits = models.BooleanField(default=False)  # TAX BENEFITS
-    rating = models.CharField(max_length=10, blank=True, null=True)  # RATING (Optional)
-    performance = models.TextField(blank=True, null=True)  # PERFORMANCE (Optional)
-    return_field = models.CharField(max_length=100, blank=True, null=True)  # RETURN (Optional)
-    ytd_as_of_date = models.JSONField(default=dict)  # YTD Data as a JSON object
-    front_back_end_loading_fee = models.CharField(max_length=50, blank=True, null=True)  # Optional
 
+class ConventionalFund(models.Model):
+    asset_management_company = models.CharField(max_length=100, null=True, blank=True)
+    subsidiary_of = models.CharField(max_length=100, null=True)  # Subsidiary of
+    fund_name = models.CharField(max_length=100, null=True)  # Fund Name
+    launch_date = models.CharField(max_length=100, null=True)   # Launch Date
+    fund_size = models.CharField(max_length=20, null=True)  # Fund Size
+    fund_type = models.CharField(max_length=50, null=True)  # Fund Type
+    rating = models.CharField(max_length=10, null=True)  # Rating
+    risk = models.CharField(max_length=50, null=True)  # Risk
+    minimum_investment_in_pkr = models.CharField(max_length=50, null=True)  # Minimum Investment
+    performance = models.TextField(null=True)  # Performance in the past 3 years (%)
+    ytd_as_of = models.CharField(max_length=100, null=True)  # Return as of Last Month
+    front_back_end_load = models.CharField(max_length=50, null=True)  # Front & Back-end Loading
+    # back_end_load = models.CharField(max_length=50)  # Back-end Loading
+    management_fee = models.CharField(max_length=50, null=True)  # Management Feedef __str__(self):
+    
+    
     def __str__(self):
         return self.fund_name
