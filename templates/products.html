@@ -913,7 +913,7 @@ Body {
                     
                                                 <div id="details-{{ forloop.counter }}" style="display: none;">
                                                     <p class="card-text mb-1"><strong>Min Investment:</strong> {{ investment.min_investment }}</p>
-                                                    <p class="card-text mb-1"><strong>Min Investment:</strong> {{ investment.max_investment }}</p>
+                                                    <p class="card-text mb-1"><strong>Max Investment:</strong> {{ investment.max_investment }}</p>
                                                     <!-- <p class="card-text mb-1"><strong>Max Investment:</strong> 
                                                         {% if investment.max_investment_type == "mention_amount" %}
                                                             {{ investment.max_investment }}
@@ -1037,73 +1037,76 @@ Body {
 
 <script>
     function updateTopProducts() {
-        const payoutFrequency = document.getElementById('payoutFrequencyFilter').value;
-        const period = document.getElementById('periodFilter').value;
+    const payoutFrequency = document.getElementById('payoutFrequencyFilter').value;
+    const period = document.getElementById('periodFilter').value;
+    const bank = document.getElementById('bankFilter').value;
 
-        // Send AJAX request to update top products
-        fetch(`?payout_frequency=${payoutFrequency}&period=${period}`, {
-            headers: {
-                'x-requested-with': 'XMLHttpRequest'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            const topProductsContainer = document.getElementById('topProductsContainer');
-            topProductsContainer.innerHTML = ''; // Clear existing products
+    // Send AJAX request to update top products
+    fetch(`?payout_frequency=${payoutFrequency}&period=${period}&bank=${bank}`, {
+        headers: {
+            'x-requested-with': 'XMLHttpRequest'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const topProductsContainer = document.getElementById('topProductsContainer');
+        topProductsContainer.innerHTML = ''; // Clear existing products
 
-            // Render updated top products
-            data.top_products.forEach((product, index) => {
-    const productHTML = `
-        <div class="col-md-4">
-            <div class="card mb-2 shadow-sm">
-                <!-- Bank Image -->
-                <div class="card-img-top">
-                    <img src="${product.bank_image || 'path/to/placeholder-image.jpg'}" 
-                         class="card-img-top" 
-                         alt="${product.bank_name}" 
-                         style="max-height: 100px; max-width: 120px; display: block; margin: 0 auto;">
-                </div>
+        // Render updated top products
+        data.top_products.forEach((product, index) => {
+            const productHTML = `
+                <div class="col-md-4">
+                    <div class="card mb-2 shadow-sm">
+                        <!-- Bank Image -->
+                        <div class="card-img-top">
+                            <img src="${product.bank_image || 'path/to/placeholder-image.jpg'}" 
+                                 class="card-img-top" 
+                                 alt="${product.bank_name}" 
+                                 style="max-height: 100px; max-width: 120px; display: block; margin: 0 auto;">
+                        </div>
 
-                <!-- Card Body -->
-                <div class="card-body">
-                    <h6 class="card-title"><strong>Ranked: ${index + 1}</strong></h6>
-                    <h6 class="card-title"><strong>${product.product_length}</strong></h6>
-                    <p class="card-text mb-1"><strong>Profit Rate:</strong> ${product.profit_rate}</p>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <h6 class="card-title"><strong>Ranked: ${index + 1}</strong></h6>
+                            <h6 class="card-title"><strong>${product.product_length}</strong></h6>
+                            <p class="card-text mb-1"><strong>Profit Rate:</strong> ${product.profit_rate}</p>
 
-                    <!-- Hidden Details Section -->
-                    <div id="top-details-${index + 1}" style="display: none;">
-                        <p class="card-text mb-1"><strong>Min Investment:</strong> ${product.min_investment}</p>
-                        <p class="card-text mb-1"><strong>Max Investment:</strong> ${product.max_investment}</p>
-                        <p class="card-text mb-1"><strong>Payout Freq:</strong> ${product.payout_frequency}</p>
-                        <p class="card-text mb-1"><strong>Period:</strong> ${product.period}</p>
-                        <p class="card-text mb-1"><strong>Rating Long:</strong> ${product.rating_long_term}</p>
-                        <p class="card-text mb-1"><strong>Rating Short:</strong> ${product.rating_short_term}</p>
-                    </div>
+                            <!-- Hidden Details Section -->
+                            <div id="top-details-${index + 1}" style="display: none;">
+                                <p class="card-text mb-1"><strong>Min Investment:</strong> ${product.min_investment}</p>
+                                <p class="card-text mb-1"><strong>Max Investment:</strong> ${product.max_investment}</p>
+                                <p class="card-text mb-1"><strong>Payout Freq:</strong> ${product.payout_frequency}</p>
+                                <p class="card-text mb-1"><strong>Period:</strong> ${product.period}</p>
+                                <p class="card-text mb-1"><strong>Rating Long:</strong> ${product.rating_long_term}</p>
+                                <p class="card-text mb-1"><strong>Rating Short:</strong> ${product.rating_short_term}</p>
+                            </div>
 
-                    <!-- View More Button -->
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <button type="button" 
-                                    class="btn btn-sm btn-outline-secondary" 
-                                    id="top-toggle-button-${index + 1}" 
-                                    onclick="toggleTopDetails(${index + 1})">
-                                View More
-                            </button>
+                            <!-- View More Button -->
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" 
+                                            class="btn btn-sm btn-outline-secondary" 
+                                            id="top-toggle-button-${index + 1}" 
+                                            onclick="toggleTopDetails(${index + 1})">
+                                        View More
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    `;
-    topProductsContainer.innerHTML += productHTML;
-});
+            `;
+            topProductsContainer.innerHTML += productHTML;
+        });
 
-        })
-        .catch(error => console.error('Error fetching top products:', error));
-    }
+    })
+    .catch(error => console.error('Error fetching top products:', error));
+}
 
-    document.getElementById('payoutFrequencyFilter').addEventListener('change', updateTopProducts);
-    document.getElementById('periodFilter').addEventListener('change', updateTopProducts);
+// Attach event listeners to all filters
+document.getElementById('bankFilter').addEventListener('change', updateTopProducts);
+document.getElementById('payoutFrequencyFilter').addEventListener('change', updateTopProducts);
+document.getElementById('periodFilter').addEventListener('change', updateTopProducts);
 </script>
 
 	              </div>

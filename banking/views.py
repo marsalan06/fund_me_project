@@ -1,11 +1,12 @@
 import io
 
 from django.core.files.base import ContentFile
-from django.db.models import Q
+from django.db.models import Q, FloatField, F, ExpressionWrapper
 from django.shortcuts import redirect, render
 from pdf2image import convert_from_bytes
 from django import template
 from django.http import JsonResponse
+
 from .models import BankProduct, Investment
 
 
@@ -44,41 +45,68 @@ def term_deposites(request):
 def faqs(request):
     return render(request, 'faqs.html')
 
+
 def investment_list(request):
-    # Fetch all banks for the dropdown
+    # Fetch all banks and available product choices
     banks = BankProduct.objects.all()
     products = Investment.PRODUCT_CHOICES
     investments = Investment.objects.filter(investment_type='local')
 
-    # Filter dropdown data
+    # Fetch distinct filter values
     bank_filter_names = investments.values_list('bank__bank_name', flat=True).distinct()
     bank_filter = [{'bank_name': name} for name in bank_filter_names]
     payout_frequencies = investments.values_list('payout_frequency', flat=True).distinct()
-    period_keys = investments.values_list('choice_field', flat=True).distinct()
-    period_display_names = [dict(Investment.PRODUCT_CHOICES)[key] for key in period_keys]
 
-    # Read filter values from query parameters
+    # Convert choice_field keys to display names
+    period_choices_dict = dict(Investment.PRODUCT_CHOICES)
+    period_keys = investments.values_list('choice_field', flat=True).distinct()
+    period_display_names = [period_choices_dict.get(key, key) for key in period_keys]
+
+    # Read query parameters
     selected_frequency = request.GET.get('payout_frequency', '')
     selected_period = request.GET.get('period', '')
+    selected_bank = request.GET.get('bank', '')
 
-    # Filter investments based on query parameters
+    # Apply filters based on query parameters
     filtered_investments = investments
     if selected_frequency:
         filtered_investments = filtered_investments.filter(payout_frequency=selected_frequency)
     if selected_period:
-        # Convert period display name back to the key
-        period_key = next(
-            (key for key, value in Investment.PRODUCT_CHOICES if value == selected_period), None
-        )
+        period_key = {v: k for k, v in period_choices_dict.items()}.get(selected_period)
         if period_key:
             filtered_investments = filtered_investments.filter(choice_field=period_key)
+    if selected_bank:
+        filtered_investments = filtered_investments.filter(bank__bank_name=selected_bank)
 
-    # Get top 5 products based on filtered investments
-    top_products = filtered_investments.exclude(
-        Q(profit_rate__contains='disclosed') | Q(profit_rate__contains='-') | Q(profit_rate__contains=' ')
-    ).order_by('-profit_rate')[:5]
+    # Exclude invalid profit rates (non-numeric, disclosed, or negative values)
+    filtered_investments = filtered_investments.exclude(
+        Q(profit_rate__contains='disclosed') |
+        Q(profit_rate__contains='-') |
+        Q(profit_rate__contains=' ') |
+        Q(profit_rate__isnull=True)
+    )
 
-    # Check for AJAX request (to update top products dynamically)
+    # Convert profit_rate to float for correct numerical sorting
+    filtered_investments = filtered_investments.annotate(
+        profit_rate_numeric=ExpressionWrapper(F('profit_rate'), output_field=FloatField())
+    )
+
+    # Sort by profit rate in descending order and get top 5 products
+    top_products = filtered_investments.order_by('-profit_rate_numeric')[:5]
+
+    # Default top 5 products when no filters are applied
+    if not (selected_frequency or selected_period or selected_bank):
+        default_investments = Investment.objects.filter(investment_type='local').exclude(
+            Q(profit_rate__contains='disclosed') |
+            Q(profit_rate__contains='-') |
+            Q(profit_rate__contains=' ') |
+            Q(profit_rate__isnull=True)
+        ).annotate(
+            profit_rate_numeric=ExpressionWrapper(F('profit_rate'), output_field=FloatField())
+        ).order_by('-profit_rate_numeric')[:5]
+        top_products = default_investments
+
+    # Handle AJAX request and return the filtered products as JSON
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         top_products_data = [
             {
@@ -87,7 +115,7 @@ def investment_list(request):
                 'product_length': product.product_length,
                 'profit_rate': product.profit_rate,
                 'payout_frequency': product.payout_frequency,
-                'period': dict(Investment.PRODUCT_CHOICES).get(product.choice_field, ''),
+                'period': period_choices_dict.get(product.choice_field, ''),
                 'currency': product.currency,
                 'min_investment': product.min_investment,
                 'max_investment': product.max_investment,
@@ -98,7 +126,7 @@ def investment_list(request):
         ]
         return JsonResponse({'top_products': top_products_data})
 
-    # Pass the context to the template
+    # Context for template rendering
     context = {
         'banks': banks,
         'products': products,
@@ -110,9 +138,6 @@ def investment_list(request):
     }
 
     return render(request, 'products.html', context)
-
-
-
 
 def foreign_investment_list(request):
     # Fetch all banks for the dropdown
