@@ -106,6 +106,7 @@ class Investment(models.Model):
         ('month_quarter_half', 'Monthly / Quaterly / Half Yearly Term Deposit Certificate'),
         ('ten_year', 'Ten Year Term Deposit Certificate'),
         ('recurring', 'Monthly Recurring Deposit Certificate'),
+        ('mahana_profit', 'Mahana Profit')
     ]
 
     INVESTMENT_TYPE_CHOICES = [
