@@ -153,19 +153,21 @@ def investment_list(request):
 def foreign_investment_list(request):
     # Fetch all banks and product choices
     banks = BankProduct.objects.all()
-    products = Investment.PRODUCT_CHOICES
+    products = Investment.PRODUCT_CHOICES  
     investments = Investment.objects.filter(investment_type='foreign')
 
     # Fetch distinct filter values
     bank_filter_names = investments.values_list('bank__bank_name', flat=True).distinct()
     bank_filter = [{'bank_name': name} for name in bank_filter_names]
     payout_frequencies = investments.values_list('payout_frequency', flat=True).distinct()
-    
-    # Convert choice_field keys to display names
-    period_choices_dict = dict(Investment.PRODUCT_CHOICES)
+
+    # Ensure period choices follow the correct order from the model
+    period_choices_dict = dict(products)  
     period_keys = investments.values_list('choice_field', flat=True).distinct()
-    period_display_names = [period_choices_dict.get(key, key) for key in period_keys]
-    
+
+    # Maintain correct order of periods as per PRODUCT_CHOICES
+    sorted_periods = [label for key, label in products if key in period_keys]
+
     # Fetch distinct foreign currency choices
     foreign_currency_choices = investments.values_list('currency', flat=True).distinct()
 
@@ -179,7 +181,7 @@ def foreign_investment_list(request):
     if selected_frequency:
         filtered_investments = filtered_investments.filter(payout_frequency__iexact=selected_frequency)
     if selected_period:
-        period_key = {v: k for k, v in period_choices_dict.items()}.get(selected_period)
+        period_key = {v: k for k, v in products}.get(selected_period)
         if period_key:
             filtered_investments = filtered_investments.filter(choice_field__iexact=period_key)
     if selected_currency:
@@ -193,11 +195,11 @@ def foreign_investment_list(request):
         Q(profit_rate__isnull=True)
     )
 
-    # Convert profit_rate to float for correct numerical sorting
+    # Convert profit_rate to float safely
     filtered_investments = filtered_investments.annotate(
         profit_rate_numeric=Case(
             When(profit_rate__regex=r'^\d+(\.\d+)?$', then=Cast('profit_rate', FloatField())),
-            default=Value(0.0),  # Default invalid values to 0.0
+            default=Value(0.0),
             output_field=FloatField(),
         )
     )
@@ -248,13 +250,12 @@ def foreign_investment_list(request):
         'investments': investments,
         'top_products': top_products,
         'payout_frequencies': payout_frequencies,
-        'periods': period_display_names,
+        'periods': sorted_periods,  # Updated to ensure correct order
         'bank_filter': bank_filter,
         'foreign_currency_choices': foreign_currency_choices,
     }
 
     return render(request, 'foreign_products.html', context)
-
 
 def life_insurance(request):
     return render(request, 'life_insurance.html')
