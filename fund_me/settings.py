@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'banking',
     'import_export',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [

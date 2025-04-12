@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rule of 72 Calculator</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rule of 72 Calculator</title>
+<style>
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
@@ -44,25 +45,36 @@
             color: #666;
         }
     </style>
+
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-H87T9DXBQV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H87T9DXBQV');
+</script>
+
+<meta content="Investment, Mutual Funds, Term Deposit, Insurance, Pakistan, Financial Planning, Calculators" name="keywords"/>
+<meta content="Compare financial products in Pakistan including mutual funds, term deposits, insurance plans, and investment calculators." name="description"/>
 </head>
 <body>
-    <div class="container">
-        <h2>Rule of 72 Calculator</h2>
-        <label for="rateOfReturn">Rate of Return (%):</label>
-        <input type="number" id="rateOfReturn" placeholder="Enter annual rate of return">
-        <button onclick="calculate()">Calculate</button>
-        <div class="result" id="result"></div>
-        <div class="notes">
-            <p><strong>Notes:</strong></p>
-            <ul>
-                <li>The thumb rule is a quick method to estimate the time needed for an investment to double in value terms.</li>
-                <li>The Rule of 72 is calculated by dividing 72 by the annual rate of return.</li>
-                <li>The Rule of 72 is a reliable approximation intended for "back of the envelope" math but the estimated number of years is still a mere approximation at the end of the day.</li>
-            </ul>
-        </div>
-    </div>
-
-    <script>
+<div class="container">
+<h2>Rule of 72 Calculator</h2>
+<label for="rateOfReturn">Rate of Return (%):</label>
+<input id="rateOfReturn" placeholder="Enter annual rate of return" type="number"/>
+<button onclick="calculate()">Calculate</button>
+<div class="result" id="result"></div>
+<div class="notes">
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The thumb rule is a quick method to estimate the time needed for an investment to double in value terms.</li>
+<li>The Rule of 72 is calculated by dividing 72 by the annual rate of return.</li>
+<li>The Rule of 72 is a reliable approximation intended for "back of the envelope" math but the estimated number of years is still a mere approximation at the end of the day.</li>
+</ul>
+</div>
+</div>
+<script>
         function calculate() {
             var rateOfReturn = document.getElementById('rateOfReturn').value;
             var years = 72 / rateOfReturn;

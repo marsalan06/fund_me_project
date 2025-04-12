@@ -7,6 +7,8 @@ from pdf2image import convert_from_bytes
 from django import template
 from django.http import JsonResponse
 from django.db.models.functions import Cast
+from django.http import HttpResponse
+
 
 from .models import BankProduct, Investment
 
@@ -20,11 +22,13 @@ from .models import (Article, BankProduct, ConventionalFund, InsuranceProduct,
 
 
 def home(request):
-    return render(request, 'index.html')
+    context = {'meta_description': 'Explore the best investment opportunities in Pakistan. Learn where and how to invest securely and profitably with ScreenerPK.', 'meta_keywords': 'Investing in Pakistan, Investment in Pakistan, Best investment plan, Monthly income, Rule 72, Rule 78, ScreenerPK, Mutual fund calculator, Bank profit calculator'}
+    return render(request, 'index.html', context)
 
 
 def mutual_funds(request):
-    return render(request, 'mutual_funds.html')
+    context = {'meta_description': 'Discover top mutual funds in Pakistan including Islamic and conventional options with the best returns.', 'meta_keywords': 'Mutual funds in Pakistan, Best mutual funds, Islamic mutual funds, Mutual funds Lahore, Equity mutual funds, Faysal Mutual Fund Pakistan, HBL mutual funds Pakistan'}
+    return render(request, 'mutual_funds.html', context)
 
 
 def calculator(request):
@@ -40,7 +44,8 @@ def calculator(request):
 
 
 def term_deposites(request):
-    return render(request, 'term_deposite.html')
+    context = {'meta_description': 'Compare fixed deposit and term deposit options with the highest profit rates in Pakistan.', 'meta_keywords': 'Term deposit rates in Pakistan, Fixed deposits Pakistan, High interest term deposit, Shariah compliant deposits, Monthly profit banks'}
+    return render(request, 'term_deposite.html', context)
 
 
 def faqs(request):
@@ -258,7 +263,8 @@ def foreign_investment_list(request):
     return render(request, 'foreign_products.html', context)
 
 def life_insurance(request):
-    return render(request, 'life_insurance.html')
+    context = {'meta_description': 'Explore investment-linked life insurance plans in Pakistan that combine savings, security, and returns.', 'meta_keywords': 'Insurance investment Pakistan, Life Insurance with investment, Takaful investment, Best insurance plans, Retirement insurance Pakistan'}
+    return render(request, 'life_insurance.html', context)
 
 
 def life_insurance_companies(request):
@@ -389,3 +395,12 @@ def conventional(request):
         'subsidiary_of': subsidiary_of
     }
     return render(request, 'conventional.html', context)
+
+def robots_txt(request):
+    lines = [
+        "User-Agent: *",
+        "Disallow: /admin/",
+        "Allow: /",
+        "Sitemap: https://screenerpk.pk/sitemap.xml"
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
