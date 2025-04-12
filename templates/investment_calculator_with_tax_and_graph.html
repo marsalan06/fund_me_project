@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-<title>Investment Calculator</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
-<style>
+    <title>Investment Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <style>
         body { font-family: Arial, sans-serif; }
         .input-group { margin-bottom: 10px; }
         .input-label { margin-right: 10px; }
@@ -175,89 +174,98 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
     </style>
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 <!-- Google tag (gtag.js) -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-H87T9DXBQV"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H87T9DXBQV"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-H87T9DXBQV');
 </script>
+<meta name="keywords" content="Investment, Mutual Funds, Term Deposit, Insurance, Pakistan, Financial Planning, Calculators">
+<meta name="description" content="Compare financial products in Pakistan including mutual funds, term deposits, insurance plans, and investment calculators.">
 
-<meta content="Investment, Mutual Funds, Term Deposit, Insurance, Pakistan, Financial Planning, Calculators" name="keywords"/>
-<meta content="Compare financial products in Pakistan including mutual funds, term deposits, insurance plans, and investment calculators." name="description"/>
 </head>
 <body>
-<div class="row">
-<div class="col-md-6">
-<div class="card" style="width: 30rem;">
-<div class="card-header" style="border: 1px solid black; padding: 20px; text-align: center;">
-<h2>Frequency of Profit accumulation</h2>
-</div>
-<div class="card-body" style="border: 1px solid black; padding: 20px;">
-<!-- <h5 class="card-title">Card title</h5> -->
-<div class="input-group">
-<!-- <label class="input-label">Initial Investment Value ($): </label> -->
-<h5 class="card-title"> Investment Amount :</h5>
-<input id="initialInvestment" type="number" value="1000"/>
-</div>
-<div class="input-group">
-<label class="input-label">Profit Rate (% Per Annum): </label>
-<!-- <input type="range" id="annualInterestRate" min="0" max="15" value="5" class="form-range"/> -->
-<input id="annualInterestRate" max="100" min="0" step="1" type="range" value="5">
-<input class="mt-2" id="annualInterestRateNumber" type="number" value="5"/>
-</input></div>
-<div class="input-group">
-<label class="input-label">Frequency (Months): </label>
-<input id="compoundingFrequency" type="number" value="12"/>
-</div>
-<div class="input-group">
-<label class="input-label">Period Of Investment (Tenure): </label>
-<div id="investmentTermButtons">
-<button onclick="setInvestmentTerm(0.25)" type="button">3 Months</button>
-<button onclick="setInvestmentTerm(0.5)" type="button">6 Months</button>
-<button onclick="setInvestmentTerm(1)" type="button">1 Year</button>
-<button onclick="setInvestmentTerm(3)" type="button">3 Years</button>
-<button onclick="setInvestmentTerm(5)" type="button">5 Years</button>
-<button onclick="setInvestmentTerm(10)" type="button">10 Years</button>
-<button onclick="setInvestmentTerm(15)" type="button">15 Years</button>
-<button onclick="setInvestmentTerm(20)" type="button">20 Years</button>
-</div>
-<input id="investmentTerm" type="hidden" value="5"/>
-</div>
-<!-- <div class="input-group">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" style="width: 30rem;">
+        <div class="card-header" style="border: 1px solid black; padding: 20px; text-align: center;">
+        <h2>Frequency of Profit accumulation</h2>
+        </div>
+        <div class="card-body" style="border: 1px solid black; padding: 20px;">
+      <!-- <h5 class="card-title">Card title</h5> -->
+      <div class="input-group">
+        <!-- <label class="input-label">Initial Investment Value ($): </label> -->
+        <h5 class="card-title"> Investment Amount :</h5> 
+        <input type="number" id="initialInvestment" value="1000">
+    </div>
+
+    <div class="input-group">
+        <label class="input-label">Profit Rate (% Per Annum): </label>
+        <!-- <input type="range" id="annualInterestRate" min="0" max="15" value="5" class="form-range"/> -->
+        <input type="range" id="annualInterestRate" min="0" max="100" value="5" step="1" />
+        <input type="number" id="annualInterestRateNumber" value="5" class="mt-2"/>
+    </div>
+
+    <div class="input-group">
+        <label class="input-label">Frequency (Months): </label>
+        <input type="number" id="compoundingFrequency" value="12">
+    </div>
+
+    <div class="input-group">
+        <label class="input-label">Period Of Investment (Tenure): </label>
+        <div id="investmentTermButtons">
+            <button type="button" onclick="setInvestmentTerm(0.25)">3 Months</button>
+            <button type="button" onclick="setInvestmentTerm(0.5)">6 Months</button>
+            <button type="button" onclick="setInvestmentTerm(1)">1 Year</button>
+            <button type="button" onclick="setInvestmentTerm(3)">3 Years</button>
+            <button type="button" onclick="setInvestmentTerm(5)">5 Years</button>
+            <button type="button" onclick="setInvestmentTerm(10)">10 Years</button>
+            <button type="button" onclick="setInvestmentTerm(15)">15 Years</button>
+            <button type="button" onclick="setInvestmentTerm(20)">20 Years</button>
+        </div>
+        <input type="hidden" id="investmentTerm" value="5">
+    </div>
+
+    <!-- <div class="input-group">
         <label class="input-label">Extra Deposit Amount ($): </label>
         <input type="number" id="extraDeposit" value="100">
     </div> -->
-<div class="input-group">
-<label class="input-label">Total Taxes (% on gains): </label>
-<input id="taxRate" max="2" min="0" type="range" value="2"/>
-<input class="mt-2" id="taxRateNumber" type="number" value="2"/>
-</div>
-<!-- <button class="btn btn-dark" onclick="calculate()">Calculate</button> -->
-<button class="btn btn-dark mt-3" onclick="calculate()" style="width: 27.3rem;" type="button">Calculate</button>
-<!-- <h3>Future Value: <span id="futureValue">$0.00</span></h3>
+
+    <div class="input-group">
+        <label class="input-label">Total Taxes (% on gains): </label>
+        <input type="range" id="taxRate" min="0" max="2" value="2">
+        <input type="number" id="taxRateNumber" value="2" class="mt-2">
+    </div>
+
+    <!-- <button class="btn btn-dark" onclick="calculate()">Calculate</button> -->
+    <button type="button" class="btn btn-dark mt-3" onclick="calculate()" style="width: 27.3rem;">Calculate</button>
+
+    <!-- <h3>Future Value: <span id="futureValue">$0.00</span></h3>
     <canvas id="investmentChart" width="400" height="200"></canvas> -->
-</div>
-</div>
-</div>
-<div class="col-md-6">
-<div class="card" style="width: 38rem;">
-<div class="card-header" style="border: 1px solid black; padding: 20px; text-align: left;">
-<h4>Principal Plus Profit: <span id="futureValueBeforeTax">Rs 0.00</span></h4>
-<h4>Profit Earned: <span id="profitearned">Rs 0.00</span></h4>
-<h4>Tax Amount: <span id="taxAmount">Rs 0.00</span></h4>
-<!-- <h4>Future Value After Taxes: <span id="futureValue">Rs 0.00</span></h4> -->
-<h4>Net Profit: <span id="netProfit">Rs 0.00</span></h4>
-</div>
-<div class="card-body" style="border: 1px solid black; padding: 20px;">
-<canvas height="200" id="investmentChart" width="400"></canvas>
-</div>
-</div>
-</div>
-</div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card" style="width: 38rem;">
+        <div class="card-header" style="border: 1px solid black; padding: 20px; text-align: left;">
+            <h4>Principal Plus Profit: <span id="futureValueBeforeTax">Rs 0.00</span></h4>
+            <h4>Profit Earned: <span id="profitearned">Rs 0.00</span></h4>            
+            <h4>Tax Amount: <span id="taxAmount">Rs 0.00</span></h4>
+            <!-- <h4>Future Value After Taxes: <span id="futureValue">Rs 0.00</span></h4> -->
+            <h4>Net Profit: <span id="netProfit">Rs 0.00</span></h4>
+            </div>
+        <div class="card-body" style="border: 1px solid black; padding: 20px;">
+          <canvas id="investmentChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script>
     var chart; // Global variable for the chart
     function calculate() {
