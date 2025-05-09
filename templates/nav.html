@@ -63,6 +63,12 @@
           text-decoration: underline;
         }
 </style> -->
+
+<!-- Mobile Toggle Button -->
+<button id="menu-toggle" style="display: none; background: transparent; border: none; font-size: 24px; position: absolute; top: 10px; right: 10px; z-index: 9999;">
+    ☰
+</button>
+
 <ul id="mega_main_menu_ul" class="mega_main_menu_ul"> 
     <li id="menu-item-3630" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-3630 default_dropdown  drop_to_right submenu_default_width columns1"> 	
         <a href="/" class="item_link  disable_icon" tabindex="1"> 		
@@ -313,3 +319,31 @@
 
 
     </ul>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mega_main_menu_ul");
+
+    function handleResize() {
+      if (window.innerWidth <= 768) {
+        toggleButton.style.display = "block";
+        menu.style.display = "none";
+      } else {
+        toggleButton.style.display = "none";
+        menu.style.display = "block";
+      }
+    }
+
+    toggleButton.addEventListener("click", function () {
+      if (menu.style.display === "block") {
+        menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+    });
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+  });
+</script>
